@@ -112,6 +112,12 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controls\DateTimePicker\DataSource.cs" />
+    <Compile Include="Controls\DateTimePicker\DatePicker.cs" />
+    <Compile Include="Controls\DateTimePicker\DateTimePickerBase.cs" />
+    <Compile Include="Controls\DateTimePicker\DateTimeValueChangedEventArgs.cs" />
+    <Compile Include="Controls\DateTimePicker\DateTimeWrapper.cs" />
+    <Compile Include="Controls\DateTimePicker\TimePicker.cs" />
     <Compile Include="Controls\Flyout\Flyout.cs" />
     <Compile Include="Controls\Menu\Menu.cs" />
     <Compile Include="Controls\Menu\MenuItem.cs" />
