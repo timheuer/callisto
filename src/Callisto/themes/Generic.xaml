@@ -1,0 +1,340 @@
+<!--﻿
+Copyright (c) 2012 Tim Heuer
+
+Licensed under the Microsoft Public License (Ms-PL) (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+   http://opensource.org/licenses/Ms-PL.html
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.-->
+
+<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Callisto.Controls">
+
+    <ResourceDictionary.ThemeDictionaries>
+        <ResourceDictionary x:Key="Default">
+            <SolidColorBrush x:Key="FlyoutBorderBrush">#FF212121</SolidColorBrush>
+            <SolidColorBrush x:Key="FlyoutBackgroundBrush">#FFFFFFFF</SolidColorBrush>
+            <SolidColorBrush x:Key="MenuBorderBrush">#FF212121</SolidColorBrush>
+            <SolidColorBrush x:Key="MenuBackgroundBrush">#FFFFFFFF</SolidColorBrush>
+            <SolidColorBrush x:Key="MenuItemBaseTextBrush">#FF000000</SolidColorBrush>
+            <SolidColorBrush x:Key="MenuItemBaseBackgroundBrush">#FFFFFFFF</SolidColorBrush>
+            <SolidColorBrush x:Key="MenuItemHoverBrush">#FFDEDEDE</SolidColorBrush>
+            <SolidColorBrush x:Key="MenuItemPressedBrush">#FF000000</SolidColorBrush>
+            <SolidColorBrush x:Key="MenuItemPressedTextBrush">#FFFFFFFF</SolidColorBrush>
+            <SolidColorBrush x:Key="MenuItemHoverTextBrush">#FF000000</SolidColorBrush>
+            <SolidColorBrush x:Key="MenuSeparatorStrokeBrush">#FF707070</SolidColorBrush>
+        </ResourceDictionary>
+        <ResourceDictionary x:Key="HighContrast">
+            <SolidColorBrush x:Key="FlyoutBorderBrush" Color="{StaticResource SystemColorButtonTextColor}" />
+            <SolidColorBrush x:Key="FlyoutBackgroundBrush" Color="{StaticResource SystemColorButtonFaceColor}" />
+            <SolidColorBrush x:Key="MenuBorderBrush" Color="{StaticResource SystemColorButtonTextColor}" />
+            <SolidColorBrush x:Key="MenuBackgroundBrush" Color="{StaticResource SystemColorButtonFaceColor}" />
+            <SolidColorBrush x:Key="MenuItemBaseTextBrush" Color="{StaticResource SystemColorButtonTextColor}"/>
+            <SolidColorBrush x:Key="MenuItemBaseBackgroundBrush" Color="{StaticResource SystemColorButtonFaceColor}" />
+            <SolidColorBrush x:Key="MenuItemHoverBrush" Color="{StaticResource SystemColorHighlightColor}" />
+            <SolidColorBrush x:Key="MenuItemPressedBrush">#FFFFFFFF</SolidColorBrush>
+            <SolidColorBrush x:Key="MenuItemPressedTextBrush" Color="{StaticResource SystemColorButtonFaceColor}"/>
+            <SolidColorBrush x:Key="MenuItemHoverTextBrush" Color="{StaticResource SystemColorButtonTextColor}"/>
+            <SolidColorBrush x:Key="MenuSeparatorStrokeBrush">#FFFFFFFF</SolidColorBrush>
+        </ResourceDictionary>
+    </ResourceDictionary.ThemeDictionaries>
+
+    <Style x:Key="SettingsBackButtonStyle" TargetType="Button">
+        <Setter Property="MinWidth" Value="0"/>
+        <Setter Property="FontFamily" Value="Segoe UI Symbol"/>
+        <Setter Property="FontWeight" Value="Normal"/>
+        <Setter Property="FontSize" Value="26.66667"/>
+        <Setter Property="AutomationProperties.AutomationId" Value="BackButton"/>
+        <Setter Property="AutomationProperties.Name" Value="Back"/>
+        <Setter Property="AutomationProperties.ItemType" Value="Navigation Button"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Grid x:Name="RootGrid" Width="30" Height="30">
+                        <Grid Margin="-6,-6,0,0">
+                            <TextBlock x:Name="BackgroundGlyph" Text="&#xE0D4;" Foreground="{StaticResource BackButtonBackgroundBrush}"/>
+                            <TextBlock x:Name="NormalGlyph" Text="{StaticResource BackButtonSnappedGlyph}" Foreground="{StaticResource BackButtonGlyphBrush}"/>
+                            <TextBlock x:Name="ArrowGlyph" Text="&#xE0C4;" Foreground="{StaticResource BackButtonPressedGlyphBrush}" Opacity="0"/>
+                        </Grid>
+                        <Rectangle
+                            x:Name="FocusVisualWhite"
+                            IsHitTestVisible="False"
+                            Stroke="{StaticResource FocusVisualWhiteStrokeBrush}"
+                            StrokeEndLineCap="Square"
+                            StrokeDashArray="1,1"
+                            Opacity="0"
+                            StrokeDashOffset="1.5"/>
+                        <Rectangle
+                            x:Name="FocusVisualBlack"
+                            IsHitTestVisible="False"
+                            Stroke="{StaticResource FocusVisualBlackStrokeBrush}"
+                            StrokeEndLineCap="Square"
+                            StrokeDashArray="1,1"
+                            Opacity="0"
+                            StrokeDashOffset="0.5"/>
+
+                        <VisualStateManager.VisualStateGroups>
+                            <VisualStateGroup x:Name="CommonStates">
+                                <VisualState x:Name="Normal" />
+                                <VisualState x:Name="PointerOver">
+                                    <Storyboard>
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="BackgroundGlyph" Storyboard.TargetProperty="Foreground">
+                                            <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource BackButtonHoverBackgroundBrush}"/>
+                                        </ObjectAnimationUsingKeyFrames>
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="NormalGlyph" Storyboard.TargetProperty="Foreground">
+                                            <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource BackButtonHoverGlyphBrush}"/>
+                                        </ObjectAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </VisualState>
+                                <VisualState x:Name="Pressed">
+                                    <Storyboard>
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="BackgroundGlyph" Storyboard.TargetProperty="Foreground">
+                                            <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource BackButtonGlyphBrush}"/>
+                                        </ObjectAnimationUsingKeyFrames>
+                                        <DoubleAnimation
+                                            Storyboard.TargetName="ArrowGlyph"
+                                            Storyboard.TargetProperty="Opacity"
+                                            To="1"
+                                            Duration="0"/>
+                                        <DoubleAnimation
+                                            Storyboard.TargetName="NormalGlyph"
+                                            Storyboard.TargetProperty="Opacity"
+                                            To="0"
+                                            Duration="0"/>
+                                    </Storyboard>
+                                </VisualState>
+                                <VisualState x:Name="Disabled">
+                                    <Storyboard>
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="RootGrid" Storyboard.TargetProperty="Visibility">
+                                            <DiscreteObjectKeyFrame KeyTime="0" Value="Collapsed"/>
+                                        </ObjectAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </VisualState>
+                            </VisualStateGroup>
+                            <VisualStateGroup x:Name="FocusStates">
+                                <VisualState x:Name="Focused">
+                                    <Storyboard>
+                                        <DoubleAnimation
+                                            Storyboard.TargetName="FocusVisualWhite"
+                                            Storyboard.TargetProperty="Opacity"
+                                            To="1"
+                                            Duration="0"/>
+                                        <DoubleAnimation
+                                            Storyboard.TargetName="FocusVisualBlack"
+                                            Storyboard.TargetProperty="Opacity"
+                                            To="1"
+                                            Duration="0"/>
+                                    </Storyboard>
+                                </VisualState>
+                                <VisualState x:Name="Unfocused" />
+                                <VisualState x:Name="PointerFocused" />
+                            </VisualStateGroup>
+                        </VisualStateManager.VisualStateGroups>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    
+    <Style TargetType="local:Menu">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="local:Menu">
+                    <ItemsControl x:Name="ItemList" TabNavigation="Cycle" Margin="0,5,0,5" />
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style TargetType="local:MenuItem">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="local:MenuItem">
+                    <Border x:Name="RootBorder"
+                            Background="{StaticResource MenuBackgroundBrush}">
+                        <VisualStateManager.VisualStateGroups>
+                            <VisualStateGroup x:Name="CommonStates">
+                                <VisualState x:Name="Base">
+                                    <Storyboard>
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="RootBorder" Storyboard.TargetProperty="Background">
+                                            <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource MenuItemBaseBackgroundBrush}" />
+                                        </ObjectAnimationUsingKeyFrames>
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="MenuText"
+                                                                       Storyboard.TargetProperty="Foreground">
+                                            <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource MenuItemBaseTextBrush}" />
+                                        </ObjectAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </VisualState>
+                                <VisualState x:Name="Pressed">
+                                    <Storyboard>
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="RootBorder"
+                                                                       Storyboard.TargetProperty="Background">
+                                            <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource MenuItemPressedBrush}" />
+                                        </ObjectAnimationUsingKeyFrames>
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="MenuText"
+                                                                       Storyboard.TargetProperty="Foreground">
+                                            <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource MenuItemPressedTextBrush}" />
+                                        </ObjectAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </VisualState>
+                                <VisualState x:Name="Hover">
+                                    <Storyboard>
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="RootBorder" Storyboard.TargetProperty="Background">
+                                            <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource MenuItemHoverBrush}" />
+                                        </ObjectAnimationUsingKeyFrames>
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="MenuText"
+                                                                       Storyboard.TargetProperty="Foreground">
+                                            <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource MenuItemHoverTextBrush}" />
+                                        </ObjectAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </VisualState>
+                                <VisualState x:Name="Disabled">
+                                    <Storyboard>
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="RootBorder"
+                                                                       Storyboard.TargetProperty="Background">
+                                            <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource ControlDisabledFillBrush}" />
+                                        </ObjectAnimationUsingKeyFrames>
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="RootBorder"
+                                                                       Storyboard.TargetProperty="BorderBrush">
+                                            <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource ControlDisabledBrush}" />
+                                        </ObjectAnimationUsingKeyFrames>
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="MenuText"
+                                                                       Storyboard.TargetProperty="Foreground">
+                                            <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource ControlDisabledTextBrush}" />
+                                        </ObjectAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </VisualState>
+                            </VisualStateGroup>
+                        </VisualStateManager.VisualStateGroups>
+                        <TextBlock x:Name="MenuText" Text="{TemplateBinding Text}" Margin="20,10,20,12" 
+                                       FontFamily="{StaticResource ContentFontFamily}" FontSize="{StaticResource ContentFontSize}" Foreground="{StaticResource MenuItemBaseTextBrush}" />
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style TargetType="local:MenuItemSeparator">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="local:MenuItemSeparator">
+                    <Border BorderThickness=".25" BorderBrush="{StaticResource MenuSeparatorStrokeBrush}" HorizontalAlignment="Stretch" Margin="20,9,20,10" />
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style TargetType="local:Flyout">
+        <Setter Property="Background" Value="{StaticResource FlyoutBackgroundBrush}" />
+        <Setter Property="BorderBrush" Value="{StaticResource FlyoutBorderBrush}" />
+        <Setter Property="MinHeight" Value="54" />
+        <Setter Property="MinWidth" Value="70" />
+        <Setter Property="MaxHeight" Value="758" />
+        <Setter Property="MaxWidth" Value="510" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="local:Flyout">
+                    <Border
+                        Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="2">
+                        <ContentControl Content="{TemplateBinding Content}" Margin="{TemplateBinding Margin}"/>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style TargetType="local:SettingsFlyout">
+        <Setter Property="Background" Value="White" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="local:SettingsFlyout">
+                    <Border BorderBrush="Black" BorderThickness="1,0,0,0" VerticalAlignment="Stretch">
+                        <Grid Background="{TemplateBinding Background}" VerticalAlignment="Stretch" >
+                            <!-- Root grid definition -->
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="80" />
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+
+                            <!-- Header area for panel -->
+                            <Grid Background="{TemplateBinding HeaderBrush}" Grid.Row="0">
+
+                                <Grid Margin="40,32,17,13">
+
+                                    <Grid.Transitions>
+                                        <TransitionCollection>
+                                            <EntranceThemeTransition FromHorizontalOffset="50" />
+                                        </TransitionCollection>
+                                    </Grid.Transitions>
+
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="30" />
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition />
+                                    </Grid.ColumnDefinitions>
+
+                                    <Button x:Name="SettingsBackButton"  Margin="0,3,0,0" Grid.Column="0" Style="{StaticResource SettingsBackButtonStyle}" HorizontalAlignment="Left" />
+
+                                    <TextBlock TextTrimming="WordEllipsis" Margin="10,0,0,0" Grid.Column="1" FontFamily="Segoe UI" FontWeight="SemiLight" FontSize="24.6667" Text="{TemplateBinding HeaderText}" HorizontalAlignment="Left" />
+
+                                    <Image Source="{TemplateBinding SmallLogoImageSource}" HorizontalAlignment="Right" Grid.Column="2" Margin="0,0,6,0" />
+
+                                </Grid>
+
+                            </Grid>
+
+                            <!-- Settings Panel Content -->
+                            <Grid Grid.Row="1" Margin="40,24,23,0" VerticalAlignment="Top">
+                                <Grid.Transitions>
+                                    <TransitionCollection>
+                                        <EntranceThemeTransition FromHorizontalOffset="170" />
+                                    </TransitionCollection>
+                                </Grid.Transitions>
+                                <ContentControl Content="{TemplateBinding Content}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
+                            </Grid>
+
+                        </Grid>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!--<Style TargetType="local:DatePicker">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="local:DatePicker">
+                    <StackPanel Orientation="Horizontal">
+                        <ComboBox x:Name="PrimarySelector" MinWidth="80" Margin="0,0,20,0" />
+                        <ComboBox x:Name="SecondarySelector" MinWidth="80" Margin="0,0,20,0" />
+                        <ComboBox x:Name="TertiarySelector" MinWidth="80" Margin="0" />
+                    </StackPanel>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style TargetType="local:TimePicker">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="local:TimePicker">
+                    <StackPanel Orientation="Horizontal">
+                        <ComboBox x:Name="PrimarySelector" MinWidth="80" Margin="0,0,20,0" />
+                        <ComboBox x:Name="SecondarySelector" MinWidth="80" Margin="0,0,20,0" />
+                        <ComboBox x:Name="TertiarySelector" MinWidth="80" Margin="0" />
+                    </StackPanel>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>-->
+</ResourceDictionary>

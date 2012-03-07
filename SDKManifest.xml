@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<FileList 
+  DisplayName="Callisto" 
+  ProductFamilyName="Callisto"
+  MinVSVersion="11.0" 
+  MinToolsVersion="4.0" 
+  CopyRedistToSubDirectory="Callisto"
+  AppliesTo="WindowsAppContainer+WindowsXAML+Managed"
+  SupportedArchitectures="x86; x64; ARM"
+  MoreInfo="http://github.com/timheuer/Callisto">
+  <File Reference="Callisto.dll">
+    <ContainsControls>True</ContainsControls>
+  </File>
+</FileList>
