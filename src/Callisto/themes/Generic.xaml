@@ -337,4 +337,34 @@ limitations under the License.-->
             </Setter.Value>
         </Setter>
     </Style>-->
+
+	<Style TargetType="local:LiveTile">
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="local:LiveTile">
+					<Grid  Background="{TemplateBinding Background}">
+						<Canvas x:Name="Scroller" DataContext="{x:Null}">
+							<StackPanel x:Name="Stack">
+								<StackPanel.RenderTransform>
+									<TranslateTransform x:Name="Translate" Y="0" />
+								</StackPanel.RenderTransform>
+								<ContentPresenter x:Name="Current"
+                                                    DataContext="{x:Null}"
+                                                    Content="{Binding}" 
+                                                    ContentTemplate="{TemplateBinding ItemTemplate}" />
+								<ContentPresenter  x:Name="Next" 
+                                                    DataContext="{x:Null}"
+                                                    Content="{Binding}" 
+                                                    ContentTemplate="{TemplateBinding ItemTemplate}" />
+							</StackPanel>
+						</Canvas>
+						<Border
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}">
+						</Border>
+					</Grid>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
 </ResourceDictionary>

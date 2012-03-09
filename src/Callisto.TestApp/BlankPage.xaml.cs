@@ -29,12 +29,32 @@ namespace XamlControlsUITestApp
     /// </summary>
     public sealed partial class BlankPage : Page
     {
+		public class LiveTileData
+		{
+			public string Name { get; set; }
+			public string Description { get; set; }
+			public Uri ImageUri { get; set; }
+		}
         public BlankPage()
         {
             this.InitializeComponent();
 
             SettingsPane.GetForCurrentView().CommandsRequested += BlankPage_CommandsRequested;
-        }
+			List<LiveTileData> tileData = new List<LiveTileData>();
+			tileData.Add(new LiveTileData()
+			{
+				Name="Butterfly",
+				Description = "A butterfly is a mainly day-flying insect of the order Lepidoptera, which includes the butterflies and moths. Like other holometabolous insects, the butterfly's life cycle consists of four parts: egg, larva, pupa and adult.",
+				ImageUri = new Uri(this.BaseUri, "Images/butterfly.jpg")
+			});
+			tileData.Add(new LiveTileData()
+			{
+				Name = "Grasshopper",
+				Description = "The grasshopper is an insect of the suborder Caelifera in the order Orthoptera. To distinguish it from bush crickets or katydids, it is sometimes referred to as the short-horned grasshopper. Species that change colour and behaviour at high population densities are called locusts.",
+				ImageUri = new Uri(this.BaseUri, "Images/grasshopper.jpg")
+			});
+			liveTile.ItemsSource = tileData;
+		}
 
         void BlankPage_CommandsRequested(SettingsPane sender, SettingsPaneCommandsRequestedEventArgs args)
         {

@@ -7,6 +7,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:callisto_converters="using:Callisto.Converters"
     xmlns:callisto="using:Callisto.Controls"
+	xmlns:callisto_effects="using:Callisto.Effects"
     mc:Ignorable="d">
 
     <Page.Resources>
@@ -37,9 +38,33 @@
             <!--<callisto:TimePicker x:Name="MyTimePicker"/>-->
             <TextBlock Text="Date Picker:" />
             <!--<callisto:DatePicker x:Name="MyDatePicker"/>-->
-            <TextBox x:Name="LogOutput" AcceptsReturn="True" Width="500" />
-        </StackPanel>
-        <Button Margin="400,200,0,0" Content="Show Menu" Click="ShowFlyoutMenu2"  x:Name="middlebutton" />
+			<callisto:LiveTile x:Name="liveTile"
+							   BorderBrush="Black" BorderThickness="1"
+							   Width="240" Height="150" Background="LightBlue"
+							   callisto_effects:Tilt.IsTiltEnabled="True">
+				<callisto:LiveTile.ItemTemplate>
+					<DataTemplate>
+						<Grid>
+							<Image Stretch="UniformToFill" >
+								<Image.Source>
+									<BitmapImage UriSource="{Binding ImageUri}" />
+								</Image.Source>
+							</Image>
+							<Border Background="#99000000" VerticalAlignment="Bottom">
+								<StackPanel Margin="5">
+									<TextBlock Foreground="White" Text="{Binding Name}" FontWeight="Bold" />
+									<TextBlock Foreground="White" Text="{Binding Description}"
+											   TextWrapping="Wrap"
+											   MaxHeight="30" TextTrimming="WordEllipsis"  />
+								</StackPanel>
+							</Border>
+						</Grid>
+					</DataTemplate>
+				</callisto:LiveTile.ItemTemplate>
+			</callisto:LiveTile>
+			<TextBox x:Name="LogOutput" AcceptsReturn="True" Width="500" />
+		</StackPanel>
+        <Button Margin="400,300,0,0" Content="Show Menu" Click="ShowFlyoutMenu2"  x:Name="middlebutton" />
     </Grid>
 
     <Page.BottomAppBar>
