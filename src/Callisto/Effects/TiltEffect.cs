@@ -16,7 +16,7 @@
 // This is a work derived from Microsoft Silverlight Toolkit for 
 // Windows Phone, also released under Ms-PL. See: silverlight.codeplex.com
 
- using System;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using Windows.Foundation;
