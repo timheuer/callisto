@@ -17,7 +17,7 @@ mkdir SDK\Callisto\1.0\Redist\CommonConfiguration\neutral\Callisto\Themes
 copy src\Callisto\bin\Release\Callisto.dll SDK\Callisto\1.0\References\CommonConfiguration\neutral
 copy src\Callisto\bin\Release\themes\generic.xaml SDK\Callisto\1.0\Redist\CommonConfiguration\neutral\Callisto\Themes
 copy src\Callisto\bin\Release\Callisto.pri SDK\Callisto\1.0\Redist\CommonConfiguration\neutral\
-copy SDKManifest.xml SDK\Callisto\1.0\
+copy SDKManifest.xml SDK\Callisto\0.5\
 
 @echo *******************************************
 @echo * DONE BUILDING SDK LAYOUT				*

@@ -10,10 +10,19 @@ So far Callisto includes:
 * `Flyout` - a primitive that includes positioning and 'light dismiss' logic
 * `Menu` - primarily to be used from AppBar, contains the base for providing, well, a Menu
 * `MenuItem` - an item for a menu, including separators and contains the command point for the menu item
+* `SettingsFlyout` - an item to create a custom settings pane UI
+* `LiveTile` - an in-app tile experience to give you animated or 'live' tiles
+* `Tilt` - an effect to provide the tilt experience when clicked on edges/corners
+* OAuth helpers - a set of helpers to create OAuth 1.0 signatures/headers for those sites that hate OAuth 2.0 :-)
+* `BooleanToVisibilityConverter` - a converter to well, convert boolean to visibility, very common use
+* `LengthToBooleanConverter` - a converter to examine a string length to convert to boolean (simple validation helper)
+* `RelativeTimeConverter` - a converter to show time as relative string, i.e., 'about an hour ago'
+* `SQLite` - a client library for SQLite ported for Metro from http://github.com/praeclarum/sqlite-net
+* Extensions - some extension method helpers
 
 What is in the plan:
 
-* `Settings` - a panel for settings implementation from the charms bar
+* `DatePicker` and `TimePicker` - providing a globalized time/date picker control in Metro style
 * `Pivot` - a UI interface for providing "tabbed" interface in a Metro style way
 * `ThemeSwitcher` - to dynamically switch themes for certain UI components
 
@@ -99,6 +108,14 @@ When using just the `Flyout`, you own the Content within it.  When using the `Me
 ## I found an Issue
 Great, please [log a bug](https://github.com/timheuer/Callisto/issues/new) so that it can be tracked. 
 
-## Credits
-* [Tim Heuer](http://timheuer.com/blog/) ([@timheuer](http://twitter.com/timheuer)) - for the initial creation of the control.
-* [Silverlight Toolkit](http://silverlight.codeplex.com) - for providing the base of many ported concepts/code...yay Open Source!
+## Credits and Acknowledgements
+* [Tim Heuer](http://timheuer.com/blog/) ([@timheuer](http://twitter.com/timheuer)) - for the initial conception of the toolkit.
+* [Morten Nielsen](http://www.sharpgis.net/) ([@dotMorten](http://twitter.com/dotMorten)) - core contributor
+
+### Open Source Project Credits
+Some of the code represented in the toolkit is forks/ports of other Open Source libraries.  Where used, their license is reprsented in the code files.
+
+* [Silverlight Toolkit](http://silverlight.codeplex.com) - for providing the base of many ported concepts/code.  Licensed under Ms-PL
+* [RestSharp](http://restsharp.org) - the OAuth helper file is a fork from the RestSharp project which uses this internally for some authenticators. Licensed under Apache 2.0
+* [sqlite-net](https://github.com/praeclarum/sqlite-net) - a .NET client library for SQLite.  The SQLite client in Callisto is a fork/port of this.  Licensed under BSD...see notice in SQLite.cs
+* [Jeff Wilcox](http://www.jeff.wilcox.name) - Jeff's projects have provided a lot of inspiration in what shapes some of the curent "TODO" items (i.e., theme manager) and is a great source for Metro style app development for Windows Phone
