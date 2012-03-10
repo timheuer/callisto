@@ -11,15 +11,15 @@
     <Tags>xaml winrt flyout settings popup menu win8 metro pivot</Tags>
   </Metadata>
   <Installation Scope="Global" AllUsers="true">
-    <InstallationTarget Id="Microsoft.ExtensionSDK" TargetPlatformIdentifier="Windows" TargetPlatformVersion="v8.0" SdkName="Callisto" SdkVersion="1.0.0" />
+    <InstallationTarget Id="Microsoft.ExtensionSDK" TargetPlatformIdentifier="Windows" TargetPlatformVersion="v8.0" SdkName="Callisto" SdkVersion="0.5.0" />
   </Installation>
   <Dependencies>
     <Dependency Id="Microsoft.Framework.NDP" DisplayName="Microsoft .NET Framework" d:Source="Manual" Version="4.5" />
   </Dependencies>
   <Assets>
     <Asset Type="Microsoft.ExtensionSDK" d:Source="File" Path="SDKManifest.xml" />
-    <Asset Type="Microsoft.ExtensionSDK" d:Source="File" Path="Redist\CommonConfiguration\neutral\Themes\Generic.xaml" d:VsixSubPath="Redist\CommonConfiguration\neutral\Themes" />
+    <!--<Asset Type="Microsoft.ExtensionSDK" d:Source="File" Path="Redist\CommonConfiguration\neutral\Themes\Generic.xaml" d:VsixSubPath="Redist\CommonConfiguration\neutral\Themes" />
     <Asset Type="Microsoft.ExtensionSDK" d:Source="File" Path="Redist\CommonConfiguration\neutral\Callisto.pri" />
-    <Asset Type="Microsoft.ExtensionSDK" d:Source="File" Path="References\CommonConfiguration\neutral\Callisto.dll" />
+    <Asset Type="Microsoft.ExtensionSDK" d:Source="File" Path="References\CommonConfiguration\neutral\Callisto.dll" />-->
   </Assets>
 </PackageManifest>

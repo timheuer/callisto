@@ -37,3 +37,7 @@ download/
 AppPackages/
 /DropNet.CLI/possantest.bat
 *.nupkg
+src/Callisto.VSIX/License.txt
+src/Callisto.VSIX/SDKManifest.xml
+src/Callisto.VSIX/Redist/
+src/Callisto.VSIX/References/
