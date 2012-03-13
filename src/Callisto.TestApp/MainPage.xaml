@@ -1,0 +1,40 @@
+﻿<Page
+    x:Class="Callisto.TestApp.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Callisto.TestApp"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="{StaticResource ApplicationPageBackgroundBrush}">
+
+		<Grid.RowDefinitions>
+			<RowDefinition Height="Auto" />
+			<RowDefinition Height="*" />
+		</Grid.RowDefinitions>
+		
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="250" />
+			<ColumnDefinition Width="*" />
+		</Grid.ColumnDefinitions>
+
+		<Grid Grid.ColumnSpan="2">
+			<Image Source="ms-appx:/Images/Callisto.png"
+				   Stretch="None" Margin="5" />
+		</Grid>
+		
+		<ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto">
+			<ListBox ItemsSource="{Binding}" 
+					 DisplayMemberPath="Name" 
+					 SelectionChanged="SampleList_SelectionChanged" />
+		</ScrollViewer>
+
+		<Border Grid.Column="1" Grid.Row="1" 
+				Padding="5" Margin="5,0,5,5" 
+				BorderThickness="1" BorderBrush="{StaticResource ApplicationTextBrush}">
+			<Frame x:Name="MainFrame" SourcePageType="local:StartPage" />
+		</Border>
+
+	</Grid>
+</Page>
