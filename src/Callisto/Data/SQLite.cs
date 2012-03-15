@@ -224,7 +224,7 @@ namespace Callisto.Data.SQLite
         /// <summary>
         /// Executes a "drop table" on the database.  This is non-recoverable.
         /// </summary>
-        public int DeleteTable<T>()
+        public int DropTable<T>()
         {
             var ty = typeof(T);
 
@@ -243,7 +243,6 @@ namespace Callisto.Data.SQLite
             var count = Execute(query);
 
             return count;
-
         }
 
         /// <summary>
