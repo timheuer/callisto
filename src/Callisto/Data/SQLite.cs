@@ -892,7 +892,6 @@ namespace Callisto.Data.SQLite
         {
             MappedType = type;
             TableName = MappedType.Name;
-            //var props = MappedType.GetProperties(BindingFlags.Public | BindingFlags.Instance | BindingFlags.SetProperty);
             var props = MappedType.GetTypeInfo().DeclaredProperties;
             var cols = new List<Column>();
             foreach (var p in props)
