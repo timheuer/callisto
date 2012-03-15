@@ -7,7 +7,6 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:callisto_converters="using:Callisto.Converters"
     xmlns:callisto="using:Callisto.Controls"
-	xmlns:callisto_effects="using:Callisto.Effects"
     mc:Ignorable="d">
 
     <Page.Resources>
@@ -16,20 +15,6 @@
     <Grid x:Name="LayoutRoot" Background="{StaticResource ApplicationPageBackgroundBrush}">
 
         <StackPanel Margin="100,100,0,0" HorizontalAlignment="Left">
-            <TextBlock Text="Menu Position" />
-            <ComboBox x:Name="positioning" Width="400" Height="55" HorizontalAlignment="Left">
-                <ComboBoxItem>Left</ComboBoxItem>
-                <ComboBoxItem>Right</ComboBoxItem>
-                <ComboBoxItem>Top</ComboBoxItem>
-                <ComboBoxItem>Bottom</ComboBoxItem>
-            </ComboBox>
-
-            <TextBlock Text="Settings Width" />
-            <ComboBox x:Name="settingswidth" Width="400" Height="55" HorizontalAlignment="Left">
-                <ComboBoxItem>Narrow</ComboBoxItem>
-                <ComboBoxItem>Wide</ComboBoxItem>
-            </ComboBox>
-            <Button Content="Show Settings" Click="ShowSettings" />
             <TextBlock x:Name="DateFormatted" />
             <StackPanel Orientation="Horizontal">
                 <TextBlock x:Name="DateCalculated" Text="{Binding Converter={StaticResource RelativeTimeConverter}}" />
@@ -38,66 +23,18 @@
             <!--<callisto:TimePicker x:Name="MyTimePicker"/>-->
             <TextBlock Text="Date Picker:" />
             <!--<callisto:DatePicker x:Name="MyDatePicker"/>-->
-			<callisto:LiveTile x:Name="liveTile"
-							   BorderBrush="Black" BorderThickness="1"
-							   Width="240" Height="150" Background="LightBlue"
-							   callisto_effects:Tilt.IsTiltEnabled="True">
-				<callisto:LiveTile.ItemTemplate>
-					<DataTemplate>
-						<Grid>
-							<Image Stretch="UniformToFill" >
-								<Image.Source>
-									<BitmapImage UriSource="{Binding ImageUri}" />
-								</Image.Source>
-							</Image>
-							<Border Background="#99000000" VerticalAlignment="Bottom">
-								<StackPanel Margin="5">
-									<TextBlock Foreground="White" Text="{Binding Name}" FontWeight="Bold" />
-									<TextBlock Foreground="White" Text="{Binding Description}"
-											   TextWrapping="Wrap"
-											   MaxHeight="30" TextTrimming="WordEllipsis"  />
-								</StackPanel>
-							</Border>
-						</Grid>
-					</DataTemplate>
-				</callisto:LiveTile.ItemTemplate>
-			</callisto:LiveTile>
-			<TextBox x:Name="LogOutput" AcceptsReturn="True" Width="500" />
-		</StackPanel>
-        <Button Margin="400,300,0,0" Content="Show Menu" Click="ShowFlyoutMenu2"  x:Name="middlebutton" />
+            <TextBox x:Name="LogOutput" AcceptsReturn="True" Width="500" />
+        </StackPanel>
     </Grid>
 
     <Page.BottomAppBar>
         <AppBar Height="88" Background="{StaticResource AppBarTestBackground}">
             <Grid>
                 <StackPanel HorizontalAlignment="Left" Orientation="Horizontal">
-                    <Button Margin="20,10,0,5" Content="AppBar Left bottom" x:Name="leftbutton" Click="ShowFlyoutMenu" />
-                    <Button Style="{StaticResource MailAppBarButtonStyle}" Click="ShowFlyoutMenu"/>
-                    <Button Style="{StaticResource PinAppBarButtonStyle}" Click="ShowFlyoutMenu"/>
-                    <Button Style="{StaticResource UnPinAppBarButtonStyle}" Click="ShowFlyoutMenu"/>
                     <Button Content="Get Objects" Click="Button_Click_1" />
                     <Button Content="GC" Click="ForceGC" />
-                </StackPanel>
-                <StackPanel HorizontalAlignment="Right">
-                    <Button Margin="0,0,20,0" Style="{StaticResource AddAppBarButtonStyle}" Click="ShowFlyoutMenu3" />
                 </StackPanel>
             </Grid>
         </AppBar>
     </Page.BottomAppBar>
-    <Page.TopAppBar>
-        <AppBar Height="88" Background="{StaticResource AppBarTestBackground}">
-            <Grid>
-                <StackPanel HorizontalAlignment="Left">
-                    <Button Margin="20,0,0,0" Content="AppBar Left top" x:Name="leftbuttontop" Click="ShowFlyoutMenu" />
-                </StackPanel>
-                <StackPanel HorizontalAlignment="Right" Orientation="Horizontal">
-                    <Button Style="{StaticResource MailAppBarButtonStyle}" Click="ShowFlyoutMenu"/>
-                    <Button Style="{StaticResource PinAppBarButtonStyle}" Click="ShowFlyoutMenu"/>
-                    <Button Style="{StaticResource UnPinAppBarButtonStyle}" Click="ShowFlyoutMenu"/>
-                    <Button Margin="0,0,20,0" Content="AppBar Right top" Click="ShowFlyoutMenu" />
-                </StackPanel>
-            </Grid>
-        </AppBar>
-    </Page.TopAppBar>
-
 </Page>
