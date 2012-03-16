@@ -234,7 +234,7 @@ namespace Callisto.Data.SQLite
         {
             var map = GetMapping(typeof(T));
 
-            var query = string.Format("drop table \"{0}\"", map.TableName);
+            var query = string.Format("drop table if exists \"{0}\"", map.TableName);
 
             return Execute(query);
         }
@@ -1323,9 +1323,7 @@ namespace Callisto.Data.SQLite
                 {
                     b.Index = nextIdx++;
                 }
-            }
-            foreach (var b in _bindings)
-            {
+            
                 BindParameter(stmt, b.Index, b.Value);
             }
         }
