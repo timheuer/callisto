@@ -5,7 +5,7 @@
 //
 
 //
-// Copyright (c) 2009-2011 Krueger Systems, Inc.
+// Copyright (c) 2009-2012 Krueger Systems, Inc.
 // 
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -32,15 +32,16 @@
 //
 
 using System;
-using System.Runtime.InteropServices;
 using System.Collections.Generic;
-using System.Reflection;
+using System.Diagnostics;
 using System.Linq;
 using System.Linq.Expressions;
-
+using System.Reflection;
+using System.Reflection.RuntimeExtensions;
+using System.Runtime.InteropServices;
+using System.Threading.Tasks;
 using Sqlite3DatabaseHandle = System.IntPtr;
 using Sqlite3Statement = System.IntPtr;
-using System.Diagnostics;
 
 namespace Callisto.Data.SQLite
 {
@@ -213,6 +214,11 @@ namespace Callisto.Data.SQLite
             return map;
         }
 
+        public TableMapping GetMapping<T>()
+        {
+            return GetMapping(typeof(T));
+        }
+
         private struct IndexInfo
         {
             public string IndexName;
@@ -226,23 +232,11 @@ namespace Callisto.Data.SQLite
         /// </summary>
         public int DropTable<T>()
         {
-            var ty = typeof(T);
+            var map = GetMapping(typeof(T));
 
-            if (_tables == null)
-            {
-                _tables = new Dictionary<string, TableMapping>();
-            }
-            TableMapping map;
-            if (!_tables.TryGetValue(ty.FullName, out map))
-            {
-                map = GetMapping(ty);
-                _tables.Add(ty.FullName, map);
-            }
             var query = string.Format("drop table \"{0}\"", map.TableName);
 
-            var count = Execute(query);
-
-            return count;
+            return Execute(query);
         }
 
         /// <summary>
@@ -876,6 +870,16 @@ namespace Callisto.Data.SQLite
 
     public class TableMapping
     {
+        private bool IsPropertyPublic(PropertyInfo p)
+        {
+            return (p.GetMethod != null && p.GetMethod.IsPublic) || (p.SetMethod != null && p.SetMethod.IsPublic);
+        }
+
+        private bool IsPropertyStatic(PropertyInfo p)
+        {
+            return (p.GetMethod != null && p.GetMethod.IsStatic) || (p.SetMethod != null && p.SetMethod.IsStatic);
+        }
+
         public Type MappedType { get; private set; }
 
         public string TableName { get; private set; }
@@ -891,7 +895,7 @@ namespace Callisto.Data.SQLite
         {
             MappedType = type;
             TableName = MappedType.Name;
-            var props = MappedType.GetTypeInfo().DeclaredProperties;
+            var props = MappedType.GetRuntimeProperties().Where(p => IsPropertyPublic(p) || IsPropertyStatic(p));
             var cols = new List<Column>();
             foreach (var p in props)
             {
