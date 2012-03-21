@@ -2071,7 +2071,7 @@ namespace Callisto.Data.SQLite
         [DllImport(DLL_IMPORT_NAME, EntryPoint = "sqlite3_bind_double", CallingConvention = CallingConvention.Cdecl)]
         public static extern int BindDouble(IntPtr stmt, int index, double val);
 
-        [DllImport(DLL_IMPORT_NAME, EntryPoint = "sqlite3_bind_text", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport(DLL_IMPORT_NAME, EntryPoint = "sqlite3_bind_text16", CallingConvention = CallingConvention.Cdecl, CharSet = CharSet.Unicode)]
         public static extern int BindText(IntPtr stmt, int index, string val, int n, IntPtr free);
 
         [DllImport(DLL_IMPORT_NAME, EntryPoint = "sqlite3_bind_blob", CallingConvention = CallingConvention.Cdecl)]

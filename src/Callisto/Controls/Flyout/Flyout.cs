@@ -47,7 +47,7 @@ namespace Callisto.Controls
         // This is the edge gutter when positioned against left/right/top/bottom or element edges 
         // should be 6px, but that doesn't take into account focus rects
         // TODO: Revisit gutter constant if needs to be less due to focus rects/touch targets
-        const double GUTTER_BUFFER = 6.0;
+        const double GUTTER_BUFFER = 5.0;
         const double GUTTER_BUFFER_ADJUSTED = 4.0; // for element gutter due to focus rects
         #endregion Constants
 
