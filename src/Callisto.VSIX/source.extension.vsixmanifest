@@ -6,8 +6,8 @@
     <Description>A control suite for some common things a Windows 8 XAML application might want to include such as a Flyout, Menu, Settings Pane, and Pivot control</Description>
     <MoreInfo>http://github.com/timheuer/Callisto</MoreInfo>
     <License>License.txt</License>
-    <Icon>windows-blue.png</Icon>
-    <PreviewImage>windows-blue.png</PreviewImage>
+    <Icon>CallistoMoon.png</Icon>
+    <PreviewImage>CallistoLogo.png</PreviewImage>
     <Tags>xaml winrt flyout settings popup menu win8 metro pivot</Tags>
   </Metadata>
   <Installation Scope="Global" AllUsers="true">
