@@ -108,7 +108,7 @@ namespace Callisto.Controls
         }
 
         public static readonly DependencyProperty HeaderBrushProperty =
-            DependencyProperty.Register("HeaderBrush", typeof(SolidColorBrush), typeof(SettingsFlyout), new PropertyMetadata(new SolidColorBrush(Colors.LightGray)));
+            DependencyProperty.Register("HeaderBrush", typeof(SolidColorBrush), typeof(SettingsFlyout), null);
 
         public SettingsFlyoutWidth FlyoutWidth
         {
@@ -138,7 +138,7 @@ namespace Callisto.Controls
 
         public static readonly DependencyProperty SmallLogoImageSourceProperty =
             DependencyProperty.Register("SmallLogoImageSource", typeof(ImageSource), typeof(SettingsFlyout), null);
-
+        
         #endregion Dependency Properties
 
         #region Enums

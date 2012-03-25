@@ -25,7 +25,7 @@ namespace Callisto.Controls
     [TemplateVisualState(Name = MenuItem.StateHover, GroupName = MenuItem.GroupCommon)]
     [TemplateVisualState(Name = MenuItem.StatePressed, GroupName = MenuItem.GroupCommon)]
     [TemplateVisualState(Name = MenuItem.StateDisabled, GroupName = MenuItem.GroupCommon)]
-    public sealed class MenuItem : MenuItemBase
+    public class MenuItem : MenuItemBase
     {
         public static readonly DependencyProperty TextProperty = DependencyProperty.Register("Text", typeof(string), typeof(MenuItem), null);
         public static readonly DependencyProperty CommandProperty = DependencyProperty.Register("Command", typeof(ICommand), typeof(MenuItem), null);

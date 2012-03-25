@@ -111,6 +111,7 @@ Great, please [log a bug](https://github.com/timheuer/Callisto/issues/new) so th
 ## Credits and Acknowledgements
 * [Tim Heuer](http://timheuer.com/blog/) ([@timheuer](http://twitter.com/timheuer)) - for the initial conception of the toolkit.
 * [Morten Nielsen](http://www.sharpgis.net/) ([@dotMorten](http://twitter.com/dotMorten)) - core contributor
+* Moon logo from [The Noun Project](http://thenounproject.com) which is a great source for Metro style iconography
 
 ### Open Source Project Credits
 Some of the code represented in the toolkit is forks/ports of other Open Source libraries.  Where used, their license is reprsented in the code files.

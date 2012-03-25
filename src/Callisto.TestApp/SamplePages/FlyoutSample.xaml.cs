@@ -84,6 +84,7 @@ namespace Callisto.TestApp.SamplePages
 			menu.Items.Add(mi2);
 			menu.Items.Add(new MenuItemSeparator());
 			menu.Items.Add(new MenuItem() { Text = "Foobar something really long", Tag = "Long menu option" });
+            menu.Items.Add(new ToggleMenuItem() { Text = "Aerial", IsChecked=true });
 			menu.Items.Add(new MenuItemSeparator());
 			menu.Items.Add(mi3);
 
