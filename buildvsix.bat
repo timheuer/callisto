@@ -13,5 +13,6 @@ copy src\Callisto\bin\release\Callisto.dll src\Callisto.VSIX\References\CommonCo
 copy src\Callisto\bin\release\Callisto.pri src\Callisto.VSIX\Redist\CommonConfiguration\neutral\
 copy src\Callisto\bin\release\themes\generic.xaml src\Callisto.VSIX\Redist\CommonConfiguration\neutral\Themes\
 msbuild /verbosity:quiet /fl /t:Rebuild /p:Configuration=Release src\Callisto.VSIX\Callisto.VSIX.csproj
-
+del src\Callisto.VSIX\CallistoLogo.png
+del src\Callisto.VSIX\CallistoMoon.png
 popd
