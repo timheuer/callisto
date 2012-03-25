@@ -242,6 +242,7 @@ limitations under the License.-->
     <Style TargetType="local:MenuItem">
         <Setter Property="VerticalAlignment" Value="Center" />
         <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="MenuTextMargin" Value="20,10,20,12" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="local:MenuItem">
@@ -301,7 +302,7 @@ limitations under the License.-->
                                 </VisualState>
                             </VisualStateGroup>
                         </VisualStateManager.VisualStateGroups>
-                        <TextBlock x:Name="MenuText" Text="{TemplateBinding Text}" Margin="20,10,20,12" VerticalAlignment="Center" TextTrimming="WordEllipsis" 
+                        <TextBlock x:Name="MenuText" Text="{TemplateBinding Text}" Margin="{TemplateBinding MenuTextMargin}" VerticalAlignment="Center" TextTrimming="WordEllipsis" 
                                        FontFamily="{StaticResource ContentFontFamily}" FontSize="{StaticResource ContentFontSize}" Foreground="{StaticResource MenuItemBaseTextBrush}" />
                     </Border>
                 </ControlTemplate>
@@ -371,7 +372,7 @@ limitations under the License.-->
                         </VisualStateManager.VisualStateGroups>
                         <CheckBox x:Name="MenuText" Style="{StaticResource ToggleMenuItemCheckBox}" Content="{TemplateBinding Text}" 
                                   FontFamily="{StaticResource ContentFontFamily}" FontSize="{StaticResource ContentFontSize}" 
-                                  Foreground="{StaticResource MenuItemBaseTextBrush}" IsChecked="{TemplateBinding IsChecked}"/>
+                                  Foreground="{StaticResource MenuItemBaseTextBrush}" IsChecked="{TemplateBinding IsChecked}" IsTabStop="False"/>
                     </Border>
                 </ControlTemplate>
             </Setter.Value>
@@ -382,7 +383,8 @@ limitations under the License.-->
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="local:MenuItemSeparator">
-                    <Border BorderThickness=".25" BorderBrush="{StaticResource MenuSeparatorStrokeBrush}" HorizontalAlignment="Stretch" Margin="20,9,20,10" />
+                    <Border BorderThickness=".25" BorderBrush="{StaticResource MenuSeparatorStrokeBrush}" 
+                            HorizontalAlignment="Stretch" Margin="20,9,20,10" />
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
@@ -525,4 +527,5 @@ limitations under the License.-->
 			</Setter.Value>
 		</Setter>
 	</Style>
+    
 </ResourceDictionary>

@@ -26,6 +26,8 @@ namespace Callisto.TestApp.SamplePages
 	/// </summary>
 	public sealed partial class FlyoutSample : Page
 	{
+        bool chk = false;
+
 		public FlyoutSample()
 		{
 			this.InitializeComponent();
@@ -69,22 +71,33 @@ namespace Callisto.TestApp.SamplePages
 			mi.Tag = "Easy";
 			mi.Tapped += ItemClicked;
 			mi.Text = "Easy Game";
+            mi.MenuTextMargin = new Thickness(28, 10, 28, 12);
 
 			MenuItem mi2 = new MenuItem();
 			mi2.Text = "Medium Game";
 			mi2.Tag = "Medium";
 			mi2.Tapped += ItemClicked;
+            mi2.MenuTextMargin = new Thickness(28, 10, 28, 12);
 
 			MenuItem mi3 = new MenuItem();
 			mi3.Text = "Hard Game";
 			mi3.Command = new CommandTest();
 			mi3.CommandParameter = "test param from command";
+            mi3.MenuTextMargin = new Thickness(28, 10, 28, 12);
+
+            ToggleMenuItem tmi = new ToggleMenuItem();
+            tmi.Text = "Enable Logging";
+            tmi.IsChecked = chk;
+            tmi.Tapped += (a, b) =>
+                {
+                    chk = !chk;
+                };
 
 			menu.Items.Add(mi);
 			menu.Items.Add(mi2);
 			menu.Items.Add(new MenuItemSeparator());
-			menu.Items.Add(new MenuItem() { Text = "Foobar something really long", Tag = "Long menu option" });
-            menu.Items.Add(new ToggleMenuItem() { Text = "Aerial", IsChecked=true });
+			menu.Items.Add(new MenuItem() { Text = "Foobar something really long", Tag = "Long menu option", MenuTextMargin = new Thickness(28,10,28,12) });
+            menu.Items.Add(tmi);
 			menu.Items.Add(new MenuItemSeparator());
 			menu.Items.Add(mi3);
 

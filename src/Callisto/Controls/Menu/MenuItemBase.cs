@@ -14,6 +14,7 @@
 // limitations under the License.
 //
 
+using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 
 namespace Callisto.Controls
@@ -21,5 +22,15 @@ namespace Callisto.Controls
     public abstract class MenuItemBase : Control
     {
         protected MenuItemBase() { }
+
+        public Thickness MenuTextMargin
+        {
+            get { return (Thickness)GetValue(MenuTextMarginProperty); }
+            set { SetValue(MenuTextMarginProperty, value); }
+        }
+
+        public static readonly DependencyProperty MenuTextMarginProperty =
+            DependencyProperty.Register("MenuTextMargin", typeof(Thickness), typeof(MenuItemBase), null);
+
     }
 }

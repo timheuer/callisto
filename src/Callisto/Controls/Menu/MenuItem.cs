@@ -14,6 +14,7 @@
 // limitations under the License.
 //
 
+using System;
 using System.Diagnostics;
 using System.Windows.Input;
 using Windows.System;
@@ -120,7 +121,7 @@ namespace Callisto.Controls
                     VisualStateManager.GoToState(this, StateBase, useTransitions);
                 }
             }
-        }    
+        }
 
         public string Text
         {
