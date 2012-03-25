@@ -14,6 +14,7 @@
 // limitations under the License.
 //
 
+using System.Diagnostics;
 using System.Windows.Input;
 using Windows.System;
 using Windows.UI.Xaml;

@@ -68,13 +68,7 @@ limitations under the License.-->
     <x:String x:Key="SettingsFlyoutHeaderTextDefault">Application Setting</x:String>
 
     <Style x:Key="ToggleMenuItemCheckBox" TargetType="CheckBox">
-        <Setter Property="Background" Value="Transparent"/>
-        <Setter Property="Foreground" Value="{StaticResource ControlForegroundBrush}"/>
-        <Setter Property="HorizontalAlignment" Value="Stretch"/>
-        <Setter Property="VerticalAlignment" Value="Center"/>
-        <Setter Property="HorizontalContentAlignment" Value="Left"/>
-        <Setter Property="FontFamily" Value="{StaticResource ContentFontFamily}"/>
-        <Setter Property="FontSize" Value="{StaticResource ContentFontSize}"/>
+        <Setter Property="MinHeight" Value="42" /> <!-- setting this because not having it will give the CheckBox 50 MinHeight-->
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="CheckBox">
