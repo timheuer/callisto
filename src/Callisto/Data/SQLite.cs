@@ -802,9 +802,12 @@ namespace Callisto.Data.SQLite
             {
                 try
                 {
-                    foreach (var sqlInsertCommand in _mappings.Values)
+                    if (_mappings != null)
                     {
-                        sqlInsertCommand.Dispose();
+                      foreach (var sqlInsertCommand in _mappings.Values)
+                      {
+                          sqlInsertCommand.Dispose();
+                      }
                     }
                     var r = SQLite3.Close(Handle);
                     if (r != SQLite3.Result.OK)
