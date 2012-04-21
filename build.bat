@@ -26,7 +26,7 @@ copy SDKManifest.xml SDK\Callisto\0.5\
 @echo *******************************************
 @echo * BUILDING NUGET PACKAGE					*
 @echo *******************************************
-pushd nuget
+pushd Tools\nuget
 
 @echo *******************************************
 @echo * COPYING BINARIES						*
