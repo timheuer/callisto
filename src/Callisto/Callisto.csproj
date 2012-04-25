@@ -127,6 +127,7 @@
     <Compile Include="Data\SQLite.cs" />
     <Compile Include="Effects\TiltEffect.cs" />
     <Compile Include="Extensions\Extensions.cs" />
+    <Compile Include="Extensions\WebViewExtension.cs" />
     <Compile Include="OAuth\OAuthHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

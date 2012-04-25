@@ -1642,6 +1642,11 @@ namespace Callisto.Data.SQLite
             return q;
         }
 
+        public T ElementAt(int index)
+        {
+            return Skip(index).Take(1).First();
+        }
+
         bool _deferred = false;
         public TableQuery<T> Deferred()
         {
@@ -1767,6 +1772,7 @@ namespace Callisto.Data.SQLite
 
                 var call = (MethodCallExpression)expr;
                 var args = new CompileResult[call.Arguments.Count];
+                var obj = call.Object != null ? CompileExpr(call.Object, queryArgs) : null;
 
                 for (var i = 0; i < args.Length; i++)
                 {
@@ -1782,6 +1788,10 @@ namespace Callisto.Data.SQLite
                 else if (call.Method.Name == "Contains" && args.Length == 2)
                 {
                     sqlCall = "(" + args[1].CommandText + " in " + args[0].CommandText + ")";
+                }
+                else if (call.Method.Name == "Contains" && args.Length == 1)
+                {
+                    sqlCall = "(" + args[0].CommandText + " in " + obj.CommandText + ")";
                 }
                 else
                 {
