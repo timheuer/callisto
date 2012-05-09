@@ -8,7 +8,7 @@
      xmlns:callisto="using:Callisto.Controls"
 	mc:Ignorable="d">
 
-	<Grid Background="{StaticResource ApplicationPageBackgroundBrush}">
+	<Grid Background="{StaticResource ApplicationPageBackgroundThemeBrush}">
 
 		<Grid.ColumnDefinitions>
 			<ColumnDefinition Width="245" />

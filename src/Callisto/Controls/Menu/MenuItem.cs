@@ -48,20 +48,20 @@ namespace Callisto.Controls
             _isActive = false;
         }
 
-        protected override void OnPointerEntered(Windows.UI.Xaml.Input.PointerEventArgs e)
+        protected override void OnPointerEntered(Windows.UI.Xaml.Input.PointerRoutedEventArgs e)
         {
             base.OnPointerEntered(e);
             Focus(Windows.UI.Xaml.FocusState.Programmatic);
         }
 
-        protected override void OnPointerExited(Windows.UI.Xaml.Input.PointerEventArgs e)
+        protected override void OnPointerExited(Windows.UI.Xaml.Input.PointerRoutedEventArgs e)
         {
             base.OnPointerExited(e);
             _isActive = false;
             UpdateState(true);
         }
 
-        protected override void OnPointerMoved(Windows.UI.Xaml.Input.PointerEventArgs e)
+        protected override void OnPointerMoved(Windows.UI.Xaml.Input.PointerRoutedEventArgs e)
         {
             base.OnPointerMoved(e);
             Focus(Windows.UI.Xaml.FocusState.Programmatic);
@@ -81,7 +81,7 @@ namespace Callisto.Controls
             UpdateState(true);
         }
 
-        protected override void OnKeyDown(Windows.UI.Xaml.Input.KeyEventArgs e)
+        protected override void OnKeyDown(Windows.UI.Xaml.Input.KeyRoutedEventArgs e)
         {
             base.OnKeyDown(e);
 
@@ -92,13 +92,13 @@ namespace Callisto.Controls
             }
         }
 
-        protected override void OnPointerReleased(Windows.UI.Xaml.Input.PointerEventArgs e)
+        protected override void OnPointerReleased(Windows.UI.Xaml.Input.PointerRoutedEventArgs e)
         {
             base.OnPointerReleased(e);
             VisualStateManager.GoToState(this, StateBase, true);
         }
 
-        protected override void OnPointerPressed(Windows.UI.Xaml.Input.PointerEventArgs e)
+        protected override void OnPointerPressed(Windows.UI.Xaml.Input.PointerRoutedEventArgs e)
         {
             base.OnPointerPressed(e);
             VisualStateManager.GoToState(this, StatePressed, true);

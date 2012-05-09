@@ -37,7 +37,6 @@ using System.Diagnostics;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Reflection;
-using System.Reflection.RuntimeExtensions;
 using System.Runtime.InteropServices;
 using System.Threading.Tasks;
 using Sqlite3DatabaseHandle = System.IntPtr;

@@ -7,7 +7,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <Grid Background="{StaticResource ApplicationPageBackgroundBrush}">
+    <Grid Background="{StaticResource ApplicationPageBackgroundThemeBrush}">
 
 		<Grid.RowDefinitions>
 			<RowDefinition Height="Auto" />
@@ -32,7 +32,7 @@
 
 		<Border Grid.Column="1" Grid.Row="1" 
 				Padding="5" Margin="5,0,5,5" 
-				BorderThickness="1" BorderBrush="{StaticResource ApplicationTextBrush}">
+				BorderThickness="1" BorderBrush="{StaticResource ApplicationForegroundThemeBrush}">
 			<Frame x:Name="MainFrame" SourcePageType="local:StartPage" />
 		</Border>
 

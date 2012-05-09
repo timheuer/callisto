@@ -34,7 +34,7 @@ namespace Callisto.Controls
             get { return _items; }
         }
 
-        private void OnKeyDown(object sender, KeyEventArgs args)
+        private void OnKeyDown(object sender, KeyRoutedEventArgs args)
         {
             switch (args.Key)
             {
