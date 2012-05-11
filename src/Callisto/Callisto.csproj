@@ -124,7 +124,6 @@
     <Compile Include="Converters\DateTimeFormatHelper.cs" />
     <Compile Include="Converters\LengthToBooleanConverter.cs" />
     <Compile Include="Converters\RelativeTimeConverter.cs" />
-    <Compile Include="Data\SQLite.cs" />
     <Compile Include="Effects\TiltEffect.cs" />
     <Compile Include="Extensions\Extensions.cs" />
     <Compile Include="Extensions\WebViewExtension.cs" />
@@ -132,7 +131,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <PRIResource Include="LocalizedStrings\en\Resources.resw">
+    <PRIResource Include="LocalizedStrings\en-US\Resources.resw">
       <SubType>Designer</SubType>
     </PRIResource>
     <PRIResource Include="LocalizedStrings\cs\Resources.resw">
