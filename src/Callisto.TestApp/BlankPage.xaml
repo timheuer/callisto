@@ -1,0 +1,40 @@
+﻿<Page
+    x:Class="XamlControlsUITestApp.BlankPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:XamlControlsUITestApp"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:callisto_converters="using:Callisto.Converters"
+    xmlns:callisto="using:Callisto.Controls"
+    mc:Ignorable="d">
+
+    <Page.Resources>
+        <callisto_converters:RelativeTimeConverter x:Key="RelativeTimeConverter" />
+    </Page.Resources>
+    <Grid x:Name="LayoutRoot" Background="{StaticResource ApplicationPageBackgroundBrush}">
+
+        <StackPanel Margin="100,100,0,0" HorizontalAlignment="Left">
+            <TextBlock x:Name="DateFormatted" />
+            <StackPanel Orientation="Horizontal">
+                <TextBlock x:Name="DateCalculated" Text="{Binding Converter={StaticResource RelativeTimeConverter}}" />
+            </StackPanel>
+            <TextBlock Text="Time Picker:" />
+            <!--<callisto:TimePicker x:Name="MyTimePicker"/>-->
+            <TextBlock Text="Date Picker:" />
+            <!--<callisto:DatePicker x:Name="MyDatePicker"/>-->
+            <TextBox x:Name="LogOutput" AcceptsReturn="True" Width="500" />
+        </StackPanel>
+    </Grid>
+
+    <Page.BottomAppBar>
+        <AppBar Height="88" Background="{StaticResource AppBarTestBackground}">
+            <Grid>
+                <StackPanel HorizontalAlignment="Left" Orientation="Horizontal">
+                    <Button Content="Get Objects" Click="Button_Click_1" />
+                    <Button Content="GC" Click="ForceGC" />
+                </StackPanel>
+            </Grid>
+        </AppBar>
+    </Page.BottomAppBar>
+</Page>
