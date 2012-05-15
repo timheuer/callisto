@@ -456,7 +456,7 @@ limitations under the License.-->
                             </Grid>
 
                             <!-- Settings Panel Content -->
-                            <Grid Grid.Row="1" Margin="40,22,40,0" VerticalAlignment="Top">
+                            <Grid Grid.Row="1" Margin="33,22,40,0" VerticalAlignment="Top" HorizontalAlignment="Left">
                                 <Grid.Transitions>
                                     <TransitionCollection>
                                         <EntranceThemeTransition FromHorizontalOffset="170" />
