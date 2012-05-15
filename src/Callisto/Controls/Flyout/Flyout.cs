@@ -469,6 +469,15 @@ namespace Callisto.Controls
         #endregion Methods and Events
 
         #region Dependency Properties
+        public Thickness HostMargin
+        {
+            get { return (Thickness)GetValue(HostMarginProperty); }
+            set { SetValue(HostMarginProperty, value); }
+        }
+
+        public static readonly DependencyProperty HostMarginProperty =
+            DependencyProperty.Register("HostMargin", typeof(Thickness), typeof(Flyout), new PropertyMetadata(0));
+
         public bool IsOpen
         {
             get { return (bool)GetValue(IsOpenProperty); }

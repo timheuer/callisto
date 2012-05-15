@@ -393,6 +393,7 @@ limitations under the License.-->
     <Style TargetType="local:Flyout">
         <Setter Property="Background" Value="{StaticResource FlyoutBackgroundBrush}" />
         <Setter Property="BorderBrush" Value="{StaticResource FlyoutBorderBrush}" />
+        <Setter Property="HostMargin" Value="0,12,0,12" />
         <Setter Property="MinHeight" Value="54" />
         <Setter Property="MinWidth" Value="70" />
         <Setter Property="MaxHeight" Value="758" />
@@ -403,7 +404,7 @@ limitations under the License.-->
                     <Border
                         Background="{TemplateBinding Background}"
                         BorderBrush="{TemplateBinding BorderBrush}"
-                        BorderThickness="2">
+                        BorderThickness="2" Margin="{TemplateBinding HostMargin}">
                         <ContentControl Content="{TemplateBinding Content}" Margin="{TemplateBinding Margin}"/>
                     </Border>
                 </ControlTemplate>

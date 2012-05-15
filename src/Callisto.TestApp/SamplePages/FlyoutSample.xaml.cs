@@ -100,7 +100,7 @@ namespace Callisto.TestApp.SamplePages
             menu.Items.Add(tmi);
 			menu.Items.Add(new MenuItemSeparator());
 			menu.Items.Add(mi3);
-
+            f.HostMargin = new Thickness(0); // on menu flyouts set HostMargin to 0
 			f.Content = menu;
 			f.IsOpen = true;
 
@@ -127,7 +127,7 @@ namespace Callisto.TestApp.SamplePages
 
 			f.Placement = (PlacementMode)Enum.Parse(typeof(PlacementMode), positioning.SelectionBoxItem.ToString());
 			f.PlacementTarget = sender as UIElement;
-
+            
 			f.IsOpen = true;
 
 			ObjectTracker.Track(f);
@@ -138,17 +138,19 @@ namespace Callisto.TestApp.SamplePages
 		{
 			Flyout f = new Flyout();
 
-			f.Margin = new Thickness(20, 12, 20, 20);
+			f.Margin = new Thickness(20, 12, 20, 12);
 			f.Content = new SampleInput();
 			f.Placement = PlacementMode.Top;
 			f.PlacementTarget = sender as UIElement;
 
-            //LayoutRoot.Children.Add(f.HostPopup);
+            var parentGrid = ((FrameworkElement)this.Parent).FindName("FrameLayoutRoot") as Grid;
 
-            //f.Closed += (b, c) =>
-            //{
-            //    LayoutRoot.Children.Remove(f.HostPopup);
-            //};
+            parentGrid.Children.Add(f.HostPopup);
+
+            f.Closed += (b, c) =>
+            {
+                parentGrid.Children.Remove(f.HostPopup);
+            };
 
 			f.IsOpen = true;
 
