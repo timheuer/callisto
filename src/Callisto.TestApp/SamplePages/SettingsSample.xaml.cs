@@ -55,7 +55,7 @@ namespace Callisto.TestApp.SamplePages
 				SettingsFlyout settings = new SettingsFlyout();
 				settings.FlyoutWidth = (Callisto.Controls.SettingsFlyout.SettingsFlyoutWidth)Enum.Parse(typeof(Callisto.Controls.SettingsFlyout.SettingsFlyoutWidth), settingswidth.SelectionBoxItem.ToString());
 				//settings.HeaderBrush = new SolidColorBrush(Colors.Orange);
-				settings.HeaderText = "Foo Bar Setting";
+				settings.HeaderText = "Foo Bar Custom Settings";
 
                 BitmapImage bmp = new BitmapImage(new Uri("ms-appx:///Assets/SmallLogo.png"));
 

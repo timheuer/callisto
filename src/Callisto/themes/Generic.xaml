@@ -1,4 +1,4 @@
-<!--﻿
+﻿<!--﻿
 Copyright (c) 2012 Tim Heuer
 
 Licensed under the Microsoft Public License (Ms-PL) (the "License");
@@ -144,7 +144,7 @@ limitations under the License.-->
             <Setter.Value>
                 <ControlTemplate TargetType="Button">
                     <Grid x:Name="RootGrid" Width="30" Height="30">
-                        <Grid Margin="-6,-6,0,0">
+                        <Grid Margin="-3,-5,0,0">
                             <TextBlock x:Name="BackgroundGlyph" Text="&#xE0D4;" Foreground="{StaticResource BackButtonBackgroundThemeBrush}"/>
                             <TextBlock x:Name="NormalGlyph" Text="{StaticResource BackButtonSnappedGlyph}" Foreground="{StaticResource BackButtonForegroundThemeBrush}"/>
                             <TextBlock x:Name="ArrowGlyph" Text="&#xE0C4;" Foreground="{StaticResource BackButtonPressedForegroundThemeBrush}" Opacity="0"/>
@@ -429,7 +429,7 @@ limitations under the License.-->
                             <!-- Header area for panel -->
                             <Grid Background="{TemplateBinding HeaderBrush}" Grid.Row="0">
 
-                                <Grid Margin="40,32,17,13">
+                                <Grid Margin="40,35,40,13">
 
                                     <Grid.Transitions>
                                         <TransitionCollection>
@@ -440,21 +440,21 @@ limitations under the License.-->
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="30" />
                                         <ColumnDefinition Width="*" />
-                                        <ColumnDefinition />
+                                        <ColumnDefinition Width="30"/>
                                     </Grid.ColumnDefinitions>
 
-                                    <Button x:Name="SettingsBackButton" Margin="0,3,0,0" Grid.Column="0" Style="{StaticResource SettingsBackButtonStyle}" HorizontalAlignment="Left" />
+                                    <Button x:Name="SettingsBackButton" Margin="0,0,0,0" Grid.Column="0" Style="{StaticResource SettingsBackButtonStyle}" HorizontalAlignment="Left" />
 
-                                    <TextBlock TextTrimming="WordEllipsis" Margin="10,0,0,0" Grid.Column="1" FontFamily="Segoe UI" FontWeight="SemiLight" FontSize="24.6667" Text="{TemplateBinding HeaderText}" HorizontalAlignment="Left" />
+                                    <TextBlock TextTrimming="WordEllipsis" Margin="10,-2,0,0" Grid.Column="1" FontFamily="Segoe UI" FontWeight="SemiLight" FontSize="24.6667" Text="{TemplateBinding HeaderText}" HorizontalAlignment="Left" />
 
-                                    <Image Source="{TemplateBinding SmallLogoImageSource}" HorizontalAlignment="Right" Grid.Column="2" Margin="0,0,6,0" />
+                                    <Image Source="{TemplateBinding SmallLogoImageSource}" HorizontalAlignment="Right" Grid.Column="2" Margin="0,0,0,0" />
 
                                 </Grid>
 
                             </Grid>
 
                             <!-- Settings Panel Content -->
-                            <Grid Grid.Row="1" Margin="40,24,23,0" VerticalAlignment="Top">
+                            <Grid Grid.Row="1" Margin="40,22,40,0" VerticalAlignment="Top">
                                 <Grid.Transitions>
                                     <TransitionCollection>
                                         <EntranceThemeTransition FromHorizontalOffset="170" />
