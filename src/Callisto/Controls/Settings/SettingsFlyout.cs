@@ -11,6 +11,7 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Documents;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
+using Windows.UI.Xaml.Media.Animation;
 
 namespace Callisto.Controls
 {
@@ -52,6 +53,8 @@ namespace Callisto.Controls
             this.Loaded += OnLoaded;
 
             _hostPopup = new Popup();
+            _hostPopup.ChildTransitions = new TransitionCollection();
+            _hostPopup.ChildTransitions.Add(new PaneThemeTransition());
             _hostPopup.Closed += OnHostPopupClosed;
             _hostPopup.IsLightDismissEnabled = true;
             _hostPopup.Height = _windowBounds.Height;
