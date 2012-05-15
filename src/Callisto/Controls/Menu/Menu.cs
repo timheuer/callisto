@@ -139,7 +139,7 @@ namespace Callisto.Controls
             this.DefaultStyleKey = typeof(Menu);
 
             // handle other key events
-            //this.AddHandler(KeyDownEvent, new KeyEventHandler(OnKeyDown), true);
+            this.AddHandler(KeyDownEvent, new KeyEventHandler(OnKeyDown), true);
 
             this.Loaded += OnLoaded;
 
