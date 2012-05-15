@@ -139,18 +139,16 @@ namespace Callisto.TestApp.SamplePages
 			Flyout f = new Flyout();
 
 			f.Margin = new Thickness(20, 12, 20, 20);
-			f.VerticalOffset = -12;
-			f.HorizontalOffset = -124;
 			f.Content = new SampleInput();
 			f.Placement = PlacementMode.Top;
 			f.PlacementTarget = sender as UIElement;
 
-			LayoutRoot.Children.Add(f.HostPopup);
+            //LayoutRoot.Children.Add(f.HostPopup);
 
-			f.Closed += (b, c) =>
-			{
-				LayoutRoot.Children.Remove(f.HostPopup);
-			};
+            //f.Closed += (b, c) =>
+            //{
+            //    LayoutRoot.Children.Remove(f.HostPopup);
+            //};
 
 			f.IsOpen = true;
 

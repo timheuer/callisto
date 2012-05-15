@@ -35,6 +35,7 @@
 					<Button Style="{StaticResource MailAppBarButtonStyle}" Click="ShowFlyoutMenu"/>
 					<Button Style="{StaticResource PinAppBarButtonStyle}" Click="ShowFlyoutMenu"/>
 					<Button Style="{StaticResource UnpinAppBarButtonStyle}" Click="ShowFlyoutMenu"/>
+                    <Button Style="{StaticResource AddAppBarButtonStyle}" Click="ShowFlyoutMenu3" />
 				</StackPanel>
 				<StackPanel HorizontalAlignment="Right">
 					<Button Margin="0,0,20,0" Style="{StaticResource AddAppBarButtonStyle}" Click="ShowFlyoutMenu3" />
