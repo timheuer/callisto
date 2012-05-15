@@ -69,6 +69,7 @@ limitations under the License.-->
 
     <Style x:Key="ToggleMenuItemCheckBox" TargetType="CheckBox">
         <Setter Property="MinHeight" Value="42" /> <!-- setting this because not having it will give the CheckBox 50 MinHeight-->
+        <Setter Property="Padding" Value="2,10,0,0" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="CheckBox">
