@@ -21,6 +21,7 @@
 			
 			<Button Margin="20,20,0,0" Content="Show Menu" 
 					Click="ShowFlyoutMenu2" x:Name="middlebutton" />
+            <Button Content="GC" Click="Button_Click_1" />
 
 			<TextBlock Text="App bar menu event log" Margin="0,20,0,0" />
 			<TextBox x:Name="LogOutput" AcceptsReturn="True" Margin="22,0" />

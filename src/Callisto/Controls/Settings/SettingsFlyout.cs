@@ -45,8 +45,6 @@ namespace Callisto.Controls
         {
             this.DefaultStyleKey = typeof(SettingsFlyout);
 
-            Window.Current.Activated += OnCurrentWindowActivated;
-
             _windowBounds = Window.Current.Bounds;
 
             this.Loaded += OnLoaded;
@@ -65,6 +63,7 @@ namespace Callisto.Controls
 
         private void OnLoaded(object sender, RoutedEventArgs e)
         {
+            Window.Current.Activated += OnCurrentWindowActivated;
             _hostPopup.Width = (this.FlyoutWidth == SettingsFlyoutWidth.Wide) ? 646 : 346;
             this.Width = _hostPopup.Width;
             _hostPopup.SetValue(Canvas.LeftProperty, _windowBounds.Width - (double)this.FlyoutWidth);

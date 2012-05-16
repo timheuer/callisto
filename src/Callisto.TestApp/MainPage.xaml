@@ -21,7 +21,7 @@
 
 		<Grid Grid.ColumnSpan="2">
 			<Image Source="ms-appx:/Images/Callisto.png"
-				   Stretch="None" Margin="5" />
+				   Stretch="None" Margin="5" PointerPressed="Image_PointerPressed_1" />
 		</Grid>
 		
 		<ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto">

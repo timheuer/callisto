@@ -175,5 +175,10 @@ namespace Callisto.TestApp.SamplePages
 				Debug.WriteLine(string.Format("Event: Command.Execute; Argument: {0}", parameter.ToString()));
 			}
 		}
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            ObjectTracker.GarbageCollect();
+        }
 	}
 }
