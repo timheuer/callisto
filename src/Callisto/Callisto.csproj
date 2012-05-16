@@ -132,7 +132,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <PRIResource Include="LocalizedStrings\en\Resources.resw">
+    <PRIResource Include="LocalizedStrings\en-US\Resources.resw">
       <SubType>Designer</SubType>
     </PRIResource>
     <PRIResource Include="LocalizedStrings\cs\Resources.resw">
