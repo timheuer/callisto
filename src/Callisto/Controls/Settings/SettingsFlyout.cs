@@ -28,16 +28,15 @@ namespace Callisto.Controls
         {
             base.OnApplyTemplate();
 
-            _backButton = GetTemplateChild("SettingsBackButton") as Button;
-
-            _backButton.Tapped += (x, y) =>
+            if(_backButton != null)
             {
-                if (_hostPopup != null)
-                {
-                    _hostPopup.IsOpen = false;
-                }
-                SettingsPane.Show();
-            };
+                _backButton.Tapped -= OnBackButtonTapped;
+            }
+            _backButton = GetTemplateChild("SettingsBackButton") as Button;
+            if(_backButton != null)
+            {
+                _backButton.Tapped += OnBackButtonTapped;
+            }
         }
         #endregion Overrides
 
@@ -70,7 +69,16 @@ namespace Callisto.Controls
             this.Width = _hostPopup.Width;
             _hostPopup.SetValue(Canvas.LeftProperty, _windowBounds.Width - (double)this.FlyoutWidth);
         }
-
+        
+        private void OnBackButtonTapped(object sender, object e)
+        {
+            if (_hostPopup != null)
+            {
+                _hostPopup.IsOpen = false;
+            }
+            SettingsPane.Show();
+        }
+        
         void OnHostPopupClosed(object sender, object e)
         {
             _hostPopup.Child = null;
