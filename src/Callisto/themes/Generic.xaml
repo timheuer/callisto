@@ -406,7 +406,7 @@ limitations under the License.-->
                         Background="{TemplateBinding Background}"
                         BorderBrush="{TemplateBinding BorderBrush}"
                         BorderThickness="2" Margin="{TemplateBinding HostMargin}">
-                        <ContentControl Content="{TemplateBinding Content}" Margin="{TemplateBinding Margin}"/>
+                        <ContentPresenter Content="{TemplateBinding Content}" Margin="{TemplateBinding Margin}"/>
                     </Border>
                 </ControlTemplate>
             </Setter.Value>
@@ -462,7 +462,7 @@ limitations under the License.-->
                                         <EntranceThemeTransition FromHorizontalOffset="170" />
                                     </TransitionCollection>
                                 </Grid.Transitions>
-                                <ContentControl Content="{TemplateBinding Content}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
+                                <ContentPresenter Content="{TemplateBinding Content}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
                             </Grid>
 
                         </Grid>

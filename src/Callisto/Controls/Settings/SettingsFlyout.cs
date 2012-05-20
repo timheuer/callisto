@@ -83,6 +83,11 @@ namespace Callisto.Controls
             _hostPopup.Child = null;
             Window.Current.Activated -= OnCurrentWindowActivated;
             this.Content = null;
+
+            if (null != Closed)
+            {
+                Closed(this, e);
+            }
         }
 
         void OnCurrentWindowActivated(object sender, Windows.UI.Core.WindowActivatedEventArgs e)
@@ -150,6 +155,10 @@ namespace Callisto.Controls
             DependencyProperty.Register("SmallLogoImageSource", typeof(ImageSource), typeof(SettingsFlyout), null);
         
         #endregion Dependency Properties
+
+        #region Events
+        public event EventHandler<object> Closed;
+        #endregion
 
         #region Enums
         public enum SettingsFlyoutWidth
