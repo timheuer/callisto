@@ -414,7 +414,7 @@ limitations under the License.-->
     </Style>
 
     <Style TargetType="local:SettingsFlyout">
-        <Setter Property="Background" Value="White" />
+        <Setter Property="Background" Value="{StaticResource ApplicationPageBackgroundThemeBrush}" />
         <Setter Property="HeaderBrush" Value="{StaticResource SettingsFlyoutHeaderBackgroundBrush}" />
         <Setter Property="HeaderText" Value="{StaticResource SettingsFlyoutHeaderTextDefault}" />
         <Setter Property="Template">
