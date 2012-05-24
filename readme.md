@@ -17,12 +17,12 @@ So far Callisto includes:
 * `BooleanToVisibilityConverter` - a converter to well, convert boolean to visibility, very common use
 * `LengthToBooleanConverter` - a converter to examine a string length to convert to boolean (simple validation helper)
 * `RelativeTimeConverter` - a converter to show time as relative string, i.e., 'about an hour ago'
-* `SQLite` - a client library for SQLite ported for Metro from http://github.com/praeclarum/sqlite-net
 * Extensions - some extension method helpers
 
-What is in the plan:
+What is in the plan (could always use the help):
 
 * `DatePicker` and `TimePicker` - providing a globalized time/date picker control in Metro style
+* `Ratings` - providing a rating control for Metro style
 * `Pivot` - a UI interface for providing "tabbed" interface in a Metro style way
 * `ThemeSwitcher` - to dynamically switch themes for certain UI components
 
@@ -118,5 +118,4 @@ Some of the code represented in the toolkit is forks/ports of other Open Source 
 
 * [Silverlight Toolkit](http://silverlight.codeplex.com) - for providing the base of many ported concepts/code.  Licensed under Ms-PL
 * [RestSharp](http://restsharp.org) - the OAuth helper file is a fork from the RestSharp project which uses this internally for some authenticators. Licensed under Apache 2.0
-* [sqlite-net](https://github.com/praeclarum/sqlite-net) - a .NET client library for SQLite.  The SQLite client in Callisto is a fork/port of this.  Licensed under BSD...see notice in SQLite.cs
 * [Jeff Wilcox](http://www.jeff.wilcox.name) - Jeff's projects have provided a lot of inspiration in what shapes some of the curent "TODO" items (i.e., theme manager) and is a great source for Metro style app development for Windows Phone
