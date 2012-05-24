@@ -10,7 +10,7 @@
     mc:Ignorable="d"
 	>
 
-    <Grid Background="{StaticResource ApplicationPageBackgroundBrush}"
+    <Grid Background="{StaticResource ApplicationPageBackgroundThemeBrush}"
 		  Width="500" Height="400"
 		  HorizontalAlignment="Left"
 		  VerticalAlignment="Top"

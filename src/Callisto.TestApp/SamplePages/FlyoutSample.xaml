@@ -7,7 +7,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-	<Grid  x:Name="LayoutRoot" Background="{StaticResource ApplicationPageBackgroundBrush}">
+	<Grid  x:Name="LayoutRoot" Background="{StaticResource ApplicationPageBackgroundThemeBrush}">
 		<StackPanel Margin="100,100,0,0" Width="500" HorizontalAlignment="Left">
 			<TextBlock Text="Menu Position" />
 			<ComboBox x:Name="positioning" 
@@ -21,6 +21,7 @@
 			
 			<Button Margin="20,20,0,0" Content="Show Menu" 
 					Click="ShowFlyoutMenu2" x:Name="middlebutton" />
+            <Button Content="GC" Click="Button_Click_1" />
 
 			<TextBlock Text="App bar menu event log" Margin="0,20,0,0" />
 			<TextBox x:Name="LogOutput" AcceptsReturn="True" Margin="22,0" />
@@ -34,7 +35,8 @@
 					<Button Margin="20,10,0,5" Content="AppBar Left bottom" x:Name="leftbutton" Click="ShowFlyoutMenu" />
 					<Button Style="{StaticResource MailAppBarButtonStyle}" Click="ShowFlyoutMenu"/>
 					<Button Style="{StaticResource PinAppBarButtonStyle}" Click="ShowFlyoutMenu"/>
-					<Button Style="{StaticResource UnPinAppBarButtonStyle}" Click="ShowFlyoutMenu"/>
+					<Button Style="{StaticResource UnpinAppBarButtonStyle}" Click="ShowFlyoutMenu"/>
+                    <Button Style="{StaticResource AddAppBarButtonStyle}" Click="ShowFlyoutMenu3" />
 				</StackPanel>
 				<StackPanel HorizontalAlignment="Right">
 					<Button Margin="0,0,20,0" Style="{StaticResource AddAppBarButtonStyle}" Click="ShowFlyoutMenu3" />
@@ -52,7 +54,7 @@
 				<StackPanel HorizontalAlignment="Right" Orientation="Horizontal">
 					<Button Style="{StaticResource MailAppBarButtonStyle}" Click="ShowFlyoutMenu"/>
 					<Button Style="{StaticResource PinAppBarButtonStyle}" Click="ShowFlyoutMenu"/>
-					<Button Style="{StaticResource UnPinAppBarButtonStyle}" Click="ShowFlyoutMenu"/>
+					<Button Style="{StaticResource UnpinAppBarButtonStyle}" Click="ShowFlyoutMenu"/>
 					<Button Margin="0,0,20,0" Content="AppBar Right top" Click="ShowFlyoutMenu" />
 				</StackPanel>
 			</Grid>

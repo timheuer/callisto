@@ -12,8 +12,7 @@
     <Page.Resources>
         <callisto_converters:RelativeTimeConverter x:Key="RelativeTimeConverter" />
     </Page.Resources>
-    <Grid x:Name="LayoutRoot" Background="{StaticResource ApplicationPageBackgroundBrush}">
-
+    <Grid x:Name="LayoutRoot" Background="{StaticResource ApplicationPageBackgroundThemeBrush}">
         <StackPanel Margin="100,100,0,0" HorizontalAlignment="Left">
             <TextBlock x:Name="DateFormatted" />
             <StackPanel Orientation="Horizontal">

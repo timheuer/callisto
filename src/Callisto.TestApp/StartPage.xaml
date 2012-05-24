@@ -7,8 +7,8 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <Grid Background="{StaticResource ApplicationPageBackgroundBrush}">
-			<TextBlock Text="Select a sample on your right"
+    <Grid Background="{StaticResource ApplicationPageBackgroundThemeBrush}">
+			<TextBlock Text="Select a sample on your left"
 					   VerticalAlignment="Center"
 					   HorizontalAlignment="Center" />
     </Grid>

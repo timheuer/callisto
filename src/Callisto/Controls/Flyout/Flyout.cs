@@ -354,20 +354,7 @@ namespace Callisto.Controls
             _hostPopup.HorizontalOffset = calcH;
             _hostPopup.VerticalOffset = calcY;
             _hostPopup.IsHitTestVisible = true;
-
-            #region Temporary Opactity Workaround
-            // TODO: Remove this workaround when the opacity animation issue is fixed and uncomment next line
-            // _hostPopup.Opacity = 1;
-            Storyboard storyboard = new Storyboard();
-            DoubleAnimation animation = new DoubleAnimation();
-            Storyboard.SetTarget(animation, _hostPopup);
-            Storyboard.SetTargetProperty(animation, "Opacity");
-            animation.Duration = new Duration(TimeSpan.FromMilliseconds(1));
-            animation.From = 0;
-            animation.To = 1;
-            storyboard.Children.Add(animation);
-            storyboard.Begin(); 
-            #endregion Temporary Opacity Workaround
+            _hostPopup.Opacity = 1;
 
             // for entrance animation
             // UX guidelines show a PopIn animation
@@ -482,6 +469,15 @@ namespace Callisto.Controls
         #endregion Methods and Events
 
         #region Dependency Properties
+        public Thickness HostMargin
+        {
+            get { return (Thickness)GetValue(HostMarginProperty); }
+            set { SetValue(HostMarginProperty, value); }
+        }
+
+        public static readonly DependencyProperty HostMarginProperty =
+            DependencyProperty.Register("HostMargin", typeof(Thickness), typeof(Flyout), new PropertyMetadata(0));
+
         public bool IsOpen
         {
             get { return (bool)GetValue(IsOpenProperty); }

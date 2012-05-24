@@ -79,6 +79,7 @@ namespace UIElementLeakTester
             sbStatus.AppendLine("----");
             //long lBytes = GC.GetTotalMemory(true);
             //sbStatus.AppendLine(string.Format("GC.GetTotalMemory(true): {0} Bytes, {1} MB", lBytes.ToString(), (lBytes / 1024 / 1024).ToString()));
+            Debug.WriteLine(sbStatus.ToString());
             Debug.WriteLine("---------------------------------------------------------------------");
 
             if (tbStatus != null)

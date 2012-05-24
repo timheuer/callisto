@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Package xmlns="http://schemas.microsoft.com/appx/2010/manifest">
-  <Identity Name="Callisto.TestApp" Publisher="CN=timheuer" Version="1.0.0.0" />
+  <Identity Name="Callisto.TestApp" Publisher="CN=Callisto" Version="1.0.0.0" />
   <Properties>
-    <DisplayName>XamlControlsUITestApp</DisplayName>
+    <DisplayName>TimHeuer.Callisto</DisplayName>
     <PublisherDisplayName>timheuer</PublisherDisplayName>
     <Logo>Assets\StoreLogo.png</Logo>
     <Description>XamlControlsUITestApp</Description>
@@ -15,9 +15,9 @@
     <Resource Language="x-generate" />
   </Resources>
   <Applications>
-    <Application Id="App" Executable="$targetnametoken$.exe" EntryPoint="XamlControlsUITestApp.App">
-      <VisualElements DisplayName="XamlControlsUITestApp" Logo="Assets\Logo.png" SmallLogo="Assets\SmallLogo.png" Description="XamlControlsUITestApp" ForegroundText="light" BackgroundColor="#222222">
-        <DefaultTile ShowName="allLogos" />
+    <Application Id="App" Executable="$targetnametoken$.exe" EntryPoint="Callisto.App">
+      <VisualElements DisplayName="Callisto Test App" Logo="Assets\Logo.png" SmallLogo="Assets\SmallLogo.png" Description="Test app for the control suite" ForegroundText="light" BackgroundColor="#222222">
+        <DefaultTile ShowName="allLogos" ShortName="Callisto Test App" />
         <SplashScreen Image="Assets\SplashScreen.png" />
       </VisualElements>
     </Application>

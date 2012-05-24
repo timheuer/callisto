@@ -213,7 +213,7 @@ namespace Callisto.Effects
 		/// <param name="sender">sender of the event - this will be the tilt 
 		/// container (eg, entire page).</param>
 		/// <param name="e">Event arguments.</param>
-		private static void TiltEffect_PointerPressed(object sender, PointerEventArgs e)
+		private static void TiltEffect_PointerPressed(object sender, PointerRoutedEventArgs e)
 		{
 			TryStartTiltEffect(sender as FrameworkElement, e);
 		}
@@ -224,7 +224,7 @@ namespace Callisto.Effects
 		/// <param name="sender">sender of the event - this will be the tilting 
 		/// object (eg a button).</param>
 		/// <param name="e">Event arguments.</param>
-		private static void TiltEffect_PointerMoved(object sender, PointerEventArgs e)
+		private static void TiltEffect_PointerMoved(object sender, PointerRoutedEventArgs e)
 		{
 			ContinueTiltEffect(sender as FrameworkElement, e);
 		}
@@ -235,7 +235,7 @@ namespace Callisto.Effects
 		/// <param name="sender">sender of the event - this will be the tilting 
 		/// object (eg a button).</param>
 		/// <param name="e">Event arguments.</param>
-		private static void TiltEffect_PointerReleased(object sender, PointerEventArgs e)
+		private static void TiltEffect_PointerReleased(object sender, PointerRoutedEventArgs e)
 		{
 			EndTiltEffect(currentTiltElement);
 		}
@@ -251,7 +251,7 @@ namespace Callisto.Effects
 		/// <param name="source">The source of the manipulation (the tilt 
 		/// container, eg entire page).</param>
 		/// <param name="e">The args from the ManipulationStarted event.</param>
-		private static void TryStartTiltEffect(FrameworkElement source, PointerEventArgs e)
+		private static void TryStartTiltEffect(FrameworkElement source, PointerRoutedEventArgs e)
 		{
 			FrameworkElement element = source; // VisualTreeHelper.GetChild(ancestor, 0) as FrameworkElement;
 			FrameworkElement container = source;// e.Container as FrameworkElement;
@@ -428,7 +428,7 @@ namespace Callisto.Effects
 		/// </summary>
 		/// <param name="element">The element being tilted.</param>
 		/// <param name="e">The manipulation event args.</param>
-		private static void ContinueTiltEffect(FrameworkElement element, PointerEventArgs e)
+		private static void ContinueTiltEffect(FrameworkElement element, PointerRoutedEventArgs e)
 		{
 			FrameworkElement container = element;
 			if (container == null || element == null)
