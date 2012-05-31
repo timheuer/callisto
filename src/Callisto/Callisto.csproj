@@ -198,7 +198,6 @@
       <SubType>Designer</SubType>
     </PRIResource>
   </ItemGroup>
-  <ItemGroup />
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' ">
     <VisualStudioVersion>11.0</VisualStudioVersion>
   </PropertyGroup>

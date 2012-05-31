@@ -45,7 +45,6 @@ namespace Callisto.TestApp
 			if (Samples == null)
 			{
 				Samples = new List<SamplePage>();
-				Samples.Add(new SamplePage() { Name = "BlankPage", Page = typeof(XamlControlsUITestApp.BlankPage) });
 				Samples.Add(new SamplePage() { Name = "Flyout", Page = typeof(SamplePages.FlyoutSample) });
 				Samples.Add(new SamplePage() { Name = "Settings", Page = typeof(SamplePages.SettingsSample) });
 				Samples.Add(new SamplePage() { Name = "Tilt Effect", Page = typeof(SamplePages.TiltSample) });

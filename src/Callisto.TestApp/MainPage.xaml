@@ -20,8 +20,7 @@
 		</Grid.ColumnDefinitions>
 
 		<Grid Grid.ColumnSpan="2">
-			<Image Source="ms-appx:/Images/Callisto.png"
-				   Stretch="None" Margin="5" PointerPressed="Image_PointerPressed_1" />
+            <TextBlock Text="Callisto Testing Area" FontSize="53" FontWeight="Light" Margin="5" PointerPressed="Image_PointerPressed_1" />
 		</Grid>
 		
 		<ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto">

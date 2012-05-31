@@ -17,14 +17,13 @@ So far Callisto includes:
 * `BooleanToVisibilityConverter` - a converter to well, convert boolean to visibility, very common use
 * `LengthToBooleanConverter` - a converter to examine a string length to convert to boolean (simple validation helper)
 * `RelativeTimeConverter` - a converter to show time as relative string, i.e., 'about an hour ago'
-* Extensions - some extension method helpers
+* Extensions - some extension method helpers (i.e., bind html content to a WebView)
 
 What is in the plan (could always use the help):
 
 * `DatePicker` and `TimePicker` - providing a globalized time/date picker control in Metro style
 * `Ratings` - providing a rating control for Metro style
 * `Pivot` - a UI interface for providing "tabbed" interface in a Metro style way
-* `ThemeSwitcher` - to dynamically switch themes for certain UI components
 
 ## How To Install It?
 There are two ways you can install the control.  
@@ -118,4 +117,3 @@ Some of the code represented in the toolkit is forks/ports of other Open Source 
 
 * [Silverlight Toolkit](http://silverlight.codeplex.com) - for providing the base of many ported concepts/code.  Licensed under Ms-PL
 * [RestSharp](http://restsharp.org) - the OAuth helper file is a fork from the RestSharp project which uses this internally for some authenticators. Licensed under Apache 2.0
-* [Jeff Wilcox](http://www.jeff.wilcox.name) - Jeff's projects have provided a lot of inspiration in what shapes some of the curent "TODO" items (i.e., theme manager) and is a great source for Metro style app development for Windows Phone

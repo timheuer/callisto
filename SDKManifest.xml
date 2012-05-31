@@ -5,9 +5,7 @@
   MinVSVersion="11.0" 
   MinToolsVersion="4.0" 
   CopyRedistToSubDirectory="Callisto"
-  AppliesTo="WindowsAppContainer+WindowsXAML+Managed"
+  AppliesTo="WindowsAppContainer+Managed"
   MoreInfo="http://github.com/timheuer/Callisto">
-  <File Reference="Callisto.dll">
-    <ContainsControls>True</ContainsControls>
-  </File>
+  <File Reference="Callisto.dll" />
 </FileList>

@@ -34,7 +34,6 @@ limitations under the License.-->
             <SolidColorBrush x:Key="SettingsFlyoutHeaderBackgroundBrush">#FF000000</SolidColorBrush>
         </ResourceDictionary>
         <ResourceDictionary x:Key="Light">
-            <!-- Redefining brushes to avoid exceptions -->
             <SolidColorBrush x:Key="FlyoutBorderBrush">#FF212121</SolidColorBrush>
             <SolidColorBrush x:Key="FlyoutBackgroundBrush">#FFFFFFFF</SolidColorBrush>
             <SolidColorBrush x:Key="MenuBorderBrush">#FF212121</SolidColorBrush>
@@ -46,7 +45,6 @@ limitations under the License.-->
             <SolidColorBrush x:Key="MenuItemPressedTextBrush">#FFFFFFFF</SolidColorBrush>
             <SolidColorBrush x:Key="MenuItemHoverTextBrush">#FF000000</SolidColorBrush>
             <SolidColorBrush x:Key="MenuSeparatorStrokeBrush">#FF707070</SolidColorBrush>
-            <!-- End redefinition of Menu/Flyout defaults -->
             <SolidColorBrush x:Key="SettingsFlyoutHeaderBackgroundBrush">LightGray</SolidColorBrush>
         </ResourceDictionary>
         <ResourceDictionary x:Key="HighContrast">
@@ -417,6 +415,7 @@ limitations under the License.-->
         <Setter Property="Background" Value="{StaticResource ApplicationPageBackgroundThemeBrush}" />
         <Setter Property="HeaderBrush" Value="{StaticResource SettingsFlyoutHeaderBackgroundBrush}" />
         <Setter Property="HeaderText" Value="{StaticResource SettingsFlyoutHeaderTextDefault}" />
+        <Setter Property="MaxWidth" Value="646" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="local:SettingsFlyout">
@@ -435,7 +434,7 @@ limitations under the License.-->
 
                                     <Grid.Transitions>
                                         <TransitionCollection>
-                                            <EntranceThemeTransition FromHorizontalOffset="50" />
+                                            <EntranceThemeTransition FromHorizontalOffset="100" />
                                         </TransitionCollection>
                                     </Grid.Transitions>
 
@@ -459,7 +458,7 @@ limitations under the License.-->
                             <Grid Grid.Row="1" Margin="33,22,40,0" VerticalAlignment="Top" HorizontalAlignment="Left">
                                 <Grid.Transitions>
                                     <TransitionCollection>
-                                        <EntranceThemeTransition FromHorizontalOffset="170" />
+                                        <EntranceThemeTransition FromHorizontalOffset="150" />
                                     </TransitionCollection>
                                 </Grid.Transitions>
                                 <ContentPresenter Content="{TemplateBinding Content}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
@@ -472,62 +471,34 @@ limitations under the License.-->
         </Setter>
     </Style>
 
-    <!--<Style TargetType="local:DatePicker">
-        <Setter Property="Template">
-            <Setter.Value>
-                <ControlTemplate TargetType="local:DatePicker">
-                    <StackPanel Orientation="Horizontal">
-                        <ComboBox x:Name="PrimarySelector" MinWidth="80" Margin="0,0,20,0" />
-                        <ComboBox x:Name="SecondarySelector" MinWidth="80" Margin="0,0,20,0" />
-                        <ComboBox x:Name="TertiarySelector" MinWidth="80" Margin="0" />
-                    </StackPanel>
-                </ControlTemplate>
-            </Setter.Value>
-        </Setter>
+    <Style TargetType="local:LiveTile">
+      <Setter Property="Template">
+        <Setter.Value>
+          <ControlTemplate TargetType="local:LiveTile">
+            <Grid  Background="{TemplateBinding Background}">
+              <Canvas x:Name="Scroller" DataContext="{x:Null}">
+                <StackPanel x:Name="Stack">
+                  <StackPanel.RenderTransform>
+                    <TranslateTransform x:Name="Translate" Y="0" />
+                  </StackPanel.RenderTransform>
+                  <ContentPresenter x:Name="Current"
+                                                      DataContext="{x:Null}"
+                                                      Content="{Binding}" 
+                                                      ContentTemplate="{TemplateBinding ItemTemplate}" />
+                  <ContentPresenter  x:Name="Next" 
+                                                      DataContext="{x:Null}"
+                                                      Content="{Binding}" 
+                                                      ContentTemplate="{TemplateBinding ItemTemplate}" />
+                </StackPanel>
+              </Canvas>
+              <Border
+                              BorderBrush="{TemplateBinding BorderBrush}"
+                              BorderThickness="{TemplateBinding BorderThickness}">
+              </Border>
+            </Grid>
+          </ControlTemplate>
+        </Setter.Value>
+      </Setter>
     </Style>
-
-    <Style TargetType="local:TimePicker">
-        <Setter Property="Template">
-            <Setter.Value>
-                <ControlTemplate TargetType="local:TimePicker">
-                    <StackPanel Orientation="Horizontal">
-                        <ComboBox x:Name="PrimarySelector" MinWidth="80" Margin="0,0,20,0" />
-                        <ComboBox x:Name="SecondarySelector" MinWidth="80" Margin="0,0,20,0" />
-                        <ComboBox x:Name="TertiarySelector" MinWidth="80" Margin="0" />
-                    </StackPanel>
-                </ControlTemplate>
-            </Setter.Value>
-        </Setter>
-    </Style>-->
-
-	<Style TargetType="local:LiveTile">
-		<Setter Property="Template">
-			<Setter.Value>
-				<ControlTemplate TargetType="local:LiveTile">
-					<Grid  Background="{TemplateBinding Background}">
-						<Canvas x:Name="Scroller" DataContext="{x:Null}">
-							<StackPanel x:Name="Stack">
-								<StackPanel.RenderTransform>
-									<TranslateTransform x:Name="Translate" Y="0" />
-								</StackPanel.RenderTransform>
-								<ContentPresenter x:Name="Current"
-                                                    DataContext="{x:Null}"
-                                                    Content="{Binding}" 
-                                                    ContentTemplate="{TemplateBinding ItemTemplate}" />
-								<ContentPresenter  x:Name="Next" 
-                                                    DataContext="{x:Null}"
-                                                    Content="{Binding}" 
-                                                    ContentTemplate="{TemplateBinding ItemTemplate}" />
-							</StackPanel>
-						</Canvas>
-						<Border
-                            BorderBrush="{TemplateBinding BorderBrush}"
-                            BorderThickness="{TemplateBinding BorderThickness}">
-						</Border>
-					</Grid>
-				</ControlTemplate>
-			</Setter.Value>
-		</Setter>
-	</Style>
     
 </ResourceDictionary>

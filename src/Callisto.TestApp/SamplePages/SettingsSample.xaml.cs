@@ -54,17 +54,26 @@ namespace Callisto.TestApp.SamplePages
 			{
 				SettingsFlyout settings = new SettingsFlyout();
 				settings.FlyoutWidth = (Callisto.Controls.SettingsFlyout.SettingsFlyoutWidth)Enum.Parse(typeof(Callisto.Controls.SettingsFlyout.SettingsFlyoutWidth), settingswidth.SelectionBoxItem.ToString());
-				//settings.HeaderBrush = new SolidColorBrush(Colors.Orange);
+                //settings.HeaderBrush = new SolidColorBrush(Colors.Orange);
+                //settings.Background = new SolidColorBrush(Colors.White);
 				settings.HeaderText = "Foo Bar Custom Settings";
 
                 BitmapImage bmp = new BitmapImage(new Uri("ms-appx:///Assets/SmallLogo.png"));
 
                 settings.SmallLogoImageSource = bmp;
 
+                StackPanel sp = new StackPanel();
+
 				ToggleSwitch ts = new ToggleSwitch();
 				ts.Header = "Download updates automatically";
 
-				settings.Content = ts;
+                Button b = new Button();
+                b.Content = "Test";
+
+                sp.Children.Add(ts);
+                sp.Children.Add(b);
+
+				settings.Content = sp;
 
 				settings.IsOpen = true;
 
