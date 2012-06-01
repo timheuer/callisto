@@ -29,14 +29,10 @@ What is in the plan (could always use the help):
 There are two ways you can install the control.  
 
 ### Visual Studio Extension SDK
-If you download the ZIP file it is formatted as an "Extension SDK" for Visual Studio 2011.  You would extract the contents of this ZIP file to:
-
-	%ProgramFiles%\Microsoft SDKs\Windows\v8.0\ExtensionSDKs
-
-Once placed there, the control will be available for all projects on your machine via the Add Reference dialog in Visual Studio under the Windows\Extensions category.
+Install as an Extension SDK via the Visual Studio Gallery - available within VS as well as [downloading from the gallery directly](http://visualstudiogallery.msdn.microsoft.com/0526563b-7a48-4b17-a087-a35cea701052)
 
 ### NuGet
-You can get the control via [NuGet](http://www.nuget.org) if you have the extension installed for Visual Studio or via the PowerShell package manager.  This control is published via NuGet at [Callisto](http://timheuer.com/).
+You can get the control via [NuGet](http://www.nuget.org) if you have the extension installed for Visual Studio or via the PowerShell package manager.  This control is published via NuGet at [Callisto](https://nuget.org/packages/Callisto).
 
 ## How To Use It?
 To use the controls you simply create an instance of them (we will use an example here) like `Flyout` and tell it what content goes in it and where it should go:

@@ -484,7 +484,7 @@ namespace Callisto.Controls
             set { SetValue(IsOpenProperty, value); }
         }
         public static readonly DependencyProperty IsOpenProperty =
-            DependencyProperty.Register("IsOpen", typeof(bool), typeof(Menu), new PropertyMetadata(false, (obj, args) =>
+            DependencyProperty.Register("IsOpen", typeof(bool), typeof(Flyout), new PropertyMetadata(false, (obj, args) =>
             {
                 if (args.NewValue != args.OldValue)
                 {
@@ -500,7 +500,7 @@ namespace Callisto.Controls
         }
 
         public static readonly DependencyProperty PlacementTargetProperty =
-            DependencyProperty.Register("PlacementTarget", typeof(UIElement), typeof(Menu), null);
+            DependencyProperty.Register("PlacementTarget", typeof(UIElement), typeof(Flyout), null);
 
         public Windows.UI.Xaml.Controls.Primitives.PlacementMode Placement
         {
@@ -509,7 +509,7 @@ namespace Callisto.Controls
         }
 
         public static readonly DependencyProperty PlacementProperty =
-            DependencyProperty.Register("Placement", typeof(Windows.UI.Xaml.Controls.Primitives.PlacementMode), typeof(Menu), null);
+            DependencyProperty.Register("Placement", typeof(Windows.UI.Xaml.Controls.Primitives.PlacementMode), typeof(Flyout), null);
 
         public double HorizontalOffset
         {
@@ -518,7 +518,7 @@ namespace Callisto.Controls
         }
 
         public static readonly DependencyProperty HorizontalOffsetProperty =
-            DependencyProperty.Register("HorizontalOffset", typeof(double), typeof(Menu), new PropertyMetadata(0.0));
+            DependencyProperty.Register("HorizontalOffset", typeof(double), typeof(Flyout), new PropertyMetadata(0.0));
 
         public double VerticalOffset
         {
@@ -527,7 +527,7 @@ namespace Callisto.Controls
         }
 
         public static readonly DependencyProperty VerticalOffsetProperty =
-            DependencyProperty.Register("VerticalOffset", typeof(double), typeof(Menu), new PropertyMetadata(0.0));
+            DependencyProperty.Register("VerticalOffset", typeof(double), typeof(Flyout), new PropertyMetadata(0.0));
         #endregion Dependency Properties
     }
 }
