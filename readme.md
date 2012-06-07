@@ -11,6 +11,7 @@ So far Callisto includes:
 * `Menu` - primarily to be used from AppBar, contains the base for providing, well, a Menu
 * `MenuItem` - an item for a menu, including separators and contains the command point for the menu item
 * `SettingsFlyout` - an item to create a custom settings pane UI
+* `Rating` - a ratings control for Metro UI
 * `LiveTile` - an in-app tile experience to give you animated or 'live' tiles
 * `Tilt` - an effect to provide the tilt experience when clicked on edges/corners
 * OAuth helpers - a set of helpers to create OAuth 1.0 signatures/headers for those sites that hate OAuth 2.0 :-)
