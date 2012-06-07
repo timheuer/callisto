@@ -7,5 +7,7 @@
   CopyRedistToSubDirectory="Callisto"
   AppliesTo="WindowsAppContainer+Managed"
   MoreInfo="http://github.com/timheuer/Callisto">
-  <File Reference="Callisto.dll" />
+  <File Reference="Callisto.dll">
+	<ToolboxItems VSCategory="Callisto" BlendCategory="Callisto" />
+  </File>
 </FileList>
