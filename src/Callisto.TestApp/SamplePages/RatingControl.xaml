@@ -1,0 +1,24 @@
+﻿<Page
+    x:Class="Callisto.TestApp.SamplePages.RatingControl"
+    IsTabStop="false"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Callisto.TestApp.SamplePages"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:callisto="using:Callisto.Controls"
+    mc:Ignorable="d">
+
+    <Grid Background="{StaticResource ApplicationPageBackgroundThemeBrush}">
+        <StackPanel Margin="100,100,0,0" HorizontalAlignment="Left">
+            <callisto:Rating x:Name="rate" ItemCount="5" Value=".5" Tapped="rate_Tapped_1" />
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Rating Value: " Margin="0,0,2,0"/>
+                <TextBlock Text="{Binding ElementName=rate, Path=Value}" />
+                
+            </StackPanel>
+            <Slider HorizontalAlignment="Left" Minimum="0" Maximum="1" StepFrequency=".01" SmallChange=".1" LargeChange=".1" Value="{Binding ElementName=rate, Path=Value, Mode=TwoWay}" Width="200" />
+            <TextBlock x:Name="EventOutput" />
+        </StackPanel>
+    </Grid>
+</Page>
