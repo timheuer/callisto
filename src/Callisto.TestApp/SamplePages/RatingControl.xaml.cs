@@ -36,10 +36,14 @@ namespace Callisto.TestApp.SamplePages
         {
         }
 
-        private void rate_Tapped_1(object sender, TappedRoutedEventArgs e)
+        private void rate_ValueChanged_1(object sender, ValueChangedEventArgs<double> e)
         {
             Rating r = sender as Rating;
-            EventOutput.Text = string.Format("You selected '{0}'", r.Value);
+            if (EventOutput != null)
+            {
+                EventOutput.Text = string.Format("You selected '{0}'", e.NewValue.ToString());
+                EventOutput.Text += string.Format("\nOld Value: {0}, New Value: {1}", e.OldValue.ToString(), e.NewValue.ToString());
+            }
         }
     }
 }

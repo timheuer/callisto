@@ -277,11 +277,12 @@ namespace Callisto.Controls
         protected virtual void OnValueChanged(double oldValue, double newValue)
         {
             UpdateValues();
-            //RoutedPropertyChangedEventHandler<double> handler = ValueChanged;
-            //if (handler != null)
-            //{
-            //    handler(this, new RoutedPropertyChangedEventArgs<double?>(oldValue, newValue));
-            //}
+
+            ValueChangedEventHandler<double> handler = ValueChanged;
+            if (handler != null)
+            {
+                handler(this, new ValueChangedEventArgs<double>(oldValue, newValue));
+            }
         }
 
         /// <summary>
@@ -309,6 +310,7 @@ namespace Callisto.Controls
         /// This event is raised when the value of the rating is changed.
         /// </summary>
         //public event RoutedPropertyChangedEventHandler<double> ValueChanged;
+        public event ValueChangedEventHandler<double> ValueChanged;
 
         #endregion public double Value
 
