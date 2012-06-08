@@ -17,7 +17,8 @@ limitations under the License.-->
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:Callisto.Controls"
-    xmlns:primitives="using:Callisto.Controls.Primitives">
+    xmlns:primitives="using:Callisto.Controls.Primitives"
+    xmlns:converters="using:Callisto.Converters">
 
     <ResourceDictionary.ThemeDictionaries>
         <ResourceDictionary x:Key="Default">
@@ -39,9 +40,6 @@ limitations under the License.-->
             <SolidColorBrush x:Key="RatingItemBackgroundThemeBrush">#59FFFFFF</SolidColorBrush>
             <SolidColorBrush x:Key="RatingItemDisabledForegroundThemeBrush">#FFFFFFFF</SolidColorBrush>
             <SolidColorBrush x:Key="RatingItemBorderThemeBrush">Transparent</SolidColorBrush>
-            <Thickness x:Key="RatingItemBorderThemeThickness">0.0</Thickness>
-            <Color x:Key="RatingItemPointerOverThemeColor">#FF724BCD</Color>
-            <Color x:Key="RatingItemPointerPressedThemeColor">#FF8152EF</Color>
         </ResourceDictionary>
         <ResourceDictionary x:Key="Light">
             <SolidColorBrush x:Key="FlyoutBorderBrush">#FF212121</SolidColorBrush>
@@ -62,9 +60,6 @@ limitations under the License.-->
             <SolidColorBrush x:Key="RatingItemBackgroundThemeBrush">#59000000</SolidColorBrush>
             <SolidColorBrush x:Key="RatingItemDisabledForegroundThemeBrush">#FF000000</SolidColorBrush>
             <SolidColorBrush x:Key="RatingItemBorderThemeBrush">Transparent</SolidColorBrush>
-            <Thickness x:Key="RatingItemBorderThemeThickness">0.0</Thickness>
-            <Color x:Key="RatingItemPointerOverThemeColor">#FF5F37BE</Color>
-            <Color x:Key="RatingItemPointerPressedThemeColor">#FF7241E4</Color>
         </ResourceDictionary>
         <ResourceDictionary x:Key="HighContrast">
             <SolidColorBrush x:Key="FlyoutBorderBrush" Color="{StaticResource SystemColorButtonTextColor}" />
@@ -85,11 +80,10 @@ limitations under the License.-->
             <SolidColorBrush x:Key="RatingItemBackgroundThemeBrush" Color="{StaticResource SystemColorButtonFaceColor}" />
             <SolidColorBrush x:Key="RatingItemDisabledForegroundThemeBrush" Color="{StaticResource SystemColorButtonFaceColor}" />
             <SolidColorBrush x:Key="RatingItemBorderThemeBrush" Color="{StaticResource SystemColorButtonTextColor}" />
-            <Thickness x:Key="RatingItemBorderThemeThickness">1.0</Thickness>
-            <!-- TODO: Need Colors for HC mode to match system resources -->
         </ResourceDictionary>
     </ResourceDictionary.ThemeDictionaries>
     
+    <converters:BrushToColorConverter x:Key="BrushToColor" />
     <x:String x:Key="SettingsFlyoutHeaderTextDefault">Application Setting</x:String>
 
     <Style x:Key="ToggleMenuItemCheckBox" TargetType="CheckBox">
@@ -555,7 +549,7 @@ limitations under the License.-->
                                 <VisualState x:Name="PointerPressed">
                                     <Storyboard>
                                         <ColorAnimationUsingKeyFrames Storyboard.TargetName="PointerPressedRatingItem" Storyboard.TargetProperty="(Foreground).(SolidColorBrush.Color)">
-                                            <EasingColorKeyFrame KeyTime="00:00:00" Value="{StaticResource RatingItemPointerPressedThemeColor}"/>
+                                            <EasingColorKeyFrame KeyTime="00:00:00" Value="{Binding Converter={StaticResource BrushToColor}, ConverterParameter={StaticResource RatingItemPointerPressedThemeBrush}}"/>
                                         </ColorAnimationUsingKeyFrames>
                                     </Storyboard>
                                 </VisualState>
@@ -580,7 +574,6 @@ limitations under the License.-->
                                 <VisualState x:Name="Filled"/>
                             </VisualStateGroup>
                         </VisualStateManager.VisualStateGroups>
-                        <Border Background="{StaticResource RatingItemBorderThemeBrush}" BorderThickness="{StaticResource RatingItemBorderThemeThickness}"/>
                         <TextBlock x:Name="DefaultRatingItem" Text="{TemplateBinding Tag}" Foreground="{StaticResource RatingItemBackgroundThemeBrush}"  FontFamily="{TemplateBinding FontFamily}" FontSize="{TemplateBinding FontSize}" />
                         <primitives:LinearClipper RatioVisible="{TemplateBinding DisplayValue}" ExpandDirection="Right">
                             <TextBlock Text="{TemplateBinding Tag}" FontFamily="{TemplateBinding FontFamily}" FontSize="{TemplateBinding FontSize}" Foreground="{TemplateBinding Foreground}" />

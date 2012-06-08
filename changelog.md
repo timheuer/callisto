@@ -1,5 +1,8 @@
 # Changelog
 
+## 1.0.4
+* Fixed #39: Getting HighContrast mode not to crash on RatingItem
+
 ## 1.0.3
 * Fixed some bugs on Rating control needed for customers
 
