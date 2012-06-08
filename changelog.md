@@ -1,5 +1,8 @@
 # Changelog
 
+## 1.0.3
+* Fixed some bugs on Rating control needed for customers
+
 ## 1.0.2
 * Added Rating control
 
