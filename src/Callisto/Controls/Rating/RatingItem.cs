@@ -155,6 +155,34 @@ namespace Callisto.Controls
         }
         #endregion public double DisplayValue
 
+        #region PointerOverFill
+        /// <summary>
+        /// Sets the PointerOver brush color
+        /// </summary>
+        public SolidColorBrush PointerOverFill
+        {
+            get { return (SolidColorBrush)GetValue(PointerOverFillProperty); }
+            set { SetValue(PointerOverFillProperty, value); }
+        }
+
+        public static readonly DependencyProperty PointerOverFillProperty =
+            DependencyProperty.Register("PointerOverFill", typeof(SolidColorBrush), typeof(RatingItem), null); 
+        #endregion PointerOverFill
+
+        #region PointerPressedFill
+        /// <summary>
+        /// Sets the PointerPressed brush color
+        /// </summary>
+        public SolidColorBrush PointerPressedFill
+        {
+            get { return (SolidColorBrush)GetValue(PointerPressedFillProperty); }
+            set { SetValue(PointerPressedFillProperty, value); }
+        }
+
+        public static readonly DependencyProperty PointerPressedFillProperty =
+            DependencyProperty.Register("PointerPressedFill", typeof(SolidColorBrush), typeof(RatingItem), null);
+        #endregion
+
         /// <summary>
         /// Gets or sets the parent rating of this rating item.
         /// </summary>

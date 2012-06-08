@@ -235,7 +235,7 @@ namespace Callisto.Controls
         }
         #endregion public RatingSelectionMode SelectionMode
 
-        #region public double? Value
+        #region public double Value
         /// <summary>
         /// Gets or sets the rating value.
         /// </summary>
@@ -314,6 +314,27 @@ namespace Callisto.Controls
 
         #endregion public double Value
 
+        #region PointerPressedFill
+        public SolidColorBrush PointerPressedFill
+        {
+            get { return (SolidColorBrush)GetValue(PointerPressedFillProperty); }
+            set { SetValue(PointerPressedFillProperty, value); }
+        }
+
+        public static readonly DependencyProperty PointerPressedFillProperty =
+            DependencyProperty.Register("PointerPressedFill", typeof(SolidColorBrush), typeof(Rating), null);
+        #endregion PoitnerPressedFill
+
+        #region PointerOverFill
+        public SolidColorBrush PointerOverFill
+        {
+            get { return (SolidColorBrush)GetValue(PointerOverFillProperty); }
+            set { SetValue(PointerOverFillProperty, value); }
+        }
+
+        public static readonly DependencyProperty PointerOverFillProperty =
+            DependencyProperty.Register("PointerOverFill", typeof(SolidColorBrush), typeof(Rating), null);
+        #endregion PointerOverFill
         /// <summary>
         /// Initializes a new instance of the Rating control.
         /// </summary>
@@ -529,8 +550,11 @@ namespace Callisto.Controls
             object defaultForegroundValue = ratingItem.ReadLocalValue(Control.ForegroundProperty);
             if (defaultForegroundValue == DependencyProperty.UnsetValue)
             {
-                //ratingItem.SetBinding(Control.ForegroundProperty, new Binding("Foreground") { Source = this });
                 ratingItem.SetBinding(Control.ForegroundProperty, new Binding() { Path = new PropertyPath("Foreground"), Source = this });
+                ratingItem.SetBinding(RatingItem.PointerOverFillProperty, new Binding() { Path = new PropertyPath("PointerOverFill"), Source = this });
+                ratingItem.SetBinding(RatingItem.PointerPressedFillProperty, new Binding() { Path = new PropertyPath("PointerPressedFill"), Source = this });
+                ratingItem.SetBinding(RatingItem.FontSizeProperty, new Binding() { Path = new PropertyPath("FontSize"), Source = this });
+                ratingItem.SetBinding(RatingItem.TagProperty, new Binding() { Path = new PropertyPath("Tag"), Source = this });
             }
 
             ratingItem.IsEnabled = this.IsEnabled;

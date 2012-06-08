@@ -446,7 +446,7 @@ limitations under the License.-->
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="local:SettingsFlyout">
-                    <Border BorderBrush="Black" BorderThickness="1,0,0,0" VerticalAlignment="Stretch">
+                    <Border BorderBrush="{TemplateBinding HeaderBrush}" BorderThickness="1,0,0,0" VerticalAlignment="Stretch">
                         <Grid Background="{TemplateBinding Background}" VerticalAlignment="Stretch" >
                             <!-- Root grid definition -->
                             <Grid.RowDefinitions>
@@ -532,6 +532,7 @@ limitations under the License.-->
     <Style TargetType="local:RatingItem">
         <Setter Property="BorderBrush" Value="{StaticResource RatingItemBorderThemeBrush}"/>
         <Setter Property="Background" Value="{StaticResource ApplicationPageBackgroundThemeBrush}" />
+        <Setter Property="FontFamily" Value="Segoe UI Symbol" />
         <Setter Property="Margin" Value="6,0,6,0" />
         <Setter Property="Template">
             <Setter.Value>
@@ -543,64 +544,52 @@ limitations under the License.-->
                         </Grid.RowDefinitions>
                         <VisualStateManager.VisualStateGroups>
                             <VisualStateGroup x:Name="CommonStates">
-                                <VisualStateGroup.Transitions>
-                                    <VisualTransition GeneratedDuration="00:00:00.2000000"/>
-                                    <VisualTransition From="PointerOver" GeneratedDuration="00:00:00.2000000" To="Normal"/>
-                                </VisualStateGroup.Transitions>
                                 <VisualState x:Name="Normal"/>
                                 <VisualState x:Name="PointerOver">
                                     <Storyboard>
-                                        <DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Duration="00:00:00.0010000" Storyboard.TargetName="MouseOverRatingItem" Storyboard.TargetProperty="(UIElement.Opacity)">
+                                        <DoubleAnimationUsingKeyFrames Storyboard.TargetName="PointerOverRatingItem" Storyboard.TargetProperty="(UIElement.Opacity)">
                                             <SplineDoubleKeyFrame KeyTime="00:00:00" Value="1"/>
                                         </DoubleAnimationUsingKeyFrames>
                                     </Storyboard>
                                 </VisualState>
                                 <VisualState x:Name="PointerPressed">
                                     <Storyboard>
-                                        <ColorAnimationUsingKeyFrames BeginTime="00:00:00" Duration="00:00:00.0010000" Storyboard.TargetName="PressedRatingItem" Storyboard.TargetProperty="(Foreground).(SolidColorBrush.Color)">
+                                        <ColorAnimationUsingKeyFrames Storyboard.TargetName="PointerPressedRatingItem" Storyboard.TargetProperty="(Foreground).(SolidColorBrush.Color)">
                                             <EasingColorKeyFrame KeyTime="00:00:00" Value="{StaticResource RatingItemPointerPressedThemeColor}"/>
                                         </ColorAnimationUsingKeyFrames>
                                     </Storyboard>
                                 </VisualState>
                                 <VisualState x:Name="Disabled">
                                     <Storyboard>
-                                        <DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Duration="00:00:00.0010000" Storyboard.TargetName="DisabledRatingItem" Storyboard.TargetProperty="(UIElement.Opacity)">
+                                        <DoubleAnimationUsingKeyFrames Storyboard.TargetName="DisabledRatingItem" Storyboard.TargetProperty="(UIElement.Opacity)">
                                             <EasingDoubleKeyFrame KeyTime="00:00:00" Value="1"/>
                                         </DoubleAnimationUsingKeyFrames>
-                                        <DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Duration="00:00:00.0010000" Storyboard.TargetName="DisabledRatingItemBackground" Storyboard.TargetProperty="(UIElement.Opacity)">
+                                        <DoubleAnimationUsingKeyFrames Storyboard.TargetName="DisabledRatingItemBackground" Storyboard.TargetProperty="(UIElement.Opacity)">
                                             <EasingDoubleKeyFrame KeyTime="00:00:00" Value="1"/>
                                         </DoubleAnimationUsingKeyFrames>
                                     </Storyboard>
                                 </VisualState>
                             </VisualStateGroup>
                             <VisualStateGroup x:Name="FocusStates">
-                                <VisualStateGroup.Transitions>
-                                    <VisualTransition GeneratedDuration="00:00:00.1000000"/>
-                                </VisualStateGroup.Transitions>
-                                <VisualState x:Name="Focused">
-                                    <Storyboard/>
-                                </VisualState>
+                                <VisualState x:Name="Focused" />
                                 <VisualState x:Name="Unfocused"/>
                             </VisualStateGroup>
                             <VisualStateGroup x:Name="FillStates">
-                                <VisualStateGroup.Transitions>
-                                    <VisualTransition GeneratedDuration="00:00:00.1000000"/>
-                                </VisualStateGroup.Transitions>
                                 <VisualState x:Name="Empty"/>
                                 <VisualState x:Name="Partial"/>
                                 <VisualState x:Name="Filled"/>
                             </VisualStateGroup>
                         </VisualStateManager.VisualStateGroups>
                         <Border Background="{StaticResource RatingItemBorderThemeBrush}" BorderThickness="{StaticResource RatingItemBorderThemeThickness}"/>
-                        <TextBlock x:Name="DefaultRatingItem" Text="&#xE082;" Foreground="{StaticResource RatingItemBackgroundThemeBrush}"  FontFamily="Segoe UI Symbol" FontSize="28" />
+                        <TextBlock x:Name="DefaultRatingItem" Text="{TemplateBinding Tag}" Foreground="{StaticResource RatingItemBackgroundThemeBrush}"  FontFamily="{TemplateBinding FontFamily}" FontSize="{TemplateBinding FontSize}" />
                         <primitives:LinearClipper RatioVisible="{TemplateBinding DisplayValue}" ExpandDirection="Right">
-                            <TextBlock Text="&#xE082;" Foreground="{StaticResource RatingItemForegroundThemeBrush}"  FontFamily="Segoe UI Symbol" FontSize="28" />
+                            <TextBlock Text="{TemplateBinding Tag}" FontFamily="{TemplateBinding FontFamily}" FontSize="{TemplateBinding FontSize}" Foreground="{TemplateBinding Foreground}" />
                         </primitives:LinearClipper>
-                        <TextBlock x:Name="MouseOverRatingItem" Opacity="0" Text="&#xE082;" Foreground="{StaticResource RatingItemPointerOverThemeBrush}"  FontFamily="Segoe UI Symbol" FontSize="28" />
-                        <TextBlock x:Name="PressedRatingItem" Opacity="0" Text="&#xE082;" Foreground="{StaticResource RatingItemPointerOverThemeBrush}"  FontFamily="Segoe UI Symbol" FontSize="28" />
-                        <Path x:Name="DisabledRatingItemBackground" Stretch="Fill" Stroke="{x:Null}" StrokeLineJoin="Round" VerticalAlignment="Stretch" UseLayoutRounding="False" Data="M15,0 L18.6,11.373603 L30,11.459046 L20.824955,18.573566 L24.270519,30 L15,23.023449 L5.7294912,30 L9.1750822,18.573566 L0,11.459046 L11.399999,11.373603 z" Fill="Gainsboro" Opacity="0"/>
+                        <TextBlock x:Name="PointerOverRatingItem" Opacity="0" Text="{TemplateBinding Tag}" Foreground="{TemplateBinding PointerOverFill}" FontFamily="{TemplateBinding FontFamily}" FontSize="{TemplateBinding FontSize}" />
+                        <TextBlock x:Name="PointerPressedRatingItem" Opacity="0" Text="{TemplateBinding Tag}" Foreground="{TemplateBinding PointerPressedFill}" FontFamily="{TemplateBinding FontFamily}" FontSize="{TemplateBinding FontSize}" />
+                        <TextBlock x:Name="DisabledRatingItemBackground" Text="{TemplateBinding Tag}" Foreground="{StaticResource RatingItemBackgroundThemeBrush}" FontFamily="{TemplateBinding FontFamily}" FontSize="{TemplateBinding FontSize}" Opacity="0" />
                         <primitives:LinearClipper x:Name="DisabledRatingItem" RatioVisible="{TemplateBinding DisplayValue}" ExpandDirection="Right" Opacity="0">
-                            <TextBlock Text="&#xE082;" Foreground="{StaticResource RatingItemForegroundThemeBrush}"  FontFamily="Segoe UI Symbol" FontSize="28" />
+                            <TextBlock Text="{TemplateBinding Tag}" Foreground="{StaticResource RatingItemDisabledForegroundThemeBrush}" FontFamily="{TemplateBinding FontFamily}" FontSize="{TemplateBinding FontSize}" />
                         </primitives:LinearClipper>
                         <ContentPresenter x:Name="Content" HorizontalAlignment="Left" Margin="{TemplateBinding Padding}" ContentTemplate="{TemplateBinding ContentTemplate}" Grid.RowSpan="2" Grid.Row="1"/>
                     </Grid>
@@ -611,7 +600,12 @@ limitations under the License.-->
 
     <Style TargetType="local:Rating">
         <Setter Property="Background" Value="{StaticResource ApplicationPageBackgroundThemeBrush}"/>
+        <Setter Property="Foreground" Value="{StaticResource RatingItemForegroundThemeBrush}" />
+        <Setter Property="PointerOverFill" Value="{StaticResource RatingItemPointerOverThemeBrush}" />
+        <Setter Property="PointerPressedFill" Value="{StaticResource RatingItemPointerPressedThemeBrush}" />
         <Setter Property="BorderThickness" Value="0"/>
+        <Setter Property="FontSize" Value="28" />
+        <Setter Property="Tag" Value="&#xE082;" />
         <Setter Property="ItemsPanel">
             <Setter.Value>
                 <ItemsPanelTemplate>
