@@ -246,6 +246,8 @@ namespace Callisto.Controls
             set { SetValue(ValueProperty, value); }
         }
 
+        public double WeightedValue { get; private set; }
+
         /// <summary>
         /// Identifies the Value dependency property.
         /// </summary>
@@ -276,6 +278,8 @@ namespace Callisto.Controls
         /// <param name="newValue">New value.</param>        
         protected virtual void OnValueChanged(double oldValue, double newValue)
         {
+            WeightedValue = newValue / ItemCount;
+
             UpdateValues();
 
             ValueChangedEventHandler<double> handler = ValueChanged;
@@ -423,19 +427,19 @@ namespace Callisto.Controls
                         ratingItems,
                         ratingItems
                             .Select(ratingItem => 1.0)
-                            .GetWeightedValues(Value),
+                            .GetWeightedValues(WeightedValue),
                         (item, percent) => Tuple.Create(item, percent));
 
             foreach (Tuple<RatingItem, double> itemAndWeight in itemAndWeights)
             {
-                itemAndWeight.Item1.Value = itemAndWeight.Item2;
+                itemAndWeight.Item1.Value =  itemAndWeight.Item2;
             }
 
             RatingItem newSelectedItem = this.GetSelectedRatingItem();
 
             if (HoveredRatingItem == null)
             {
-                DisplayValue = Value;
+                DisplayValue = WeightedValue;
             }
         }
 
@@ -452,7 +456,7 @@ namespace Callisto.Controls
                         ratingItems,
                         ratingItems
                             .Select(ratingItem => 1.0)
-                            .GetWeightedValues(DisplayValue),
+                            .GetWeightedValues(WeightedValue),
                         (item, percent) => Tuple.Create(item, percent));
 
             RatingItem selectedItem = null;
@@ -547,15 +551,19 @@ namespace Callisto.Controls
         protected override void PrepareContainerForItemOverride(DependencyObject element, object item)
         {
             RatingItem ratingItem = (RatingItem)element;
-            object defaultForegroundValue = ratingItem.ReadLocalValue(Control.ForegroundProperty);
-            if (defaultForegroundValue == DependencyProperty.UnsetValue)
+
+            var index = ItemContainerGenerator.IndexFromContainer(element);
+
+            if (index > -1)
             {
-                ratingItem.SetBinding(Control.ForegroundProperty, new Binding() { Path = new PropertyPath("Foreground"), Source = this });
-                ratingItem.SetBinding(RatingItem.PointerOverFillProperty, new Binding() { Path = new PropertyPath("PointerOverFill"), Source = this });
-                ratingItem.SetBinding(RatingItem.PointerPressedFillProperty, new Binding() { Path = new PropertyPath("PointerPressedFill"), Source = this });
-                ratingItem.SetBinding(RatingItem.FontSizeProperty, new Binding() { Path = new PropertyPath("FontSize"), Source = this });
-                ratingItem.SetBinding(RatingItem.TagProperty, new Binding() { Path = new PropertyPath("Tag"), Source = this });
+                ToolTipService.SetToolTip(ratingItem, ((index+1).ToString()));
             }
+            
+            ratingItem.SetBinding(Control.ForegroundProperty, new Binding() { Path = new PropertyPath("Foreground"), Source = this });
+            ratingItem.SetBinding(RatingItem.PointerOverFillProperty, new Binding() { Path = new PropertyPath("PointerOverFill"), Source = this });
+            ratingItem.SetBinding(RatingItem.PointerPressedFillProperty, new Binding() { Path = new PropertyPath("PointerPressedFill"), Source = this });
+            ratingItem.SetBinding(RatingItem.FontSizeProperty, new Binding() { Path = new PropertyPath("FontSize"), Source = this });
+            ratingItem.SetBinding(RatingItem.TagProperty, new Binding() { Path = new PropertyPath("Tag"), Source = this });
 
             ratingItem.IsEnabled = this.IsEnabled;
             if (ratingItem.Style == null)
@@ -683,13 +691,7 @@ namespace Callisto.Controls
         {
             List<RatingItem> ratingItems = GetRatingItems().ToList();
             double total = ratingItems.Count();
-
-            double value =
-                (ratingItems
-                    .Take(ratingItems.IndexOf(ratingItem))
-                    .Count() + newValue) / total;
-
-            this.Value = value;
+            this.Value = ratingItems.IndexOf(ratingItem) + 1;
         }
 
         /// <summary>

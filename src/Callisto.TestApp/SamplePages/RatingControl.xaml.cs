@@ -45,5 +45,10 @@ namespace Callisto.TestApp.SamplePages
                 EventOutput.Text += string.Format("\nOld Value: {0}, New Value: {1}", e.OldValue.ToString(), e.NewValue.ToString());
             }
         }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            rate.Value = 4;
+        }
     }
 }

@@ -11,15 +11,16 @@
 
     <Grid Background="{StaticResource ApplicationPageBackgroundThemeBrush}">
         <StackPanel Margin="100,100,0,0" HorizontalAlignment="Left">
-            <callisto:Rating x:Name="rate" ItemCount="5" Value=".5" ValueChanged="rate_ValueChanged_1"/>
+            <callisto:Rating x:Name="rate" ItemCount="5" Value="2.7" ValueChanged="rate_ValueChanged_1"/>
             <StackPanel Orientation="Horizontal">
                 <TextBlock Text="Rating Value: " Margin="0,0,2,0"/>
                 <TextBlock Text="{Binding ElementName=rate, Path=Value}" />
             </StackPanel>
-            <Slider HorizontalAlignment="Left" Minimum="0" Maximum="1" StepFrequency=".01" SmallChange=".1" LargeChange=".1" Value="{Binding ElementName=rate, Path=Value, Mode=TwoWay}" Width="200" />
+            <Button Content="Set Value to 4" Click="Button_Click_1" />
+            <Slider HorizontalAlignment="Left" Minimum="0" Maximum="{Binding ElementName=rate, Path=ItemCount}" StepFrequency=".25" SmallChange=".25" Value="{Binding ElementName=rate, Path=Value, Mode=TwoWay}" Width="200" />
             <TextBlock x:Name="EventOutput" />
-            <callisto:Rating x:Name="HeartRating" ItemCount="5" Value=".3" Tag="&#xE0A5;" />
-            <callisto:Rating x:Name="ColorChanged" ItemCount="5" Value=".5" Foreground="Yellow" PointerOverFill="Red" PointerPressedFill="Purple" />
+            <callisto:Rating x:Name="HeartRating" ItemCount="5" Value="2" Tag="&#xE0A5;" />
+            <callisto:Rating x:Name="ColorChanged" ItemCount="5" Value="3.5" Foreground="Yellow" PointerOverFill="Red" PointerPressedFill="Purple" />
         </StackPanel>
     </Grid>
 </Page>

@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.0.5
+* Fixed #42: Adding ToolTip to RatingItem
+* BREAKING CHANGE: Changed the way Rating works so that it is no longer a 0-1 scale but rather relative to the ItemCount value (i.e., 2.5/5)
+
 ## 1.0.4
 * Fixed #39: Getting HighContrast mode not to crash on RatingItem
 

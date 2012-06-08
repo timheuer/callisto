@@ -110,7 +110,7 @@ namespace Callisto.Controls
         /// <returns>A sequence of percentages.</returns>
         public static IEnumerable<double> GetWeightedValues(this IEnumerable<double> values, double percent)
         {
-            double total = values.Sum();
+            double total = values.Count();
             if (total == 0)
             {
                 return values.Select(_ => 0.0);

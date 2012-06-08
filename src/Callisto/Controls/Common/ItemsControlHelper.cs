@@ -152,12 +152,6 @@ namespace Callisto.Controls.Common
             {
                 control.SetValue(Control.StyleProperty, parentItemContainerStyle);
             }
-
-            // Note: WPF also does preparation for ContentPresenter,
-            // ContentControl, HeaderedContentControl, and ItemsControl.  Since
-            // we don't have any other ItemsControls using this
-            // ItemContainerGenerator, we've removed that code for now.  It
-            // should be added back later when necessary.
         }
 
         /// <summary>
