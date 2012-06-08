@@ -313,7 +313,6 @@ namespace Callisto.Controls
         /// <summary>
         /// This event is raised when the value of the rating is changed.
         /// </summary>
-        //public event RoutedPropertyChangedEventHandler<double> ValueChanged;
         public event ValueChangedEventHandler<double> ValueChanged;
 
         #endregion public double Value

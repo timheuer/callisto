@@ -23,7 +23,7 @@ using Windows.UI.Xaml;
 
 namespace Callisto.Controls
 {
-    public class ValueChangedEventArgs<T> : RoutedEventArgs
+    public class ValueChangedEventArgs<T> : EventArgs
     {
         public T OldValue { get; private set; }
         public T NewValue { get; private set; }

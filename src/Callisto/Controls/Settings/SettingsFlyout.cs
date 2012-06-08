@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using Windows.Foundation;
 using Windows.UI;
@@ -157,6 +158,7 @@ namespace Callisto.Controls
         #endregion Dependency Properties
 
         #region Events
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1009:DeclareEventHandlersCorrectly", Justification="Runtime EventHandler")]
         public event EventHandler<object> Closed;
         #endregion
 
