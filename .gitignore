@@ -42,3 +42,4 @@ src/Callisto.VSIX/SDKManifest.xml
 src/Callisto.VSIX/Redist/
 src/Callisto.VSIX/References/
 tools/nuget/callisto/lib
+publish.bat
