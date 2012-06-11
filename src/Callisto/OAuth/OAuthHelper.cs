@@ -307,7 +307,7 @@ namespace Callisto.OAuth
             {
                 case OAuthSignatureMethod.HmacSha1:
                     {
-                        var crypto = HashAlgorithmProvider.OpenAlgorithm("HMAC_SHA1");
+                        var crypto = MacAlgorithmProvider.OpenAlgorithm(MacAlgorithmNames.HmacSha1);
                         var key = "{0}&{1}".FormatWith(consumerSecret, tokenSecret);
                         signature = signatureBase.HashWith(crypto, key);
                         break;

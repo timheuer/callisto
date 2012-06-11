@@ -411,11 +411,10 @@ namespace Callisto
             }
         }
 
-        public static string HashWith(this string input, HashAlgorithmProvider hashProvider, string key)
+        public static string HashWith(this string input, MacAlgorithmProvider hashProvider, string key)
         {
-            MacAlgorithmProvider mac = MacAlgorithmProvider.OpenAlgorithm(hashProvider.AlgorithmName);
             IBuffer keyMaterial = CryptographicBuffer.ConvertStringToBinary(key, BinaryStringEncoding.Utf8);
-            CryptographicKey cryptoKey = mac.CreateKey(keyMaterial);
+            CryptographicKey cryptoKey = hashProvider.CreateKey(keyMaterial);
             IBuffer hash = CryptographicEngine.Sign(cryptoKey, CryptographicBuffer.ConvertStringToBinary(input, BinaryStringEncoding.Utf8));
             return CryptographicBuffer.EncodeToBase64String(hash);
         }
