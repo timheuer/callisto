@@ -22,10 +22,8 @@ namespace Callisto.Controls
         private Popup _hostPopup;
         private Rect _windowBounds;
         private Button _backButton;
-        private Grid _headerGrid;
         private Grid _contentGrid;
-        const int HEADER_HORIZONTAL_OFFSET = 100;
-        const int CONTENT_HORIZONTAL_OFFSET = 200;
+        const int CONTENT_HORIZONTAL_OFFSET = 100;
         #endregion Member Variables
 
         #region Overrides
@@ -45,16 +43,6 @@ namespace Callisto.Controls
             }
 
             // need to get these grids in order to set the offsets correctly in RTL situations
-            if (_headerGrid == null)
-            {
-                _headerGrid = GetTemplateChild("SettingsFlyoutHeaderGrid") as Grid;
-            }
-            _headerGrid.Transitions = new TransitionCollection();
-            _headerGrid.Transitions.Add(new EntranceThemeTransition()
-            {
-                FromHorizontalOffset = HEADER_HORIZONTAL_OFFSET // TODO: if left edge need to multiply by -1
-            });
-
             if (_contentGrid == null)
             {
                 _contentGrid = GetTemplateChild("SettingsFlyoutContentGrid") as Grid;
