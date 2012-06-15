@@ -451,13 +451,7 @@ limitations under the License.-->
                             <!-- Header area for panel -->
                             <Grid Background="{TemplateBinding HeaderBrush}" Grid.Row="0">
 
-                                <Grid Margin="40,35,40,13">
-
-                                    <Grid.Transitions>
-                                        <TransitionCollection>
-                                            <EntranceThemeTransition FromHorizontalOffset="100" />
-                                        </TransitionCollection>
-                                    </Grid.Transitions>
+                                <Grid Margin="40,35,40,13" x:Name="SettingsFlyoutHeaderGrid">
 
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="30" />
@@ -476,12 +470,7 @@ limitations under the License.-->
                             </Grid>
 
                             <!-- Settings Panel Content -->
-                            <Grid Grid.Row="1" Margin="33,22,40,0" VerticalAlignment="Top" HorizontalAlignment="Left">
-                                <Grid.Transitions>
-                                    <TransitionCollection>
-                                        <EntranceThemeTransition FromHorizontalOffset="150" />
-                                    </TransitionCollection>
-                                </Grid.Transitions>
+                            <Grid x:Name="SettingsFlyoutContentGrid" Grid.Row="1" Margin="33,22,40,0" VerticalAlignment="Top" HorizontalAlignment="Left">
                                 <ContentPresenter Content="{TemplateBinding Content}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
                             </Grid>
 
