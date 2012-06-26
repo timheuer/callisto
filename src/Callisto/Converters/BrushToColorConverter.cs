@@ -15,6 +15,7 @@
 //
 
 using System;
+using Callisto.Controls;
 using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Media;
 
@@ -24,7 +25,7 @@ namespace Callisto.Converters
     {
         public object Convert(object value, Type targetType, object parameter, string language)
         {
-            SolidColorBrush brush = value as SolidColorBrush;
+            SolidColorBrush brush = parameter as SolidColorBrush;
             if (brush != null)
             {
                 return brush.Color;

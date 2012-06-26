@@ -563,6 +563,7 @@ namespace Callisto.Controls
             ratingItem.SetBinding(RatingItem.PointerPressedFillProperty, new Binding() { Path = new PropertyPath("PointerPressedFill"), Source = this });
             ratingItem.SetBinding(RatingItem.FontSizeProperty, new Binding() { Path = new PropertyPath("FontSize"), Source = this });
             ratingItem.SetBinding(RatingItem.TagProperty, new Binding() { Path = new PropertyPath("Tag"), Source = this });
+            ratingItem.SetBinding(RatingItem.BackgroundProperty, new Binding() { Path = new PropertyPath("Background"), Source = this });
 
             ratingItem.IsEnabled = this.IsEnabled;
             if (ratingItem.Style == null)

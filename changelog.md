@@ -1,5 +1,8 @@
 # Changelog
 
+## 1.0.7
+* Adding Rating->RatingItem template binding to Background property
+
 ## 1.0.6
 * BREAKING CHANGE: Fixed HasAlgorithmProvider for OAuthUtils class.  Had to change to MacAlgorithmProvider input arg per Windows behavior change
 

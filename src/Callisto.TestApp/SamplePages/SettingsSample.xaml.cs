@@ -16,6 +16,7 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Media.Imaging;
 using Windows.UI.Xaml.Navigation;
+using XamlControlsUITestApp;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -55,7 +56,7 @@ namespace Callisto.TestApp.SamplePages
 				SettingsFlyout settings = new SettingsFlyout();
 				settings.FlyoutWidth = (Callisto.Controls.SettingsFlyout.SettingsFlyoutWidth)Enum.Parse(typeof(Callisto.Controls.SettingsFlyout.SettingsFlyoutWidth), settingswidth.SelectionBoxItem.ToString());
                 //settings.HeaderBrush = new SolidColorBrush(Colors.Orange);
-                //settings.Background = new SolidColorBrush(Colors.White);
+                //settings.Background = new SolidColorBrush(Colors.Red);
 				settings.HeaderText = "Foo Bar Custom Settings";
 
                 BitmapImage bmp = new BitmapImage(new Uri("ms-appx:///Assets/SmallLogo.png"));

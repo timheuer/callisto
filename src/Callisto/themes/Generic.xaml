@@ -82,12 +82,13 @@ limitations under the License.-->
             <SolidColorBrush x:Key="RatingItemBorderThemeBrush" Color="{StaticResource SystemColorButtonTextColor}" />
         </ResourceDictionary>
     </ResourceDictionary.ThemeDictionaries>
-    
+
     <converters:BrushToColorConverter x:Key="BrushToColor" />
     <x:String x:Key="SettingsFlyoutHeaderTextDefault">Application Setting</x:String>
 
     <Style x:Key="ToggleMenuItemCheckBox" TargetType="CheckBox">
-        <Setter Property="MinHeight" Value="42" /> <!-- setting this because not having it will give the CheckBox 50 MinHeight-->
+        <Setter Property="MinHeight" Value="42" />
+        <!-- setting this because not having it will give the CheckBox 50 MinHeight-->
         <Setter Property="Padding" Value="2,10,0,0" />
         <Setter Property="Template">
             <Setter.Value>
@@ -151,7 +152,7 @@ limitations under the License.-->
             </Setter.Value>
         </Setter>
     </Style>
-    
+
     <Style x:Key="SettingsBackButtonStyle" TargetType="Button">
         <Setter Property="MinWidth" Value="0"/>
         <Setter Property="FontFamily" Value="Segoe UI Symbol"/>
@@ -248,7 +249,7 @@ limitations under the License.-->
             </Setter.Value>
         </Setter>
     </Style>
-    
+
     <Style TargetType="local:Menu">
         <Setter Property="Template">
             <Setter.Value>
@@ -471,7 +472,7 @@ limitations under the License.-->
 
                             <!-- Settings Panel Content -->
                             <Grid x:Name="SettingsFlyoutContentGrid" Grid.Row="1" Margin="33,22,40,0" VerticalAlignment="Top" HorizontalAlignment="Left">
-                                <ContentPresenter Content="{TemplateBinding Content}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
+                                <ContentPresenter Content="{TemplateBinding Content}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  />
                             </Grid>
 
                         </Grid>
@@ -482,35 +483,35 @@ limitations under the License.-->
     </Style>
 
     <Style TargetType="local:LiveTile">
-      <Setter Property="Template">
-        <Setter.Value>
-          <ControlTemplate TargetType="local:LiveTile">
-            <Grid  Background="{TemplateBinding Background}">
-              <Canvas x:Name="Scroller" DataContext="{x:Null}">
-                <StackPanel x:Name="Stack">
-                  <StackPanel.RenderTransform>
-                    <TranslateTransform x:Name="Translate" Y="0" />
-                  </StackPanel.RenderTransform>
-                  <ContentPresenter x:Name="Current"
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="local:LiveTile">
+                    <Grid  Background="{TemplateBinding Background}">
+                        <Canvas x:Name="Scroller" DataContext="{x:Null}">
+                            <StackPanel x:Name="Stack">
+                                <StackPanel.RenderTransform>
+                                    <TranslateTransform x:Name="Translate" Y="0" />
+                                </StackPanel.RenderTransform>
+                                <ContentPresenter x:Name="Current"
                                                       DataContext="{x:Null}"
                                                       Content="{Binding}" 
                                                       ContentTemplate="{TemplateBinding ItemTemplate}" />
-                  <ContentPresenter  x:Name="Next" 
+                                <ContentPresenter  x:Name="Next" 
                                                       DataContext="{x:Null}"
                                                       Content="{Binding}" 
                                                       ContentTemplate="{TemplateBinding ItemTemplate}" />
-                </StackPanel>
-              </Canvas>
-              <Border
+                            </StackPanel>
+                        </Canvas>
+                        <Border
                               BorderBrush="{TemplateBinding BorderBrush}"
                               BorderThickness="{TemplateBinding BorderThickness}">
-              </Border>
-            </Grid>
-          </ControlTemplate>
-        </Setter.Value>
-      </Setter>
+                        </Border>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
     </Style>
-    
+
 
     <Style TargetType="local:RatingItem">
         <Setter Property="BorderBrush" Value="{StaticResource RatingItemBorderThemeBrush}"/>
@@ -537,9 +538,9 @@ limitations under the License.-->
                                 </VisualState>
                                 <VisualState x:Name="PointerPressed">
                                     <Storyboard>
-                                        <ColorAnimationUsingKeyFrames Storyboard.TargetName="PointerPressedRatingItem" Storyboard.TargetProperty="(Foreground).(SolidColorBrush.Color)">
-                                            <EasingColorKeyFrame KeyTime="00:00:00" Value="{Binding Converter={StaticResource BrushToColor}, ConverterParameter={StaticResource RatingItemPointerPressedThemeBrush}}"/>
-                                        </ColorAnimationUsingKeyFrames>
+                                        <DoubleAnimationUsingKeyFrames Storyboard.TargetName="PointerPressedRatingItem" Storyboard.TargetProperty="(UIElement.Opacity)">
+                                            <SplineDoubleKeyFrame KeyTime="00:00:00" Value="1"/>
+                                        </DoubleAnimationUsingKeyFrames>
                                     </Storyboard>
                                 </VisualState>
                                 <VisualState x:Name="Disabled">
