@@ -35,7 +35,7 @@ limitations under the License.-->
             <SolidColorBrush x:Key="MenuSeparatorStrokeBrush">#FF707070</SolidColorBrush>
             <SolidColorBrush x:Key="SettingsFlyoutHeaderBackgroundBrush">#FF000000</SolidColorBrush>
             <SolidColorBrush x:Key="RatingItemForegroundThemeBrush">#FF5B2EC5</SolidColorBrush>
-            <SolidColorBrush x:Key="RatingItemPointerOverThemeBrush">#FF724BCD</SolidColorBrush>
+            <SolidColorBrush x:Key="RatingItemPointerOverThemeBrush">#FF8152EF</SolidColorBrush>
             <SolidColorBrush x:Key="RatingItemPointerPressedThemeBrush">#FF8152EF</SolidColorBrush>
             <SolidColorBrush x:Key="RatingItemBackgroundThemeBrush">#59FFFFFF</SolidColorBrush>
             <SolidColorBrush x:Key="RatingItemDisabledForegroundThemeBrush">#FFFFFFFF</SolidColorBrush>
@@ -55,7 +55,7 @@ limitations under the License.-->
             <SolidColorBrush x:Key="MenuSeparatorStrokeBrush">#FF707070</SolidColorBrush>
             <SolidColorBrush x:Key="SettingsFlyoutHeaderBackgroundBrush">LightGray</SolidColorBrush>
             <SolidColorBrush x:Key="RatingItemForegroundThemeBrush">#FF4617B4</SolidColorBrush>
-            <SolidColorBrush x:Key="RatingItemPointerOverThemeBrush">#FF5F37BE</SolidColorBrush>
+            <SolidColorBrush x:Key="RatingItemPointerOverThemeBrush">#FF7241E4</SolidColorBrush>
             <SolidColorBrush x:Key="RatingItemPointerPressedThemeBrush">#FF7241E4</SolidColorBrush>
             <SolidColorBrush x:Key="RatingItemBackgroundThemeBrush">#59000000</SolidColorBrush>
             <SolidColorBrush x:Key="RatingItemDisabledForegroundThemeBrush">#FF000000</SolidColorBrush>
@@ -543,6 +543,13 @@ limitations under the License.-->
                                         </DoubleAnimationUsingKeyFrames>
                                     </Storyboard>
                                 </VisualState>
+                                <VisualState x:Name="PointerExited">
+                                    <Storyboard>
+                                        <DoubleAnimationUsingKeyFrames Storyboard.TargetName="PointerPressedRatingItem" Storyboard.TargetProperty="(UIElement.Opacity)">
+                                            <SplineDoubleKeyFrame KeyTime="00:00:00" Value="0"/>
+                                        </DoubleAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </VisualState>
                                 <VisualState x:Name="Disabled">
                                     <Storyboard>
                                         <DoubleAnimationUsingKeyFrames Storyboard.TargetName="DisabledRatingItem" Storyboard.TargetProperty="(UIElement.Opacity)">
@@ -605,6 +612,7 @@ limitations under the License.-->
                                 <VisualState x:Name="Normal"/>
                                 <VisualState x:Name="PointerOver"/>
                                 <VisualState x:Name="PointerPressed"/>
+                                <VisualState x:Name="PointerExited"/>
                                 <VisualState x:Name="Disabled"/>
                             </VisualStateGroup>
                             <VisualStateGroup x:Name="FocusStates">

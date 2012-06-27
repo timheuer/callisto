@@ -1,5 +1,8 @@
 # Changelog
 
+## 1.0.8
+* Rating/RatingItem: Fixed some PointerExit behavior
+
 ## 1.0.7
 * Adding Rating->RatingItem template binding to Background property
 

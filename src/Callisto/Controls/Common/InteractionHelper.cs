@@ -78,6 +78,11 @@ namespace Callisto.Controls.Common
         public bool IsPointerOver { get; private set; }
 
         /// <summary>
+        /// Gets a value indicating whether the mouse has exited the control.
+        /// </summary> 
+        public bool IsPointerExited { get; private set; }
+
+        /// <summary>
         /// Gets a value indicating whether the read-only property is set.
         /// </summary>
         [SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Justification = "Linked file.")]
@@ -178,6 +183,10 @@ namespace Callisto.Controls.Common
             else if (IsPointerOver)
             {
                 VisualStates.GoToState(Control, useTransitions, VisualStates.StatePointerOver, VisualStates.StateNormal);
+            }
+            else if (IsPointerExited)
+            {
+                VisualStates.GoToState(Control, useTransitions, VisualStates.StatePointerExited, VisualStates.StateNormal);
             }
             else
             {
@@ -366,6 +375,8 @@ namespace Callisto.Controls.Common
             if (enabled)
             {
                 IsPointerOver = false;
+                IsPointerPressed = false;
+                IsPointerExited = true;
             }
             return enabled;
         }

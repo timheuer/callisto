@@ -64,6 +64,11 @@ namespace Callisto.Controls.Common
         public const string StatePointerPressed = "PointerPressed";
 
         /// <summary>
+        /// Exited state of the Common state group.
+        /// </summary>
+        public const string StatePointerExited = "PointerExited";
+
+        /// <summary>
         /// Disabled state of the Common state group.
         /// </summary>
         public const string StateDisabled = "Disabled";
