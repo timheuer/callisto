@@ -34,7 +34,7 @@ namespace Callisto
         /// <param name="browser">WebBrowser instance for which to get the value.</param>
         /// <returns>Value of the property.</returns>
         [SuppressMessage("Microsoft.Design", "CA1011:ConsiderPassingBaseTypesAsParameters", Justification = "Method applies only to WebView instances.")]
-        public static string GetStringSource(WebView view)
+        public static string GetHtmlSource(WebView view)
         {
             if (null == view)
             {
@@ -49,7 +49,7 @@ namespace Callisto
         /// <param name="browser">WebBrowser instance for which to set the value.</param>
         /// <param name="value">Value to set.</param>
         [SuppressMessage("Microsoft.Design", "CA1011:ConsiderPassingBaseTypesAsParameters", Justification = "Method applies only to WebView instances.")]
-        public static void SetStringSource(WebView view, string value)
+        public static void SetHtmlSource(WebView view, string value)
         {
             if (null == view)
             {

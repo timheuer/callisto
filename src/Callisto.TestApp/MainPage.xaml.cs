@@ -50,6 +50,7 @@ namespace Callisto.TestApp
 				Samples.Add(new SamplePage() { Name = "Tilt Effect", Page = typeof(SamplePages.TiltSample) });
 				Samples.Add(new SamplePage() { Name = "LiveTile", Page = typeof(SamplePages.LiveTileSample) });
                 Samples.Add(new SamplePage() { Name = "Rating", Page = typeof(SamplePages.RatingControl) });
+                Samples.Add(new SamplePage() { Name = "WebViewExtension", Page = typeof(SamplePages.WebViewExtension) });
 				this.DataContext = Samples;
 			}
 		}

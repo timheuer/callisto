@@ -1,5 +1,8 @@
 # Changelog
 
+## 1.0.9
+* Fixes #52: WebViewExtension was broken as property name was wrong
+
 ## 1.0.8
 * Rating/RatingItem: Fixed some PointerExit behavior
 
