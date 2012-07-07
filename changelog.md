@@ -1,5 +1,8 @@
 # Changelog
 
+## 1.0.10
+* Fixes #26 (again): implementing user suggestions of looking for invalid measures in ActualHeight/Width
+
 ## 1.0.9
 * Fixes #52: WebViewExtension was broken as property name was wrong
 
