@@ -118,8 +118,11 @@ namespace Callisto.TestApp.SamplePages
 			b.Height = 125;
 
 			TextBlock tb = new TextBlock();
+            tb.HorizontalAlignment = Windows.UI.Xaml.HorizontalAlignment.Center;
+            tb.VerticalAlignment = Windows.UI.Xaml.VerticalAlignment.Center;
+            tb.TextWrapping = TextWrapping.Wrap;
 			tb.FontSize = 24.667;
-			tb.Text = "Hello";
+			tb.Text = "This is a basic ContentControl so put anything you want in here.";
 
 			b.Child = tb;
 

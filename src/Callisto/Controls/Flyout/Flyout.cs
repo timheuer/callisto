@@ -96,6 +96,23 @@ namespace Callisto.Controls
         #region Methods and Events
         private void OnHostPopupOpened(object sender, object e)
         {
+            // there seems to be some issue where the mesaure is happening too fast when the size
+            // of the flyout is 0,0.  This attempts to solve this. 
+            // credit to avidgator/jvlppm for suggestions on github project
+            if (_hostPopup.ActualHeight == 0 || _hostPopup.ActualWidth == 0)
+            {
+                SizeChangedEventHandler updatePosition = null;
+                updatePosition = (s, eP) =>
+                    {
+                        if (eP.NewSize.Width != 0 && eP.NewSize.Height != 0)
+                        {
+                            OnHostPopupOpened(s, eP);
+                            SizeChanged -= updatePosition;
+                        }
+                    };
+                SizeChanged += updatePosition;
+            }
+
             _hostPopup.HorizontalOffset = this.HorizontalOffset;
             _hostPopup.VerticalOffset = this.VerticalOffset;
 
