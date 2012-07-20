@@ -53,31 +53,28 @@ namespace Callisto.TestApp.SamplePages
 		{
 			SettingsCommand cmd = new SettingsCommand("sample", "Sample Custom Setting", (x) =>
 			{
+                // create a new instance of the flyout
 				SettingsFlyout settings = new SettingsFlyout();
+                // set the desired width.  If you leave this out, you will get Narrow (346px)
 				settings.FlyoutWidth = (Callisto.Controls.SettingsFlyout.SettingsFlyoutWidth)Enum.Parse(typeof(Callisto.Controls.SettingsFlyout.SettingsFlyoutWidth), settingswidth.SelectionBoxItem.ToString());
-                //settings.HeaderBrush = new SolidColorBrush(Colors.Orange);
+                
+                // optionally change header and content background colors away from defaults (recommended)
                 //settings.Background = new SolidColorBrush(Colors.Red);
+                settings.HeaderBrush = new SolidColorBrush(Colors.Orange);
 				settings.HeaderText = "Foo Bar Custom Settings";
 
+                // provide some logo (preferrably the smallogo the app uses)
                 BitmapImage bmp = new BitmapImage(new Uri("ms-appx:///Assets/SmallLogo.png"));
-
                 settings.SmallLogoImageSource = bmp;
 
-                StackPanel sp = new StackPanel();
+                // set the content for the flyout
+                settings.Content = new SettingsContent();
 
-				ToggleSwitch ts = new ToggleSwitch();
-				ts.Header = "Download updates automatically";
-
-                Button b = new Button();
-                b.Content = "Test";
-
-                sp.Children.Add(ts);
-                sp.Children.Add(b);
-
-				settings.Content = sp;
-
+                // open it
 				settings.IsOpen = true;
 
+                // this is only for the test app and not needed
+                // you would not use this code in your real app
 				ObjectTracker.Track(settings);
 			});
 

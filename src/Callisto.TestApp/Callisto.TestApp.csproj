@@ -136,6 +136,9 @@
     <Compile Include="SamplePages\RatingControl.xaml.cs">
       <DependentUpon>RatingControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="SamplePages\SettingsContent.xaml.cs">
+      <DependentUpon>SettingsContent.xaml</DependentUpon>
+    </Compile>
     <Compile Include="SamplePages\SettingsSample.xaml.cs">
       <DependentUpon>SettingsSample.xaml</DependentUpon>
     </Compile>
@@ -179,6 +182,10 @@
     <Content Include="Images\grasshopper.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Page Include="SamplePages\SettingsContent.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="SamplePages\WebViewExtension.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
