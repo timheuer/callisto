@@ -27,7 +27,7 @@ namespace Callisto.Controls
     /// <summary>
     /// The main Flyout control to host any popup/flyout content.
     /// </summary>
-    public sealed class Flyout : ContentControl
+    public sealed class Flyout : ContentControl, IDisposable
     {
         #region Member Variables
         // the inner Popup control
@@ -463,13 +463,8 @@ namespace Callisto.Controls
 
         private void OnHostPopupClosed(object sender, object e)
         {
-            _hostPopup.Child = null;
-            _hostPopup.ChildTransitions = null;
-
             // important to remove this or else there will be a leak
             Window.Current.Activated -= OnCurrentWindowActivated;
-
-            this.Content = null;
 
             if (Closed != null)
             {
@@ -547,5 +542,18 @@ namespace Callisto.Controls
         public static readonly DependencyProperty VerticalOffsetProperty =
             DependencyProperty.Register("VerticalOffset", typeof(double), typeof(Flyout), new PropertyMetadata(0.0));
         #endregion Dependency Properties
+
+        public void Dispose()
+        {
+            if (this._hostPopup != null)
+            {
+                this._hostPopup.Child = null;
+                this._hostPopup.ChildTransitions = null;
+
+                this.Content = null;
+            }
+
+            GC.SuppressFinalize(this);
+        }
     }
 }
