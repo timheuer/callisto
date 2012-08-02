@@ -1,5 +1,8 @@
 # Changelog
 
+## 1.0.11
+* Only a recompile update for .NET 4.5 RTM bits
+
 ## 1.0.10
 * Fixes #26 (again): implementing user suggestions of looking for invalid measures in ActualHeight/Width
 
