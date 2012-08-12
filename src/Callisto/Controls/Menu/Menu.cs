@@ -191,7 +191,13 @@ namespace Callisto.Controls
             if (item == null)
                 return;
 
-            ((Flyout)this.Parent).IsOpen = false;
+            // NOTE: Menu is intended to be used with a Parent Flyout.
+            // this below is added as a precaution to prevent some issues but Menu without 
+            // Flyout isn't fully supported
+            if (this.Parent.GetType() == typeof(Flyout))
+            {
+                ((Flyout)this.Parent).IsOpen = false;
+            }
 
             if (item.Command != null)
                 item.Command.Execute(item.CommandParameter);
