@@ -41,6 +41,7 @@
 *.fs text=auto
 *.fsx text=auto
 *.hs text=auto
+*.xaml text=auto
 
 *.csproj text=auto merge=union 
 *.vbproj text=auto merge=union 

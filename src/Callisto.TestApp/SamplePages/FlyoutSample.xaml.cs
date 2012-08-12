@@ -183,5 +183,45 @@ namespace Callisto.TestApp.SamplePages
         {
             ObjectTracker.GarbageCollect();
         }
+
+        private void ShowFlyoutToggleMenu(object sender, RoutedEventArgs e)
+        {
+            Flyout f = new Flyout();
+            f.PlacementTarget = sender as UIElement;
+            f.Placement = PlacementMode.Top;
+            f.Closed += (x, y) =>
+            {
+                LogEvent("Event: Closed");
+            };
+
+            Menu menu = new Menu();
+
+
+            ToggleMenuItem tmi1 = new ToggleMenuItem();
+            tmi1.Text = "Enable Logging";
+            tmi1.IsChecked = chk;
+            tmi1.Tapped += (a, b) =>
+            {
+                chk = !chk;
+            };
+
+            ToggleMenuItem tmi2 = new ToggleMenuItem();
+            tmi2.Text = "Disable Logging";
+            tmi2.IsChecked = !chk;
+            tmi2.Tapped += (a, b) =>
+            {
+                chk = !chk;
+            };
+
+            menu.Items.Add(tmi1);
+            menu.Items.Add(tmi2);
+            f.HostMargin = new Thickness(0); // on menu flyouts set HostMargin to 0
+            f.Content = menu;
+            f.IsOpen = true;
+
+            ObjectTracker.Track(f);
+
+            UpdateLayout();
+        }
 	}
 }
