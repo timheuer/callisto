@@ -40,6 +40,7 @@ limitations under the License.-->
             <SolidColorBrush x:Key="RatingItemBackgroundThemeBrush">#59FFFFFF</SolidColorBrush>
             <SolidColorBrush x:Key="RatingItemDisabledForegroundThemeBrush">#FFFFFFFF</SolidColorBrush>
             <SolidColorBrush x:Key="RatingItemBorderThemeBrush">Transparent</SolidColorBrush>
+            <x:String x:Key="SettingsFlyoutBackButtonGlyph">&#xE0BA;</x:String>
         </ResourceDictionary>
         <ResourceDictionary x:Key="Light">
             <SolidColorBrush x:Key="FlyoutBorderBrush">#FF212121</SolidColorBrush>
@@ -60,6 +61,7 @@ limitations under the License.-->
             <SolidColorBrush x:Key="RatingItemBackgroundThemeBrush">#59000000</SolidColorBrush>
             <SolidColorBrush x:Key="RatingItemDisabledForegroundThemeBrush">#FF000000</SolidColorBrush>
             <SolidColorBrush x:Key="RatingItemBorderThemeBrush">Transparent</SolidColorBrush>
+            <x:String x:Key="SettingsFlyoutBackButtonGlyph">&#xE0BA;</x:String>
         </ResourceDictionary>
         <ResourceDictionary x:Key="HighContrast">
             <SolidColorBrush x:Key="FlyoutBorderBrush" Color="{StaticResource SystemColorButtonTextColor}" />
@@ -80,6 +82,7 @@ limitations under the License.-->
             <SolidColorBrush x:Key="RatingItemBackgroundThemeBrush" Color="{StaticResource SystemColorButtonFaceColor}" />
             <SolidColorBrush x:Key="RatingItemDisabledForegroundThemeBrush" Color="{StaticResource SystemColorButtonFaceColor}" />
             <SolidColorBrush x:Key="RatingItemBorderThemeBrush" Color="{StaticResource SystemColorButtonTextColor}" />
+            <x:String x:Key="SettingsFlyoutBackButtonGlyph">&#xE0C4;</x:String>
         </ResourceDictionary>
     </ResourceDictionary.ThemeDictionaries>
 
@@ -167,7 +170,7 @@ limitations under the License.-->
                     <Grid x:Name="RootGrid" Width="30" Height="30">
                         <Grid Margin="-3,-5,0,0">
                             <TextBlock x:Name="BackgroundGlyph" Text="&#xE0D4;" Foreground="{StaticResource BackButtonBackgroundThemeBrush}"/>
-                            <TextBlock x:Name="NormalGlyph" Text="{StaticResource BackButtonSnappedGlyph}" Foreground="{StaticResource BackButtonForegroundThemeBrush}"/>
+                            <TextBlock x:Name="NormalGlyph" Text="{StaticResource SettingsFlyoutBackButtonGlyph}" Foreground="{StaticResource BackButtonForegroundThemeBrush}"/>
                             <TextBlock x:Name="ArrowGlyph" Text="&#xE0C4;" Foreground="{StaticResource BackButtonPressedForegroundThemeBrush}" Opacity="0"/>
                         </Grid>
                         <Rectangle

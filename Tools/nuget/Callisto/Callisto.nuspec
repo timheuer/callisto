@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
   <metadata>
-    <version>1.0.11</version>
+    <version>1.0.12</version>
     <authors>Tim Heuer</authors>
     <owners>Tim Heuer</owners>
     <licenseUrl>http://opensource.org/licenses/ms-pl.html</licenseUrl>
@@ -13,6 +13,11 @@
     <description>A control suite for some common things a Windows 8 XAML application might want to include such as a Flyout, Menu, Rating, Settings Pane, and Pivot control.</description>
     <language>en-US</language>
     <tags>xaml winrt flyout settings popup menu win8 metro pivot ratings</tags>
+	<releaseNotes>
+	<![CDATA[
+		Updated for RTM bits.  Fixed issue where there was a dependency on StandardStyles.xaml.
+	]]>
+	</releaseNotes>
   </metadata>
   <files>
     <file src="lib\winrt45\Callisto\Themes\Generic.xaml" target="lib\winrt45\Callisto\Themes\Generic.xaml" />
