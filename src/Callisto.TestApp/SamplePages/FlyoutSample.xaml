@@ -37,6 +37,7 @@
 					<Button Style="{StaticResource PinAppBarButtonStyle}" Click="ShowFlyoutMenu"/>
 					<Button Style="{StaticResource UnpinAppBarButtonStyle}" Click="ShowFlyoutMenu"/>
                     <Button Style="{StaticResource AddAppBarButtonStyle}" Click="ShowFlyoutMenu3" />
+                    <Button Style="{StaticResource YesAppBarButtonStyle}" Click="ShowFlyoutToggleMenu" />
 				</StackPanel>
 				<StackPanel HorizontalAlignment="Right">
 					<Button Margin="0,0,20,0" Style="{StaticResource AddAppBarButtonStyle}" Click="ShowFlyoutMenu3" />
