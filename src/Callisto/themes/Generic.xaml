@@ -444,7 +444,7 @@ limitations under the License.-->
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="local:SettingsFlyout">
-                    <Border x:Name="PART_ROOT_BORDER" BorderBrush="{TemplateBinding HeaderBrush}" BorderThickness="1,0,0,0" VerticalAlignment="Stretch">
+                    <Border x:Name="PART_RootBorder" BorderBrush="{TemplateBinding HeaderBrush}" BorderThickness="1,0,0,0" VerticalAlignment="Stretch">
                         <Grid Background="{TemplateBinding Background}" VerticalAlignment="Stretch" >
                             <!-- Root grid definition -->
                             <Grid.RowDefinitions>
@@ -474,9 +474,11 @@ limitations under the License.-->
                             </Grid>
 
                             <!-- Settings Panel Content -->
-                            <Grid x:Name="SettingsFlyoutContentGrid" Grid.Row="1" Margin="33,22,40,0" VerticalAlignment="Top" HorizontalAlignment="Left">
-                                <ContentPresenter Content="{TemplateBinding Content}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  />
-                            </Grid>
+                            <ScrollViewer Grid.Row="1" x:Name="PART_ContentScrollViewer">
+                                <Grid ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Auto" x:Name="SettingsFlyoutContentGrid" Margin="33,22,40,0" VerticalAlignment="Top" HorizontalAlignment="Left">
+                                    <ContentPresenter Content="{TemplateBinding Content}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  />
+                                </Grid>
+                            </ScrollViewer>
 
                         </Grid>
                     </Border>

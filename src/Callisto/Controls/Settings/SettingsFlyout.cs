@@ -25,6 +25,7 @@ namespace Callisto.Controls
         private Button _backButton;
         private Grid _contentGrid;
         private Border _rootBorder;
+        private ScrollViewer _contentScrollViewer;
         const int CONTENT_HORIZONTAL_OFFSET = 100;
         #endregion Member Variables
 
@@ -56,7 +57,10 @@ namespace Callisto.Controls
             });
 
             // need the root border for RTL scenarios
-            _rootBorder = GetTemplateChild("PART_ROOT_BORDER") as Border;
+            _rootBorder = GetTemplateChild("PART_RootBorder") as Border;
+
+            // need the content scrollviewer to set the fixed width to be the same size as flyout
+            _contentScrollViewer = GetTemplateChild("PART_ContentScrollViewer") as ScrollViewer;
         }
         #endregion Overrides
 
@@ -92,8 +96,11 @@ namespace Callisto.Controls
             }
 
             _settingsWidth = (double)this.FlyoutWidth;
-            _hostPopup.Width = _settingsWidth;
-            this.Width = _settingsWidth;
+            
+            // setting all the widths to be the size of flyout
+            _hostPopup.Width = this.Width = _contentScrollViewer.Width = _settingsWidth;
+            
+            // ensure it comes from the correct edge location
             _hostPopup.SetValue(Canvas.LeftProperty, SettingsPane.Edge == SettingsEdgeLocation.Right ? (_windowBounds.Width - _settingsWidth) : 0);
         }
         
