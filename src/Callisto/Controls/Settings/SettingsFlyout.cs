@@ -21,8 +21,10 @@ namespace Callisto.Controls
         #region Member Variables
         private Popup _hostPopup;
         private Rect _windowBounds;
+        private double _settingsWidth;
         private Button _backButton;
         private Grid _contentGrid;
+        private Border _rootBorder;
         const int CONTENT_HORIZONTAL_OFFSET = 100;
         #endregion Member Variables
 
@@ -50,8 +52,11 @@ namespace Callisto.Controls
             _contentGrid.Transitions = new TransitionCollection();
             _contentGrid.Transitions.Add(new EntranceThemeTransition()
             {
-                FromHorizontalOffset = CONTENT_HORIZONTAL_OFFSET // TODO: if left edge need to multiply by -1
+                FromHorizontalOffset = (SettingsPane.Edge == SettingsEdgeLocation.Right) ? CONTENT_HORIZONTAL_OFFSET : (CONTENT_HORIZONTAL_OFFSET * -1)
             });
+
+            // need the root border for RTL scenarios
+            _rootBorder = GetTemplateChild("PART_ROOT_BORDER") as Border;
         }
         #endregion Overrides
 
@@ -66,7 +71,7 @@ namespace Callisto.Controls
 
             _hostPopup = new Popup();
             _hostPopup.ChildTransitions = new TransitionCollection();
-            _hostPopup.ChildTransitions.Add(new PaneThemeTransition());
+            _hostPopup.ChildTransitions.Add(new PaneThemeTransition() { Edge = (SettingsPane.Edge == SettingsEdgeLocation.Right) ? EdgeTransitionLocation.Right : EdgeTransitionLocation.Left });
             _hostPopup.Closed += OnHostPopupClosed;
             _hostPopup.IsLightDismissEnabled = true;
             _hostPopup.Height = _windowBounds.Height;
@@ -79,9 +84,17 @@ namespace Callisto.Controls
         private void OnLoaded(object sender, RoutedEventArgs e)
         {
             Window.Current.Activated += OnCurrentWindowActivated;
-            _hostPopup.Width = (this.FlyoutWidth == SettingsFlyoutWidth.Wide) ? 646 : 346;
-            this.Width = _hostPopup.Width;
-            _hostPopup.SetValue(Canvas.LeftProperty, _windowBounds.Width - (double)this.FlyoutWidth);
+
+            // in RTL languages on the OS, the SettingsPane comes from the left edge
+            if (SettingsPane.Edge == SettingsEdgeLocation.Left)
+            {
+                _rootBorder.BorderThickness = new Thickness(0, 0, 1, 0);
+            }
+
+            _settingsWidth = (double)this.FlyoutWidth;
+            _hostPopup.Width = _settingsWidth;
+            this.Width = _settingsWidth;
+            _hostPopup.SetValue(Canvas.LeftProperty, SettingsPane.Edge == SettingsEdgeLocation.Right ? (_windowBounds.Width - _settingsWidth) : 0);
         }
         
         private void OnBackButtonTapped(object sender, object e)

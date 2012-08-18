@@ -444,7 +444,7 @@ limitations under the License.-->
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="local:SettingsFlyout">
-                    <Border BorderBrush="{TemplateBinding HeaderBrush}" BorderThickness="1,0,0,0" VerticalAlignment="Stretch">
+                    <Border x:Name="PART_ROOT_BORDER" BorderBrush="{TemplateBinding HeaderBrush}" BorderThickness="1,0,0,0" VerticalAlignment="Stretch">
                         <Grid Background="{TemplateBinding Background}" VerticalAlignment="Stretch" >
                             <!-- Root grid definition -->
                             <Grid.RowDefinitions>
