@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.0.13
+* Fixes #58: mostly fixing this bug maintaining the UI guidelines on margin/edge content, but hosting within ScrollViewer to enable edge-to-edge scroll behavior if content large enough.
+* Fix for SettingsFlyout when OS is an RTL language.  On RTL, SettingsPane comes from the left edge and thus the flyout needs to respond that way.
+
 ## 1.0.12
 * Fixes #67: removes dependency on BackButtonSnappedGlyph from StandardStyles.xaml so that it is self-contained.
 * Fixes #24: ToggleMenuItem margins for toggle menu items only.  Thanks Nigel!
