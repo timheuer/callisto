@@ -127,6 +127,9 @@
     <Compile Include="SampleInput.xaml.cs">
       <DependentUpon>SampleInput.xaml</DependentUpon>
     </Compile>
+    <Compile Include="SamplePages\DynamicTextBlock.xaml.cs">
+      <DependentUpon>DynamicTextBlock.xaml</DependentUpon>
+    </Compile>
     <Compile Include="SamplePages\FlyoutSample.xaml.cs">
       <DependentUpon>FlyoutSample.xaml</DependentUpon>
     </Compile>
@@ -182,6 +185,10 @@
     <Content Include="Images\grasshopper.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Page Include="SamplePages\DynamicTextBlock.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="SamplePages\SettingsContent.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

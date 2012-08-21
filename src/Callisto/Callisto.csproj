@@ -117,6 +117,7 @@
     <Compile Include="Controls\Common\ItemsControlHelper.cs" />
     <Compile Include="Controls\Common\IUpdateVisualState.cs" />
     <Compile Include="Controls\Common\VisualStates.cs" />
+    <Compile Include="Controls\DynamicTextBlock\DynamicTextBlock.cs" />
     <Compile Include="Controls\Flyout\Flyout.cs" />
     <Compile Include="Controls\LiveTile\LiveTile.cs" />
     <Compile Include="Controls\Menu\Menu.cs" />
