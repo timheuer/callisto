@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.1.0
+* Fixes #69: Back button in snapped mode will attempt to show SettingsPane.  Put temp provisioin in to prevent.
+* NEW: Adding DynamicTextBlock for CharacterEllipsis mode on a TextBlock
+
 ## 1.0.13
 * Fixes #58: mostly fixing this bug maintaining the UI guidelines on margin/edge content, but hosting within ScrollViewer to enable edge-to-edge scroll behavior if content large enough.
 * Fix for SettingsFlyout when OS is an RTL language.  On RTL, SettingsPane comes from the left edge and thus the flyout needs to respond that way.

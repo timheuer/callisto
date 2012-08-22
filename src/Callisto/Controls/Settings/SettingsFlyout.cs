@@ -5,6 +5,7 @@ using System.Linq;
 using Windows.Foundation;
 using Windows.UI;
 using Windows.UI.ApplicationSettings;
+using Windows.UI.ViewManagement;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -106,11 +107,19 @@ namespace Callisto.Controls
         
         private void OnBackButtonTapped(object sender, object e)
         {
+            // BUG #47: need to map back button to custom and ability to disable
+
             if (_hostPopup != null)
             {
                 _hostPopup.IsOpen = false;
             }
-            SettingsPane.Show();
+
+            // TEMP: wrapping this to ensure back button doesn't happen in snap/portrait
+            if (ApplicationView.Value != ApplicationViewState.Snapped)
+            {
+                SettingsPane.Show();
+            }
+            
         }
         
         void OnHostPopupClosed(object sender, object e)
