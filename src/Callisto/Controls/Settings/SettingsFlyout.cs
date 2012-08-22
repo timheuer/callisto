@@ -62,6 +62,7 @@ namespace Callisto.Controls
 
             // need the content scrollviewer to set the fixed width to be the same size as flyout
             _contentScrollViewer = GetTemplateChild("PART_ContentScrollViewer") as ScrollViewer;
+            
         }
         #endregion Overrides
 
