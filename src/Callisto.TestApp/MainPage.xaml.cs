@@ -52,6 +52,7 @@ namespace Callisto.TestApp
                 Samples.Add(new SamplePage() { Name = "Rating", Page = typeof(SamplePages.RatingControl) });
                 Samples.Add(new SamplePage() { Name = "DynamicTextBlock", Page = typeof(SamplePages.DynamicTextBlock) });
                 Samples.Add(new SamplePage() { Name = "WebViewExtension", Page = typeof(SamplePages.WebViewExtension) });
+                Samples.Add(new SamplePage() { Name = "FlipViewIndicator", Page = typeof(SamplePages.FlipViewIndicatorSample) });
 				this.DataContext = Samples;
 			}
 		}

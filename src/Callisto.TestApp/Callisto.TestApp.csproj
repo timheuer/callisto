@@ -129,6 +129,8 @@
     </Compile>
     <Compile Include="SamplePages\DynamicTextBlock.xaml.cs">
       <DependentUpon>DynamicTextBlock.xaml</DependentUpon>
+    <Compile Include="SamplePages\FlipViewIndicatorSample.xaml.cs">
+      <DependentUpon>FlipViewIndicatorSample.xaml</DependentUpon>
     </Compile>
     <Compile Include="SamplePages\FlyoutSample.xaml.cs">
       <DependentUpon>FlyoutSample.xaml</DependentUpon>
@@ -186,6 +188,7 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Page Include="SamplePages\DynamicTextBlock.xaml">
+    <Page Include="SamplePages\FlipViewIndicatorSample.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
