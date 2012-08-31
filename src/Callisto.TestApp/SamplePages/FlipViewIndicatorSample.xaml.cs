@@ -24,6 +24,15 @@ namespace Callisto.TestApp.SamplePages
         public FlipViewIndicatorSample()
         {
             this.InitializeComponent();
+
+            Loaded += FlipViewIndicatorSample_Loaded;
+        }
+
+        void FlipViewIndicatorSample_Loaded(object sender, RoutedEventArgs e)
+        {
+            var cvm = this.DataContext as ColorViewModel;
+
+            Flipper2.ItemsSource = cvm.ColorsCollection;
         }
     }
 

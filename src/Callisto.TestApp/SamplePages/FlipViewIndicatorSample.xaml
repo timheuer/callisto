@@ -13,15 +13,27 @@
     </Page.DataContext>
     
     <Grid Background="{StaticResource ApplicationPageBackgroundThemeBrush}">
-        <StackPanel Margin="100,100,0,0" HorizontalAlignment="Left">
-            <FlipView Width="250" Height="250" x:Name="Flipper" ItemsSource="{Binding ColorsCollection}">
-                <FlipView.ItemTemplate>
-                    <DataTemplate>
-                        <Rectangle Width="250" Height="250" Fill="{Binding}" />
-                    </DataTemplate>
-                </FlipView.ItemTemplate>
-            </FlipView>
-            <callisto:FlipViewIndicator x:Name="foo" FlipView="{Binding ElementName=Flipper}" />
+        <StackPanel Margin="100,100,0,0" HorizontalAlignment="Left" Orientation="Horizontal">
+            <StackPanel Margin="0,0,20,0">
+                <FlipView Width="250" Height="250" x:Name="Flipper" ItemsSource="{Binding ColorsCollection}">
+                    <FlipView.ItemTemplate>
+                        <DataTemplate>
+                            <Rectangle Width="250" Height="250" Fill="{Binding}" />
+                        </DataTemplate>
+                    </FlipView.ItemTemplate>
+                </FlipView>
+                <callisto:FlipViewIndicator x:Name="foo" FlipView="{Binding ElementName=Flipper}" />
+            </StackPanel>
+            <StackPanel>
+                <FlipView Width="250" Height="250" x:Name="Flipper2">
+                    <FlipView.ItemTemplate>
+                        <DataTemplate>
+                            <Rectangle Width="250" Height="250" Fill="{Binding}" />
+                        </DataTemplate>
+                    </FlipView.ItemTemplate>
+                </FlipView>
+                <callisto:FlipViewIndicator ItemsSource="{Binding ElementName=Flipper2, Path=ItemsSource}" SelectedItem="{Binding ElementName=Flipper2, Path=SelectedItem}" />
+            </StackPanel>
         </StackPanel>
     </Grid>
 </Page>
