@@ -676,8 +676,8 @@ limitations under the License.-->
                             </VisualStateGroup>
                         </VisualStateManager.VisualStateGroups>
                         <Rectangle x:Name="PART_FlipViewIndicatorItem" 
-                                   Width="30" Height="8" Fill="{StaticResource FlipViewIndicatorUnselectedThemeBrush}" 
-                                   Margin="0,4,8,4" />
+                                   Width="20" Height="5" Fill="{StaticResource FlipViewIndicatorUnselectedThemeBrush}" 
+                                   Margin="0,5,5,0" />
                     </Grid>
                 </ControlTemplate>
             </Setter.Value>
