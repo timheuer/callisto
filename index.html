@@ -28,40 +28,74 @@
 
     <div class="container">
 
-      <!-- Main hero unit for a primary marketing message or call to action -->
       <div class="hero-unit">
         <h1>Callisto</h1>
         <p>A XAML toolkit for helping build Windows 8 XAML applications.</p>
       </div>
 
-      <!-- Example row of columns -->
       <div class="row">
-        <div class="span4">
-          <h2>Who</h2>
-          <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-          <p><a class="btn" href="#">View details &raquo;</a></p>
-        </div>
-        <div class="span4">
-          <h2>Why</h2>
-          <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-          <p><a class="btn" href="#">View details &raquo;</a></p>
-       </div>
-        <div class="span4">
+        <div class="span3">
           <h2>What</h2>
-          <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-          <p><a class="btn" href="#">View details &raquo;</a></p>
+          <p>
+            Callisto is (hopefully) a helpful toolkit containing some utilities and UI controls to help complete your app's Windows UI style quickly as well as 
+            consistent with the Windows UI guidelines.  
+            <br/><br/>
+            Each control has made every attempt to be pixel/animation perfect to the OS experiences seen in Windows 8.
+          </p>
+        </div>
+        <div class="span3">
+          <h2>Why</h2>
+          <p>
+            Since Windows 8 was announced I had been working on application building and had found a few things that were common that I needed in my apps.  I kept re-writing them 
+            and decided just to encapsulate them in a library.
+            <br/><br/>Additionally at the release of Windows 8 there are some small gaps in UI controls in the XAML platform that 
+            make it easy to build Windows UI style apps.  It is not impossible, but I made Callisto to hopefully make them easier.
+            <br/><br/>
+            Callisto grew from app development and extracted from apps initially.  I hope you find it useful.
+          </p>
+       </div>
+       <div class="span3">
+          <h2>How</h2>
+          <p>
+            I've tried to make it very easy to acquire Callisto for your use, whether you are a developer who just wants the lib, or you want the source.  
+            Callisto is available in source-code form on <a href="http://github.com/timheuer/callisto" title="Get the source code on GitHub">GitHub</a> or in binary form via <a href="http://nuget.org/packages/Callisto" title="Add the NuGet package to your project quickly">NuGet</a> or the <a href="http://visualstudiogallery.msdn.microsoft.com/0526563b-7a48-4b17-a087-a35cea701052" title="Install the toolkit from the Visual Studio gallery">Visual Studio Gallery</a>.
+            <br/><br/>
+            <a href="http://github.com/timheuer/callisto" title="Get the source code on GitHub"><img src="img/github-55.png" alt="Source code on GitHub" class="img-polaroid" /></a>&nbsp;&nbsp; <a href="http://nuget.org/packages/Callisto" title="Add the NuGet package to your project quickly"><img src="img/nuget-55.png" alt="NuGet" class="img-polaroid" /></a>&nbsp;&nbsp; <a href="http://visualstudiogallery.msdn.microsoft.com/0526563b-7a48-4b17-a087-a35cea701052" title="Install the toolkit from the Visual Studio gallery"><img class="img-polaroid" src="img/vs-55.png" alt="Visual Studio Gallery" /></a>
+          </p>
+       </div>
+       <div class="span3">
+            <h2>Learn</h2>
+            <p>
+            The docs for Callisto are always evolving to try to be better.  The <a href="https://github.com/timheuer/callisto/wiki">wiki docs</a> are the 
+            place where the docs will continue to get better on specific use cases of the library.  In the meantime, the source code has a test app that shows some 
+            usage of controls and is a decent starting example as docs continue to get better.
+            </p>
+      </div>
+      
+      <div class="row">
+        <div class="span12">
+            <h2>Who</h2>
+            <p><a href="http://timheuer.com/blog/" title="Tim Heuer"><img class="pull-right" src="img/timheuer-210.jpg" alt="Tim Heuer" /></a>
+                The Callisto project is an Open Source project available to everyone to use and change.  The project was initially started by <a href="http://timheuer.com/blog/" title="Tim Heuer's Blog">Tim Heuer</a> 
+                however has received inspiration and contributions from many others.  In some cases controls were ports/updates of existing controls from other Open Source libraries. 
+                Tim remains the project coordinator but encourages contributions in an open dialog manner.  
+                <br/><br/>
+                Tim has worked as a developer for years helping customers in all industries.  He currently works as a Program Manager on Windows UI platforms at Microsoft.  He can 
+                be found writing on his blog at <a href="http://timheuer.com/blog/">http://timheuer.com/blog/</a>, on <a href="http://twitter.com/timheuer">Twitter</a> and often in the 
+                developer forums for MSDN or Stack Overflow helping customers with issues.
+            </p>
         </div>
       </div>
+
 
       <hr>
 
       <footer>
-        <p>&copy; Tim Heuer 2012</p>
+        <p>&copy; Tim Heuer 2012.<br/>Microsoft, Windows, Windows 8 and Windows RT are registered trademarks of Microsoft Corporation</p>
       </footer>
 
     </div>
-
-    <script src="js/bootstrap-min.js">
-
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
   </body>
 </html>
