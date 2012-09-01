@@ -14,6 +14,12 @@
         padding-top: 60px;
         padding-bottom: 40px;
       }
+      .carousel-back {
+        background-image: url(img/feature-back.png);
+      }
+      #features .item {
+        min-height: 350px;
+      }
     </style>
     <link href="css/bootstrap-responsive.min.css" rel="stylesheet">
 
@@ -28,11 +34,66 @@
 
     <div class="container">
 
-      <div class="hero-unit">
+      <!--<div class="hero-unit">
         <h1>Callisto</h1>
         <p>A XAML toolkit for helping build Windows 8 XAML applications.</p>
-      </div>
+      </div>-->
+      <div class="row">
+          <div id="features" class="span12 carousel slide carousel-back" data-interval="7000">
+            <div class="carousel-inner">
+                <div class="item active">
+                    <img src="img/feature-home.png" alt="" />
+                </div>
+                <div class="item">
+                    <img src="img/feature-flyout.png" alt="" />
+                    <div class="carousel-caption">
+                        <h4>Flyouts</h4>
+                        <p>Create flyout containers for use from AppBar to host custom content</p>
+                    </div>
+                </div>
+                <div class="item">
+                    <img src="img/feature-settings.png" alt="" />
+                    <div class="carousel-caption">
+                        <h4>Settings Flyout</h4>
+                        <p>Enable the prescribed UI behavior for creating a custom Settings experience for your app</p>
+                    </div>
+                </div>
+                <div class="item">
+                    <img src="img/feature-menus.png" alt="" />
+                    <div class="carousel-caption">
+                        <h4>Menus</h4>
+                        <p>Create custom flyout menus allowing you to also have toggle menu items</p>
+                    </div>
+                </div>
+                <div class="item">
+                    <img src="img/feature-tilt.png" alt="" />
+                    <div class="carousel-caption">
+                        <h4>Tilt Effect</h4>
+                        <p>Add the tilt effect to your own UI elements and lists to give that common tap/click feedback present in the OS</p>
+                    </div>
+                </div>
+                <div class="item">
+                    <img src="img/feature-livetile.png" alt="" />
+                    <div class="carousel-caption">
+                        <h4>Live Tiles in your apps</h4>
+                        <p>Create live tiles within your apps just like the Start Screen.  (Screenshot: <a href="http://apps.microsoft.com/webpdp/app/aa115aae-09e1-48de-95a1-35d77d23c9a0">MetroTwit</a>)</p>
+                    </div>
+                </div>
+                <div class="item">
+                    <img src="img/feature-ratings.png" alt="" />
+                    <div class="carousel-caption">
+                        <h4>Ratings</h4>
+                        <p>Add a ratings control to your app and style how you'd like</p>
+                    </div>
+                </div>
+                
+                <!-- Carousel nav -->
+                <a class="carousel-control left" href="#features" data-slide="prev">&lsaquo;</a>
+                <a class="carousel-control right" href="#features" data-slide="next">&rsaquo;</a>
 
+            </div>
+          </div>
+      </div>
       <div class="row">
         <div class="span3">
           <h2>What</h2>
