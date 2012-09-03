@@ -48,18 +48,12 @@ namespace Callisto.Controls
                     // this is a special case where ItemsSource is set in code
                     // and the associated FlipView's ItemsSource may not be available yet
                     // if it isn't available, let's listen for SelectionChanged 
-                    if (fv.ItemsSource == null)
+                    fv.SelectionChanged += (s, e) =>
                     {
-                        fv.SelectionChanged += (s, e) =>
-                            {
-                                fvi.ItemsSource = fv.ItemsSource;
-                            };
-                    }
-                    else // data is already there, set it.
-                    {
-                        // set the binding context to the same as the associated FlipView
                         fvi.ItemsSource = fv.ItemsSource;
-                    }
+                    };
+
+                    fvi.ItemsSource = fv.ItemsSource;
 
                     // create the element binding source
                     Binding eb = new Binding();

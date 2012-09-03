@@ -36,6 +36,7 @@
                 <callisto:FlipViewIndicator FlipView="{Binding ElementName=Flipper2}" />
                 <TextBlock Margin="0,10,0,0" Text="ItemsSource set via code (later bound)" />
             </StackPanel>
+            <Button Content="Change ItemsSource" Click="Button_Click_1" />
         </StackPanel>
     </Grid>
 </Page>

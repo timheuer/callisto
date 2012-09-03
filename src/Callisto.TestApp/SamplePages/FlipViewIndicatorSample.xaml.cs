@@ -34,6 +34,14 @@ namespace Callisto.TestApp.SamplePages
 
             Flipper2.ItemsSource = cvm.ColorsCollection;
         }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            var cvm = this.DataContext as ColorViewModel;
+
+            Flipper2.ItemsSource = cvm.ColorsCollection2;
+            Flipper.ItemsSource = cvm.ColorsCollection2;
+        }
     }
 
     public class ColorViewModel
@@ -48,6 +56,19 @@ namespace Callisto.TestApp.SamplePages
                     new SolidColorBrush(Colors.Blue),
                     new SolidColorBrush(Colors.Purple),
                     new SolidColorBrush(Colors.Orange)
+                };
+            }
+        }
+
+        public ObservableCollection<SolidColorBrush> ColorsCollection2
+        {
+            get
+            {
+                return new ObservableCollection<SolidColorBrush>()
+                {
+                    new SolidColorBrush(Colors.Green),
+                    new SolidColorBrush(Colors.Beige),
+                    new SolidColorBrush(Colors.Cyan)
                 };
             }
         }
