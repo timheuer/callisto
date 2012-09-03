@@ -23,6 +23,7 @@
                     </FlipView.ItemTemplate>
                 </FlipView>
                 <callisto:FlipViewIndicator x:Name="foo" FlipView="{Binding ElementName=Flipper}" />
+                <TextBlock Margin="0,10,0,0" Text="ItemsSource set via Binding" />
             </StackPanel>
             <StackPanel>
                 <FlipView Width="250" Height="250" x:Name="Flipper2">
@@ -32,7 +33,8 @@
                         </DataTemplate>
                     </FlipView.ItemTemplate>
                 </FlipView>
-                <callisto:FlipViewIndicator ItemsSource="{Binding ElementName=Flipper2, Path=ItemsSource}" SelectedItem="{Binding ElementName=Flipper2, Path=SelectedItem}" />
+                <callisto:FlipViewIndicator FlipView="{Binding ElementName=Flipper2}" />
+                <TextBlock Margin="0,10,0,0" Text="ItemsSource set via code (later bound)" />
             </StackPanel>
         </StackPanel>
     </Grid>
