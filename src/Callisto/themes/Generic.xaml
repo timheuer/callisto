@@ -751,4 +751,217 @@ limitations under the License.-->
             </Setter.Value>
         </Setter>
     </Style>
+
+    <Style TargetType="local:WatermarkTextBox">
+        <Setter Property="MinWidth" Value="{StaticResource TextControlThemeMinWidth}" />
+        <Setter Property="MinHeight" Value="{StaticResource TextControlThemeMinHeight}" />
+        <Setter Property="Foreground" Value="{StaticResource TextBoxForegroundThemeBrush}" />
+        <Setter Property="Background" Value="{StaticResource TextBoxBackgroundThemeBrush}" />
+        <Setter Property="BorderBrush" Value="{StaticResource TextBoxBorderThemeBrush}" />
+        <Setter Property="BorderThickness" Value="{StaticResource TextControlBorderThemeThickness}" />
+        <Setter Property="FontFamily" Value="{StaticResource ContentControlThemeFontFamily}" />
+        <Setter Property="FontSize" Value="{StaticResource ControlContentThemeFontSize}" />
+        <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Hidden" />
+        <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Hidden" />
+        <Setter Property="ScrollViewer.IsDeferredScrollingEnabled" Value="False" />
+        <Setter Property="Padding" Value="{StaticResource TextControlThemePadding}"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="local:WatermarkTextBox">
+                    <Grid>
+                        <Grid.Resources>
+                            <Style x:Name="DeleteButtonStyle" TargetType="Button">
+                                <Setter Property="Template">
+                                    <Setter.Value>
+                                        <ControlTemplate TargetType="Button">
+                                            <Grid>
+                                                <VisualStateManager.VisualStateGroups>
+                                                    <VisualStateGroup x:Name="CommonStates">
+                                                        <VisualState x:Name="Normal" />
+                                                        <VisualState x:Name="PointerOver">
+                                                            <Storyboard>
+                                                                <ObjectAnimationUsingKeyFrames Storyboard.TargetName="BackgroundElement"
+                                                                                               Storyboard.TargetProperty="Background">
+                                                                    <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource TextBoxButtonPointerOverBackgroundThemeBrush}" />
+                                                                </ObjectAnimationUsingKeyFrames>
+                                                                <ObjectAnimationUsingKeyFrames Storyboard.TargetName="BorderElement"
+                                                                                               Storyboard.TargetProperty="BorderBrush">
+                                                                    <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource TextBoxButtonPointerOverBorderThemeBrush}" />
+                                                                </ObjectAnimationUsingKeyFrames>
+                                                                <ObjectAnimationUsingKeyFrames Storyboard.TargetName="GlyphElement"
+                                                                                               Storyboard.TargetProperty="Foreground">
+                                                                    <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource TextBoxButtonPointerOverForegroundThemeBrush}" />
+                                                                </ObjectAnimationUsingKeyFrames>
+                                                            </Storyboard>
+                                                        </VisualState>
+                                                        <VisualState x:Name="Pressed">
+                                                            <Storyboard>
+                                                                <ObjectAnimationUsingKeyFrames Storyboard.TargetName="BackgroundElement"
+                                                                                               Storyboard.TargetProperty="Background">
+                                                                    <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource TextBoxButtonPressedBackgroundThemeBrush}" />
+                                                                </ObjectAnimationUsingKeyFrames>
+                                                                <ObjectAnimationUsingKeyFrames Storyboard.TargetName="BorderElement"
+                                                                                               Storyboard.TargetProperty="BorderBrush">
+                                                                    <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource TextBoxButtonPressedBorderThemeBrush}" />
+                                                                </ObjectAnimationUsingKeyFrames>
+                                                                <ObjectAnimationUsingKeyFrames Storyboard.TargetName="GlyphElement"
+                                                                                               Storyboard.TargetProperty="Foreground">
+                                                                    <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource TextBoxButtonPressedForegroundThemeBrush}" />
+                                                                </ObjectAnimationUsingKeyFrames>
+                                                            </Storyboard>
+                                                        </VisualState>
+                                                        <VisualState x:Name="Disabled">
+                                                            <Storyboard>
+                                                                <DoubleAnimation Storyboard.TargetName="BackgroundElement"
+                                                                                 Storyboard.TargetProperty="Opacity"
+                                                                                 To="0"
+                                                                                 Duration="0" />
+                                                                <DoubleAnimation Storyboard.TargetName="BorderElement"
+                                                                                 Storyboard.TargetProperty="Opacity"
+                                                                                 To="0"
+                                                                                 Duration="0" />
+                                                            </Storyboard>
+                                                        </VisualState>
+                                                    </VisualStateGroup>
+                                                </VisualStateManager.VisualStateGroups>
+                                                <Border x:Name="BorderElement"
+                                                        BorderBrush="{StaticResource TextBoxButtonBorderThemeBrush}"
+                                                        BorderThickness="{TemplateBinding BorderThickness}"/>
+                                                <Border x:Name="BackgroundElement"
+                                                        Background="{StaticResource TextBoxButtonBackgroundThemeBrush}"
+                                                        Margin="{TemplateBinding BorderThickness}">
+                                                    <TextBlock x:Name="GlyphElement"
+                                                               Foreground="{StaticResource TextBoxButtonForegroundThemeBrush}"
+                                                               VerticalAlignment="Center"
+                                                               HorizontalAlignment="Center"
+                                                               Text="&#xE0A4;"
+                                                               FontFamily="{StaticResource SymbolThemeFontFamily}"/>
+                                                </Border>
+                                            </Grid>
+                                        </ControlTemplate>
+                                    </Setter.Value>
+                                </Setter>
+                            </Style>
+                        </Grid.Resources>
+                        <VisualStateManager.VisualStateGroups>
+                            <VisualStateGroup x:Name="CommonStates">
+                                <VisualState x:Name="Disabled">
+                                    <Storyboard>
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="BackgroundElement"
+                                                                       Storyboard.TargetProperty="Background">
+                                            <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource TextBoxDisabledBackgroundThemeBrush}" />
+                                        </ObjectAnimationUsingKeyFrames>
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="BorderElement"
+                                                                       Storyboard.TargetProperty="BorderBrush">
+                                            <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource TextBoxDisabledBorderThemeBrush}" />
+                                        </ObjectAnimationUsingKeyFrames>
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="ContentElement"
+                                                                       Storyboard.TargetProperty="Foreground">
+                                            <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource TextBoxDisabledForegroundThemeBrush}" />
+                                        </ObjectAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </VisualState>
+                                <VisualState x:Name="Normal">
+                                    <Storyboard>
+                                        <DoubleAnimation Storyboard.TargetName="BackgroundElement"
+                                                         Storyboard.TargetProperty="Opacity"
+                                                         Duration="0"
+                                                         To="{StaticResource TextControlBackgroundThemeOpacity}" />
+                                        <DoubleAnimation Storyboard.TargetName="BorderElement"
+                                                         Storyboard.TargetProperty="Opacity"
+                                                         Duration="0"
+                                                         To="{StaticResource TextControlBorderThemeOpacity}" />
+                                    </Storyboard>
+                                </VisualState>
+                                <VisualState x:Name="PointerOver">
+                                    <Storyboard>
+                                        <DoubleAnimation Storyboard.TargetName="BackgroundElement"
+                                                         Storyboard.TargetProperty="Opacity"
+                                                         Duration="0"
+                                                         To="{StaticResource TextControlPointerOverBackgroundThemeOpacity}" />
+                                        <DoubleAnimation Storyboard.TargetName="BorderElement"
+                                                         Storyboard.TargetProperty="Opacity"
+                                                         Duration="0"
+                                                         To="{StaticResource TextControlPointerOverBorderThemeOpacity}" />
+                                    </Storyboard>
+                                </VisualState>
+                                <VisualState x:Name="Focused" />
+                            </VisualStateGroup>
+                            <VisualStateGroup x:Name="WatermarkStates">
+                                <VisualState x:Name="Watermarked">
+                                    <Storyboard>
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="PART_Watermark" Storyboard.TargetProperty="Visibility">
+                                            <DiscreteObjectKeyFrame KeyTime="0">
+                                                <DiscreteObjectKeyFrame.Value>
+                                                    <Visibility>Visible</Visibility>
+                                                </DiscreteObjectKeyFrame.Value>
+                                            </DiscreteObjectKeyFrame>
+                                        </ObjectAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </VisualState>
+                                <VisualState x:Name="Unwatermarked" />
+                            </VisualStateGroup>
+                            <VisualStateGroup x:Name="ButtonStates">
+                                <VisualState x:Name="ButtonVisible">
+                                    <Storyboard>
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="DeleteButton"
+                                                                       Storyboard.TargetProperty="Visibility">
+                                            <DiscreteObjectKeyFrame KeyTime="0">
+                                                <DiscreteObjectKeyFrame.Value>
+                                                    <Visibility>Visible</Visibility>
+                                                </DiscreteObjectKeyFrame.Value>
+                                            </DiscreteObjectKeyFrame>
+                                        </ObjectAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </VisualState>
+                                <VisualState x:Name="ButtonCollapsed" />
+                            </VisualStateGroup>
+                        </VisualStateManager.VisualStateGroups>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+                        <Border x:Name="BackgroundElement"
+                                Background="{TemplateBinding Background}"
+                                Margin="{TemplateBinding BorderThickness}"
+                                Grid.ColumnSpan="2"/>
+                        <Border x:Name="BorderElement"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                Grid.ColumnSpan="2"/>
+                        <ScrollViewer x:Name="ContentElement"
+                                      HorizontalScrollMode="{TemplateBinding ScrollViewer.HorizontalScrollMode}"
+                                      HorizontalScrollBarVisibility="{TemplateBinding ScrollViewer.HorizontalScrollBarVisibility}"
+                                      VerticalScrollMode="{TemplateBinding ScrollViewer.VerticalScrollMode}"
+                                      VerticalScrollBarVisibility="{TemplateBinding ScrollViewer.VerticalScrollBarVisibility}"
+                                      IsHorizontalRailEnabled="{TemplateBinding ScrollViewer.IsHorizontalRailEnabled}"
+                                      IsVerticalRailEnabled="{TemplateBinding ScrollViewer.IsVerticalRailEnabled}"
+                                      IsDeferredScrollingEnabled="{TemplateBinding ScrollViewer.IsDeferredScrollingEnabled}"
+                                      Margin="{TemplateBinding BorderThickness}"
+                                      Padding="{TemplateBinding Padding}"
+                                      IsTabStop="False"
+                                      ZoomMode="Disabled"/>
+                        <TextBlock x:Name="PART_Watermark"
+                                   Text="{TemplateBinding Watermark}"
+                                   Foreground="{StaticResource TextBoxDisabledForegroundThemeBrush}"
+                                   FontStyle="Italic"
+                                   IsHitTestVisible="False"
+                                   Visibility="Collapsed"
+                                   Margin="{StaticResource TextControlBorderThemeThickness}"
+                                   Padding="{StaticResource TextControlThemePadding}"
+                                   FontFamily="{StaticResource ContentControlThemeFontFamily}"
+                                   FontSize="{StaticResource ControlContentThemeFontSize}"/>
+                        <Button x:Name="DeleteButton"
+                                Style="{StaticResource DeleteButtonStyle}"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                IsTabStop="False"
+                                Grid.Column="1"
+                                Visibility="Collapsed"
+                                FontSize="{TemplateBinding FontSize}"
+                                VerticalAlignment="Stretch"/>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
 </ResourceDictionary>

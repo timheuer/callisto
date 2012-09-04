@@ -129,7 +129,7 @@
     </Compile>
     <Compile Include="SamplePages\DynamicTextBlock.xaml.cs">
       <DependentUpon>DynamicTextBlock.xaml</DependentUpon>
-	</Compile>
+    </Compile>
     <Compile Include="SamplePages\FlipViewIndicatorSample.xaml.cs">
       <DependentUpon>FlipViewIndicatorSample.xaml</DependentUpon>
     </Compile>
@@ -150,6 +150,9 @@
     </Compile>
     <Compile Include="SamplePages\TiltSample.xaml.cs">
       <DependentUpon>TiltSample.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SamplePages\WatermarkTextBoxSample.xaml.cs">
+      <DependentUpon>WatermarkTextBoxSample.xaml</DependentUpon>
     </Compile>
     <Compile Include="SamplePages\WebViewExtension.xaml.cs">
       <DependentUpon>WebViewExtension.xaml</DependentUpon>
@@ -189,7 +192,7 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Page Include="SamplePages\DynamicTextBlock.xaml">
-	  <SubType>Designer</SubType>
+      <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="SamplePages\FlipViewIndicatorSample.xaml">
@@ -197,6 +200,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="SamplePages\SettingsContent.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SamplePages\WatermarkTextBoxSample.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

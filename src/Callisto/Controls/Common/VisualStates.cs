@@ -125,6 +125,23 @@ namespace Callisto.Controls.Common
         public const string GroupVisibility = "VisibilityStates";
         #endregion
 
+        #region GroupWatermark
+        /// <summary>
+        /// Non-watermarked state.
+        /// </summary>
+        public const string StateUnwatermarked = "Unwatermarked";
+
+        /// <summary>
+        /// Watermarked state.
+        /// </summary>
+        public const string StateWatermarked = "Watermarked";
+
+        /// <summary>
+        /// Watermark state group.
+        /// </summary>
+        public const string GroupWatermark = "WatermarkStates";
+        #endregion GroupWatermark
+
         /// <summary>
         /// Use VisualStateManager to change the visual state of the control.
         /// </summary>

@@ -1,5 +1,8 @@
 # Changelog
 
+## 1.2.0
+* NEW: Added WatermarkTextBox control
+
 ## 1.1.0
 * Fixes #69: Back button in snapped mode will attempt to show SettingsPane.  Put temp provisioin in to prevent.
 * NEW: Adding DynamicTextBlock for CharacterEllipsis mode on a TextBlock

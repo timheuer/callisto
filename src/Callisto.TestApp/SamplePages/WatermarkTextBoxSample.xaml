@@ -1,0 +1,24 @@
+﻿<Page
+    x:Class="Callisto.TestApp.SamplePages.WatermarkTextBoxSample"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Callisto.TestApp.SamplePages"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d" xmlns:callisto="using:Callisto.Controls">
+
+    <Grid Background="{StaticResource ApplicationPageBackgroundThemeBrush}">
+        <StackPanel Margin="100,50,0,0" HorizontalAlignment="Left">
+
+            <TextBlock FontSize="14.667" Text="Regular TextBox" Width="400" />
+            <TextBox FontSize="14.667" Width="400" />
+
+            <TextBlock Margin="0,20,0,0" FontSize="14.667" Text="WatermarkTextBox" Width="400" />
+            <callisto:WatermarkTextBox Watermark="Enter some text..." FontSize="14.667" Width="400" x:Name="wmt" />
+
+            <TextBlock Margin="0,20,0,0" FontSize="14.667" Text="Text property of WatermarkTextBox" Width="400" />
+            <TextBlock FontSize="14.667" Text="{Binding ElementName=wmt, Path=Text}" />
+
+        </StackPanel>
+    </Grid>
+</Page>
