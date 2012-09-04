@@ -1,7 +1,8 @@
 # Changelog
 
-## 1.2.0
+## 1.2.0 (PENDING RELEASE)
 * NEW: Added WatermarkTextBox control
+* NEW: Added FlipViewIndicator control
 
 ## 1.1.0
 * Fixes #69: Back button in snapped mode will attempt to show SettingsPane.  Put temp provisioin in to prevent.
