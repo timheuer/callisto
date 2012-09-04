@@ -1,6 +1,6 @@
 # Changelog
 
-## 1.2.0 (PENDING RELEASE)
+## 1.2.0 (03-SEP-2012)
 * NEW: Added WatermarkTextBox control
 * NEW: Added FlipViewIndicator control
 
