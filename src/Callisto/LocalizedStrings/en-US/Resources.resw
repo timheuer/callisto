@@ -282,7 +282,7 @@
     <comment>Exception thrown when trying to get a plural string for a non-plural number of time units.</comment>
   </data>
   <data name="WatermarkTextBoxDefault" xml:space="preserve">
-    <value>&amp;lt;enter text here&amp;gt;</value>
+    <value>Enter some text...</value>
     <comment>Default text for a Watermark in the WatermarkTextBox control</comment>
   </data>
 </root>

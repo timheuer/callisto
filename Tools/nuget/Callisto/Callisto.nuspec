@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
   <metadata>
-    <version>1.2.0</version>
+    <version>1.2.1</version>
     <authors>Tim Heuer</authors>
     <owners>Tim Heuer</owners>
     <licenseUrl>http://opensource.org/licenses/ms-pl.html</licenseUrl>
@@ -15,8 +15,8 @@
     <tags>xaml winrt flyout settings popup menu win8 metro pivot ratings flipview watermark</tags>
 	<releaseNotes>
 	<![CDATA[
-		Fixed issue where SettingsFlyout needed to respond to RTL languages better.
-		Fixed issue for SettingsFlyout for scrollable content within content area.
+		NEW: FlipViewIndicator control
+        NEW: WatermarkTextBox control
 	]]>
 	</releaseNotes>
   </metadata>

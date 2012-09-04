@@ -14,7 +14,7 @@
             <TextBox FontSize="14.667" Width="400" />
 
             <TextBlock Margin="0,20,0,0" FontSize="14.667" Text="WatermarkTextBox" Width="400" />
-            <callisto:WatermarkTextBox Watermark="Enter some text..." FontSize="14.667" Width="400" x:Name="wmt" />
+            <callisto:WatermarkTextBox FontSize="14.667" Width="400" x:Name="wmt" />
 
             <TextBlock Margin="0,20,0,0" FontSize="14.667" Text="Text property of WatermarkTextBox" Width="400" />
             <TextBlock FontSize="14.667" Text="{Binding ElementName=wmt, Path=Text}" />

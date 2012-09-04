@@ -256,6 +256,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Callisto.TestApp_TemporaryKey.pfx" />
+    <PRIResource Include="en-US\Resources.resw" />
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' ">
     <VisualStudioVersion>11.0</VisualStudioVersion>
