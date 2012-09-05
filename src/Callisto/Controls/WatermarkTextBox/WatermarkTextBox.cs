@@ -182,7 +182,7 @@ namespace Callisto.Controls
         {
             WatermarkTextBox wmt = d as WatermarkTextBox;
 
-            if (d != null)
+            if (wmt != null)
             {
                 Control watermarkControl = wmt.Watermark as Control;
                 if (watermarkControl != null)
