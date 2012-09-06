@@ -2,6 +2,7 @@
 
 ## 1.2.2 (PENDING RELEASE)
 * Fixes #74: Incorrect null check on WatermarkTextBox DP in property changed callback
+* Fixes #75: Made Margin on Rating template bound but kept defaults for compat
 
 ## 1.2.1 (03-SEP-2012)
 * NEW: Added WatermarkTextBox control

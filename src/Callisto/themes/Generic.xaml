@@ -607,6 +607,7 @@ limitations under the License.-->
         <Setter Property="BorderThickness" Value="0"/>
         <Setter Property="FontSize" Value="28" />
         <Setter Property="Tag" Value="&#xE082;" />
+        <Setter Property="Margin" Value="12,0,0,0" />
         <Setter Property="ItemsPanel">
             <Setter.Value>
                 <ItemsPanelTemplate>
@@ -631,7 +632,7 @@ limitations under the License.-->
                                 <VisualState x:Name="Unfocused"/>
                             </VisualStateGroup>
                         </VisualStateManager.VisualStateGroups>
-                        <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" Margin="12,0,0,0"  BorderThickness="{TemplateBinding BorderThickness}">
+                        <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" Margin="{TemplateBinding Margin}"  BorderThickness="{TemplateBinding BorderThickness}">
                             <ItemsPresenter/>
                         </Border>
                         <Border x:Name="ReadOnlyVisualElement" IsHitTestVisible="False" Opacity="0" Background="#83FFFFFF" BorderBrush="#A5F7F7F7" BorderThickness="{TemplateBinding BorderThickness}"/>
