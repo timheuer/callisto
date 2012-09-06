@@ -1,5 +1,8 @@
 # Changelog
 
+## 1.2.2 (PENDING RELEASE)
+* Fixes #74: Incorrect null check on WatermarkTextBox DP in property changed callback
+
 ## 1.2.1 (03-SEP-2012)
 * NEW: Added WatermarkTextBox control
 * NEW: Added FlipViewIndicator control (hat tip to Diederik Krols -- thx for the help!)
