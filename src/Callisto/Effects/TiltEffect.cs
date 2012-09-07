@@ -1,4 +1,4 @@
-﻿﻿//
+﻿//
 // Copyright (c) 2012 Morten Nielsen
 //
 // Licensed under the Microsoft Public License (Ms-PL) (the "License");
@@ -240,6 +240,17 @@ namespace Callisto.Effects
 			EndTiltEffect(currentTiltElement);
 		}
 
+		/// <summary>
+		/// Event handler for PointerCaptureLost
+		/// </summary>
+		/// <param name="sender">sender of the event - this will be the tilting 
+		/// object (eg a button).</param>
+		/// <param name="e">Event arguments.</param>
+		private static void TiltEffect_PointerCaptureLost(object sender, PointerRoutedEventArgs e)
+		{
+			EndTiltEffect(currentTiltElement);
+		}
+
 		#endregion
 
 		#region Core tilt logic
@@ -351,6 +362,7 @@ namespace Callisto.Effects
 
 			element.PointerMoved += TiltEffect_PointerMoved;
 			element.PointerReleased += TiltEffect_PointerReleased;
+			element.PointerCaptureLost += TiltEffect_PointerCaptureLost;
 			element.CapturePointer(p);
 			return true;
 		}
@@ -367,6 +379,7 @@ namespace Callisto.Effects
 		{
 			element.PointerMoved -= TiltEffect_PointerMoved;
 			element.PointerReleased -= TiltEffect_PointerReleased;
+			element.PointerCaptureLost -= TiltEffect_PointerCaptureLost;
 			element.Projection = null;
 			element.RenderTransform = null;
 
