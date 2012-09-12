@@ -6,14 +6,14 @@ namespace XamlControlsUITestApp
 {
     sealed partial class App : Application
     {
-       public App()
+
+        public App()
         {
             this.InitializeComponent();
         }
 
         protected override void OnLaunched(LaunchActivatedEventArgs args)
         {
-
             // Create a Frame to act navigation context and navigate to the first page
             var rootFrame = new Frame();
             rootFrame.Navigate(typeof(Callisto.TestApp.MainPage));

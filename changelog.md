@@ -4,6 +4,8 @@
 * Fixes #74: Incorrect null check on WatermarkTextBox DP in property changed callback
 * Fixes #75: Made Margin on Rating template bound but kept defaults for compat
 * TiltEffect: Stop tilt effect if pointer capture is lost
+* Fix: SettingsFlyout/Flyout for cases where input controls might be there and the IHM (aka software keyboard) might occlude the view.
+* Fix: SettingsFlyout 1px border to match UI design specs where border is 80% brightness of HeaderBrush (added ColorBrightnessConverter)
 
 ## 1.2.1 (03-SEP-2012)
 * NEW: Added WatermarkTextBox control

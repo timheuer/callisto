@@ -30,6 +30,8 @@ Nunc bibendum accumsan nisi sed fermentum. Integer nec sem mauris. Cum sociis na
 Ut eu dui mauris, nec semper urna. Donec tortor enim, blandit id euismod at, porttitor ut justo. Duis euismod magna ac ipsum tristique blandit. Suspendisse at nisi purus. Pellentesque et quam in arcu ultrices placerat. Sed sodales, dui a dapibus malesuada, leo nulla luctus magna, ut vulputate turpis urna in ligula. Nulla gravida enim euismod nulla eleifend cursus. Vestibulum fermentum mi ut erat pulvinar vehicula sagittis libero pulvinar. Suspendisse lacinia risus gravida lectus auctor quis varius purus ultricies. Maecenas vulputate convallis dui ut semper. Morbi diam elit, volutpat vel convallis vel, gravida ut est. 
                 </TextBlock.Text>
             </TextBlock>
+            <TextBlock Text="Enter name..." FontSize="14.667" />
+            <TextBox Width="300" Height="35" />
         </StackPanel>
     </Grid>
 </UserControl>

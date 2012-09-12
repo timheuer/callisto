@@ -119,6 +119,24 @@ namespace Callisto.Controls
             Measure(new Size(Double.PositiveInfinity, double.PositiveInfinity));
 
             PerformPlacement(this.HorizontalOffset, this.VerticalOffset);
+
+            // handling the case where it isn't parented to the visual tree
+            // inspect the visual root and adjust.
+            if (_hostPopup.Parent == null)
+            {
+                int ihmOffset = 0;
+
+                Windows.UI.ViewManagement.InputPane.GetForCurrentView().Showing += ((s, a) =>
+                    {
+                        ihmOffset = (int)a.OccludedRect.Height;
+                        _hostPopup.VerticalOffset -= ihmOffset;
+                    });
+
+                Windows.UI.ViewManagement.InputPane.GetForCurrentView().Hiding += ((s, a) =>
+                    {
+                        _hostPopup.VerticalOffset += ihmOffset;
+                    });
+            }
         }
 
         private static Rect GetBounds(params Point[] interestPoints)

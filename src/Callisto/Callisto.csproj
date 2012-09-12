@@ -139,6 +139,7 @@
     <Compile Include="Controls\WatermarkTextBox\WatermarkTextBox.cs" />
     <Compile Include="Converters\BooleanToVisibilityConverter.cs" />
     <Compile Include="Converters\BrushToColorConverter.cs" />
+    <Compile Include="Converters\ColorBrightnessConverter.cs" />
     <Compile Include="Converters\DateTimeFormatHelper.cs" />
     <Compile Include="Converters\LengthToBooleanConverter.cs" />
     <Compile Include="Converters\RelativeTimeConverter.cs" />

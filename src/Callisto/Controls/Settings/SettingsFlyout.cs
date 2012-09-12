@@ -120,6 +120,22 @@ namespace Callisto.Controls
             
             // ensure it comes from the correct edge location
             _hostPopup.SetValue(Canvas.LeftProperty, SettingsPane.Edge == SettingsEdgeLocation.Right ? (_windowBounds.Width - _settingsWidth) : 0);
+
+            // handling the case where it isn't parented to the visual tree
+            // inspect the visual root and adjust.
+            if (_hostPopup.Parent == null)
+            {
+                int ihmOffset = 0;
+                Windows.UI.ViewManagement.InputPane.GetForCurrentView().Showing += ((s, a) =>
+                    {
+                        ihmOffset = (int)a.OccludedRect.Height;
+                        _hostPopup.VerticalOffset -= ihmOffset;
+                    });
+                Windows.UI.ViewManagement.InputPane.GetForCurrentView().Hiding += ((s, a) =>
+                    {
+                        _hostPopup.VerticalOffset += ihmOffset;
+                    });
+            }
         }
         
         private void OnBackButtonTapped(object sender, object e)
@@ -158,6 +174,8 @@ namespace Callisto.Controls
                 this.IsOpen = false;
             }
         }
+
+        public Popup HostPopup { get { return _hostPopup; } }
         #endregion Constructor
 
         #region Dependency Properties

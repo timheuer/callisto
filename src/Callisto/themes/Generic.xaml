@@ -93,6 +93,7 @@ limitations under the License.-->
     </ResourceDictionary.ThemeDictionaries>
 
     <converters:BrushToColorConverter x:Key="BrushToColor" />
+    <converters:ColorBrightnessConverter x:Key="ColorBrightness" />
     <x:String x:Key="SettingsFlyoutHeaderTextDefault">Application Setting</x:String>
 
     <Style x:Key="ToggleMenuItemCheckBox" TargetType="CheckBox">
@@ -450,7 +451,7 @@ limitations under the License.-->
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="local:SettingsFlyout">
-                    <Border x:Name="PART_RootBorder" BorderBrush="{TemplateBinding HeaderBrush}" BorderThickness="1,0,0,0" VerticalAlignment="Stretch">
+                    <Border x:Name="PART_RootBorder" BorderBrush="{Binding ElementName=PART_HeaderGrid, Path=Background, RelativeSource={RelativeSource Mode=Self}, Converter={StaticResource ColorBrightness}, ConverterParameter=0.8}" BorderThickness="1,0,0,0" VerticalAlignment="Stretch">
                         <Grid Background="{TemplateBinding Background}" VerticalAlignment="Stretch">
                             <!-- Root grid definition -->
                             <Grid.RowDefinitions>
@@ -459,7 +460,7 @@ limitations under the License.-->
                             </Grid.RowDefinitions>
 
                             <!-- Header area for panel -->
-                            <Grid Background="{TemplateBinding HeaderBrush}" Grid.Row="0">
+                            <Grid Background="{TemplateBinding HeaderBrush}" Grid.Row="0" x:Name="PART_HeaderGrid">
 
                                 <Grid Margin="40,35,40,13">
 
