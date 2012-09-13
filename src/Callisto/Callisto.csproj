@@ -113,6 +113,7 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controls\Common\AppManifestHelper.cs" />
     <Compile Include="Controls\Common\InteractionHelper.cs" />
     <Compile Include="Controls\Common\ItemsControlHelper.cs" />
     <Compile Include="Controls\Common\IUpdateVisualState.cs" />

@@ -6,14 +6,17 @@ namespace XamlControlsUITestApp
 {
     sealed partial class App : Application
     {
+        public static Callisto.Controls.Common.VisualElement VisualElements;
 
         public App()
         {
             this.InitializeComponent();
         }
 
-        protected override void OnLaunched(LaunchActivatedEventArgs args)
+        protected async override void OnLaunched(LaunchActivatedEventArgs args)
         {
+            VisualElements = await Callisto.Controls.Common.AppManifestHelper.GetManifestVisualElementsAsync();
+
             // Create a Frame to act navigation context and navigate to the first page
             var rootFrame = new Frame();
             rootFrame.Navigate(typeof(Callisto.TestApp.MainPage));

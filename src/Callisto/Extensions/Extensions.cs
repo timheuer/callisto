@@ -418,5 +418,36 @@ namespace Callisto
             IBuffer hash = CryptographicEngine.Sign(cryptoKey, CryptographicBuffer.ConvertStringToBinary(input, BinaryStringEncoding.Utf8));
             return CryptographicBuffer.EncodeToBase64String(hash);
         }
+
+        public static Windows.UI.Color ToColor(this string hexValue)
+        {
+            hexValue = hexValue.Replace("#", string.Empty);
+
+            // some loose validation (not bullet-proof)
+            if (hexValue.Length < 6)
+            {
+                throw new ArgumentException("This does not appear to be a proper hex color number");
+            }
+
+            byte a = 255;
+            byte r = 255;
+            byte g = 255;
+            byte b = 255;
+
+            int startPosition = 0;
+
+            // the case where alpha is provided
+            if (hexValue.Length == 8)
+            {
+                a = byte.Parse(hexValue.Substring(0, 2), NumberStyles.HexNumber);
+                startPosition = 2;
+            }
+
+            r = byte.Parse(hexValue.Substring(startPosition, 2), NumberStyles.HexNumber);
+            g = byte.Parse(hexValue.Substring(startPosition + 2, 2), NumberStyles.HexNumber);
+            b = byte.Parse(hexValue.Substring(startPosition + 4, 2), NumberStyles.HexNumber);
+
+            return Windows.UI.Color.FromArgb(a, r, g, b);
+        }
     }
 }
