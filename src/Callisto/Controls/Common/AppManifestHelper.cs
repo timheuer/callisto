@@ -27,10 +27,11 @@ namespace Callisto.Controls.Common
         public async static Task<VisualElement> GetManifestVisualElementsAsync()
         {
             // the path for the manifest
-            Stream manifestStream = await Windows.ApplicationModel.Package.Current.InstalledLocation.OpenStreamForReadAsync("AppxManifest.xml");
-
-            // load the manifest stream into an XDocument for quick parsing
-            var xmldoc = XDocument.Load(manifestStream);
+            XDocument xmldoc;
+            using (Stream manifestStream = await Windows.ApplicationModel.Package.Current.InstalledLocation.OpenStreamForReadAsync("AppxManifest.xml"))
+            {
+                xmldoc = XDocument.Load(manifestStream);
+            }
 
             // set the XNamespace and name for the VisualElements node we want
             var xn = XName.Get("VisualElements", "http://schemas.microsoft.com/appx/2010/manifest");
@@ -46,6 +47,7 @@ namespace Callisto.Controls.Common
                                          SmallLogoUri = new Uri(string.Format("ms-appx:///{0}",vel.Attribute("SmallLogo").Value.Replace(@"\",@"/"))),
                                          BackgroundColorAsString = vel.Attribute("BackgroundColor").Value
                                      }).FirstOrDefault();
+            if (visualElementNode == null) throw new ArgumentNullException("Could not parse the VisualElements from the app manifest.");
 
             return visualElementNode;
         }
