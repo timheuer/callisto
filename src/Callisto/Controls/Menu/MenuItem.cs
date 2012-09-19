@@ -14,8 +14,6 @@
 // limitations under the License.
 //
 
-using System;
-using System.Diagnostics;
 using System.Windows.Input;
 using Windows.System;
 using Windows.UI.Xaml;
@@ -50,6 +48,8 @@ namespace Callisto.Controls
 
         protected override void OnPointerEntered(Windows.UI.Xaml.Input.PointerRoutedEventArgs e)
         {
+            _isActive = true;
+            UpdateState(true);
             base.OnPointerEntered(e);
             Focus(Windows.UI.Xaml.FocusState.Programmatic);
         }
@@ -63,6 +63,8 @@ namespace Callisto.Controls
 
         protected override void OnPointerMoved(Windows.UI.Xaml.Input.PointerRoutedEventArgs e)
         {
+            _isActive = true;
+            UpdateState(true);
             base.OnPointerMoved(e);
             Focus(Windows.UI.Xaml.FocusState.Programmatic);
         }
@@ -84,12 +86,17 @@ namespace Callisto.Controls
         protected override void OnKeyDown(Windows.UI.Xaml.Input.KeyRoutedEventArgs e)
         {
             base.OnKeyDown(e);
-
             if (e.Key == VirtualKey.Enter || e.Key == VirtualKey.Space)
             {
-                // TODO: Issue #10 - not working need to fix
+                // Issue #84: https://github.com/timheuer/callisto/issues/84
                 OnTapped(new TappedRoutedEventArgs());
             }
+        }
+
+        protected override void OnTapped(TappedRoutedEventArgs e)
+        {
+            base.OnTapped(e);
+            VisualStateManager.GoToState(this, StateBase, true);
         }
 
         protected override void OnPointerReleased(Windows.UI.Xaml.Input.PointerRoutedEventArgs e)

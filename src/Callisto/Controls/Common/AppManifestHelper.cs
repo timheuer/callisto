@@ -37,6 +37,7 @@ namespace Callisto.Controls.Common
             var xn = XName.Get("VisualElements", "http://schemas.microsoft.com/appx/2010/manifest");
 
             // parse the VisualElements node only, pulling out what we need
+            // NOTE: This will get only the first Application (which is the mainstream case)
             // TODO: Need to take into account that DisplayName/Description may be localized using ms-resource:{foo}
             var visualElementNode = (from vel in xmldoc.Descendants(xn)
                                      select new VisualElement

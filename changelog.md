@@ -1,11 +1,15 @@
 # Changelog
 
 ## 1.2.2 (PENDING RELEASE)
+* BREAKING CHANGE: Fixes #81 where the defaults to not honor the UI guidelines.  Reluctantly added new DPs for override if needed (but shouldn't be used)
 * Fixes #74: Incorrect null check on WatermarkTextBox DP in property changed callback
 * Fixes #75: Made Margin on Rating template bound but kept defaults for compat
+* Fixes #83: Menu default focus issues.  Thanks lukasf!
+* Fixes #82: If Flyout.HostPopup has a parent then some of the positioning is wrong.
+* Fixes #79: Ensure IsOpen set to false on Flyout when the host Popup closes.  Thanks Stefan!
 * TiltEffect: Stop tilt effect if pointer capture is lost
-* Fix: SettingsFlyout/Flyout for cases where input controls might be there and the IHM (aka software keyboard) might occlude the view.
-* Fix: SettingsFlyout 1px border to match UI design specs where border is 80% brightness of HeaderBrush (added ColorBrightnessConverter)
+* Fixes #85: SettingsFlyout/Flyout for cases where input controls might be there and the IHM (aka software keyboard) might occlude the view.
+* Fixes #86: SettingsFlyout 1px border to match UI design specs where border is 80% brightness of HeaderBrush (added ColorBrightnessConverter)
 * NEW: Added AppManifestHelper to quickly parse out the VisualElements from the AppxManifest.xml
 
 ## 1.2.1 (03-SEP-2012)

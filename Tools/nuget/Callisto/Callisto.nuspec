@@ -1,11 +1,11 @@
 <?xml version="1.0"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
   <metadata>
-    <version>1.2.1</version>
+    <version>1.2.2</version>
     <authors>Tim Heuer</authors>
     <owners>Tim Heuer</owners>
     <licenseUrl>http://opensource.org/licenses/ms-pl.html</licenseUrl>
-    <projectUrl>http://github.com/timheuer/Callisto</projectUrl>
+    <projectUrl>http://timheuer.github.com/callisto</projectUrl>
     <iconUrl>http://storage2.timheuer.com/CallistoMoon.png</iconUrl>
     <id>Callisto</id>
     <title>Callisto</title>
@@ -15,8 +15,10 @@
     <tags>xaml winrt flyout settings popup menu win8 metro pivot ratings flipview watermark</tags>
 	<releaseNotes>
 	<![CDATA[
-		NEW: FlipViewIndicator control
-        NEW: WatermarkTextBox control
+        * Complete details - https://github.com/timheuer/callisto/blob/master/changelog.md
+		* BREAKING CHANGE: The SettingsFlyout is now default content area White.  If you relied on it getting theme color you will need to change this using ContentBackground[Foreground]Brush settings.
+        * Bug fixes: a few fixes thanks to community members (see https://github.com/timheuer/callisto/blob/master/changelog.md for details) and other changes to conform to UI guidelines from Microsoft.
+        * NEW: AppManifestHelper to parse out VisualElements more easily.
 	]]>
 	</releaseNotes>
   </metadata>

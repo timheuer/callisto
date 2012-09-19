@@ -125,17 +125,19 @@ namespace Callisto.Controls
             // inspect the visual root and adjust.
             if (_hostPopup.Parent == null)
             {
-                int ihmOffset = 0;
-                Windows.UI.ViewManagement.InputPane.GetForCurrentView().Showing += ((s, a) =>
-                    {
-                        ihmOffset = (int)a.OccludedRect.Height;
-                        _hostPopup.VerticalOffset -= ihmOffset;
-                    });
-                Windows.UI.ViewManagement.InputPane.GetForCurrentView().Hiding += ((s, a) =>
-                    {
-                        _hostPopup.VerticalOffset += ihmOffset;
-                    });
+                Windows.UI.ViewManagement.InputPane.GetForCurrentView().Showing += OnInputPaneShowing;
+                Windows.UI.ViewManagement.InputPane.GetForCurrentView().Hiding += OnInputPaneHiding;
             }
+        }
+
+        private void OnInputPaneHiding(Windows.UI.ViewManagement.InputPane sender, Windows.UI.ViewManagement.InputPaneVisibilityEventArgs args)
+        {
+            _hostPopup.VerticalOffset += (int)args.OccludedRect.Height;
+        }
+
+        private void OnInputPaneShowing(Windows.UI.ViewManagement.InputPane sender, Windows.UI.ViewManagement.InputPaneVisibilityEventArgs args)
+        {
+            _hostPopup.VerticalOffset -= (int)args.OccludedRect.Height;
         }
         
         private void OnBackButtonTapped(object sender, object e)
@@ -159,6 +161,8 @@ namespace Callisto.Controls
         {
             _hostPopup.Child = null;
             Window.Current.Activated -= OnCurrentWindowActivated;
+            Windows.UI.ViewManagement.InputPane.GetForCurrentView().Showing -= OnInputPaneShowing;
+            Windows.UI.ViewManagement.InputPane.GetForCurrentView().Hiding -= OnInputPaneHiding;
             this.Content = null;
 
             if (null != Closed)
@@ -232,6 +236,27 @@ namespace Callisto.Controls
 
         public static readonly DependencyProperty SmallLogoImageSourceProperty =
             DependencyProperty.Register("SmallLogoImageSource", typeof(ImageSource), typeof(SettingsFlyout), null);
+
+        /* Issue #81 required these back in to enable overriding to ensure existing
+         * apps would be able to retain their existing colors if they were expecting the old defaults
+         * */
+        public SolidColorBrush ContentForegroundBrush
+        {
+            get { return (SolidColorBrush)GetValue(ContentForegroundBrushProperty); }
+            set { SetValue(ContentForegroundBrushProperty, value); }
+        }
+
+        public static readonly DependencyProperty ContentForegroundBrushProperty =
+            DependencyProperty.Register("ContentForegroundBrush", typeof(SolidColorBrush), typeof(SettingsFlyout), null);
+
+        public SolidColorBrush ContentBackgroundBrush
+        {
+            get { return (SolidColorBrush)GetValue(ContentBackgroundBrushProperty); }
+            set { SetValue(ContentBackgroundBrushProperty, value); }
+        }
+
+        public static readonly DependencyProperty ContentBackgroundBrushProperty =
+            DependencyProperty.Register("ContentBackgroundBrush", typeof(SolidColorBrush), typeof(SettingsFlyout), null);
         
         #endregion Dependency Properties
 

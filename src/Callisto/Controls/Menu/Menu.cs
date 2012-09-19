@@ -55,6 +55,10 @@ namespace Callisto.Controls
                 case Windows.System.VirtualKey.PageDown:
                     PageFocusedItem(false);
                     break;
+                case Windows.System.VirtualKey.Enter:
+                case Windows.System.VirtualKey.Space:
+                    OnTapped(new TappedRoutedEventArgs());
+                    break;
                 default:
                     break;
             }
@@ -69,25 +73,23 @@ namespace Callisto.Controls
 
         private void ChangeFocusedItem(bool ascendIndex)
         {
-            Type focusedElementType = FocusManager.GetFocusedElement().GetType();
-            MenuItem item;
+            var focusedElement = FocusManager.GetFocusedElement();
             int startIndex;
 
-            if (focusedElementType == _itemContainerList.GetType() && _items.Count > 0)
+            if (focusedElement != null && ((focusedElement == _itemContainerList || focusedElement == this) && _items.Count > 0))
             {
-                // focused item is the item container list, so try to set focus to an initial item
+                // focused item is the menu or the item container list, so try to set focus to an initial item
                 startIndex = GetNextItemIndex(-1, ascendIndex);
             }
-            else if (focusedElementType != typeof(MenuItem))
+            else if (focusedElement != null && (focusedElement is MenuItem && _items.Contains((MenuItem)focusedElement)))
             {
-                // focused item isn't the item container list or a menu item, so ignore
-                return;
+                // focused item is already one of our menu items, so try to set focus to next
+                startIndex = GetNextItemIndex(_items.IndexOf((MenuItem)focusedElement), ascendIndex);
             }
             else
             {
-                // focused item is already a menu item, so try to set focus to next
-                item = FocusManager.GetFocusedElement() as MenuItem;
-                startIndex = GetNextItemIndex(_items.IndexOf(item), ascendIndex);
+                // focus is outside of the menu
+                return;
             }
 
             int index = startIndex;
@@ -95,7 +97,7 @@ namespace Callisto.Controls
             MenuItemBase nextItem = _items[index];
 
             // focus next item, if it's a menu item
-            if (nextItem.GetType() == typeof(MenuItem))
+            if (nextItem is MenuItem)
             {
                 nextItem.Focus(Windows.UI.Xaml.FocusState.Programmatic);
             }
@@ -104,12 +106,12 @@ namespace Callisto.Controls
                 // next element wasn't a MenuItem, so loop through once trying to find the next item
                 index = GetNextItemIndex(index, ascendIndex);
                 nextItem = _items[index];
-                while (nextItem.GetType() != typeof(MenuItem) && index != startIndex)
+                while (nextItem != null && (!(nextItem is MenuItem) && index != startIndex))
                 {
                     index = GetNextItemIndex(index, ascendIndex);
                     nextItem = _items[index];
                 }
-                if (nextItem.GetType() == typeof(MenuItem))
+                if (nextItem != null && nextItem is MenuItem)
                 {
                     nextItem.Focus(Windows.UI.Xaml.FocusState.Programmatic);
                 }

@@ -34,6 +34,8 @@ limitations under the License.-->
             <SolidColorBrush x:Key="MenuItemHoverTextBrush">#FF000000</SolidColorBrush>
             <SolidColorBrush x:Key="MenuSeparatorStrokeBrush">#FF707070</SolidColorBrush>
             <SolidColorBrush x:Key="SettingsFlyoutHeaderBackgroundBrush">#FF000000</SolidColorBrush>
+            <SolidColorBrush x:Key="SettingsFlyoutContentBackgroundThemeBrush">#FFFFFFFF</SolidColorBrush>
+            <SolidColorBrush x:Key="SettingsFlyoutContentForegroundThemeBrush">#FF000000</SolidColorBrush>
             <SolidColorBrush x:Key="RatingItemForegroundThemeBrush">#FF5B2EC5</SolidColorBrush>
             <SolidColorBrush x:Key="RatingItemPointerOverThemeBrush">#FF8152EF</SolidColorBrush>
             <SolidColorBrush x:Key="RatingItemPointerPressedThemeBrush">#FF8152EF</SolidColorBrush>
@@ -57,6 +59,8 @@ limitations under the License.-->
             <SolidColorBrush x:Key="MenuItemHoverTextBrush">#FF000000</SolidColorBrush>
             <SolidColorBrush x:Key="MenuSeparatorStrokeBrush">#FF707070</SolidColorBrush>
             <SolidColorBrush x:Key="SettingsFlyoutHeaderBackgroundBrush">LightGray</SolidColorBrush>
+            <SolidColorBrush x:Key="SettingsFlyoutContentBackgroundThemeBrush">#FFFFFFFF</SolidColorBrush>
+            <SolidColorBrush x:Key="SettingsFlyoutContentForegroundThemeBrush">#FF000000</SolidColorBrush>
             <SolidColorBrush x:Key="RatingItemForegroundThemeBrush">#FF4617B4</SolidColorBrush>
             <SolidColorBrush x:Key="RatingItemPointerOverThemeBrush">#FF7241E4</SolidColorBrush>
             <SolidColorBrush x:Key="RatingItemPointerPressedThemeBrush">#FF7241E4</SolidColorBrush>
@@ -80,6 +84,8 @@ limitations under the License.-->
             <SolidColorBrush x:Key="MenuItemHoverTextBrush" Color="{StaticResource SystemColorButtonTextColor}"/>
             <SolidColorBrush x:Key="MenuSeparatorStrokeBrush">#FFFFFFFF</SolidColorBrush>
             <SolidColorBrush x:Key="SettingsFlyoutHeaderBackgroundBrush" Color="{StaticResource SystemColorButtonFaceColor}" />
+            <SolidColorBrush x:Key="SettingsFlyoutContentBackgroundThemeBrush" Color="{StaticResource SystemColorButtonFaceColor}" />
+            <SolidColorBrush x:Key="SettingsFlyoutContentForegroundThemeBrush" Color="{StaticResource SystemColorButtonTextColor}" />
             <SolidColorBrush x:Key="RatingItemForegroundThemeBrush" Color="{StaticResource SystemColorHighlightColor}" />
             <SolidColorBrush x:Key="RatingItemPointerOverThemeBrush" Color="{StaticResource SystemColorButtonTextColor}" />
             <SolidColorBrush x:Key="RatingItemPointerPressedThemeBrush" Color="{StaticResource SystemColorButtonTextColor}" />
@@ -447,6 +453,10 @@ limitations under the License.-->
         <Setter Property="Background" Value="{StaticResource ApplicationPageBackgroundThemeBrush}" />
         <Setter Property="HeaderBrush" Value="{StaticResource SettingsFlyoutHeaderBackgroundBrush}" />
         <Setter Property="HeaderText" Value="{StaticResource SettingsFlyoutHeaderTextDefault}" />
+        <Setter Property="ContentBackgroundBrush" Value="{StaticResource SettingsFlyoutContentBackgroundThemeBrush}" />
+        <Setter Property="ContentForegroundBrush" Value="{StaticResource SettingsFlyoutContentForegroundThemeBrush}" />
+        <Setter Property="VerticalContentAlignment" Value="Top" />
+        <Setter Property="HorizontalContentAlignment" Value="Left" />
         <Setter Property="MaxWidth" Value="646" />
         <Setter Property="Template">
             <Setter.Value>
@@ -481,8 +491,8 @@ limitations under the License.-->
                             </Grid>
 
                             <!-- Settings Panel Content -->
-                            <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto" ZoomMode="Disabled" x:Name="PART_ContentScrollViewer">
-                                <Grid x:Name="SettingsFlyoutContentGrid" Margin="33,22,40,0" VerticalAlignment="Top" HorizontalAlignment="Left">
+                            <ScrollViewer Background="{TemplateBinding ContentBackgroundBrush}" Foreground="{TemplateBinding ContentForegroundBrush}" Grid.Row="1" VerticalScrollBarVisibility="Auto" ZoomMode="Disabled" x:Name="PART_ContentScrollViewer">
+                                <Grid x:Name="SettingsFlyoutContentGrid" Margin="33,22,40,0" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}">
                                     <ContentPresenter Content="{TemplateBinding Content}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  />
                                 </Grid>
                             </ScrollViewer>

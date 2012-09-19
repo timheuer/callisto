@@ -20,8 +20,8 @@ namespace Callisto.Controls
     {
         public MenuItemSeparator()
         {
-            this.DefaultStyleKey = typeof(MenuItemSeparator);
-            this.IsTabStop = false;
+            DefaultStyleKey = typeof(MenuItemSeparator);
+            IsTabStop = false;
         }
     }
 }

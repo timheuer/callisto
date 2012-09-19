@@ -76,9 +76,7 @@ namespace Callisto.Controls
 
             this.Loaded += OnLoaded;
 
-            _hostPopup = new Popup();
-            _hostPopup.IsHitTestVisible = false;
-            _hostPopup.Opacity = 0;
+            _hostPopup = new Popup {IsHitTestVisible = false, Opacity = 0};
             _hostPopup.Closed += OnHostPopupClosed;
             _hostPopup.Opened += OnHostPopupOpened;
             _hostPopup.IsLightDismissEnabled = true;
@@ -124,19 +122,23 @@ namespace Callisto.Controls
             // inspect the visual root and adjust.
             if (_hostPopup.Parent == null)
             {
-                int ihmOffset = 0;
-
-                Windows.UI.ViewManagement.InputPane.GetForCurrentView().Showing += ((s, a) =>
-                    {
-                        ihmOffset = (int)a.OccludedRect.Height;
-                        _hostPopup.VerticalOffset -= ihmOffset;
-                    });
-
-                Windows.UI.ViewManagement.InputPane.GetForCurrentView().Hiding += ((s, a) =>
-                    {
-                        _hostPopup.VerticalOffset += ihmOffset;
-                    });
+                Windows.UI.ViewManagement.InputPane.GetForCurrentView().Showing += OnInputPaneShowing;
+                Windows.UI.ViewManagement.InputPane.GetForCurrentView().Hiding += OnInputPaneHiding;
             }
+
+            var content = Content as Control;
+            if (content != null)
+                content.Focus(Windows.UI.Xaml.FocusState.Programmatic);
+        }
+
+        private void OnInputPaneHiding(Windows.UI.ViewManagement.InputPane sender, Windows.UI.ViewManagement.InputPaneVisibilityEventArgs args)
+        {
+            _hostPopup.VerticalOffset += (int)args.OccludedRect.Height;
+        }
+
+        private void OnInputPaneShowing(Windows.UI.ViewManagement.InputPane sender, Windows.UI.ViewManagement.InputPaneVisibilityEventArgs args)
+        {
+            _hostPopup.VerticalOffset -= (int)args.OccludedRect.Height;
         }
 
         private static Rect GetBounds(params Point[] interestPoints)
@@ -386,6 +388,15 @@ namespace Callisto.Controls
                 }
             }
 
+            UIElement parent = _hostPopup.Parent as UIElement;
+            if (parent != null)
+            {
+                var transform = parent.TransformToVisual(Window.Current.Content);
+                var offsetAdjustment = transform.TransformPoint(new Point(0, 0));
+                calcH -= offsetAdjustment.X;
+                calcY -= offsetAdjustment.Y;
+            }
+
             _hostPopup.HorizontalOffset = calcH;
             _hostPopup.VerticalOffset = calcY;
             _hostPopup.IsHitTestVisible = true;
@@ -483,11 +494,15 @@ namespace Callisto.Controls
         {
             // important to remove this or else there will be a leak
             Window.Current.Activated -= OnCurrentWindowActivated;
+            Windows.UI.ViewManagement.InputPane.GetForCurrentView().Showing -= OnInputPaneShowing;
+            Windows.UI.ViewManagement.InputPane.GetForCurrentView().Hiding -= OnInputPaneHiding;
 
             if (Closed != null)
             {
                 Closed(this, e);
             }
+
+            //IsOpen = false;
         }
 
         void OnLoaded(object sender, RoutedEventArgs e)
