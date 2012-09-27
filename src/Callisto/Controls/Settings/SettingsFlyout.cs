@@ -44,6 +44,8 @@ namespace Callisto.Controls
         private Border _rootBorder;
         private ScrollViewer _contentScrollViewer;
         const int CONTENT_HORIZONTAL_OFFSET = 100;
+        private bool _ihmFocusMoved = false;
+        private double _ihmOccludeHeight = 0.0;
         #endregion Member Variables
 
         #region Overrides
@@ -132,12 +134,32 @@ namespace Callisto.Controls
 
         private void OnInputPaneHiding(Windows.UI.ViewManagement.InputPane sender, Windows.UI.ViewManagement.InputPaneVisibilityEventArgs args)
         {
-            _hostPopup.VerticalOffset += (int)args.OccludedRect.Height;
+            // if the ihm occluded something and we had to move, we need to adjust back
+            if (_ihmFocusMoved)
+            {
+                _hostPopup.VerticalOffset += _ihmOccludeHeight; // ensure defaults back to normal
+                _ihmFocusMoved = false;
+            }
         }
 
         private void OnInputPaneShowing(Windows.UI.ViewManagement.InputPane sender, Windows.UI.ViewManagement.InputPaneVisibilityEventArgs args)
         {
-            _hostPopup.VerticalOffset -= (int)args.OccludedRect.Height;
+            FrameworkElement focusedItem = FocusManager.GetFocusedElement() as FrameworkElement;
+
+            if (focusedItem != null)
+            {
+                // if the focused item is within height - occludedrect height - buffer(50)
+                // then it doesn't need to be changed
+                GeneralTransform gt = focusedItem.TransformToVisual(Window.Current.Content);
+                Point focusedPoint = gt.TransformPoint(new Point(0.0, 0.0));
+
+                if (focusedPoint.Y > (_windowBounds.Height - args.OccludedRect.Height - 50))
+                {
+                    _ihmFocusMoved = true;
+                    _ihmOccludeHeight = args.OccludedRect.Height;
+                    _hostPopup.VerticalOffset -= (int)args.OccludedRect.Height;
+                }
+            }            
         }
         
         private void OnBackButtonTapped(object sender, object e)
