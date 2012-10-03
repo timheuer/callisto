@@ -196,8 +196,12 @@ namespace Callisto.Controls
             while (wrapping ? textSize.Height > availableSize.Height : textSize.Width > availableSize.Width)
             {
                 int prevLength = reducedText.Length;
-                reducedText = this.ReduceText(reducedText);
-
+                
+                if (reducedText.Length > 0)
+                {
+                    reducedText = this.ReduceText(reducedText);    
+                }
+                
                 if (reducedText.Length == prevLength)
                 {
                     break;
