@@ -15,6 +15,7 @@
 //
 
 using System;
+using System.Globalization;
 using Windows.UI;
 using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Media;
@@ -26,10 +27,10 @@ namespace Callisto.Converters
         public object Convert(object value, Type targetType, object parameter, string language)
         {
             // parameter should be the brightness factor in double.
-            var factor = System.Convert.ToDouble(parameter);
+            var factor = System.Convert.ToDouble(parameter, CultureInfo.InvariantCulture);
             var brush = (SolidColorBrush)value;
 
-            var newColor = new Color() { A = brush.Color.A, B = System.Convert.ToByte(brush.Color.B * factor), G = System.Convert.ToByte(brush.Color.G * factor), R = System.Convert.ToByte(brush.Color.R * factor) };
+            var newColor = new Color() { A = brush.Color.A, B = System.Convert.ToByte(brush.Color.B * factor, CultureInfo.InvariantCulture), G = System.Convert.ToByte(brush.Color.G * factor, CultureInfo.InvariantCulture), R = System.Convert.ToByte(brush.Color.R * factor, CultureInfo.InvariantCulture) };
 
             return new SolidColorBrush(newColor);
         }

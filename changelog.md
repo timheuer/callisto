@@ -1,5 +1,8 @@
 # Changelog
 
+## 1.2.3 (05-OCT-2012)
+* HOTFIX: Fix #96 for converting without using InvariantCulture.  Sorry :-(
+
 ## 1.2.2 (04-OCT-2012)
 * BREAKING CHANGE: Fixes #81 where the defaults to not honor the UI guidelines.  Reluctantly added new DPs for override if needed (but shouldn't be used)
 * Fixes #74: Incorrect null check on WatermarkTextBox DP in property changed callback
