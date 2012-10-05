@@ -12,6 +12,7 @@
     <Grid Background="{StaticResource ApplicationPageBackgroundThemeBrush}">
         <StackPanel Margin="100,100,0,0" HorizontalAlignment="Left">
             <callisto:Rating x:Name="rate" ItemCount="5" Value="2.7" ValueChanged="rate_ValueChanged_1"/>
+            <callisto:Rating x:Name="readonlyrating" IsEnabled="False" ItemCount="5" Value="3.7" />
             <StackPanel Orientation="Horizontal">
                 <TextBlock Text="Rating Value: " Margin="0,0,2,0"/>
                 <TextBlock Text="{Binding ElementName=rate, Path=Value}" />
