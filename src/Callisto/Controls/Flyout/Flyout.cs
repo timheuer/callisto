@@ -527,7 +527,7 @@ namespace Callisto.Controls
                 Closed(this, e);
             }
 
-            //IsOpen = false;
+            IsOpen = false;
         }
 
         void OnLoaded(object sender, RoutedEventArgs e)
