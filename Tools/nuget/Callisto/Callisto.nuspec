@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
   <metadata>
-    <version>1.2.3</version>
+    <version>1.2.4</version>
     <authors>Tim Heuer</authors>
     <owners>Tim Heuer</owners>
     <licenseUrl>http://opensource.org/licenses/ms-pl.html</licenseUrl>
@@ -16,6 +16,7 @@
 	<releaseNotes>
 	<![CDATA[
         * Complete details - https://github.com/timheuer/callisto/blob/master/changelog.md
+        * 1.2.4 - Added NumericUpDown control
         * 1.2.3 - Fixing internationalization issue in Color converter.
 		* BREAKING CHANGE: The SettingsFlyout is now default content area White.  If you relied on it getting theme color you will need to change this using ContentBackground[Foreground]Brush settings.
         * Bug fixes: a few fixes thanks to community members (see https://github.com/timheuer/callisto/blob/master/changelog.md for details) and other changes to conform to UI guidelines from Microsoft.

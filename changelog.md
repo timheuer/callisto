@@ -1,5 +1,8 @@
 # Changelog
 
+## 1.2.4 (NOT YET RELEASED)
+* NEW: Added NumericUpDown control
+
 ## 1.2.3 (05-OCT-2012)
 * HOTFIX: Fix #96 for converting without using InvariantCulture.  Sorry :-(
 
