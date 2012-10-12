@@ -155,7 +155,6 @@
     <Compile Include="SettingsManagement\ISettingsCommandInfo.cs" />
     <Compile Include="SettingsManagement\SettingChangedEventArgs.cs" />
     <Compile Include="SettingsManagement\SettingsCommandInfo.cs" />
-    <Compile Include="SettingsManagement\SettingsUserControl.cs" />
   </ItemGroup>
   <ItemGroup>
     <PRIResource Include="LocalizedStrings\en-US\Resources.resw">
