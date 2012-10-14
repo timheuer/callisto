@@ -1,4 +1,8 @@
-﻿using Windows.ApplicationModel.Activation;
+﻿using Callisto.Controls;
+using Callisto.Controls.SettingsManagement;
+using Callisto.TestApp.SamplePages;
+using Windows.ApplicationModel.Activation;
+using Windows.UI;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 
@@ -15,6 +19,8 @@ namespace XamlControlsUITestApp
 
         protected async override void OnLaunched(LaunchActivatedEventArgs args)
         {
+            AppSettings.Current.AddCommand<SettingsContent>("App Registered", SettingsFlyout.SettingsFlyoutWidth.Wide);
+
             VisualElements = await Callisto.Controls.Common.AppManifestHelper.GetManifestVisualElementsAsync();
 
             // Create a Frame to act navigation context and navigate to the first page

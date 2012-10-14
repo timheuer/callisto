@@ -15,18 +15,13 @@
 //
 
 using System;
-using System.Collections.Generic;
-using System.Diagnostics.CodeAnalysis;
-using System.Linq;
+using System.Diagnostics;
 using Windows.Foundation;
-using Windows.UI;
 using Windows.UI.ApplicationSettings;
 using Windows.UI.ViewManagement;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Data;
-using Windows.UI.Xaml.Documents;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Media.Animation;
@@ -228,7 +223,22 @@ namespace Callisto.Controls
         }
 
         public static readonly DependencyProperty HeaderBrushProperty =
-            DependencyProperty.Register("HeaderBrush", typeof(SolidColorBrush), typeof(SettingsFlyout), null);
+            DependencyProperty.Register("HeaderBrush", typeof(SolidColorBrush), typeof(SettingsFlyout), new PropertyMetadata(null, OnHeaderBrushColorChanged));
+
+        private static void OnHeaderBrushColorChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+            // determine the contrast and set black or white
+            if (e.OldValue != e.NewValue)
+            {
+                SolidColorBrush newBrush = e.NewValue as SolidColorBrush;
+                if (newBrush != null)
+                {
+                    var yiq = ((newBrush.Color.R*299) + (newBrush.Color.G*587) + (newBrush.Color.B*114)) / 1000;
+
+                    Debug.WriteLine(yiq >= 128 ? "black" : "white");
+                }
+            }
+        }
 
         public SettingsFlyoutWidth FlyoutWidth
         {

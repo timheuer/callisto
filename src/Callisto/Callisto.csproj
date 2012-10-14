@@ -142,6 +142,7 @@
     <Compile Include="Converters\BooleanToVisibilityConverter.cs" />
     <Compile Include="Converters\BrushToColorConverter.cs" />
     <Compile Include="Converters\ColorBrightnessConverter.cs" />
+    <Compile Include="Converters\ColorContrastConverter.cs" />
     <Compile Include="Converters\DateTimeFormatHelper.cs" />
     <Compile Include="Converters\LengthToBooleanConverter.cs" />
     <Compile Include="Converters\RelativeTimeConverter.cs" />
@@ -150,11 +151,11 @@
     <Compile Include="Extensions\WebViewExtension.cs" />
     <Compile Include="OAuth\OAuthHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SettingsManagement\AppSettings.cs" />
-    <Compile Include="SettingsManagement\INotifySettingChanged.cs" />
-    <Compile Include="SettingsManagement\ISettingsCommandInfo.cs" />
-    <Compile Include="SettingsManagement\SettingChangedEventArgs.cs" />
-    <Compile Include="SettingsManagement\SettingsCommandInfo.cs" />
+    <Compile Include="Controls\SettingsManagement\AppSettings.cs" />
+    <Compile Include="Controls\SettingsManagement\INotifySettingChanged.cs" />
+    <Compile Include="Controls\SettingsManagement\ISettingsCommandInfo.cs" />
+    <Compile Include="Controls\SettingsManagement\SettingChangedEventArgs.cs" />
+    <Compile Include="Controls\SettingsManagement\SettingsCommandInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <PRIResource Include="LocalizedStrings\en-US\Resources.resw">
