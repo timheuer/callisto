@@ -64,11 +64,14 @@ namespace Callisto.Controls
             {
                 _contentGrid = GetTemplateChild("SettingsFlyoutContentGrid") as Grid;
             }
-            _contentGrid.Transitions = new TransitionCollection();
-            _contentGrid.Transitions.Add(new EntranceThemeTransition()
+            if (_contentGrid != null)
             {
-                FromHorizontalOffset = (SettingsPane.Edge == SettingsEdgeLocation.Right) ? CONTENT_HORIZONTAL_OFFSET : (CONTENT_HORIZONTAL_OFFSET * -1)
-            });
+                _contentGrid.Transitions = new TransitionCollection();
+                _contentGrid.Transitions.Add(new EntranceThemeTransition()
+                                                 {
+                                                     FromHorizontalOffset = (SettingsPane.Edge == SettingsEdgeLocation.Right) ? CONTENT_HORIZONTAL_OFFSET : (CONTENT_HORIZONTAL_OFFSET * -1)
+                                                 });
+            }
 
             // need the root border for RTL scenarios
             _rootBorder = GetTemplateChild("PART_RootBorder") as Border;
@@ -107,7 +110,7 @@ namespace Callisto.Controls
             // in RTL languages on the OS, the SettingsPane comes from the left edge
             if (SettingsPane.Edge == SettingsEdgeLocation.Left)
             {
-                _rootBorder.BorderThickness = new Thickness(0, 0, 1, 0);
+                if (_rootBorder != null) _rootBorder.BorderThickness = new Thickness(0, 0, 1, 0);
             }
 
             _settingsWidth = (double)this.FlyoutWidth;
