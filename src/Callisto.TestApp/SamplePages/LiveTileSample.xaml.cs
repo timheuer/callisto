@@ -49,13 +49,13 @@ namespace Callisto.TestApp.SamplePages
 				ImageUri = new Uri("ms-appx:/Images/butterfly.jpg"),
 				ReadMoreUri = new Uri("http://en.wikipedia.org/wiki/Butterfly")
 			});
-			tileData.Add(new LiveTileData()
-			{
-				Name = "Grasshopper",
-				Description = "The grasshopper is an insect of the suborder Caelifera in the order Orthoptera. To distinguish it from bush crickets or katydids, it is sometimes referred to as the short-horned grasshopper. Species that change colour and behaviour at high population densities are called locusts.",
-				ImageUri = new Uri("ms-appx:/Images/grasshopper.jpg"),
-				ReadMoreUri = new Uri("http://en.wikipedia.org/wiki/Grasshopper")
-			});
+            tileData.Add(new LiveTileData()
+            {
+                Name = "Grasshopper",
+                Description = "The grasshopper is an insect of the suborder Caelifera in the order Orthoptera. To distinguish it from bush crickets or katydids, it is sometimes referred to as the short-horned grasshopper. Species that change colour and behaviour at high population densities are called locusts.",
+                ImageUri = new Uri("ms-appx:/Images/grasshopper.jpg"),
+                ReadMoreUri = new Uri("http://en.wikipedia.org/wiki/Grasshopper")
+            });
 			DataContext = tileData;
 		}
 		private async void OnReadMoreLink_Click(object sender, RoutedEventArgs e)

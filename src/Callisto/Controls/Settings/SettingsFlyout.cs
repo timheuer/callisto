@@ -43,6 +43,14 @@ namespace Callisto.Controls
         private double _ihmOccludeHeight = 0.0;
         #endregion Member Variables
 
+        #region Constants
+
+        private const string PART_BACK_BUTTON = "SettingsBackButton";
+        private const string PART_CONTENT_GRID = "SettingsFlyoutContentGrid";
+        private const string PART_ROOT_BORDER = "PART_RootBorder";
+        private const string PART_CONTENT_SCROLLVIEWER = "PART_ContentScrollViewer";
+        #endregion
+
         #region Overrides
         protected override void OnApplyTemplate()
         {
@@ -53,7 +61,7 @@ namespace Callisto.Controls
             {
                 _backButton.Tapped -= OnBackButtonTapped;
             }
-            _backButton = GetTemplateChild("SettingsBackButton") as Button;
+            _backButton = GetTemplateChild(PART_BACK_BUTTON) as Button;
             if(_backButton != null)
             {
                 _backButton.Tapped += OnBackButtonTapped;
@@ -62,7 +70,7 @@ namespace Callisto.Controls
             // need to get these grids in order to set the offsets correctly in RTL situations
             if (_contentGrid == null)
             {
-                _contentGrid = GetTemplateChild("SettingsFlyoutContentGrid") as Grid;
+                _contentGrid = GetTemplateChild(PART_CONTENT_GRID) as Grid;
             }
             if (_contentGrid != null)
             {
@@ -74,10 +82,10 @@ namespace Callisto.Controls
             }
 
             // need the root border for RTL scenarios
-            _rootBorder = GetTemplateChild("PART_RootBorder") as Border;
+            _rootBorder = GetTemplateChild(PART_ROOT_BORDER) as Border;
 
             // need the content scrollviewer to set the fixed width to be the same size as flyout
-            _contentScrollViewer = GetTemplateChild("PART_ContentScrollViewer") as ScrollViewer;
+            _contentScrollViewer = GetTemplateChild(PART_CONTENT_SCROLLVIEWER) as ScrollViewer;
             
         }
         #endregion Overrides
