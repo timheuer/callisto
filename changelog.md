@@ -2,6 +2,11 @@
 
 ## 1.2.4 (NOT YET RELEASED)
 * NEW: Added NumericUpDown control
+* NEW: ColorContrastConverter which does a YIQ calculation to determine white/black
+* NEW: SettingsManagement API making it easier to do app-wide registration of SettingsFlyout elements.  Thanks Scott Dorman!  Community contributions FTW!
+* NEW: Header in SettingsFlyout will automatically set contrast based on HeaderBrush color set.
+* Fixes #104 with introduction of SettingsBackButtonStyle2
+* Fixes #99 will null checks
 
 ## 1.2.3 (05-OCT-2012)
 * HOTFIX: Fix #96 for converting without using InvariantCulture.  Sorry :-(
