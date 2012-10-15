@@ -39,9 +39,9 @@ namespace Callisto.TestApp.SamplePages
         {
             MessageDialog md = new MessageDialog("Bacon ipsum dolor sit amet bacon ham drumstick strip steak, sausage frankfurter tenderloin turkey salami andouille bresaola. Venison salami prosciutto, pork belly turducken tri-tip spare ribs chicken strip steak fatback shankle tongue boudin andouille. Meatloaf salami pork ground round turkey jerky meatball ball tip, filet mignon fatback flank prosciutto shank. Turkey boudin ham hock, filet mignon tri-tip bresaola tongue venison spare ribs meatloaf flank beef pancetta. Leberkas turducken flank ground round biltong chuck bacon kielbasa. Beef pastrami meatball, short loin venison swine pork loin shank meatloaf spare ribs.",
                 "Bacon Terms and Conditions");
-            
+#pragma warning disable 4014
             md.ShowAsync();
-
+#pragma warning restore 4014
         }
     }
 }
