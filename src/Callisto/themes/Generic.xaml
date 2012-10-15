@@ -45,6 +45,8 @@ limitations under the License.-->
             <x:String x:Key="SettingsFlyoutBackButtonGlyph">&#xE0BA;</x:String>
             <SolidColorBrush x:Key="FlipViewIndicatorUnselectedThemeBrush">Gray</SolidColorBrush>
             <SolidColorBrush x:Key="FlipViewIndicatorSelectedThemeBrush">#FFFFFFFF</SolidColorBrush>
+            <x:Double x:Key="CustomDialogBorderThickness">0</x:Double>
+            <SolidColorBrush x:Key="CustomDialogBorderThemeBrush">#FFFFFFFF</SolidColorBrush>
         </ResourceDictionary>
         <ResourceDictionary x:Key="Light">
             <SolidColorBrush x:Key="FlyoutBorderBrush">#FF212121</SolidColorBrush>
@@ -70,6 +72,8 @@ limitations under the License.-->
             <x:String x:Key="SettingsFlyoutBackButtonGlyph">&#xE0BA;</x:String>
             <SolidColorBrush x:Key="FlipViewIndicatorUnselectedThemeBrush">Gray</SolidColorBrush>
             <SolidColorBrush x:Key="FlipViewIndicatorSelectedThemeBrush">#FF000000</SolidColorBrush>
+            <x:Double x:Key="CustomDialogBorderThickness">0</x:Double>
+            <SolidColorBrush x:Key="CustomDialogBorderThemeBrush">#FFFFFFFF</SolidColorBrush>
         </ResourceDictionary>
         <ResourceDictionary x:Key="HighContrast">
             <SolidColorBrush x:Key="FlyoutBorderBrush" Color="{StaticResource SystemColorButtonTextColor}" />
@@ -95,6 +99,8 @@ limitations under the License.-->
             <x:String x:Key="SettingsFlyoutBackButtonGlyph">&#xE0C4;</x:String>
             <SolidColorBrush x:Key="FlipViewIndicatorUnselectedThemeBrush" Color="{StaticResource SystemColorButtonFaceColor}" />
             <SolidColorBrush x:Key="FlipViewIndicatorSelectedThemeBrush" Color="{StaticResource SystemColorHighlightColor}" />
+            <x:Double x:Key="CustomDialogBorderThickness">1</x:Double>
+            <SolidColorBrush x:Key="CustomDialogBorderThemeBrush">#FFFFFFFF</SolidColorBrush>
         </ResourceDictionary>
     </ResourceDictionary.ThemeDictionaries>
 
@@ -1291,6 +1297,28 @@ limitations under the License.-->
                                     VerticalAlignment="Stretch"/>
                         </StackPanel>
                     </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style TargetType="local:CustomDialog">
+        <Setter Property="IsOpen" Value="False" />
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="BorderBrush" Value="{StaticResource CustomDialogBorderThemeBrush}" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="local:CustomDialog">
+                    <Popup x:Name="PART_RootPopup" IsLightDismissEnabled="False" IsOpen="{TemplateBinding IsOpen}">
+                        <Grid x:Name="PART_RootGrid" Background="#72000000">
+                            <Border x:Name="PART_BannerBorder" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" VerticalAlignment="Center">
+                                <StackPanel Margin="13,19,13,25" HorizontalAlignment="Center" Width="{TemplateBinding Width}" MaxWidth="680">
+                                    <local:DynamicTextBlock Foreground="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=Background, Converter={StaticResource ColorContrast}}" x:Name="PART_Title" Text="{TemplateBinding Title}" FontFamily="Segoe UI" FontSize="26.6667" FontWeight="Light" Margin="0,0,0,8" />
+                                    <ContentPresenter Margin="0" x:Name="PART_Content" Foreground="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=Background, Converter={StaticResource ColorContrast}}" />
+                                </StackPanel>
+                            </Border>
+                        </Grid>
+                    </Popup>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>

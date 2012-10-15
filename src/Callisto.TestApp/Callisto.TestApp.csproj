@@ -127,6 +127,9 @@
     <Compile Include="SampleInput.xaml.cs">
       <DependentUpon>SampleInput.xaml</DependentUpon>
     </Compile>
+    <Compile Include="SamplePages\CustomDialogSample.xaml.cs">
+      <DependentUpon>CustomDialogSample.xaml</DependentUpon>
+    </Compile>
     <Compile Include="SamplePages\DynamicTextBlock.xaml.cs">
       <DependentUpon>DynamicTextBlock.xaml</DependentUpon>
     </Compile>
@@ -163,6 +166,7 @@
     <Compile Include="StartPage.xaml.cs">
       <DependentUpon>StartPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="VisualTreeAdapter.cs" />
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">
@@ -194,6 +198,10 @@
     <Content Include="Images\grasshopper.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Page Include="SamplePages\CustomDialogSample.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="SamplePages\NumericUpDownSample.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
