@@ -1,6 +1,6 @@
 # Changelog
 
-## 1.2.4 (NOT YET RELEASED)
+## 1.2.4 (16-OCT-2012)
 * NEW: Added NumericUpDown control
 * NEW: ColorContrastConverter which does a YIQ calculation to determine white/black
 * NEW: SettingsManagement API making it easier to do app-wide registration of SettingsFlyout elements.  Thanks Scott Dorman!  Community contributions FTW!
