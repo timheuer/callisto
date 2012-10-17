@@ -14,6 +14,8 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using Callisto.Controls.Common;
+using Callisto.Controls;
+using Windows.UI;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -31,8 +33,12 @@ namespace Callisto.TestApp.SamplePages
 
         private void CustomDialogClicked(object sender, RoutedEventArgs e)
         {
-            var mp = Frame.Ancestors<Frame>().FirstOrDefault().Descendants<Page>().FirstOrDefault();
-            (mp as MainPage).LoginDialog.IsOpen = true;
+            //var mp = Frame.Ancestors<Frame>().FirstOrDefault().Descendants<Page>().FirstOrDefault();
+            //(mp as MainPage).LoginDialog.IsOpen = true;
+            CustomDialog dlg = new CustomDialog() { Title = "Foo Bar", Background = new SolidColorBrush(Colors.Red) };
+            Button b = new Button() { Content = "Fll" };
+            dlg.Content = b;
+            dlg.IsOpen = true;
         }
 
         private void MessageDialogClicked(object sender, RoutedEventArgs e)
