@@ -16,7 +16,7 @@
   </Resources>
   <Applications>
     <Application Id="App" Executable="$targetnametoken$.exe" EntryPoint="Callisto.App">
-      <VisualElements DisplayName="Callisto Test App" Logo="Assets\Logo.png" SmallLogo="Assets\SmallLogo.png" Description="Test app for the control suite" ForegroundText="dark" BackgroundColor="#FF3F00">
+      <VisualElements DisplayName="Callisto Test App" Logo="Assets\Logo.png" SmallLogo="Assets\SmallLogo.png" Description="Test app for the control suite" ForegroundText="dark" BackgroundColor="red">
         <DefaultTile ShowName="allLogos" ShortName="Callisto Test App" />
         <SplashScreen Image="Assets\SplashScreen.png" BackgroundColor="#FFFFFF" />
       </VisualElements>

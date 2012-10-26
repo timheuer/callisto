@@ -1,5 +1,8 @@
 # Changelog
 
+## 1.2.5 (NOT RELEASED)
+* Fixes #110: Implemented FromName method to enable use of named values in manifest for color in AppManifestHelper
+
 ## 1.2.4 (16-OCT-2012)
 * NEW: Added NumericUpDown control
 * NEW: ColorContrastConverter which does a YIQ calculation to determine white/black

@@ -29,6 +29,7 @@ using System.Text;
 using Windows.Security.Cryptography;
 using Windows.Security.Cryptography.Core;
 using Windows.Storage.Streams;
+using System.Reflection;
 
 namespace Callisto
 {
@@ -416,8 +417,32 @@ namespace Callisto
             return CryptographicBuffer.EncodeToBase64String(hash);
         }
 
+        public static Windows.UI.Color FromName(string colorName)
+        {
+            var colorProperty = typeof(Windows.UI.Colors).GetRuntimeProperty(colorName.UpperFirst());
+            
+            if (colorProperty == null) throw new ArgumentException("This is not a known color name.  Use a proper hex color number.");
+
+            return (Windows.UI.Color)colorProperty.GetValue(null);
+        }
+
+        public static string UpperFirst(this string nameValue)
+        {
+            if (string.IsNullOrEmpty(nameValue)) return string.Empty;
+
+            char[] chars = nameValue.ToCharArray();
+            chars[0] = char.ToUpperInvariant(chars[0]);
+            return new string(chars);
+        }
+
         public static Windows.UI.Color ToColor(this string hexValue)
         {
+            if (!hexValue.Contains("#"))
+            { // may be a named color, attempt that
+                var foundColor = FromName(hexValue);
+                if (foundColor != null) return foundColor;
+            }
+
             hexValue = hexValue.Replace("#", string.Empty);
 
             // some loose validation (not bullet-proof)
