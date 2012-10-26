@@ -33,12 +33,8 @@ namespace Callisto.TestApp.SamplePages
 
         private void CustomDialogClicked(object sender, RoutedEventArgs e)
         {
-            //var mp = Frame.Ancestors<Frame>().FirstOrDefault().Descendants<Page>().FirstOrDefault();
-            //(mp as MainPage).LoginDialog.IsOpen = true;
-            CustomDialog dlg = new CustomDialog() { Title = "Foo Bar", Background = new SolidColorBrush(Colors.Red) };
-            Button b = new Button() { Content = "Fll" };
-            dlg.Content = b;
-            dlg.IsOpen = true;
+            var mp = Frame.Ancestors<Frame>().FirstOrDefault().Descendants<Page>().FirstOrDefault();
+            (mp as MainPage).LoginDialog.IsOpen = true;
         }
 
         private void MessageDialogClicked(object sender, RoutedEventArgs e)
@@ -48,6 +44,11 @@ namespace Callisto.TestApp.SamplePages
 #pragma warning disable 4014
             md.ShowAsync();
 #pragma warning restore 4014
+        }
+
+        private void DialogCancelClicked(object sender, RoutedEventArgs e)
+        {
+            //TaggedDialog.IsOpen = false;
         }
     }
 }

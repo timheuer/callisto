@@ -72,7 +72,19 @@ namespace Callisto.Controls
         }
 
         public static readonly DependencyProperty IsOpenProperty =
-            DependencyProperty.Register("IsOpen", typeof(bool), typeof(CustomDialog), null);
+            DependencyProperty.Register("IsOpen", typeof(bool), typeof(CustomDialog), new PropertyMetadata(false, OnIsOpenPropertyChanged));
+
+        private static void OnIsOpenPropertyChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+            if ((bool)e.NewValue)
+            {
+                CustomDialog dlg = d as CustomDialog;
+                if (dlg != null)
+                {
+                    dlg.ApplyTemplate();
+                }
+            }
+        }
 
         public string Title
         {

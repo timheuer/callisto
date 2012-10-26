@@ -9,19 +9,10 @@
     mc:Ignorable="d">
 
     <Grid Background="{StaticResource ApplicationPageBackgroundThemeBrush}">
-        <Grid.Tag>
-            <callisto:CustomDialog x:Name="bar" Title="Foo Bar" Background="Red">
-                <Button Content="foo" />
-            </callisto:CustomDialog>
-            <!--<Popup x:Name="test" IsOpen="True">
-                <TextBlock Text="testing 123" FontSize="53" />
-            </Popup>-->
-        </Grid.Tag>
         <StackPanel Margin="100,50,0,0" HorizontalAlignment="Left">
             <TextBlock FontSize="14.6667" FontWeight="Bold" Text="Click below to launch a custom dialog" />
             <Button Content="Custom Dialog" Click="CustomDialogClicked" />
             <Button Content="Message Dialog (System)" Click="MessageDialogClicked" />
         </StackPanel>
-        
     </Grid>
 </Page>
