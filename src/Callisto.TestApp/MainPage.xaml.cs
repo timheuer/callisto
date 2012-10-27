@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Windows.Input;
@@ -73,6 +74,12 @@ namespace Callisto.TestApp
 
         private void DialogCancelClicked(object sender, RoutedEventArgs e)
         {
+            LoginDialog.IsOpen = false;
+        }
+
+        private void LoginDialog_BackButtonClicked_1(object sender, RoutedEventArgs e)
+        {
+            Debug.WriteLine("Dialog back button clicked");
             LoginDialog.IsOpen = false;
         }
 	}

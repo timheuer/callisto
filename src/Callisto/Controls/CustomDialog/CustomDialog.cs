@@ -30,7 +30,24 @@ namespace Callisto.Controls
         {
             _rootGrid = (Grid)GetTemplateChild(PART_ROOT_GRID);
             _rootBorder = (Border)GetTemplateChild(PART_ROOT_BORDER);
+            _backButton = (Button)GetTemplateChild(PART_BACK_BUTTON);
+
             ResizeContainers();
+
+            if (_backButton != null)
+            {
+                _backButton.Click += (bbs, bba) =>
+                    {
+                        if (BackButtonClicked != null)
+                        {
+                            BackButtonClicked(bbs, bba);
+                        }
+                        else
+                        {
+                            IsOpen = false;
+                        }
+                    };
+            }
 
             // TODO: Need to detach this event?
             Window.Current.SizeChanged += OnWindowSizeChanged;
@@ -54,17 +71,32 @@ namespace Callisto.Controls
             ResizeContainers();
         }
 
+        #region Events
+        public event RoutedEventHandler BackButtonClicked;
+        #endregion
+
         #region Member Variables
         private Grid _rootGrid;
         private Border _rootBorder;
+        private Button _backButton;
         #endregion
 
         #region Constants
         private const string PART_ROOT_BORDER = "PART_RootBorder";
         private const string PART_ROOT_GRID = "PART_RootGrid";
+        private const string PART_BACK_BUTTON = "PART_BackButton";
         #endregion
 
         #region Dependency Properties
+        public Visibility BackButtonVisibility
+        {
+            get { return (Visibility)GetValue(BackButtonVisibilityProperty); }
+            set { SetValue(BackButtonVisibilityProperty, value); }
+        }
+
+        public static readonly DependencyProperty BackButtonVisibilityProperty =
+            DependencyProperty.Register("BackButtonVisibility", typeof(Visibility), typeof(CustomDialog), new PropertyMetadata(Visibility.Collapsed));
+
         public bool IsOpen
         {
             get { return (bool)GetValue(IsOpenProperty); }
