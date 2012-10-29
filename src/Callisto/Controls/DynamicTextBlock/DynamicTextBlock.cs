@@ -190,6 +190,7 @@ namespace Callisto.Controls
             string reducedText = this.Text;
 
             // set the text and measure it to see if it fits without alteration
+            if (string.IsNullOrEmpty(reducedText)) reducedText = string.Empty;
             this.textBlock.Text = reducedText;
             Size textSize = base.MeasureOverride(unboundSize);
 
