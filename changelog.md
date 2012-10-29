@@ -1,6 +1,6 @@
 # Changelog
 
-## 1.2.5 (NOT RELEASED)
+## 1.2.5 (28-OCT-2012)
 * NEW: Added CustomDialog control
 * Fixes #110: Implemented FromName method to enable use of named values in manifest for color in AppManifestHelper
 
