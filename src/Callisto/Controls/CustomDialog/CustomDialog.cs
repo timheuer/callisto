@@ -19,6 +19,10 @@ using Windows.UI.Xaml.Controls;
 
 namespace Callisto.Controls
 {
+    [TemplatePart(Name = CustomDialog.PART_BACK_BUTTON, Type = typeof(Button))]
+    [TemplatePart(Name = CustomDialog.PART_ROOT_BORDER, Type = typeof(Border))]
+    [TemplatePart(Name = CustomDialog.PART_ROOT_GRID, Type = typeof(Grid))]
+    [TemplatePart(Name = CustomDialog.PART_CONTENT, Type = typeof(ContentPresenter))]
     public sealed class CustomDialog : ContentControl
     {
         public CustomDialog()
@@ -85,6 +89,7 @@ namespace Callisto.Controls
         private const string PART_ROOT_BORDER = "PART_RootBorder";
         private const string PART_ROOT_GRID = "PART_RootGrid";
         private const string PART_BACK_BUTTON = "PART_BackButton";
+        private const string PART_CONTENT = "PART_Content";
         #endregion
 
         #region Dependency Properties
