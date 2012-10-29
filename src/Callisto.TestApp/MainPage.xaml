@@ -5,6 +5,7 @@
     xmlns:local="using:Callisto.TestApp"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:callisto="using:Callisto.Controls"
     mc:Ignorable="d">
 
     <Grid Background="{StaticResource ApplicationPageBackgroundThemeBrush}" x:Name="FrameLayoutRoot">
@@ -35,5 +36,22 @@
 			<Frame x:Name="MainFrame" SourcePageType="local:StartPage" />
 		</Border>
 
-	</Grid>
+        <!-- Example use of the CustomDialog control -->
+        <callisto:CustomDialog x:FieldModifier="public" x:Name="LoginDialog" 
+                               Title="Bacon Terms and Conditions" 
+                               Background="Teal" BackButtonVisibility="Visible">
+            <StackPanel>
+                <TextBlock Margin="0,0,0,8" FontSize="14.6667" FontWeight="SemiLight" TextWrapping="Wrap">
+                    Bacon ipsum dolor sit amet bacon ham drumstick strip steak, sausage frankfurter tenderloin turkey salami andouille bresaola. Venison salami prosciutto, pork belly turducken tri-tip spare ribs chicken strip steak fatback shankle tongue boudin andouille. Meatloaf salami pork ground round turkey jerky meatball ball tip, filet mignon fatback flank prosciutto shank. Turkey boudin ham hock, filet mignon tri-tip bresaola tongue venison spare ribs meatloaf flank beef pancetta. Leberkas turducken flank ground round biltong chuck bacon kielbasa. Beef pastrami meatball, short loin venison swine pork loin shank meatloaf spare ribs.
+                </TextBlock>
+                <CheckBox Margin="0,0,0,8" Foreground="White" Content="I agree to the Terms and Conditions of Bacon" />
+                <TextBlock Margin="0,0,0,8" FontSize="14.6667" FontWeight="SemiLight" Text="Enter your name for acceptance" />
+                <callisto:WatermarkTextBox HorizontalAlignment="Left" Watermark="Type your name" Width="400" Height="35" />
+                <StackPanel Margin="0,20,0,0" HorizontalAlignment="Right" Orientation="Horizontal">
+                    <Button Content="OK" Width="90" Margin="0,0,20,0" />
+                    <Button Content="CANCEL" Width="90" Click="DialogCancelClicked" />
+                </StackPanel>
+            </StackPanel>
+        </callisto:CustomDialog>
+    </Grid>
 </Page>

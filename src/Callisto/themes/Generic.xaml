@@ -45,6 +45,8 @@ limitations under the License.-->
             <x:String x:Key="SettingsFlyoutBackButtonGlyph">&#xE0BA;</x:String>
             <SolidColorBrush x:Key="FlipViewIndicatorUnselectedThemeBrush">Gray</SolidColorBrush>
             <SolidColorBrush x:Key="FlipViewIndicatorSelectedThemeBrush">#FFFFFFFF</SolidColorBrush>
+            <x:Double x:Key="CustomDialogBorderThemeThickness">0</x:Double>
+            <SolidColorBrush x:Key="CustomDialogBorderThemeBrush">#FFFFFFFF</SolidColorBrush>
         </ResourceDictionary>
         <ResourceDictionary x:Key="Light">
             <SolidColorBrush x:Key="FlyoutBorderBrush">#FF212121</SolidColorBrush>
@@ -70,6 +72,8 @@ limitations under the License.-->
             <x:String x:Key="SettingsFlyoutBackButtonGlyph">&#xE0BA;</x:String>
             <SolidColorBrush x:Key="FlipViewIndicatorUnselectedThemeBrush">Gray</SolidColorBrush>
             <SolidColorBrush x:Key="FlipViewIndicatorSelectedThemeBrush">#FF000000</SolidColorBrush>
+            <x:Double x:Key="CustomDialogBorderThemeThickness">0</x:Double>
+            <SolidColorBrush x:Key="CustomDialogBorderThemeBrush">#FFFFFFFF</SolidColorBrush>
         </ResourceDictionary>
         <ResourceDictionary x:Key="HighContrast">
             <SolidColorBrush x:Key="FlyoutBorderBrush" Color="{StaticResource SystemColorButtonTextColor}" />
@@ -95,6 +99,8 @@ limitations under the License.-->
             <x:String x:Key="SettingsFlyoutBackButtonGlyph">&#xE0C4;</x:String>
             <SolidColorBrush x:Key="FlipViewIndicatorUnselectedThemeBrush" Color="{StaticResource SystemColorButtonFaceColor}" />
             <SolidColorBrush x:Key="FlipViewIndicatorSelectedThemeBrush" Color="{StaticResource SystemColorHighlightColor}" />
+            <x:Double x:Key="CustomDialogBorderThemeThickness">1</x:Double>
+            <SolidColorBrush x:Key="CustomDialogBorderThemeBrush">#FFFFFFFF</SolidColorBrush>
         </ResourceDictionary>
     </ResourceDictionary.ThemeDictionaries>
 
@@ -1291,6 +1297,135 @@ limitations under the License.-->
                                     VerticalAlignment="Stretch"/>
                         </StackPanel>
                     </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style TargetType="local:CustomDialog">
+        <Setter Property="IsOpen" Value="False" />
+        <Setter Property="BorderThickness" Value="{StaticResource CustomDialogBorderThemeThickness}"/>
+        <Setter Property="BorderBrush" Value="{StaticResource CustomDialogBorderThemeBrush}" />
+        <Setter Property="BackButtonVisibility" Value="Collapsed" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="local:CustomDialog">
+                    <Popup x:Name="PART_RootPopup" IsLightDismissEnabled="False" IsOpen="{TemplateBinding IsOpen}">
+                        <Grid x:Name="PART_RootGrid" Background="#72000000">
+                            <Border x:Name="PART_BannerBorder" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" VerticalAlignment="Center">
+                                <Grid x:Name="PART_DialogGrid" Background="{TemplateBinding Background}" VerticalAlignment="Center">
+                                    <Grid.Resources>
+                                        <Style x:Key="DialogBackButtonStyle" TargetType="Button">
+                                            <Setter Property="MinWidth" Value="0"/>
+                                            <Setter Property="FontFamily" Value="Segoe UI Symbol"/>
+                                            <Setter Property="FontWeight" Value="Normal"/>
+                                            <Setter Property="FontSize" Value="26.66667"/>
+                                            <Setter Property="AutomationProperties.AutomationId" Value="BackButton"/>
+                                            <Setter Property="AutomationProperties.Name" Value="Back"/>
+                                            <Setter Property="AutomationProperties.ItemType" Value="Navigation Button"/>
+                                            <Setter Property="Template">
+                                                <Setter.Value>
+                                                    <ControlTemplate TargetType="Button">
+                                                        <Grid x:Name="RootGrid" Width="30" Height="30">
+                                                            <Grid Margin="-3,-5,0,0">
+                                                                <TextBlock x:Name="BackgroundGlyph" Text="&#xE0D4;" Foreground="{Binding ElementName=PART_DialogGrid, Path=Background}"/>
+                                                                <TextBlock x:Name="NormalGlyph" Text="{StaticResource SettingsFlyoutBackButtonGlyph}" Foreground="{Binding ElementName=PART_DialogGrid, Path=Background, Converter={StaticResource ColorContrast}}"/>
+                                                                <TextBlock x:Name="ArrowGlyph" Text="&#xE0C4;" Foreground="{Binding ElementName=PART_DialogGrid, Path=Background}" Opacity="0"/>
+                                                            </Grid>
+                                                            <Rectangle
+                            x:Name="FocusVisualWhite"
+                            IsHitTestVisible="False"
+                            Stroke="{StaticResource FocusVisualWhiteStrokeThemeBrush}"
+                            StrokeEndLineCap="Square"
+                            StrokeDashArray="1,1"
+                            Opacity="0"
+                            StrokeDashOffset="1.5"/>
+                                                            <Rectangle
+                            x:Name="FocusVisualBlack"
+                            IsHitTestVisible="False"
+                            Stroke="{StaticResource FocusVisualBlackStrokeThemeBrush}"
+                            StrokeEndLineCap="Square"
+                            StrokeDashArray="1,1"
+                            Opacity="0"
+                            StrokeDashOffset="0.5"/>
+
+                                                            <VisualStateManager.VisualStateGroups>
+                                                                <VisualStateGroup x:Name="CommonStates">
+                                                                    <VisualState x:Name="Normal" />
+                                                                    <VisualState x:Name="PointerOver">
+                                                                        <Storyboard>
+                                                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="BackgroundGlyph" Storyboard.TargetProperty="Foreground">
+                                                                                <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource BackButtonPointerOverBackgroundThemeBrush}"/>
+                                                                            </ObjectAnimationUsingKeyFrames>
+                                                                        </Storyboard>
+                                                                    </VisualState>
+                                                                    <VisualState x:Name="Pressed">
+                                                                        <Storyboard>
+                                                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="BackgroundGlyph" Storyboard.TargetProperty="Foreground">
+                                                                                <DiscreteObjectKeyFrame KeyTime="0" Value="{Binding ElementName=PART_DialogGrid, Path=Background, Converter={StaticResource ColorContrast}}"/>
+                                                                            </ObjectAnimationUsingKeyFrames>
+                                                                            <DoubleAnimation
+                                            Storyboard.TargetName="ArrowGlyph"
+                                            Storyboard.TargetProperty="Opacity"
+                                            To="1"
+                                            Duration="0"/>
+                                                                            <DoubleAnimation
+                                            Storyboard.TargetName="NormalGlyph"
+                                            Storyboard.TargetProperty="Opacity"
+                                            To="0"
+                                            Duration="0"/>
+                                                                        </Storyboard>
+                                                                    </VisualState>
+                                                                    <VisualState x:Name="Disabled">
+                                                                        <Storyboard>
+                                                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="RootGrid" Storyboard.TargetProperty="Visibility">
+                                                                                <DiscreteObjectKeyFrame KeyTime="0" Value="Collapsed"/>
+                                                                            </ObjectAnimationUsingKeyFrames>
+                                                                        </Storyboard>
+                                                                    </VisualState>
+                                                                </VisualStateGroup>
+                                                                <VisualStateGroup x:Name="FocusStates">
+                                                                    <VisualState x:Name="Focused">
+                                                                        <Storyboard>
+                                                                            <DoubleAnimation
+                                            Storyboard.TargetName="FocusVisualWhite"
+                                            Storyboard.TargetProperty="Opacity"
+                                            To="1"
+                                            Duration="0"/>
+                                                                            <DoubleAnimation
+                                            Storyboard.TargetName="FocusVisualBlack"
+                                            Storyboard.TargetProperty="Opacity"
+                                            To="1"
+                                            Duration="0"/>
+                                                                        </Storyboard>
+                                                                    </VisualState>
+                                                                    <VisualState x:Name="Unfocused" />
+                                                                    <VisualState x:Name="PointerFocused" />
+                                                                </VisualStateGroup>
+                                                            </VisualStateManager.VisualStateGroups>
+                                                        </Grid>
+                                                    </ControlTemplate>
+                                                </Setter.Value>
+                                            </Setter>
+                                        </Style>
+                                    </Grid.Resources>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition/>
+                                    </Grid.ColumnDefinitions>
+                                    <Border Grid.Column="1" VerticalAlignment="Center">
+                                        <StackPanel Margin="13,19,13,25" HorizontalAlignment="Center" Width="{TemplateBinding Width}" MaxWidth="680">
+                                            <local:DynamicTextBlock Foreground="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=Background, Converter={StaticResource ColorContrast}}" x:Name="PART_Title" Text="{TemplateBinding Title}" FontFamily="Segoe UI" FontSize="26.6667" FontWeight="Light" Margin="0,0,0,8" />
+                                            <ContentPresenter Margin="0" x:Name="PART_Content" Foreground="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=Background, Converter={StaticResource ColorContrast}}" />
+                                        </StackPanel>
+                                    </Border>
+                                    <Button x:Name="PART_BackButton" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,24,0,0"
+                                        Style="{StaticResource DialogBackButtonStyle}" Visibility="{TemplateBinding BackButtonVisibility}"/>
+                                </Grid>
+                            </Border>
+                        </Grid>
+                    </Popup>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>

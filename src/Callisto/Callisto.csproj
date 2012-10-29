@@ -131,6 +131,7 @@
     <Compile Include="Controls\Common\EnumerableFunctions.cs" />
     <Compile Include="Controls\Common\ExpandDirection.cs" />
     <Compile Include="Controls\Common\LinearClipper.cs" />
+    <Compile Include="Controls\CustomDialog\CustomDialog.cs" />
     <Compile Include="Controls\NumericUpDown\NumericUpDown.cs" />
     <Compile Include="Controls\Rating\Rating.cs" />
     <Compile Include="Controls\Rating\RatingItem.cs" />
