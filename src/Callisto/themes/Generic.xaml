@@ -1421,7 +1421,7 @@ limitations under the License.-->
                                         </StackPanel>
                                     </Border>
                                     <Button x:Name="PART_BackButton" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,24,0,0"
-                                        Style="{StaticResource DialogBackButtonStyle}" Visibility="{TemplateBinding BackButtonVisibility}"/>
+                                        Style="{StaticResource DialogBackButtonStyle}" Command="{TemplateBinding BackButtonCommand}" CommandParameter="{TemplateBinding BackButtonCommandParameter}" Visibility="{TemplateBinding BackButtonVisibility}"/>
                                 </Grid>
                             </Border>
                         </Grid>

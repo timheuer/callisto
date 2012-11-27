@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
   <metadata>
-    <version>1.2.5</version>
+    <version>1.2.6</version>
     <authors>Tim Heuer</authors>
     <owners>Tim Heuer</owners>
     <licenseUrl>http://opensource.org/licenses/ms-pl.html</licenseUrl>
@@ -16,6 +16,7 @@
 	<releaseNotes>
 	<![CDATA[
         * Complete details - https://github.com/timheuer/callisto/blob/master/changelog.md
+        * 1.2.6 - Added BackButtonCommand to CustomDialog
         * 1.2.5 - Bug fixes, added CustomDialog control
         * 1.2.4 - Added NumericUpDown control, ColorContrastConverter, SettingsManagement API
         * 1.2.3 - Fixing internationalization issue in Color converter.

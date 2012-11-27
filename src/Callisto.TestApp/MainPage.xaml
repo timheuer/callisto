@@ -7,7 +7,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:callisto="using:Callisto.Controls"
     mc:Ignorable="d">
-
+    
     <Grid Background="{StaticResource ApplicationPageBackgroundThemeBrush}" x:Name="FrameLayoutRoot">
 
 		<Grid.RowDefinitions>
@@ -42,7 +42,7 @@
                                Background="Teal" BackButtonVisibility="Visible">
             <StackPanel>
                 <TextBlock Margin="0,0,0,8" FontSize="14.6667" FontWeight="SemiLight" TextWrapping="Wrap">
-                    Bacon ipsum dolor sit amet bacon ham drumstick strip steak, sausage frankfurter tenderloin turkey salami andouille bresaola. Venison salami prosciutto, pork belly turducken tri-tip spare ribs chicken strip steak fatback shankle tongue boudin andouille. Meatloaf salami pork ground round turkey jerky meatball ball tip, filet mignon fatback flank prosciutto shank. Turkey boudin ham hock, filet mignon tri-tip bresaola tongue venison spare ribs meatloaf flank beef pancetta. Leberkas turducken flank ground round biltong chuck bacon kielbasa. Beef pastrami meatball, short loin venison swine pork loin shank meatloaf spare ribs.
+                    Bacon sausage frankfurter tenderloin turkey salami andouille bresaola. Venison salami prosciutto, pork belly turducken tri-tip spare ribs chicken strip steak fatback shankle tongue boudin andouille. Meatloaf salami pork ground round turkey jerky meatball ball tip, filet mignon fatback flank prosciutto shank. Turkey boudin ham hock, filet mignon tri-tip bresaola tongue venison spare ribs meatloaf flank beef pancetta. Leberkas turducken flank ground round biltong chuck bacon kielbasa. Beef pastrami meatball, short loin venison swine pork loin shank meatloaf spare ribs.
                 </TextBlock>
                 <CheckBox Margin="0,0,0,8" Foreground="White" Content="I agree to the Terms and Conditions of Bacon" />
                 <TextBlock Margin="0,0,0,8" FontSize="14.6667" FontWeight="SemiLight" Text="Enter your name for acceptance" />

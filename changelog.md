@@ -1,5 +1,8 @@
 # Changelog
 
+## 1.2.6 (28-NOV-2012) NOT YET RELEASED
+* Fix #129: Added BackButtonCommand/Parameter to CustomDialog
+
 ## 1.2.5 (28-OCT-2012)
 * NEW: Added CustomDialog control
 * Fixes #110: Implemented FromName method to enable use of named values in manifest for color in AppManifestHelper

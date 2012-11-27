@@ -19,9 +19,21 @@ using Windows.UI.Xaml.Navigation;
 
 namespace Callisto.TestApp
 {
-	/// <summary>
-	/// An empty page that can be used on its own or navigated to within a Frame.
-	/// </summary>
+    public class DebugWriteCommand : ICommand
+    {
+        public bool CanExecute(object parameter)
+        {
+            return true;
+        }
+
+        public event EventHandler CanExecuteChanged;
+
+        public void Execute(object parameter)
+        {
+            Debug.WriteLine(string.Format("DebugWriteCommand Fired: {0}", parameter.ToString()));
+        }
+    }
+
 	public sealed partial class MainPage : Page
 	{
 		public sealed class SamplePage
@@ -34,7 +46,14 @@ namespace Callisto.TestApp
 		public MainPage()
 		{
 			this.InitializeComponent();
+            Loaded += MainPage_Loaded;
 		}
+
+        void MainPage_Loaded(object sender, RoutedEventArgs e)
+        {
+            LoginDialog.BackButtonCommand = new DebugWriteCommand();
+            LoginDialog.BackButtonCommandParameter = "Hello world";
+        }
 
 		/// <summary>
 		/// Invoked when this page is about to be displayed in a Frame.
