@@ -47,6 +47,7 @@ limitations under the License.-->
             <SolidColorBrush x:Key="FlipViewIndicatorSelectedThemeBrush">#FFFFFFFF</SolidColorBrush>
             <x:Double x:Key="CustomDialogBorderThemeThickness">0</x:Double>
             <SolidColorBrush x:Key="CustomDialogBorderThemeBrush">#FFFFFFFF</SolidColorBrush>
+            <SolidColorBrush x:Key="CustomDialogBackgroundThemeBrush">#FFFFFFFF</SolidColorBrush>
         </ResourceDictionary>
         <ResourceDictionary x:Key="Light">
             <SolidColorBrush x:Key="FlyoutBorderBrush">#FF212121</SolidColorBrush>
@@ -74,6 +75,7 @@ limitations under the License.-->
             <SolidColorBrush x:Key="FlipViewIndicatorSelectedThemeBrush">#FF000000</SolidColorBrush>
             <x:Double x:Key="CustomDialogBorderThemeThickness">0</x:Double>
             <SolidColorBrush x:Key="CustomDialogBorderThemeBrush">#FFFFFFFF</SolidColorBrush>
+            <SolidColorBrush x:Key="CustomDialogBackgroundThemeBrush">#FF000000</SolidColorBrush>
         </ResourceDictionary>
         <ResourceDictionary x:Key="HighContrast">
             <SolidColorBrush x:Key="FlyoutBorderBrush" Color="{StaticResource SystemColorButtonTextColor}" />
@@ -101,6 +103,7 @@ limitations under the License.-->
             <SolidColorBrush x:Key="FlipViewIndicatorSelectedThemeBrush" Color="{StaticResource SystemColorHighlightColor}" />
             <x:Double x:Key="CustomDialogBorderThemeThickness">1</x:Double>
             <SolidColorBrush x:Key="CustomDialogBorderThemeBrush">#FFFFFFFF</SolidColorBrush>
+            <SolidColorBrush x:Key="CustomDialogBackgroundThemeBrush" Color="{StaticResource SystemColorButtonFaceColor}" />
         </ResourceDictionary>
     </ResourceDictionary.ThemeDictionaries>
 
@@ -1307,6 +1310,7 @@ limitations under the License.-->
         <Setter Property="BorderThickness" Value="{StaticResource CustomDialogBorderThemeThickness}"/>
         <Setter Property="BorderBrush" Value="{StaticResource CustomDialogBorderThemeBrush}" />
         <Setter Property="BackButtonVisibility" Value="Collapsed" />
+        <Setter Property="Background" Value="{StaticResource CustomDialogBackgroundThemeBrush}" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="local:CustomDialog">

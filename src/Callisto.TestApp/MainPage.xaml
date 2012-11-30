@@ -39,7 +39,7 @@
         <!-- Example use of the CustomDialog control -->
         <callisto:CustomDialog x:FieldModifier="public" x:Name="LoginDialog" 
                                Title="Bacon Terms and Conditions" 
-                               Background="Teal" BackButtonVisibility="Visible">
+                               Background="Teal" BackButtonVisibility="Visible" BackButtonClicked="LoginDialog_BackButtonClicked_1">
             <StackPanel>
                 <TextBlock Margin="0,0,0,8" FontSize="14.6667" FontWeight="SemiLight" TextWrapping="Wrap">
                     Bacon sausage frankfurter tenderloin turkey salami andouille bresaola. Venison salami prosciutto, pork belly turducken tri-tip spare ribs chicken strip steak fatback shankle tongue boudin andouille. Meatloaf salami pork ground round turkey jerky meatball ball tip, filet mignon fatback flank prosciutto shank. Turkey boudin ham hock, filet mignon tri-tip bresaola tongue venison spare ribs meatloaf flank beef pancetta. Leberkas turducken flank ground round biltong chuck bacon kielbasa. Beef pastrami meatball, short loin venison swine pork loin shank meatloaf spare ribs.
