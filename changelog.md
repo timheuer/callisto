@@ -1,6 +1,6 @@
 # Changelog
 
-## 1.2.6 (28-NOV-2012) NOT YET RELEASED
+## 1.2.6 (04-DEC-2012)
 * Fix #129: Added BackButtonCommand/Parameter to CustomDialog
 * Fix #131: Added default colors for Background to CustomDialog
 
