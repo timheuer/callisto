@@ -338,6 +338,18 @@ namespace Callisto.Controls
         public static readonly DependencyProperty PointerOverFillProperty =
             DependencyProperty.Register("PointerOverFill", typeof(SolidColorBrush), typeof(Rating), null);
         #endregion PointerOverFill
+
+        #region ReadonlyFill
+
+        public static readonly DependencyProperty ReadOnlyFillProperty =
+            DependencyProperty.Register("ReadOnlyFill", typeof(SolidColorBrush), typeof(Rating), null);
+
+        public SolidColorBrush ReadOnlyFill
+        {
+            get { return (SolidColorBrush)GetValue(ReadOnlyFillProperty); }
+            set { SetValue(ReadOnlyFillProperty, value); }
+        }
+        #endregion ReadonlyFill
         /// <summary>
         /// Initializes a new instance of the Rating control.
         /// </summary>
@@ -557,13 +569,14 @@ namespace Callisto.Controls
             {
                 ToolTipService.SetToolTip(ratingItem, ((index+1).ToString()));
             }
-            
-            ratingItem.SetBinding(Control.ForegroundProperty, new Binding() { Path = new PropertyPath("Foreground"), Source = this });
+
+            ratingItem.SetBinding(Control.ForegroundProperty, new Binding() {Path = new PropertyPath("Foreground"), Source = this});
             ratingItem.SetBinding(RatingItem.PointerOverFillProperty, new Binding() { Path = new PropertyPath("PointerOverFill"), Source = this });
             ratingItem.SetBinding(RatingItem.PointerPressedFillProperty, new Binding() { Path = new PropertyPath("PointerPressedFill"), Source = this });
             ratingItem.SetBinding(RatingItem.FontSizeProperty, new Binding() { Path = new PropertyPath("FontSize"), Source = this });
             ratingItem.SetBinding(RatingItem.TagProperty, new Binding() { Path = new PropertyPath("Tag"), Source = this });
             ratingItem.SetBinding(RatingItem.BackgroundProperty, new Binding() { Path = new PropertyPath("Background"), Source = this });
+            ratingItem.SetBinding(RatingItem.ReadOnlyFillProperty, new Binding() { Path = new PropertyPath("ReadOnlyFill"), Source = this });
 
             ratingItem.IsEnabled = this.IsEnabled;
             if (ratingItem.Style == null)

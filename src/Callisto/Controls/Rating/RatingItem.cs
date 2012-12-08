@@ -184,6 +184,18 @@ namespace Callisto.Controls
             DependencyProperty.Register("PointerPressedFill", typeof(SolidColorBrush), typeof(RatingItem), null);
         #endregion
 
+        #region ReadonlyFill
+
+        public static readonly DependencyProperty ReadOnlyFillProperty =
+            DependencyProperty.Register("ReadOnlyFill", typeof (SolidColorBrush), typeof (RatingItem), null);
+
+        public SolidColorBrush ReadOnlyFill
+        {
+            get { return (SolidColorBrush) GetValue(ReadOnlyFillProperty); }
+            set { SetValue(ReadOnlyFillProperty, value); }
+        }
+        #endregion
+
         /// <summary>
         /// Gets or sets the parent rating of this rating item.
         /// </summary>
