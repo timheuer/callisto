@@ -20,16 +20,43 @@ using System.Globalization;
 using Callisto.Controls.Common;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml.Controls.Primitives;
 
 namespace Callisto.Controls
 {
     public sealed class NumericUpDown : TextBox
     {
-        private Button _incrementButton;
-        private Button _decrementButton;
+        private RepeatButton _incrementButton;
+        private RepeatButton _decrementButton;
         private string _text;
         private bool _canIncrement;
         private bool _canDecrement;
+
+        private int _delay = 500;
+
+        public int Delay
+        {
+            get { return _delay; }
+            set 
+            { 
+                _delay = value;
+                _incrementButton.Delay = _delay;
+                _decrementButton.Delay = _delay;
+            }
+        }
+
+        private int _interval = 100;
+
+        public int Interval
+        {
+            get { return _interval; }
+            set 
+            { 
+                _interval = value;
+                _incrementButton.Interval = _interval;
+                _decrementButton.Interval = _interval;
+            }
+        }
 
         public NumericUpDown()
         {
@@ -132,17 +159,21 @@ namespace Callisto.Controls
         {
             base.OnApplyTemplate();
 
-            _incrementButton = GetTemplateChild("PART_IncrementButton") as Button;
-            _decrementButton = GetTemplateChild("PART_DecrementButton") as Button;
+            _incrementButton = GetTemplateChild("PART_IncrementButton") as RepeatButton;
+            _decrementButton = GetTemplateChild("PART_DecrementButton") as RepeatButton;
 
             if (_incrementButton != null)
             {
                 _incrementButton.SizeChanged += ResizePartButton;
+                _incrementButton.Delay = _delay;
+                _incrementButton.Interval = _interval;
                 _incrementButton.Click += OnIncrementClicked;
             }
             if (_decrementButton != null)
             {
                 _decrementButton.SizeChanged += ResizePartButton;
+                _decrementButton.Delay = _delay;
+                _decrementButton.Interval = _interval;
                 _decrementButton.Click += OnDecrementClicked;
             }
 
@@ -179,7 +210,7 @@ namespace Callisto.Controls
 
         private static void ResizePartButton(object s, SizeChangedEventArgs e)
         {
-            Button b = s as Button;
+            RepeatButton b = s as RepeatButton;
             if (b != null)
             {
                 double currentWidth = b.Width;

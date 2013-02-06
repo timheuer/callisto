@@ -470,6 +470,7 @@ limitations under the License.-->
         <Setter Property="VerticalContentAlignment" Value="Top" />
         <Setter Property="HorizontalContentAlignment" Value="Left" />
         <Setter Property="MaxWidth" Value="646" />
+        <Setter Property="MinWidth" Value="320" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="local:SettingsFlyout">
@@ -1102,10 +1103,10 @@ limitations under the License.-->
                 <ControlTemplate TargetType="local:NumericUpDown">
                     <Grid>
                         <Grid.Resources>
-                            <Style x:Name="IncrementButtonStyle" TargetType="Button">
+                            <Style x:Name="IncrementButtonStyle" TargetType="RepeatButton">
                                 <Setter Property="Template">
                                     <Setter.Value>
-                                        <ControlTemplate TargetType="Button">
+                                        <ControlTemplate TargetType="RepeatButton">
                                             <Grid>
                                                 <VisualStateManager.VisualStateGroups>
                                                     <VisualStateGroup x:Name="CommonStates">
@@ -1284,14 +1285,14 @@ limitations under the License.-->
                                       IsTabStop="False"
                                       ZoomMode="Disabled" />
                         <StackPanel Orientation="Horizontal" Grid.Column="1">
-                            <Button x:Name="PART_IncrementButton"
+                            <RepeatButton x:Name="PART_IncrementButton"
                                     Style="{StaticResource IncrementButtonStyle}"
                                     BorderThickness="{TemplateBinding BorderThickness}"
                                     IsTabStop="False" IsEnabled="False"
                                     Content="&#xE109;" FontWeight="Bold"
                                     FontSize="{TemplateBinding FontSize}"
                                     VerticalAlignment="Stretch"/>
-                            <Button x:Name="PART_DecrementButton"
+                            <RepeatButton x:Name="PART_DecrementButton"
                                     Style="{StaticResource IncrementButtonStyle}"
                                     BorderThickness="{TemplateBinding BorderThickness}"
                                     IsTabStop="False" IsEnabled="False"
