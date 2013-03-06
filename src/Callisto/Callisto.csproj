@@ -118,6 +118,7 @@
     <Compile Include="Controls\Common\ItemsControlHelper.cs" />
     <Compile Include="Controls\Common\IUpdateVisualState.cs" />
     <Compile Include="Controls\Common\VisualStates.cs" />
+    <Compile Include="Controls\DropDownButton\DropDownButton.cs" />
     <Compile Include="Controls\DynamicTextBlock\DynamicTextBlock.cs" />
     <Compile Include="Controls\FlipViewIndicator\FlipViewIndicator.cs" />
     <Compile Include="Controls\Flyout\Flyout.cs" />
