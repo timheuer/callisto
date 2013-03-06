@@ -1,0 +1,17 @@
+﻿<Page
+    x:Class="Callisto.TestApp.SamplePages.DropDownButtonSample"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Callisto.TestApp.SamplePages"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d" xmlns:callisto="using:Callisto.Controls">
+
+    <Grid Background="{StaticResource ApplicationPageBackgroundThemeBrush}">
+        <StackPanel Margin="100,50,0,0" HorizontalAlignment="Left">            
+            <callisto:DropDownButton Content="Files (24pt)" FontSize="32" />
+            <callisto:DropDownButton Content="Files (20pt)" FontSize="26.6667" />
+            <callisto:DropDownButton Content="Files (42pt - default)" Click="FilesButtonClicked" />
+        </StackPanel>
+    </Grid>
+</Page>

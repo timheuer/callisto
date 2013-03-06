@@ -75,7 +75,8 @@ namespace Callisto.TestApp
                 Samples.Add(new SamplePage() { Name = "FlipViewIndicator", Page = typeof(SamplePages.FlipViewIndicatorSample) });
                 Samples.Add(new SamplePage() { Name = "WatermarkTextBox", Page = typeof(SamplePages.WatermarkTextBoxSample) });
                 Samples.Add(new SamplePage() { Name = "NumericUpDown", Page = typeof(SamplePages.NumericUpDownSample) });
-			    Samples.Add(new SamplePage() {Name = "CustomDialog", Page = typeof (SamplePages.CustomDialogSample) });
+			    Samples.Add(new SamplePage() { Name = "CustomDialog", Page = typeof(SamplePages.CustomDialogSample) });
+                Samples.Add(new SamplePage() { Name = "DropDownButton", Page = typeof(SamplePages.DropDownButtonSample) });
 				this.DataContext = Samples;
 			}
 		}

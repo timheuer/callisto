@@ -130,6 +130,9 @@
     <Compile Include="SamplePages\CustomDialogSample.xaml.cs">
       <DependentUpon>CustomDialogSample.xaml</DependentUpon>
     </Compile>
+    <Compile Include="SamplePages\DropDownButtonSample.xaml.cs">
+      <DependentUpon>DropDownButtonSample.xaml</DependentUpon>
+    </Compile>
     <Compile Include="SamplePages\DynamicTextBlock.xaml.cs">
       <DependentUpon>DynamicTextBlock.xaml</DependentUpon>
     </Compile>
@@ -198,6 +201,10 @@
     <Content Include="Images\grasshopper.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Page Include="SamplePages\DropDownButtonSample.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="SamplePages\CustomDialogSample.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
