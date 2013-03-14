@@ -4,7 +4,7 @@
 
 Callisto is a library for use in Windows 8 XAML applications (aka Metro style apps).  The XAML framework in Windows.UI.Xaml is great, but has some functionality that isn't provided in-the-box in a few controls and APIs.  Callisto provides added functionality on top of the XAML UI framework for Windows.
 
-You can also read more under [Frequently Asked Questions](https://github.com/timheuer/callisto/wiki/FAQ).  Documentation for each control is always an 'in progress' thing (contributions welcome) but is on the [Wiki page here](https://github.com/timheuer/callisto/wiki/).
+You can also read more under [Frequently Asked Questions](https://github.com/timheuer/callisto/wiki/FAQ).  Documentation for each control is always an 'in progress' thing ([contributions welcome](contributing.md)) but is on the [Wiki page here](https://github.com/timheuer/callisto/wiki/).
 
 ## What's In It?
 So far Callisto includes:
