@@ -17,6 +17,10 @@
                 <TextBlock Text="Rating Value: " Margin="0,0,2,0"/>
                 <TextBlock Text="{Binding ElementName=rate, Path=Value}" />
             </StackPanel>
+            <callisto:Rating x:Name="initiallyCollapsed" Visibility="Collapsed"  Grid.Row="0" Grid.Column="1" FontStretch="SemiCondensed" ItemCount="5" Value="3.5" FontWeight="Light"  
+                                                  IsHitTestVisible="False" 
+                                                  FontSize="30" >
+            </callisto:Rating>
             <Button Content="Set Value to 4" Click="Button_Click_1" />
             <Slider HorizontalAlignment="Left" Minimum="0" Maximum="{Binding ElementName=rate, Path=ItemCount}" StepFrequency=".25" SmallChange=".25" Value="{Binding ElementName=rate, Path=Value, Mode=TwoWay}" Width="200" />
             <TextBlock x:Name="EventOutput" />

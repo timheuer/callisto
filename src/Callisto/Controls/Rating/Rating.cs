@@ -295,15 +295,15 @@ namespace Callisto.Controls
         /// <param name="e">Information about the event.</param>
         protected override void OnItemsChanged(object e)
         {
-            EventHandler<object> layoutUpdated = null;
-            layoutUpdated =
-                delegate
-                {
-                    this.LayoutUpdated -= layoutUpdated;
-                    UpdateValues();
-                    UpdateDisplayValues();
-                };
-            this.LayoutUpdated += layoutUpdated;
+            //EventHandler<object> layoutUpdated = null;
+            //layoutUpdated =
+            //    delegate
+            //    {
+            //        this.LayoutUpdated -= layoutUpdated;
+            //        UpdateValues();
+            //        UpdateDisplayValues();
+            //    };
+            //this.LayoutUpdated += layoutUpdated;
 
             this.ItemCount = this.Items.Count;
 
@@ -348,6 +348,13 @@ namespace Callisto.Controls
             this.Interaction = new InteractionHelper(this);
 
             this.ItemsControlHelper = new ItemsControlHelper(this);
+
+            this.LayoutUpdated += ((snd, arg) =>
+                {
+                    UpdateValues();
+                    UpdateDisplayValues();
+                });
+
         }
 
         /// <summary>

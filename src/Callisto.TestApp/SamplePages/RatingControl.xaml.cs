@@ -48,7 +48,8 @@ namespace Callisto.TestApp.SamplePages
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            rate.Value = 4;
+            //rate.Value = 4;
+            initiallyCollapsed.Visibility = Windows.UI.Xaml.Visibility.Visible;
         }
     }
 }
