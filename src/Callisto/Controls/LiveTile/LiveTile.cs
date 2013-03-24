@@ -153,6 +153,24 @@ namespace Callisto.Controls
 
 		private void UpdateNextItem()
 		{
+			//Check if there's more than one item. if not, don't start animation
+			bool hasTwoOrMoreItems = false;
+			if (ItemsSource is IEnumerable)
+			{
+				var enumerator = (ItemsSource as IEnumerable).GetEnumerator();
+				int count = 0;
+				while(enumerator.MoveNext())
+				{
+					count++;
+					if (count > 1)
+					{
+						hasTwoOrMoreItems = true;
+						break;
+					}
+				}
+			}
+			if (!hasTwoOrMoreItems)
+				return;
 			var sb = new Windows.UI.Xaml.Media.Animation.Storyboard();
 			if (_translate != null)
 			{
