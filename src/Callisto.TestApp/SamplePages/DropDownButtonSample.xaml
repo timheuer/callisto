@@ -8,10 +8,47 @@
     mc:Ignorable="d" xmlns:callisto="using:Callisto.Controls">
 
     <Grid Background="{StaticResource ApplicationPageBackgroundThemeBrush}">
-        <StackPanel Margin="100,50,0,0" HorizontalAlignment="Left">            
-            <callisto:DropDownButton Content="Files (24pt)" FontSize="32" />
-            <callisto:DropDownButton Content="Files (20pt)" FontSize="26.6667" />
-            <callisto:DropDownButton Content="Files (42pt - default)" Click="FilesButtonClicked" />
+        <StackPanel Margin="100,50,0,0" HorizontalAlignment="Left" Orientation="Horizontal">
+            <StackPanel Margin="0,0,10,0">
+                <callisto:DropDownButton Content="Files (9pt)" FontSize="12" />
+                <callisto:DropDownButton Content="Files (10pt)" FontSize="13.333" />
+                <callisto:DropDownButton Content="Files (11pt)" FontSize="14.667" />
+                <callisto:DropDownButton Content="Files (12pt)" FontSize="16" />
+                <callisto:DropDownButton Content="Files (13pt)" FontSize="17.333" />
+                <callisto:DropDownButton Content="Files (14pt)" FontSize="18.667" />
+                <callisto:DropDownButton Content="Files (15pt)" FontSize="20" />
+                <callisto:DropDownButton Content="Files (16pt)" FontSize="21.333" />
+                <callisto:DropDownButton Content="Files (17pt)" FontSize="22.667" />
+                <callisto:DropDownButton Content="Files (18pt)" FontSize="24" />
+                <callisto:DropDownButton Content="Files (19pt)" FontSize="25.333" />
+                <callisto:DropDownButton Content="Files (20pt)" FontSize="26.667" />
+                <callisto:DropDownButton Content="Files (21pt)" FontSize="28" />
+                <callisto:DropDownButton Content="Files (22pt)" FontSize="29.333" />
+                <callisto:DropDownButton Content="Files (23pt)" FontSize="30.667" />
+                <callisto:DropDownButton Content="Files (24pt)" FontSize="32" />
+                <callisto:DropDownButton Content="Files (25pt)" FontSize="33.333" />
+                <callisto:DropDownButton Content="Files (26pt)" FontSize="34.667" />
+                <callisto:DropDownButton Content="Files (27pt)" FontSize="36" />
+            </StackPanel>
+            <StackPanel Margin="0,0,10,0">
+                <callisto:DropDownButton Content="Files (28pt)" FontSize="37.333" />
+                <callisto:DropDownButton Content="Files (29pt)" FontSize="38.667" />
+                <callisto:DropDownButton Content="Files (30pt)" FontSize="40" />
+                <callisto:DropDownButton Content="Files (31pt)" FontSize="41.333" />
+                <callisto:DropDownButton Content="Files (32pt)" FontSize="42.667" />
+                <callisto:DropDownButton Content="Files (33pt)" FontSize="44" />
+                <callisto:DropDownButton Content="Files (34pt)" FontSize="45.333" />
+                <callisto:DropDownButton Content="Files (35pt)" FontSize="46.667" />
+                <callisto:DropDownButton Content="Files (36pt)" FontSize="48" />
+                <callisto:DropDownButton Content="Files (37pt)" FontSize="49.333" />
+            </StackPanel>
+            <StackPanel>
+                <callisto:DropDownButton Content="Files (38pt)" FontSize="50.667" />
+                <callisto:DropDownButton Content="Files (39pt)" FontSize="52" />
+                <callisto:DropDownButton Content="Files (40pt)" FontSize="53.333" />
+                <callisto:DropDownButton Content="Files (41pt)" FontSize="54.667" />
+                <callisto:DropDownButton Content="Files (42pt)" FontSize="56" />
+            </StackPanel>
         </StackPanel>
     </Grid>
 </Page>

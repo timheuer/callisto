@@ -1441,7 +1441,7 @@ limitations under the License.-->
         <Setter Property="VerticalAlignment" Value="Center"/>
         <Setter Property="FontFamily" Value="Segoe UI"/>
         <Setter Property="FontWeight" Value="Light"/>
-        <Setter Property="FontSize" Value="56"/>
+        <Setter Property="FontSize" Value="24.667"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="Button">
@@ -1454,7 +1454,7 @@ limitations under the License.-->
                                         <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Opacity" Storyboard.TargetName="ContentPresenter">
                                             <DiscreteObjectKeyFrame KeyTime="0" Value=".8"/>
                                         </ObjectAnimationUsingKeyFrames>
-                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Opacity" Storyboard.TargetName="ArrowGlyph">
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Opacity" Storyboard.TargetName="PART_ArrowGlyph">
                                             <DiscreteObjectKeyFrame KeyTime="0" Value=".8"/>
                                         </ObjectAnimationUsingKeyFrames>
                                     </Storyboard>
@@ -1464,7 +1464,7 @@ limitations under the License.-->
                                         <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Opacity" Storyboard.TargetName="ContentPresenter">
                                             <DiscreteObjectKeyFrame KeyTime="0" Value=".4"/>
                                         </ObjectAnimationUsingKeyFrames>
-                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Opacity" Storyboard.TargetName="ArrowGlyph">
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Opacity" Storyboard.TargetName="PART_ArrowGlyph">
                                             <DiscreteObjectKeyFrame KeyTime="0" Value=".4"/>
                                         </ObjectAnimationUsingKeyFrames>
                                     </Storyboard>
@@ -1474,7 +1474,7 @@ limitations under the License.-->
                                         <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Opacity" Storyboard.TargetName="ContentPresenter">
                                             <DiscreteObjectKeyFrame KeyTime="0" Value=".4"/>
                                         </ObjectAnimationUsingKeyFrames>
-                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Opacity" Storyboard.TargetName="ArrowGlyph">
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Opacity" Storyboard.TargetName="PART_ArrowGlyph">
                                             <DiscreteObjectKeyFrame KeyTime="0" Value=".4"/>
                                         </ObjectAnimationUsingKeyFrames>
                                     </Storyboard>
@@ -1493,7 +1493,7 @@ limitations under the License.-->
                         </VisualStateManager.VisualStateGroups>
                         <StackPanel Orientation="Horizontal" Margin="{TemplateBinding Margin}" HorizontalAlignment="Left" VerticalAlignment="Top">
                             <ContentPresenter HorizontalAlignment="Left" x:Name="ContentPresenter" Content="{TemplateBinding Content}" FontWeight="Light" FontSize="{TemplateBinding FontSize}" Margin="0,0,12,0" Foreground="{TemplateBinding Foreground}" />
-                            <TextBlock x:Name="ArrowGlyph" FontFamily="Segoe UI Symbol" Text="&#xE228;" FontSize="{TemplateBinding FontSize}" VerticalAlignment="Center" Foreground="{TemplateBinding Foreground}" />
+                            <TextBlock x:Name="PART_ArrowGlyph" FontFamily="Segoe UI Symbol" Text="&#xE228;" FontSize="{TemplateBinding FontSize}" VerticalAlignment="Center" Foreground="{TemplateBinding Foreground}" />
                         </StackPanel>
                         <Rectangle x:Name="FocusVisualWhite" IsHitTestVisible="False" Opacity="0" StrokeDashOffset="1.5" StrokeEndLineCap="Square" Stroke="{StaticResource FocusVisualWhiteStrokeThemeBrush}" StrokeDashArray="1,1"/>
                         <Rectangle x:Name="FocusVisualBlack" IsHitTestVisible="False" Opacity="0" StrokeDashOffset="0.5" StrokeEndLineCap="Square" Stroke="{StaticResource FocusVisualBlackStrokeThemeBrush}" StrokeDashArray="1,1"/>
