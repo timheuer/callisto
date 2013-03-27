@@ -59,12 +59,12 @@ namespace Callisto.Controls
             // make sure we listen at the right time to add/remove the back button event handlers
             if(_backButton != null)
             {
-                _backButton.Tapped -= OnBackButtonTapped;
+                _backButton.Click -= OnBackButtonClicked;
             }
             _backButton = GetTemplateChild(PART_BACK_BUTTON) as Button;
             if(_backButton != null)
             {
-                _backButton.Tapped += OnBackButtonTapped;
+                _backButton.Click += OnBackButtonClicked;
             }
 
             // need to get these grids in order to set the offsets correctly in RTL situations
@@ -175,22 +175,22 @@ namespace Callisto.Controls
             }            
         }
 
-        public event EventHandler<BackTappedEventArgs> BackTapped;
+        public event EventHandler<BackClickedEventArgs> BackClicked;
 
-        private void InvokeOnBackKeyPress(BackTappedEventArgs args)
+        private void InvokeOnBackClick(BackClickedEventArgs args)
         {
-            var handler = BackTapped;
+            var handler = BackClicked;
             if (handler != null) handler(this, args);
         }
 
-        private void OnBackButtonTapped(object sender, object e)
+        private void OnBackButtonClicked(object sender, object e)
         {
-            var backEventArgs = new BackTappedEventArgs
+            var backEventArgs = new BackClickedEventArgs
                 {
                     Cancel = false
                 };
             
-            InvokeOnBackKeyPress(backEventArgs);
+            InvokeOnBackClick(backEventArgs);
 
             if (backEventArgs.Cancel) return;
 
@@ -340,7 +340,7 @@ namespace Callisto.Controls
         #endregion Enums
     }
 
-    public class BackTappedEventArgs : EventArgs
+    public class BackClickedEventArgs : EventArgs
     {
         public bool Cancel { get; set; }
     }
