@@ -153,7 +153,6 @@ namespace Callisto.Controls
 
         private void OnInputPaneShowing(Windows.UI.ViewManagement.InputPane sender, Windows.UI.ViewManagement.InputPaneVisibilityEventArgs args)
         {
-            //_hostPopup.VerticalOffset -= (int)args.OccludedRect.Height;
             FrameworkElement focusedItem = FocusManager.GetFocusedElement() as FrameworkElement;
 
             if (focusedItem != null)
@@ -161,13 +160,14 @@ namespace Callisto.Controls
                 // if the focused item is within height - occludedrect height - buffer(50)
                 // then it doesn't need to be changed
                 GeneralTransform gt = focusedItem.TransformToVisual(Window.Current.Content);
-                Point focusedPoint = gt.TransformPoint(new Point(0.0, 0.0));
+                
+                Rect focusedRect = gt.TransformBounds(new Rect(0.0, 0.0, focusedItem.ActualWidth, focusedItem.ActualHeight));
 
-                if (focusedPoint.Y > (_windowBounds.Height - args.OccludedRect.Height - 50))
+                if (focusedRect.Bottom > (_windowBounds.Height - args.OccludedRect.Top))
                 {
                     _ihmFocusMoved = true;
-                    _ihmOccludeHeight = args.OccludedRect.Height;
-                    _hostPopup.VerticalOffset -= (int)args.OccludedRect.Height;
+                    _ihmOccludeHeight = focusedRect.Top < (int)args.OccludedRect.Top ? focusedRect.Top : args.OccludedRect.Top;
+                    _hostPopup.VerticalOffset -= _ihmOccludeHeight;
                 }
             }  
         }
