@@ -174,10 +174,25 @@ namespace Callisto.Controls
                 }
             }            
         }
-        
+
+        public event OnBackKeyPressEventArgs OnBackKeyPress;
+
+        private void InvokeOnBackKeyPress(OnBackKeyPressEventArgsArgs args)
+        {
+            OnBackKeyPressEventArgs handler = OnBackKeyPress;
+            if (handler != null) handler(this, args);
+        }
+
         private void OnBackButtonTapped(object sender, object e)
         {
-            // BUG #47: need to map back button to custom and ability to disable
+            var onBackKeyPressEventArgsArgs = new OnBackKeyPressEventArgsArgs
+                {
+                    Cancel = false
+                };
+            
+            InvokeOnBackKeyPress(onBackKeyPressEventArgsArgs);
+
+            if (onBackKeyPressEventArgsArgs.Cancel) return;
 
             if (_hostPopup != null)
             {
@@ -323,5 +338,12 @@ namespace Callisto.Controls
             Wide = 646
         }
         #endregion Enums
+    }
+
+    public delegate void OnBackKeyPressEventArgs(object sender, OnBackKeyPressEventArgsArgs args);
+
+    public class OnBackKeyPressEventArgsArgs
+    {
+        public bool Cancel { get; set; }
     }
 }
