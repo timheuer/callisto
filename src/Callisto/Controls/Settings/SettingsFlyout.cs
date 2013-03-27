@@ -114,6 +114,7 @@ namespace Callisto.Controls
         private void OnLoaded(object sender, RoutedEventArgs e)
         {
             Window.Current.Activated += OnCurrentWindowActivated;
+            Window.Current.SizeChanged += OnCurrentWindowSizeChanged;
 
             // in RTL languages on the OS, the SettingsPane comes from the left edge
             if (SettingsPane.Edge == SettingsEdgeLocation.Left)
@@ -136,6 +137,11 @@ namespace Callisto.Controls
                 Windows.UI.ViewManagement.InputPane.GetForCurrentView().Showing += OnInputPaneShowing;
                 Windows.UI.ViewManagement.InputPane.GetForCurrentView().Hiding += OnInputPaneHiding;
             }
+        }
+
+        private void OnCurrentWindowSizeChanged(object sender, Windows.UI.Core.WindowSizeChangedEventArgs e)
+        {
+            IsOpen = false;
         }
 
         private void OnInputPaneHiding(Windows.UI.ViewManagement.InputPane sender, Windows.UI.ViewManagement.InputPaneVisibilityEventArgs args)
@@ -189,6 +195,7 @@ namespace Callisto.Controls
         {
             _hostPopup.Child = null;
             Window.Current.Activated -= OnCurrentWindowActivated;
+            Window.Current.SizeChanged -= OnCurrentWindowSizeChanged;
             Windows.UI.ViewManagement.InputPane.GetForCurrentView().Showing -= OnInputPaneShowing;
             Windows.UI.ViewManagement.InputPane.GetForCurrentView().Hiding -= OnInputPaneHiding;
             this.Content = null;
@@ -246,7 +253,7 @@ namespace Callisto.Controls
                 {
                     var yiq = ((newBrush.Color.R*299) + (newBrush.Color.G*587) + (newBrush.Color.B*114)) / 1000;
 
-                    Debug.WriteLine(yiq >= 128 ? "black" : "white");
+                    Debug.WriteLine(yiq >= 128 ? "HeaderText: black" : "HeaderText: white");
                 }
             }
         }

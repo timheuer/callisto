@@ -71,6 +71,7 @@ namespace Callisto.Controls
             this.DefaultStyleKey = typeof(Flyout);
 
             Window.Current.Activated += OnCurrentWindowActivated;
+            Window.Current.SizeChanged += OnCurrentWindowSizeChanged;
 
             // set the default placement
             this.Placement = PlacementMode.Top;
@@ -87,11 +88,16 @@ namespace Callisto.Controls
             _hostPopup.Child = this;
         }
 
+        private void OnCurrentWindowSizeChanged(object sender, Windows.UI.Core.WindowSizeChangedEventArgs e)
+        {
+            IsOpen = false;
+        }
+
         private void OnCurrentWindowActivated(object sender, Windows.UI.Core.WindowActivatedEventArgs e)
         {
             if (e.WindowActivationState == Windows.UI.Core.CoreWindowActivationState.Deactivated)
             {
-                this.IsOpen = false;
+                IsOpen = false;
             }
         }
 
@@ -519,6 +525,7 @@ namespace Callisto.Controls
         {
             // important to remove this or else there will be a leak
             Window.Current.Activated -= OnCurrentWindowActivated;
+            Window.Current.SizeChanged -= OnCurrentWindowSizeChanged;
             Windows.UI.ViewManagement.InputPane.GetForCurrentView().Showing -= OnInputPaneShowing;
             Windows.UI.ViewManagement.InputPane.GetForCurrentView().Hiding -= OnInputPaneHiding;
 
