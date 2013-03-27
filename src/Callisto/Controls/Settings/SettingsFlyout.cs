@@ -175,24 +175,24 @@ namespace Callisto.Controls
             }            
         }
 
-        public event OnBackKeyPressEventArgs OnBackKeyPress;
+        public event EventHandler<BackTappedEventArgs> BackTapped;
 
-        private void InvokeOnBackKeyPress(OnBackKeyPressEventArgsArgs args)
+        private void InvokeOnBackKeyPress(BackTappedEventArgs args)
         {
-            OnBackKeyPressEventArgs handler = OnBackKeyPress;
+            var handler = BackTapped;
             if (handler != null) handler(this, args);
         }
 
         private void OnBackButtonTapped(object sender, object e)
         {
-            var onBackKeyPressEventArgsArgs = new OnBackKeyPressEventArgsArgs
+            var backEventArgs = new BackTappedEventArgs
                 {
                     Cancel = false
                 };
             
-            InvokeOnBackKeyPress(onBackKeyPressEventArgsArgs);
+            InvokeOnBackKeyPress(backEventArgs);
 
-            if (onBackKeyPressEventArgsArgs.Cancel) return;
+            if (backEventArgs.Cancel) return;
 
             if (_hostPopup != null)
             {
@@ -340,9 +340,7 @@ namespace Callisto.Controls
         #endregion Enums
     }
 
-    public delegate void OnBackKeyPressEventArgs(object sender, OnBackKeyPressEventArgsArgs args);
-
-    public class OnBackKeyPressEventArgsArgs
+    public class BackTappedEventArgs : EventArgs
     {
         public bool Cancel { get; set; }
     }
