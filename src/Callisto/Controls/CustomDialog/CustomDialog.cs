@@ -24,7 +24,7 @@ namespace Callisto.Controls
     [TemplatePart(Name = CustomDialog.PART_ROOT_BORDER, Type = typeof(Border))]
     [TemplatePart(Name = CustomDialog.PART_ROOT_GRID, Type = typeof(Grid))]
     [TemplatePart(Name = CustomDialog.PART_CONTENT, Type = typeof(ContentPresenter))]
-    public sealed class CustomDialog : ContentControl
+    public class CustomDialog : ContentControl
     {
         public CustomDialog()
         {
