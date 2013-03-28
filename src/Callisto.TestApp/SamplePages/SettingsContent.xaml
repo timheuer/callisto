@@ -21,7 +21,7 @@
         
         <StackPanel HorizontalAlignment="Left" Margin="5">
             <ToggleSwitch Margin="-5,0,0,0" Header="Download updates automatically" />
-            <Button Content="Foo" Margin="0" />
+            <Button Content="Close This Settings" Margin="0" Click="Button_Click" />
             <TextBlock Style="{StaticResource SettingsHeaderText}" Text="Your user name:" />
             <TextBox Height="35" Width="200" HorizontalAlignment="Left" />
             <TextBlock TextWrapping="Wrap" FontSize="14.667" xml:space="preserve">

@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Callisto.Controls;
+using LinqToVisualTree;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -21,6 +23,12 @@ namespace Callisto.TestApp.SamplePages
         public SettingsContent()
         {
             this.InitializeComponent();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            SettingsFlyout sf = this.Ancestors<SettingsFlyout>().FirstOrDefault() as SettingsFlyout;
+            sf.IsOpen = false;
         }
     }
 }

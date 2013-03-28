@@ -20,20 +20,17 @@
 // Please see http://go.microsoft.com/fwlink/?LinkID=131993 for details.
 // All other rights reserved.
 
+using Callisto.Controls.Common;
 using System;
 using System.Collections.Generic;
-using System.Collections.Specialized;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
-using Callisto.Controls.Common;
-using Callisto.Controls;
+using Windows.System;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Data;
-using Windows.UI.Xaml.Documents;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
-using Windows.System;
 
 namespace Callisto.Controls
 {
@@ -350,6 +347,7 @@ namespace Callisto.Controls
             set { SetValue(ReadOnlyFillProperty, value); }
         }
         #endregion ReadonlyFill
+        
         /// <summary>
         /// Initializes a new instance of the Rating control.
         /// </summary>

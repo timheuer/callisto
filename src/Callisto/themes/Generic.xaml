@@ -647,8 +647,7 @@ limitations under the License.-->
         <Setter Property="BorderBrush" Value="{StaticResource RatingItemBorderThemeBrush}"/>
         <Setter Property="Background" Value="{StaticResource ApplicationPageBackgroundThemeBrush}" />
         <Setter Property="FontFamily" Value="Segoe UI Symbol" />
-        <Setter Property="ReadOnlyFill"
-                Value="{StaticResource RatingItemDisabledForegroundThemeBrush}"/>
+        <Setter Property="ReadOnlyFill" Value="{StaticResource RatingItemDisabledForegroundThemeBrush}"/>
         <Setter Property="Margin" Value="6,0,6,0" />
         <Setter Property="Template">
             <Setter.Value>
