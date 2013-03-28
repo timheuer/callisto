@@ -39,7 +39,7 @@ namespace Callisto.Controls
             switch (args.Key)
             {
                 case Windows.System.VirtualKey.Escape:
-                    ((Flyout)this.Parent).IsOpen = false;
+                    if (this.Parent.GetType() == typeof(Flyout)) { ((Flyout)this.Parent).IsOpen = false; }
                     break;
                 case Windows.System.VirtualKey.Up:
                     ChangeFocusedItem(false);
