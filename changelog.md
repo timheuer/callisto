@@ -1,5 +1,8 @@
 # Changelog
 
+## 1.2.8 (11-APR-2013)
+* Fix #184: Quick fix to SettingsFlyout to prevent horizontal overbounce visual artifact
+
 ## 1.2.7 (28-MAR-2013)
 * NEW: Added DropdownButton control
 * Fix #47: Added BackClick event (thanks lprichar!)
