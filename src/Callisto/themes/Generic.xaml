@@ -471,6 +471,10 @@ limitations under the License.-->
         <Setter Property="HorizontalContentAlignment" Value="Left" />
         <Setter Property="MaxWidth" Value="646" />
         <Setter Property="MinWidth" Value="320" />
+        <Setter Property="ScrollViewer.HorizontalScrollMode" Value="Disabled" />
+        <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Disabled" />
+        <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Auto" />
+        <Setter Property="ScrollViewer.VerticalScrollMode" Value="Auto" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="local:SettingsFlyout">
@@ -599,7 +603,14 @@ limitations under the License.-->
                             </Grid>
 
                             <!-- Settings Panel Content -->
-                            <ScrollViewer Background="{TemplateBinding ContentBackgroundBrush}" Foreground="{TemplateBinding ContentForegroundBrush}" Grid.Row="1" VerticalScrollBarVisibility="Auto" ZoomMode="Disabled" x:Name="PART_ContentScrollViewer">
+                            <ScrollViewer Background="{TemplateBinding ContentBackgroundBrush}" 
+                                          Foreground="{TemplateBinding ContentForegroundBrush}" 
+                                          Grid.Row="1" 
+                                          VerticalScrollBarVisibility="{TemplateBinding ScrollViewer.VerticalScrollBarVisibility}" 
+                                          VerticalScrollMode="{TemplateBinding ScrollViewer.VerticalScrollMode}"
+                                          HorizontalScrollMode="{TemplateBinding ScrollViewer.HorizontalScrollMode}" 
+                                          HorizontalScrollBarVisibility="{TemplateBinding ScrollViewer.HorizontalScrollBarVisibility}"
+                                          ZoomMode="Disabled" x:Name="PART_ContentScrollViewer">
                                 <Grid x:Name="SettingsFlyoutContentGrid" Margin="33,22,40,0" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}">
                                     <ContentPresenter Content="{TemplateBinding Content}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  />
                                 </Grid>
