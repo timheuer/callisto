@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.2.9 (22-APR-2013)
+* Fix #190: Setting IsOpen to false when the flyout is dismissed
+* Fix #189: Fixing en-ZA localization and adding en fallback resources
+
 ## 1.2.8 (11-APR-2013)
 * Fix #184: Quick fix to SettingsFlyout to prevent horizontal overbounce visual artifact
 

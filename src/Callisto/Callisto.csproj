@@ -227,7 +227,16 @@
       <SubType>Designer</SubType>
     </PRIResource>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <PRIResource Include="LocalizedStrings\en\Resources.resw">
+      <SubType>Designer</SubType>
+    </PRIResource>
+  </ItemGroup>
+  <ItemGroup>
+    <PRIResource Include="LocalizedStrings\en-ZA\Resources.resw">
+      <SubType>Designer</SubType>
+    </PRIResource>
+  </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' ">
     <VisualStudioVersion>11.0</VisualStudioVersion>
   </PropertyGroup>

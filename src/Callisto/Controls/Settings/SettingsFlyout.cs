@@ -220,6 +220,8 @@ namespace Callisto.Controls
             {
                 Closed(this, e);
             }
+
+            IsOpen = false;
         }
 
         void OnCurrentWindowActivated(object sender, Windows.UI.Core.WindowActivatedEventArgs e)
