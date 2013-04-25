@@ -141,6 +141,8 @@
     <Compile Include="Controls\Rating\ValueChangedEventHandler.cs" />
     <Compile Include="Controls\Settings\SettingsFlyout.cs" />
     <Compile Include="Controls\WatermarkTextBox\WatermarkTextBox.cs" />
+    <Compile Include="Controls\WrapPanel\OrientedSize.cs" />
+    <Compile Include="Controls\WrapPanel\WrapPanel.cs" />
     <Compile Include="Converters\BooleanToVisibilityConverter.cs" />
     <Compile Include="Converters\BrushToColorConverter.cs" />
     <Compile Include="Converters\ColorBrightnessConverter.cs" />
@@ -150,6 +152,7 @@
     <Compile Include="Converters\RelativeTimeConverter.cs" />
     <Compile Include="Effects\TiltEffect.cs" />
     <Compile Include="Extensions\Extensions.cs" />
+    <Compile Include="Extensions\NumericExtensions.cs" />
     <Compile Include="Extensions\WebViewExtension.cs" />
     <Compile Include="OAuth\OAuthHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

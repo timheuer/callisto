@@ -166,6 +166,9 @@
     <Compile Include="SamplePages\WebViewExtension.xaml.cs">
       <DependentUpon>WebViewExtension.xaml</DependentUpon>
     </Compile>
+    <Compile Include="SamplePages\WrapPanelSample.xaml.cs">
+      <DependentUpon>WrapPanelSample.xaml</DependentUpon>
+    </Compile>
     <Compile Include="StartPage.xaml.cs">
       <DependentUpon>StartPage.xaml</DependentUpon>
     </Compile>
@@ -201,6 +204,10 @@
     <Content Include="Images\grasshopper.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Page Include="SamplePages\WrapPanelSample.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="SamplePages\DropDownButtonSample.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

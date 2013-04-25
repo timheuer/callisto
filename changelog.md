@@ -1,5 +1,8 @@
 # Changelog
 
+## 1.3.0 (06-MAY-2013)
+* NEW: Added WrapPanel
+
 ## 1.2.9 (22-APR-2013)
 * Fix #190: Setting IsOpen to false when the flyout is dismissed
 * Fix #189: Fixing en-ZA localization and adding en fallback resources
