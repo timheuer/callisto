@@ -41,11 +41,11 @@ namespace Callisto.Controls
         #region public double ItemHeight
         /// <summary>
         /// Gets or sets the height of the layout area for each item that is
-        /// contained in a <see cref="T:System.Windows.Controls.WrapPanel" />.
+        /// contained in a <see cref="T:Callisto.Controls.WrapPanel" />.
         /// </summary>
         /// <value>
         /// The height applied to the layout area of each item that is contained
-        /// within a <see cref="T:System.Windows.Controls.WrapPanel" />.  The
+        /// within a <see cref="T:Callisto.Controls.WrapPanel" />.  The
         /// default value is <see cref="F:System.Double.NaN" />.
         /// </value>
         public double ItemHeight
@@ -56,12 +56,12 @@ namespace Callisto.Controls
 
         /// <summary>
         /// Identifies the
-        /// <see cref="P:System.Windows.Controls.WrapPanel.ItemHeight" />
+        /// <see cref="P:Callisto.Controls.WrapPanel.ItemHeight" />
         /// dependency property.
         /// </summary>
         /// <value>
         /// The identifier for the
-        /// <see cref="P:System.Windows.Controls.WrapPanel.ItemHeight" />
+        /// <see cref="P:Callisto.Controls.WrapPanel.ItemHeight" />
         /// dependency property
         /// </value>
         public static readonly DependencyProperty ItemHeightProperty =
@@ -75,11 +75,11 @@ namespace Callisto.Controls
         #region public double ItemWidth
         /// <summary>
         /// Gets or sets the width of the layout area for each item that is
-        /// contained in a <see cref="T:System.Windows.Controls.WrapPanel" />.
+        /// contained in a <see cref="T:Callisto.Controls.WrapPanel" />.
         /// </summary>
         /// <value>
         /// The width that applies to the layout area of each item that is
-        /// contained in a <see cref="T:System.Windows.Controls.WrapPanel" />.
+        /// contained in a <see cref="T:Callisto.Controls.WrapPanel" />.
         /// The default value is <see cref="F:System.Double.NaN" />.
         /// </value>
         public double ItemWidth
@@ -90,12 +90,12 @@ namespace Callisto.Controls
 
         /// <summary>
         /// Identifies the
-        /// <see cref="P:System.Windows.Controls.WrapPanel.ItemWidth" />
+        /// <see cref="P:Callisto.Controls.WrapPanel.ItemWidth" />
         /// dependency property.
         /// </summary>
         /// <value>
         /// The identifier for the
-        /// <see cref="P:System.Windows.Controls.WrapPanel.ItemWidth" />
+        /// <see cref="P:Callisto.Controls.WrapPanel.ItemWidth" />
         /// dependency property.
         /// </value>
         public static readonly DependencyProperty ItemWidthProperty =
@@ -111,9 +111,9 @@ namespace Callisto.Controls
         /// Gets or sets the direction in which child elements are arranged.
         /// </summary>
         /// <value>
-        /// One of the <see cref="T:System.Windows.Controls.Orientation" />
+        /// One of the <see cref="T:Windows.UI.Xaml.Controls.Orientation" />
         /// values.  The default is
-        /// <see cref="F:System.Windows.Controls.Orientation.Horizontal" />.
+        /// <see cref="F:Windows.UI.Xaml.Controls.Orientation.Horizontal" />.
         /// </value>
         public Orientation Orientation
         {
@@ -123,19 +123,14 @@ namespace Callisto.Controls
 
         /// <summary>
         /// Identifies the
-        /// <see cref="P:System.Windows.Controls.WrapPanel.Orientation" />
+        /// <see cref="P:Callisto.Controls.WrapPanel.Orientation" />
         /// dependency property.
         /// </summary>
         /// <value>
         /// The identifier for the
-        /// <see cref="P:System.Windows.Controls.WrapPanel.Orientation" />
+        /// <see cref="P:Callisto.Controls.WrapPanel.Orientation" />
         /// dependency property.
         /// </value>
-        // TODO: In WPF, WrapPanel uses AddOwner to register the Orientation
-        // property via StackPanel.  It then gets the default value of
-        // StackPanel's Orientation property.  It looks like this should be no
-        // different than using the same default value on a new Orientation
-        // property.
         public static readonly DependencyProperty OrientationProperty =
             DependencyProperty.Register(
                 "Orientation",
@@ -222,9 +217,9 @@ namespace Callisto.Controls
 
         /// <summary>
         /// Measures the child elements of a
-        /// <see cref="T:System.Windows.Controls.WrapPanel" /> in anticipation
+        /// <see cref="T:Callisto.Controls.WrapPanel" /> in anticipation
         /// of arranging them during the
-        /// <see cref="M:System.Windows.Controls.WrapPanel.ArrangeOverride(System.Windows.Size)" />
+        /// <see cref="M:Callisto.Controls.WrapPanel.ArrangeOverride(Windows.Foundation.Size)" />
         /// pass.
         /// </summary>
         /// <param name="constraint">
@@ -232,7 +227,7 @@ namespace Callisto.Controls
         /// </param>
         /// <returns>
         /// The size required by the
-        /// <see cref="T:System.Windows.Controls.WrapPanel" /> and its 
+        /// <see cref="T:Callisto.Controls.WrapPanel" /> and its 
         /// elements.
         /// </returns>
         [SuppressMessage("Microsoft.Naming", "CA1725:ParameterNamesShouldMatchBaseDeclaration", MessageId = "0#", Justification = "Compat with WPF.")]
@@ -308,17 +303,17 @@ namespace Callisto.Controls
 
         /// <summary>
         /// Arranges and sizes the
-        /// <see cref="T:System.Windows.Controls.WrapPanel" /> control and its
+        /// <see cref="T:Callisto.Controls.WrapPanel" /> control and its
         /// child elements.
         /// </summary>
         /// <param name="finalSize">
         /// The area within the parent that the
-        /// <see cref="T:System.Windows.Controls.WrapPanel" /> should use 
+        /// <see cref="T:Callisto.Controls.WrapPanel" /> should use 
         /// arrange itself and its children.
         /// </param>
         /// <returns>
         /// The actual size used by the
-        /// <see cref="T:System.Windows.Controls.WrapPanel" />.
+        /// <see cref="T:Callisto.Controls.WrapPanel" />.
         /// </returns>
         protected override Size ArrangeOverride(Size finalSize)
         {
