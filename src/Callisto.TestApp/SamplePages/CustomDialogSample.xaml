@@ -13,6 +13,8 @@
             <TextBlock FontSize="14.6667" FontWeight="Bold" Text="Click below to launch a custom dialog" />
             <Button Content="Custom Dialog" Click="CustomDialogClicked" />
             <Button Content="Message Dialog (System)" Click="MessageDialogClicked" />
+
+            <Button Content="Test Memory Leaks" Click="CustomDialogTestForMemoryLeak" />
         </StackPanel>
     </Grid>
 </Page>
