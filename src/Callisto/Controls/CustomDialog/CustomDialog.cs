@@ -54,8 +54,8 @@ namespace Callisto.Controls
                     };
             }
 
-            // TODO: Need to detach this event?
             Window.Current.SizeChanged += OnWindowSizeChanged;
+            Unloaded += OnUnloaded;
 
             base.OnApplyTemplate();
         }
@@ -74,6 +74,12 @@ namespace Callisto.Controls
         private void OnWindowSizeChanged(object sender, Windows.UI.Core.WindowSizeChangedEventArgs e)
         {
             ResizeContainers();
+        }
+
+        private void OnUnloaded(object sender, RoutedEventArgs routedEventArgs)
+        {
+            Unloaded -= OnUnloaded;
+            Window.Current.SizeChanged -= OnWindowSizeChanged;
         }
 
         #region Events

@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Threading.Tasks;
 using LinqToVisualTree;
+using UIElementLeakTester;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.UI.Popups;
@@ -49,6 +51,45 @@ namespace Callisto.TestApp.SamplePages
         private void DialogCancelClicked(object sender, RoutedEventArgs e)
         {
             //TaggedDialog.IsOpen = false;
+        }
+
+        /// <summary>
+        /// To ensure there is no memory leak, a new CustomDialog is added to and removed from the visual tree.
+        /// Each step waits for it to load before continuing.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void CustomDialogTestForMemoryLeak(object sender, RoutedEventArgs e)
+        {
+            var customDialog = new CustomDialog();
+
+            ObjectTracker.Track(customDialog);
+
+            var childGrid = Frame.Descendants<Grid>().FirstOrDefault() as Grid;
+            if (childGrid != null)
+            {
+                customDialog.Loaded += (o, args) =>
+                {
+                    childGrid.Children.Remove(customDialog);
+                };
+
+                customDialog.Unloaded += (o, args) =>
+                {
+                    CheckDialogHasBeenGarbageCollected();
+                };
+
+                childGrid.Children.Add(customDialog);
+            }
+        }
+
+        private async void CheckDialogHasBeenGarbageCollected()
+        {
+            // Ensure control has time to be unloaded
+            await Task.Delay(100);
+
+            var resultsTextBox = new TextBox();
+            ObjectTracker.GarbageCollect(resultsTextBox);
+            await new MessageDialog(resultsTextBox.Text).ShowAsync();
         }
     }
 }
