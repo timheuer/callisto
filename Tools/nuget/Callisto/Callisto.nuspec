@@ -16,7 +16,7 @@
 	<releaseNotes>
 	<![CDATA[
         * Complete details - https://github.com/timheuer/callisto/blob/master/changelog.md
-        * 1.3.0 - Added WrapPanel
+        * 1.3.0 - Added WrapPanel, fixed memory leak in CustomDialog
         * 1.2.9 - Minor bug fixes
 	]]>
 	</releaseNotes>
