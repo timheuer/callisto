@@ -1,5 +1,8 @@
 # Changelog
 
+## 1.3.1 (25-JUN-2013)
+* Fix #214: Removed explicit font settings on WatermarkTextBox to allow inheritance to flow for Font properties
+
 ## 1.3.0 (21-MAY-2013)
 * Fix #204: Fixed memory leak in CustomDialog (thanks kiwidev!)
 * NEW: Added WrapPanel
