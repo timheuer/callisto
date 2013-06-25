@@ -1082,9 +1082,7 @@ limitations under the License.-->
                                    IsHitTestVisible="False"
                                    Visibility="Collapsed"
                                    Margin="{StaticResource TextControlBorderThemeThickness}"
-                                   Padding="{StaticResource TextControlThemePadding}"
-                                   FontFamily="{StaticResource ContentControlThemeFontFamily}"
-                                   FontSize="{StaticResource ControlContentThemeFontSize}"/>
+                                   Padding="{StaticResource TextControlThemePadding}" />
                         <Button x:Name="DeleteButton"
                                 Style="{StaticResource DeleteButtonStyle}"
                                 BorderThickness="{TemplateBinding BorderThickness}"
