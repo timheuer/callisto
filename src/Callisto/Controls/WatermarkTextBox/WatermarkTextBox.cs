@@ -166,6 +166,9 @@ namespace Callisto.Controls
 
             ElementContent = (TextBlock)GetTemplateChild(PART_ELEMENT_CONTENT_NAME);
 
+            // if the PlaceholderText value (new in Win8.1) is set, we will use that as Watermark
+            if (!string.IsNullOrEmpty(PlaceholderText)) Watermark = PlaceholderText;
+
             OnWatermarkChanged();
 
             ChangeVisualState(false);

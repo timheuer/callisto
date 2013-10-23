@@ -3,8 +3,9 @@
 @echo *******************************************
 @echo * BUILDING SOLUTION IN RELEASE			*
 @echo *******************************************
-msbuild /verbosity:quiet /fl /t:Rebuild /p:Configuration=Release,OutputPath=bin\Release\81-NuGet\,DefineConstants="NETFX_CORE_451" src\Callisto\Callisto.csproj
-msbuild /verbosity:quiet /fl /t:Rebuild /p:Configuration=Release,OutputPath=bin\Release\81-ExtSDK\,DefineConstants="NETFX_CORE_451" /property:DisableXbfGeneration=true src\Callisto\Callisto.csproj
+msbuild /verbosity:quiet /fl /t:Rebuild /p:Configuration=Release,OutputPath=bin\Release\81-NuGet\ /property:GenerateLibraryLayout=false /p:NoWarn=0618 src\Callisto\Callisto.csproj
+msbuild /verbosity:quiet /fl /t:Rebuild /p:Configuration=Release,OutputPath=bin\Release\81-ExtSDK\ /property:DisableXbfGeneration=true /property:GenerateLibraryLayout=true /p:NoWarn=0618 src\Callisto\Callisto.csproj
+msbuild /verbosity:quiet /fl /t:Rebuild /p:Configuration=Release,OutputPath=bin\Release\81-Design src\Design\Callisto.Design\Callisto.Design.csproj
 
 @echo *******************************************
 @echo BUILDING DIRECTORY STRUCTURE FOR SDK		*
@@ -34,7 +35,7 @@ mkdir .\Callisto\lib\netcore451\Callisto
 mkdir .\Callisto\lib\netcore451\Callisto\Themes
 copy ..\..\src\Callisto\bin\release\81-NuGet\Callisto.dll .\Callisto\lib\netcore451\
 copy ..\..\src\Callisto\bin\release\81-NuGet\Callisto.pri .\Callisto\lib\netcore451\
-copy ..\..\src\Callisto\bin\release\81-NuGet\Callisto\themes\generic.xbf .\Callisto\lib\netcore451\Callisto\Themes
+copy ..\..\src\Callisto\bin\release\81-NuGet\themes\generic.xbf .\Callisto\lib\netcore451\Callisto\Themes
 
 @echo *******************************************
 @echo * BUILDING NUGET PAKCAGE					*
