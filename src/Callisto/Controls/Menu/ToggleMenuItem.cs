@@ -14,10 +14,12 @@
 // limitations under the License.
 //
 
+using System;
 using Windows.UI.Xaml;
 
 namespace Callisto.Controls
 {
+    [Obsolete("Windows 8.1 now provides this functionality in the XAML framework itself as ToggleMenuFlyoutItem.")]
     public sealed class ToggleMenuItem : MenuItem
     {
         public ToggleMenuItem()

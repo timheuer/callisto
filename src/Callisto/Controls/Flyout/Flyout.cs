@@ -28,6 +28,7 @@ namespace Callisto.Controls
     /// <summary>
     /// The main Flyout control to host any popup/flyout content.
     /// </summary>
+    [Obsolete("Windows 8.1 now provides this functionality in the XAML framework itself as Flyout.")]
     public sealed class Flyout : ContentControl, IDisposable
     {
         #region Member Variables

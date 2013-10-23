@@ -34,7 +34,7 @@ namespace Callisto.Controls.Common
             }
 
             // set the XNamespace and name for the VisualElements node we want
-            var xn = XName.Get("VisualElements", "http://schemas.microsoft.com/appx/2010/manifest");
+            var xn = XName.Get("VisualElements", "http://schemas.microsoft.com/appx/2013/manifest");
 
             // parse the VisualElements node only, pulling out what we need
             // NOTE: This will get only the first Application (which is the mainstream case)
@@ -44,8 +44,8 @@ namespace Callisto.Controls.Common
                                      {
                                          DisplayName = vel.Attribute("DisplayName").Value,
                                          Description = vel.Attribute("Description").Value,
-                                         LogoUri = new Uri(string.Format("ms-appx:///{0}",vel.Attribute("Logo").Value.Replace(@"\",@"/"))),
-                                         SmallLogoUri = new Uri(string.Format("ms-appx:///{0}",vel.Attribute("SmallLogo").Value.Replace(@"\",@"/"))),
+                                         LogoUri = new Uri(string.Format("ms-appx:///{0}", vel.Attribute("Square150x150Logo").Value.Replace(@"\", @"/"))),
+                                         SmallLogoUri = new Uri(string.Format("ms-appx:///{0}", vel.Attribute("Square30x30Logo").Value.Replace(@"\", @"/"))),
                                          BackgroundColorAsString = vel.Attribute("BackgroundColor").Value
                                      }).FirstOrDefault();
             if (visualElementNode == null) throw new ArgumentNullException("Could not parse the VisualElements from the app manifest.");

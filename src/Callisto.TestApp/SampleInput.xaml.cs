@@ -28,7 +28,7 @@ namespace XamlControlsUITestApp
 
         private void defaultbutton_Click_1(object sender, RoutedEventArgs e)
         {
-            Flyout f = this.Parent as Flyout;
+            Callisto.Controls.Flyout f = this.Parent as Callisto.Controls.Flyout;
             f.IsOpen = false;
         }
     }

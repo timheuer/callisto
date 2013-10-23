@@ -9,6 +9,7 @@
 
     <Grid Background="{StaticResource ApplicationPageBackgroundThemeBrush}">
 		<StackPanel Margin="100,100,0,0" HorizontalAlignment="Left">
+            <TextBlock Text="This Control is OBSOLETE - see documentation" FontSize="24.667" Foreground="Red" />
 			<TextBlock Text="Settings Width" />
 			<ComboBox x:Name="settingswidth" Width="400" Height="55" HorizontalAlignment="Left">
 				<ComboBoxItem>Wide</ComboBoxItem>

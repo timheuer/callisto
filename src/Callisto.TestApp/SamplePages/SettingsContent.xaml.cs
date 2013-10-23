@@ -27,7 +27,7 @@ namespace Callisto.TestApp.SamplePages
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            SettingsFlyout sf = this.Ancestors<SettingsFlyout>().FirstOrDefault() as SettingsFlyout;
+            Callisto.Controls.SettingsFlyout sf = this.Ancestors<Callisto.Controls.SettingsFlyout>().FirstOrDefault() as Callisto.Controls.SettingsFlyout;
             sf.IsOpen = false;
         }
     }

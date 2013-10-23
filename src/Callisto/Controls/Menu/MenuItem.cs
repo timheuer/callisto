@@ -14,6 +14,7 @@
 // limitations under the License.
 //
 
+using System;
 using System.Windows.Input;
 using Windows.System;
 using Windows.UI.Xaml;
@@ -21,6 +22,7 @@ using Windows.UI.Xaml.Input;
 
 namespace Callisto.Controls
 {
+    [Obsolete("Windows 8.1 now provides this functionality in the XAML framework itself as MenuFlyoutItem.")]
     [TemplateVisualState(Name = MenuItem.StateBase, GroupName = MenuItem.GroupCommon)]
     [TemplateVisualState(Name = MenuItem.StateHover, GroupName = MenuItem.GroupCommon)]
     [TemplateVisualState(Name = MenuItem.StatePressed, GroupName = MenuItem.GroupCommon)]
