@@ -3,7 +3,8 @@
 @echo *******************************************
 @echo * BUILDING SOLUTION IN RELEASE			*
 @echo *******************************************
-msbuild /verbosity:quiet /fl /t:Rebuild /p:Configuration=Release,OutputPath=bin\Release\81\,DefineConstants="NETFX_CORE_451" src\Callisto\Callisto.csproj
+msbuild /verbosity:quiet /fl /t:Rebuild /p:Configuration=Release,OutputPath=bin\Release\81-NuGet\,DefineConstants="NETFX_CORE_451" src\Callisto\Callisto.csproj
+msbuild /verbosity:quiet /fl /t:Rebuild /p:Configuration=Release,OutputPath=bin\Release\81-ExtSDK\,DefineConstants="NETFX_CORE_451" /property:DisableXbfGeneration=true src\Callisto\Callisto.csproj
 
 @echo *******************************************
 @echo BUILDING DIRECTORY STRUCTURE FOR SDK		*
@@ -12,28 +13,28 @@ mkdir SDK\Callisto\1.0.1\References\CommonConfiguration\neutral
 mkdir SDK\Callisto\1.0.1\Redist\CommonConfiguration\neutral\Callisto\Themes
 
 @echo *******************************************
-@echo * COPYING BINARIES						*
+@echo * COPYING BINARIES FOR EXTENSION SDK		*
 @echo *******************************************
-copy src\Callisto\bin\Release\81\Callisto.dll SDK\Callisto\1.0.1\References\CommonConfiguration\neutral
-copy src\Callisto\bin\Release\81\themes\generic.xaml SDK\Callisto\1.0.1\Redist\CommonConfiguration\neutral\Callisto\Themes
-copy src\Callisto\bin\Release\81\Callisto.pri SDK\Callisto\1.0.1\Redist\CommonConfiguration\neutral\
+copy src\Callisto\bin\Release\81-ExtSDK\Callisto.dll SDK\Callisto\1.0.1\References\CommonConfiguration\neutral
+copy src\Callisto\bin\Release\81-ExtSDK\Callisto\themes\generic.xaml SDK\Callisto\1.0.1\Redist\CommonConfiguration\neutral\Callisto\Themes
+copy src\Callisto\bin\Release\81-ExtSDK\Callisto.pri SDK\Callisto\1.0.1\Redist\CommonConfiguration\neutral\
 copy SDKManifest.xml SDK\Callisto\1.0.1\
 
 @echo *******************************************
-@echo * DONE BUILDING SDK LAYOUT				*
+@echo * DONE BUILDING EXTENSION SDK LAYOUT		*
 @echo *******************************************
 
 pushd Tools\nuget
 
 @echo *******************************************
-@echo * COPYING BINARIES for NETFX Core 4.5.1			*
+@echo * COPYING BINARIES FOR NUGET              *
 @echo *******************************************
 mkdir .\Callisto\lib\netcore451
 mkdir .\Callisto\lib\netcore451\Callisto
 mkdir .\Callisto\lib\netcore451\Callisto\Themes
-copy ..\..\src\Callisto\bin\release\81\Callisto.dll .\Callisto\lib\netcore451\
-copy ..\..\src\Callisto\bin\release\81\Callisto.pri .\Callisto\lib\netcore451\
-copy ..\..\src\Callisto\bin\release\81\themes\generic.xaml .\Callisto\lib\netcore451\Callisto\Themes
+copy ..\..\src\Callisto\bin\release\81-NuGet\Callisto.dll .\Callisto\lib\netcore451\
+copy ..\..\src\Callisto\bin\release\81-NuGet\Callisto.pri .\Callisto\lib\netcore451\
+copy ..\..\src\Callisto\bin\release\81-NuGet\Callisto\themes\generic.xbf .\Callisto\lib\netcore451\Callisto\Themes
 
 @echo *******************************************
 @echo * BUILDING NUGET PAKCAGE					*
