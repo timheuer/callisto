@@ -19,7 +19,8 @@ namespace XamlControlsUITestApp
 
         protected async override void OnLaunched(LaunchActivatedEventArgs args)
         {
-            AppSettings.Current.AddCommand<SettingsContent>("App Registered", SettingsFlyout.SettingsFlyoutWidth.Wide);
+            AppSettings.Current.AddCommand<SettingsContent>("App Registered", Callisto.Controls.SettingsFlyout.SettingsFlyoutWidth.Wide);
+            AppSettings.Current.AddCommand<SettingsContent>("App Registered 2", 500);
 
             VisualElements = await Callisto.Controls.Common.AppManifestHelper.GetManifestVisualElementsAsync();
 

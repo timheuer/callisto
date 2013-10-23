@@ -1,35 +1,29 @@
 <?xml version="1.0"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
   <metadata>
-    <version>1.2.7</version>
+    <version>1.4.0</version>
     <authors>Tim Heuer</authors>
     <owners>Tim Heuer</owners>
     <licenseUrl>http://opensource.org/licenses/ms-pl.html</licenseUrl>
-    <projectUrl>http://timheuer.github.com/callisto</projectUrl>
+    <projectUrl>http://timheuer.github.io/callisto</projectUrl>
     <iconUrl>http://storage2.timheuer.com/CallistoMoon.png</iconUrl>
     <id>Callisto</id>
     <title>Callisto</title>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description>A control suite for some common things a Windows 8 XAML application might want to include such as a Flyout, Menu, Rating, Settings Pane, and Pivot control.</description>
+    <description>A control suite for some common things a Windows 8 XAML application might want to include such as a Flyout, Menu, Rating, Settings Pane, and other controls.</description>
     <language>en-US</language>
     <tags>xaml winrt flyout settings popup menu win8 metro pivot ratings flipview watermark</tags>
 	<releaseNotes>
 	<![CDATA[
+        * WARNING: BREAKING CHANGES -- NO LONGER SUPPORTS WINDOWS 8 IN THIS AND FUTURE VERSIONS!!!
         * Complete details - https://github.com/timheuer/callisto/blob/master/changelog.md
-        * 1.2.7 - Bug fixes, added DropdownButton
-        * 1.2.6 - Added BackButtonCommand to CustomDialog
-        * 1.2.5 - Bug fixes, added CustomDialog control
-        * 1.2.4 - Added NumericUpDown control, ColorContrastConverter, SettingsManagement API
-        * 1.2.3 - Fixing internationalization issue in Color converter.
-		* BREAKING CHANGE: The SettingsFlyout is now default content area White.  If you relied on it getting theme color you will need to change this using ContentBackground[Foreground]Brush settings.
-        * Bug fixes: a few fixes thanks to community members (see https://github.com/timheuer/callisto/blob/master/changelog.md for details) and other changes to conform to UI guidelines from Microsoft.
-        * NEW: AppManifestHelper to parse out VisualElements more easily.
+        * 1.4.0 - Change to support Windows 8.1 applications; deprecating some controls
 	]]>
 	</releaseNotes>
   </metadata>
   <files>
-    <file src="lib\winrt45\Callisto\Themes\Generic.xaml" target="lib\winrt45\Callisto\Themes\Generic.xaml" />
-    <file src="lib\winrt45\Callisto.pri" target="lib\winrt45\Callisto.pri" />
-    <file src="lib\winrt45\Callisto.dll" target="lib\winrt45\Callisto.dll" />
+    <file src="lib\netcore451\Callisto\Themes\Generic.xaml" target="lib\netcore451\Callisto\Themes\Generic.xaml" />
+    <file src="lib\netcore451\Callisto.pri" target="lib\netcore451\Callisto.pri" />
+    <file src="lib\netcore451\Callisto.dll" target="lib\netcore451\Callisto.dll" />
   </files>
 </package>

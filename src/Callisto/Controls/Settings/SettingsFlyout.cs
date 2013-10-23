@@ -28,6 +28,7 @@ using Windows.UI.Xaml.Media.Animation;
 
 namespace Callisto.Controls
 {
+    [Obsolete("Windows 8.1 now provides this functionality in the XAML framework itself as SettingsFlyout.")]
     public sealed class SettingsFlyout : ContentControl
     {
         #region Member Variables
@@ -59,12 +60,12 @@ namespace Callisto.Controls
             // make sure we listen at the right time to add/remove the back button event handlers
             if(_backButton != null)
             {
-                _backButton.Tapped -= OnBackButtonTapped;
+                _backButton.Click -= OnBackButtonClicked;
             }
             _backButton = GetTemplateChild(PART_BACK_BUTTON) as Button;
             if(_backButton != null)
             {
-                _backButton.Tapped += OnBackButtonTapped;
+                _backButton.Click += OnBackButtonClicked;
             }
 
             // need to get these grids in order to set the offsets correctly in RTL situations
@@ -114,6 +115,7 @@ namespace Callisto.Controls
         private void OnLoaded(object sender, RoutedEventArgs e)
         {
             Window.Current.Activated += OnCurrentWindowActivated;
+            Window.Current.SizeChanged += OnCurrentWindowSizeChanged;
 
             // in RTL languages on the OS, the SettingsPane comes from the left edge
             if (SettingsPane.Edge == SettingsEdgeLocation.Left)
@@ -138,6 +140,11 @@ namespace Callisto.Controls
             }
         }
 
+        private void OnCurrentWindowSizeChanged(object sender, Windows.UI.Core.WindowSizeChangedEventArgs e)
+        {
+            IsOpen = false;
+        }
+
         private void OnInputPaneHiding(Windows.UI.ViewManagement.InputPane sender, Windows.UI.ViewManagement.InputPaneVisibilityEventArgs args)
         {
             // if the ihm occluded something and we had to move, we need to adjust back
@@ -157,20 +164,36 @@ namespace Callisto.Controls
                 // if the focused item is within height - occludedrect height - buffer(50)
                 // then it doesn't need to be changed
                 GeneralTransform gt = focusedItem.TransformToVisual(Window.Current.Content);
-                Point focusedPoint = gt.TransformPoint(new Point(0.0, 0.0));
+                
+                Rect focusedRect = gt.TransformBounds(new Rect(0.0, 0.0, focusedItem.ActualWidth, focusedItem.ActualHeight));
 
-                if (focusedPoint.Y > (_windowBounds.Height - args.OccludedRect.Height - 50))
+                if (focusedRect.Bottom > (_windowBounds.Height - args.OccludedRect.Top))
                 {
                     _ihmFocusMoved = true;
-                    _ihmOccludeHeight = args.OccludedRect.Height;
-                    _hostPopup.VerticalOffset -= (int)args.OccludedRect.Height;
+                    _ihmOccludeHeight = focusedRect.Top < (int)args.OccludedRect.Top ? focusedRect.Top : args.OccludedRect.Top;
+                    _hostPopup.VerticalOffset -= _ihmOccludeHeight;
                 }
             }            
         }
-        
-        private void OnBackButtonTapped(object sender, object e)
+
+        public event EventHandler<BackClickedEventArgs> BackClicked;
+
+        private void InvokeOnBackClick(BackClickedEventArgs args)
         {
-            // BUG #47: need to map back button to custom and ability to disable
+            var handler = BackClicked;
+            if (handler != null) handler(this, args);
+        }
+
+        private void OnBackButtonClicked(object sender, object e)
+        {
+            var backEventArgs = new BackClickedEventArgs
+                {
+                    Cancel = false
+                };
+            
+            InvokeOnBackClick(backEventArgs);
+
+            if (backEventArgs.Cancel) return;
 
             if (_hostPopup != null)
             {
@@ -189,6 +212,7 @@ namespace Callisto.Controls
         {
             _hostPopup.Child = null;
             Window.Current.Activated -= OnCurrentWindowActivated;
+            Window.Current.SizeChanged -= OnCurrentWindowSizeChanged;
             Windows.UI.ViewManagement.InputPane.GetForCurrentView().Showing -= OnInputPaneShowing;
             Windows.UI.ViewManagement.InputPane.GetForCurrentView().Hiding -= OnInputPaneHiding;
             this.Content = null;
@@ -197,6 +221,8 @@ namespace Callisto.Controls
             {
                 Closed(this, e);
             }
+
+            IsOpen = false;
         }
 
         void OnCurrentWindowActivated(object sender, Windows.UI.Core.WindowActivatedEventArgs e)
@@ -246,7 +272,7 @@ namespace Callisto.Controls
                 {
                     var yiq = ((newBrush.Color.R*299) + (newBrush.Color.G*587) + (newBrush.Color.B*114)) / 1000;
 
-                    Debug.WriteLine(yiq >= 128 ? "black" : "white");
+                    Debug.WriteLine(yiq >= 128 ? "HeaderText: black" : "HeaderText: white");
                 }
             }
         }
@@ -315,5 +341,10 @@ namespace Callisto.Controls
             Wide = 646
         }
         #endregion Enums
+    }
+
+    public class BackClickedEventArgs : EventArgs
+    {
+        public bool Cancel { get; set; }
     }
 }

@@ -15,6 +15,7 @@
 //
 
 using Callisto.Controls.Common;
+using System;
 using Windows.ApplicationModel.Resources;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
@@ -22,6 +23,7 @@ using Windows.UI.Xaml.Input;
 
 namespace Callisto.Controls
 {
+    [Obsolete("Windows 8.1 now provides this functionality in the XAML framework itself as PlaceholderText on TextBox.")]
     [TemplatePart(Name = WatermarkTextBox.PART_ELEMENT_CONTENT_NAME, Type = typeof(ContentControl))]
     public sealed class WatermarkTextBox : TextBox
     {

@@ -23,6 +23,7 @@ using Windows.UI.Xaml.Markup;
 
 namespace Callisto.Controls
 {
+    [Obsolete("Windows 8.1 now provides this functionality in the XAML framework itself as MenuFlyout.")]
     [ContentProperty(Name="Items")]
     public sealed class Menu : Control
     {
@@ -39,7 +40,7 @@ namespace Callisto.Controls
             switch (args.Key)
             {
                 case Windows.System.VirtualKey.Escape:
-                    ((Flyout)this.Parent).IsOpen = false;
+                    if (this.Parent.GetType() == typeof(Flyout)) { ((Flyout)this.Parent).IsOpen = false; }
                     break;
                 case Windows.System.VirtualKey.Up:
                     ChangeFocusedItem(false);

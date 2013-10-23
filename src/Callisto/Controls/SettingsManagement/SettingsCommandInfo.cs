@@ -14,6 +14,7 @@
 // limitations under the License.
 //
 
+using System;
 using Windows.UI.Xaml.Controls;
 
 namespace Callisto.Controls.SettingsManagement
@@ -29,6 +30,20 @@ namespace Callisto.Controls.SettingsManagement
         {
             HeaderText = headerText;
             Width = width;
+            if (width == SettingsFlyout.SettingsFlyoutWidth.Narrow)
+            {
+                LiteralWidth = 346;
+            }
+            else
+            {
+                LiteralWidth = 646;
+            }
+        }
+
+        public SettingsCommandInfo(string headerText, double width)
+        {
+            HeaderText = headerText;
+            LiteralWidth = width;
         }
         #endregion
 
@@ -65,11 +80,16 @@ namespace Callisto.Controls.SettingsManagement
         /// Gets the width of the settings flyout.
         /// </summary>
         /// <value>The width of the settings flyout.</value>
+        [Obsolete("Use LiteralWidth for Windows 8.1")]
         public SettingsFlyout.SettingsFlyoutWidth Width
         {
             get;
             private set;
         }
+        #endregion
+
+        #region LiteralWidth
+        public double LiteralWidth { get; private set; }
         #endregion
         #endregion
     }

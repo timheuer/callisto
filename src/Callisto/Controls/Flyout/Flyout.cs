@@ -28,6 +28,7 @@ namespace Callisto.Controls
     /// <summary>
     /// The main Flyout control to host any popup/flyout content.
     /// </summary>
+    [Obsolete("Windows 8.1 now provides this functionality in the XAML framework itself as Flyout.")]
     public sealed class Flyout : ContentControl, IDisposable
     {
         #region Member Variables
@@ -71,6 +72,7 @@ namespace Callisto.Controls
             this.DefaultStyleKey = typeof(Flyout);
 
             Window.Current.Activated += OnCurrentWindowActivated;
+            Window.Current.SizeChanged += OnCurrentWindowSizeChanged;
 
             // set the default placement
             this.Placement = PlacementMode.Top;
@@ -87,11 +89,16 @@ namespace Callisto.Controls
             _hostPopup.Child = this;
         }
 
+        private void OnCurrentWindowSizeChanged(object sender, Windows.UI.Core.WindowSizeChangedEventArgs e)
+        {
+            IsOpen = false;
+        }
+
         private void OnCurrentWindowActivated(object sender, Windows.UI.Core.WindowActivatedEventArgs e)
         {
             if (e.WindowActivationState == Windows.UI.Core.CoreWindowActivationState.Deactivated)
             {
-                this.IsOpen = false;
+                IsOpen = false;
             }
         }
 
@@ -147,7 +154,6 @@ namespace Callisto.Controls
 
         private void OnInputPaneShowing(Windows.UI.ViewManagement.InputPane sender, Windows.UI.ViewManagement.InputPaneVisibilityEventArgs args)
         {
-            //_hostPopup.VerticalOffset -= (int)args.OccludedRect.Height;
             FrameworkElement focusedItem = FocusManager.GetFocusedElement() as FrameworkElement;
 
             if (focusedItem != null)
@@ -155,13 +161,14 @@ namespace Callisto.Controls
                 // if the focused item is within height - occludedrect height - buffer(50)
                 // then it doesn't need to be changed
                 GeneralTransform gt = focusedItem.TransformToVisual(Window.Current.Content);
-                Point focusedPoint = gt.TransformPoint(new Point(0.0, 0.0));
+                
+                Rect focusedRect = gt.TransformBounds(new Rect(0.0, 0.0, focusedItem.ActualWidth, focusedItem.ActualHeight));
 
-                if (focusedPoint.Y > (_windowBounds.Height - args.OccludedRect.Height - 50))
+                if (focusedRect.Bottom > (_windowBounds.Height - args.OccludedRect.Top))
                 {
                     _ihmFocusMoved = true;
-                    _ihmOccludeHeight = args.OccludedRect.Height;
-                    _hostPopup.VerticalOffset -= (int)args.OccludedRect.Height;
+                    _ihmOccludeHeight = focusedRect.Top < (int)args.OccludedRect.Top ? focusedRect.Top : args.OccludedRect.Top;
+                    _hostPopup.VerticalOffset -= _ihmOccludeHeight;
                 }
             }  
         }
@@ -519,6 +526,7 @@ namespace Callisto.Controls
         {
             // important to remove this or else there will be a leak
             Window.Current.Activated -= OnCurrentWindowActivated;
+            Window.Current.SizeChanged -= OnCurrentWindowSizeChanged;
             Windows.UI.ViewManagement.InputPane.GetForCurrentView().Showing -= OnInputPaneShowing;
             Windows.UI.ViewManagement.InputPane.GetForCurrentView().Hiding -= OnInputPaneHiding;
 

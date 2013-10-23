@@ -1,6 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
+# Visual Studio Express 2012 for Windows 8
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Callisto", "Callisto.csproj", "{42E8BE6B-9A3C-4236-A0C7-8A8DBD757021}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Callisto.TestApp", "..\Callisto.TestApp\Callisto.TestApp.csproj", "{9EF330B5-90B7-4946-B775-0F44000049E3}"
@@ -9,7 +9,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BuildInfo", "BuildInfo", "{
 	ProjectSection(SolutionItems) = preProject
 		..\..\build.bat = ..\..\build.bat
 		..\..\buildvsix.bat = ..\..\buildvsix.bat
-		..\..\nuget\Callisto\Callisto.nuspec = ..\..\nuget\Callisto\Callisto.nuspec
+		..\..\Tools\nuget\Callisto\Callisto.nuspec = ..\..\Tools\nuget\Callisto\Callisto.nuspec
+		..\..\changelog.md = ..\..\changelog.md
+		..\..\contributing.md = ..\..\contributing.md
 		..\..\readme.md = ..\..\readme.md
 		..\..\SDKManifest.xml = ..\..\SDKManifest.xml
 	EndProjectSection

@@ -29,7 +29,7 @@ namespace Callisto.TestApp.SamplePages
 
         public void FilesButtonClicked(object sender, RoutedEventArgs args)
         {
-            Flyout f = new Flyout();
+            Callisto.Controls.Flyout f = new Callisto.Controls.Flyout();
             f.PlacementTarget = sender as UIElement;
             f.Placement = PlacementMode.Bottom;
 

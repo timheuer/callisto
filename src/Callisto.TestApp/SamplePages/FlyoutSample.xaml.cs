@@ -57,7 +57,7 @@ namespace Callisto.TestApp.SamplePages
 
 		private void ShowFlyoutMenu(object sender, RoutedEventArgs e)
 		{
-			Flyout f = new Flyout();
+			Callisto.Controls.Flyout f = new Callisto.Controls.Flyout();
 			f.PlacementTarget = sender as UIElement;
 			f.Placement = PlacementMode.Top;
 			f.Closed += (x, y) =>
@@ -111,7 +111,7 @@ namespace Callisto.TestApp.SamplePages
 
 		private void ShowFlyoutMenu2(object sender, RoutedEventArgs e)
 		{
-			Flyout f = new Flyout();
+			Callisto.Controls.Flyout f = new Callisto.Controls.Flyout();
 
 			Border b = new Border();
 			b.Width = 300;
@@ -139,7 +139,7 @@ namespace Callisto.TestApp.SamplePages
 
 		private void ShowFlyoutMenu3(object sender, RoutedEventArgs e)
 		{
-			Flyout f = new Flyout();
+			Callisto.Controls.Flyout f = new Callisto.Controls.Flyout();
 
 			f.Margin = new Thickness(20, 12, 20, 12);
 			f.Content = new SampleInput();
@@ -186,7 +186,7 @@ namespace Callisto.TestApp.SamplePages
 
         private void ShowFlyoutToggleMenu(object sender, RoutedEventArgs e)
         {
-            Flyout f = new Flyout();
+            Callisto.Controls.Flyout f = new Callisto.Controls.Flyout();
             f.PlacementTarget = sender as UIElement;
             f.Placement = PlacementMode.Top;
             f.Closed += (x, y) =>

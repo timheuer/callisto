@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Package xmlns="http://schemas.microsoft.com/appx/2010/manifest">
-  <Identity Name="Callisto.TestApp" Publisher="CN=Callisto" Version="1.0.0.0" />
+<Package xmlns="http://schemas.microsoft.com/appx/2010/manifest" xmlns:m2="http://schemas.microsoft.com/appx/2013/manifest">
+  <Identity Name="Callisto.TestApp" Publisher="CN=Callisto" Version="1.1.0.0" />
   <Properties>
     <DisplayName>TimHeuer.Callisto</DisplayName>
     <PublisherDisplayName>timheuer</PublisherDisplayName>
@@ -8,18 +8,22 @@
     <Description>XamlControlsUITestApp</Description>
   </Properties>
   <Prerequisites>
-    <OSMinVersion>6.2</OSMinVersion>
-    <OSMaxVersionTested>6.2</OSMaxVersionTested>
+    <OSMinVersion>6.3.0</OSMinVersion>
+    <OSMaxVersionTested>6.3.0</OSMaxVersionTested>
   </Prerequisites>
   <Resources>
     <Resource Language="x-generate" />
   </Resources>
   <Applications>
     <Application Id="App" Executable="$targetnametoken$.exe" EntryPoint="Callisto.App">
-      <VisualElements DisplayName="Callisto Test App" Logo="Assets\Logo.png" SmallLogo="Assets\SmallLogo.png" Description="Test app for the control suite" ForegroundText="dark" BackgroundColor="red">
-        <DefaultTile ShowName="allLogos" ShortName="Callisto Test App" />
-        <SplashScreen Image="Assets\SplashScreen.png" BackgroundColor="#FFFFFF" />
-      </VisualElements>
+      <m2:VisualElements DisplayName="Callisto Test App" Description="Test app for the control suite" BackgroundColor="red" ForegroundText="dark" Square150x150Logo="Assets\Logo.png" Square30x30Logo="Assets\SmallLogo.png">
+        <m2:DefaultTile ShortName="Callisto Test App">
+          <m2:ShowNameOnTiles>
+            <m2:ShowOn Tile="square150x150Logo" />
+          </m2:ShowNameOnTiles>
+        </m2:DefaultTile>
+        <m2:SplashScreen BackgroundColor="#FFFFFF" Image="Assets\SplashScreen.png" />
+      </m2:VisualElements>
     </Application>
   </Applications>
   <Capabilities>

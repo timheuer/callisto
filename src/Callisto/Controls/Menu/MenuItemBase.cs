@@ -14,11 +14,13 @@
 // limitations under the License.
 //
 
+using System;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 
 namespace Callisto.Controls
 {
+    [Obsolete("Windows 8.1 now provides this functionality in the XAML framework itself as MenuFlyoutItem.")]
     public abstract class MenuItemBase : Control
     {
         protected MenuItemBase() { }

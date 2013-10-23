@@ -43,10 +43,13 @@ namespace Callisto.TestApp.SamplePages
 
 		private void BlankPage_CommandsRequested(SettingsPane sender, SettingsPaneCommandsRequestedEventArgs args)
 		{
+            // Note this is kept here for posterity but shouldn't be used
+            // see the next sample of using the Windows.UI.Xaml.Controls.SettingsFlyout
+            // in Windows 8.1 for the replacement if you were using this code example before.
 			SettingsCommand cmd = new SettingsCommand("sample", "Sample Custom Setting", (x) =>
 			{
                 // create a new instance of the flyout
-				SettingsFlyout settings = new SettingsFlyout();
+				Callisto.Controls.SettingsFlyout settings = new Callisto.Controls.SettingsFlyout();
                 // set the desired width.  If you leave this out, you will get Narrow (346px)
 				settings.FlyoutWidth = (Callisto.Controls.SettingsFlyout.SettingsFlyoutWidth)Enum.Parse(typeof(Callisto.Controls.SettingsFlyout.SettingsFlyoutWidth), settingswidth.SelectionBoxItem.ToString());
                 
@@ -71,7 +74,24 @@ namespace Callisto.TestApp.SamplePages
 				ObjectTracker.Track(settings);
 			});
 
+            // note this is the new and preferred way in Windows 8.1 using 
+            // Windows.UI.Xaml.Controls.SettingsFlyout
+            // This sample is kept here to show an example of this
+            SettingsCommand cmd2 = new SettingsCommand("sample2", "Sample 2", (x) =>
+            {
+                Windows.UI.Xaml.Controls.SettingsFlyout settings = new Windows.UI.Xaml.Controls.SettingsFlyout();
+                settings.Width = 500;
+                settings.HeaderBackground = new SolidColorBrush(Colors.Orange);
+                settings.HeaderForeground = new SolidColorBrush(Colors.Black);
+                settings.Title = string.Format("{0} Custom 2", App.VisualElements.DisplayName);
+                settings.IconSource = new BitmapImage(Windows.ApplicationModel.Package.Current.Logo);
+                settings.Content = new SettingsContent();
+                settings.Show();
+                ObjectTracker.Track(settings);
+            });
+
 			args.Request.ApplicationCommands.Add(cmd);
+            args.Request.ApplicationCommands.Add(cmd2);
 		}
 
 		private void ShowSettings(object sender, RoutedEventArgs e)

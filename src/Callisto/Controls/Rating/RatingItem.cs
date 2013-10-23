@@ -20,17 +20,11 @@
 // Please see http://go.microsoft.com/fwlink/?LinkID=131993 for details.
 // All other rights reserved.
 
-using System;
-using System.Collections.Generic;
-using System.Diagnostics.CodeAnalysis;
-using System.Linq;
 using Callisto.Controls.Common;
+using System;
+using System.Diagnostics.CodeAnalysis;
 using Windows.UI.Xaml;
-using Windows.UI.Xaml.Automation.Peers;
-using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Data;
-using Windows.UI.Xaml.Documents;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 
@@ -182,6 +176,18 @@ namespace Callisto.Controls
 
         public static readonly DependencyProperty PointerPressedFillProperty =
             DependencyProperty.Register("PointerPressedFill", typeof(SolidColorBrush), typeof(RatingItem), null);
+        #endregion
+
+        #region ReadonlyFill
+
+        public static readonly DependencyProperty ReadOnlyFillProperty =
+            DependencyProperty.Register("ReadOnlyFill", typeof (SolidColorBrush), typeof (RatingItem), null);
+
+        public SolidColorBrush ReadOnlyFill
+        {
+            get { return (SolidColorBrush) GetValue(ReadOnlyFillProperty); }
+            set { SetValue(ReadOnlyFillProperty, value); }
+        }
         #endregion
 
         /// <summary>

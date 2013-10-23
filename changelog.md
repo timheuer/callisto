@@ -1,5 +1,36 @@
 # Changelog
 
+## 1.4.0 (??-OCT-2013)
+* BREAKING CHANGES!!!
+* Starting in 1.4.0, Callisto will only support Windows 8.1 applications
+* Deprecated: Flyout, Menu, SettingsFlyout, WatermarkTextBox
+* MODIFIED: AppSettings/SettingsManagement/AppManifestHelper APIs
+* NEW: Blend design-time support
+* NuGet only supports netcore451 now going forward
+
+## 1.3.0 (21-MAY-2013)
+* Fix #204: Fixed memory leak in CustomDialog (thanks kiwidev!)
+* NEW: Added WrapPanel
+
+## 1.2.9 (22-APR-2013)
+* Fix #190: Setting IsOpen to false when the flyout is dismissed
+* Fix #189: Fixing en-ZA localization and adding en fallback resources
+
+## 1.2.8 (11-APR-2013)
+* Fix #184: Quick fix to SettingsFlyout to prevent horizontal overbounce visual artifact
+
+## 1.2.7 (28-MAR-2013)
+* NEW: Added DropdownButton control
+* Fix #47: Added BackClick event (thanks lprichar!)
+* Fix #167: Added listener for Window.SizeChanged
+* Fix #171: Enhancing flyout positioning logic
+* Fix #156: Ensure back button on SettingsFlyout works for keyboard enter/space bar
+* Fix #136: Unsealed CustomDialog
+* Fix #140: Fix flyout parent check for menu
+* NumericUpDown: Changed to repeat buttons to enable holding down the button on mouse click
+* Ratings: fixed some random bugs
+* Ratings: Added ReadOnlyFill (thanks ScottIsAFool!)
+
 ## 1.2.6 (04-DEC-2012)
 * Fix #129: Added BackButtonCommand/Parameter to CustomDialog
 * Fix #131: Added default colors for Background to CustomDialog
