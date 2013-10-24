@@ -16,12 +16,22 @@
 
 using Callisto.Design.Common;
 using Microsoft.Windows.Design;
+using Microsoft.Windows.Design.Features;
 using Microsoft.Windows.Design.Metadata;
+using Microsoft.Windows.Design.Model;
 using Microsoft.Windows.Design.PropertyEditing;
 using System.ComponentModel;
 
 namespace Callisto.Design
 {
+    internal class WatermakrTextBoxDefaults : DefaultInitializer
+    {
+        public override void InitializeDefaults(ModelItem item)
+        {
+            item.Properties["Text"].SetValue(string.Empty);
+        }
+    }
+
 	internal class WatermarkTextBoxMetadata : AttributeTableBuilder
 	{
 		public WatermarkTextBoxMetadata()
@@ -30,6 +40,8 @@ namespace Callisto.Design
 			AddCallback(typeof(Callisto.Controls.WatermarkTextBox),
 				b =>
 				{
+                    b.AddCustomAttributes(new FeatureAttribute(typeof(WatermakrTextBoxDefaults)));
+
 					b.AddCustomAttributes("Watermark",
 						new CategoryAttribute(Properties.Resources.CategoryCommon)
 					);

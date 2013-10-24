@@ -122,10 +122,10 @@
     <Folder Include="Callisto\" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Themes\Generic.xaml">
+    <Resource Include="Themes\Generic.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
-    </EmbeddedResource>
+    </Resource>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Properties\Callisto.Controls.NumericUpDown.icon.png" />
@@ -146,6 +146,9 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Properties\Callisto.Controls.Rating.icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Callisto.Controls.WatermarkTextBox.icon.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
