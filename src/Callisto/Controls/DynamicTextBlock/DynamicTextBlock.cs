@@ -48,6 +48,7 @@ namespace Callisto.Controls
     /// A simple text control that truncates the text to ellipses when there
     /// is insufficient room to display all of the text.
     /// </summary>
+    [Obsolete("Windows 8.1 now provides this functionality in the XAML framework itself as CharacterEllipsis.")]
     public class DynamicTextBlock : ContentControl
     {
         #region Text (DependencyProperty)

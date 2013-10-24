@@ -10,9 +10,9 @@
     <id>Callisto</id>
     <title>Callisto</title>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description>A control suite for some common things a Windows 8 XAML application might want to include such as a Flyout, Menu, Rating, Settings Pane, and other controls.</description>
+    <description>A control suite for some common things a Windows 8.1 XAML application might want to include such as a Flyout, Menu, Rating, Settings Pane, and other controls.</description>
     <language>en-US</language>
-    <tags>xaml winrt flyout settings popup menu win8 metro pivot ratings flipview watermark</tags>
+    <tags>xaml winrt flyout settings popup menu win8 win8.1 metro pivot ratings flipview watermark</tags>
 	<releaseNotes>
 	<![CDATA[
         * WARNING: BREAKING CHANGES -- NO LONGER SUPPORTS WINDOWS 8 IN THIS AND FUTURE VERSIONS!!!

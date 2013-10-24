@@ -43,6 +43,7 @@ namespace Callisto.Design
 						new CategoryAttribute(Properties.Resources.CategoryBrush)
 					);
                     b.AddCustomAttributes(new ToolboxCategoryAttribute(ToolboxCategoryPaths.Callisto, false));
+                    b.AddCustomAttributes(new ToolboxBrowsableAttribute(false));
 				}
 			);
 		}

@@ -31,6 +31,7 @@ namespace Callisto.Design
 				b =>
 				{   
 					b.AddCustomAttributes(new ToolboxCategoryAttribute(ToolboxCategoryPaths.Callisto, false));
+                    b.AddCustomAttributes(new ToolboxBrowsableAttribute(false));
 				}
 			);
 		}

@@ -12,7 +12,7 @@
     <Grid Background="{StaticResource ApplicationPageBackgroundThemeBrush}">
         <StackPanel Margin="100,50,0,0" HorizontalAlignment="Left">
 
-            <TextBlock HorizontalAlignment="Left" Margin="0,0,0,20" Text="You can use this if you want CharacterEllipsis formatting for TextBlock.  For WordEllipsis, use TextBlock with TextTrimming=WordEllipsis" FontSize="14.667" TextWrapping="Wrap" Width="400" />
+            <TextBlock HorizontalAlignment="Left" Margin="0,0,0,20" Text="OBSOLETE: You can use this if you want CharacterEllipsis formatting for TextBlock.  For WordEllipsis, use TextBlock with TextTrimming=WordEllipsis" FontSize="14.667" TextWrapping="Wrap" Width="400" />
             
             <TextBlock Text="Original Text..." FontSize="14.667" FontWeight="Bold" />
             <TextBox x:Name="OriginalText" HorizontalAlignment="Left" Width="400" Height="200" TextWrapping="Wrap" AcceptsReturn="True" Text="Bacon ipsum dolor sit amet venison adipisicing ut, porkchop tongue dolore kielbasa capicola t-bone consectetur nisi. Tri-tip officia ball tip ut ex nisi occaecat. Rump shank tail, culpa ad ball tip shoulder consequat ut aliqua t-bone irure consectetur strip steak pork. Tongue commodo irure adipisicing biltong jerky fugiat. Short ribs ground round spare ribs, est anim laboris et hamburger ex pastrami. Sunt short loin pork loin anim, corned beef ham magna." />

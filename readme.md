@@ -49,6 +49,7 @@ Great, please [log a bug](https://github.com/timheuer/Callisto/issues/new) so th
 ## Credits and Acknowledgements
 * [Tim Heuer](http://timheuer.com/blog/) ([@timheuer](http://twitter.com/timheuer)) - for the initial conception of the toolkit.
 * [Morten Nielsen](http://www.sharpgis.net/) ([@dotMorten](http://twitter.com/dotMorten)) - core contributor
+* Unni Ravindranathan ([@unnir](http://twitter.com/unnir)) - For all the great guidance and always pushing for better designer integration!
 * Moon logo from [The Noun Project](http://thenounproject.com) which is a great source for Metro style iconography
 
 ### Open Source Project Credits

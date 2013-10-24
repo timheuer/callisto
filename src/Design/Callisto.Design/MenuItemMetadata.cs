@@ -42,7 +42,9 @@ namespace Callisto.Design
                         new EditorBrowsableAttribute(EditorBrowsableState.Advanced),
 						new CategoryAttribute(Properties.Resources.CategoryCommon)
                     );
+
                     b.AddCustomAttributes(new ToolboxCategoryAttribute(ToolboxCategoryPaths.Callisto, false));
+                    b.AddCustomAttributes(new ToolboxBrowsableAttribute(false));
 				}
 			);
 		}

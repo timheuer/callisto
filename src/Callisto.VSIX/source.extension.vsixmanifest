@@ -3,12 +3,12 @@
   <Metadata>
     <Identity Id="Callisto.VSIX.Microsoft.70324707-fc91-45b3-8d2a-adc68a4b967b" Version="1.4.0" Language="en-US" Publisher="Tim Heuer" />
     <DisplayName>Callisto</DisplayName>
-    <Description>A control suite for some common things a Windows 8 XAML application might want to include such as a Flyout, Menu, Rating, Settings Pane, and Pivot control</Description>
+    <Description>A control suite for some common things a Windows 8.1 XAML application might want to include such as a Flyout, Menu, Rating, Settings Pane, and Pivot control</Description>
     <MoreInfo>http://callistotoolkit.com</MoreInfo>
     <License>License.txt</License>
     <Icon>CallistoMoon.png</Icon>
     <PreviewImage>CallistoLogo.png</PreviewImage>
-    <Tags>xaml winrt flyout settings popup menu win8 metro pivot ratings flipview watermark wrappanel</Tags>
+    <Tags>xaml winrt flyout settings popup menu win8 win8.1 metro pivot ratings flipview watermark wrappanel</Tags>
   </Metadata>
   <Installation Scope="Global" AllUsers="true">
     <InstallationTarget Id="Microsoft.ExtensionSDK" TargetPlatformIdentifier="Windows" TargetPlatformVersion="v8.1" SdkName="Callisto" SdkVersion="1.4.0" />
