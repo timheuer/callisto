@@ -16,12 +16,23 @@
 
 using Callisto.Design.Common;
 using Microsoft.Windows.Design;
+using Microsoft.Windows.Design.Features;
 using Microsoft.Windows.Design.Metadata;
+using Microsoft.Windows.Design.Model;
 using Microsoft.Windows.Design.PropertyEditing;
+using System;
 using System.ComponentModel;
 
 namespace Callisto.Design
 {
+    internal class NumericUpDownDefaults : DefaultInitializer
+    {
+        public override void InitializeDefaults(ModelItem item)
+        {
+            item.Properties["Text"].SetValue("0");
+        }
+    }
+
 	internal class NumericUpDownMetadata : AttributeTableBuilder
 	{
 		public NumericUpDownMetadata()
@@ -29,7 +40,9 @@ namespace Callisto.Design
 		{
 			AddCallback(typeof(Callisto.Controls.NumericUpDown),
 				b =>
-				{   
+				{
+                    b.AddCustomAttributes(new FeatureAttribute(typeof(NumericUpDownDefaults)));
+
 					b.AddCustomAttributes("DecimalPlaces",
 						new CategoryAttribute(Properties.Resources.CategoryCommon)
 					);

@@ -4,7 +4,7 @@
 @echo * BUILDING SOLUTION IN RELEASE			*
 @echo *******************************************
 msbuild /verbosity:quiet /fl /t:Rebuild /p:Configuration=Release,OutputPath=bin\Release\81-NuGet\ /property:GenerateLibraryLayout=false /p:NoWarn=0618 src\Callisto\Callisto.csproj
-msbuild /verbosity:quiet /fl /t:Rebuild /p:Configuration=Release,OutputPath=bin\Release\81-ExtSDK\ /property:DisableXbfGeneration=true /property:GenerateLibraryLayout=true /p:NoWarn=0618 src\Callisto\Callisto.csproj
+msbuild /verbosity:quiet /fl /t:Rebuild /p:Configuration=Release,OutputPath=bin\Release\81-ExtSDK\ /property:GenerateLibraryLayout=true /p:NoWarn=0618 src\Callisto\Callisto.csproj
 msbuild /verbosity:quiet /fl /t:Rebuild /p:Configuration=Release,OutputPath=bin\Release\81-Design src\Design\Callisto.Design\Callisto.Design.csproj
 
 @echo *******************************************
@@ -17,7 +17,7 @@ mkdir SDK\Callisto\1.0.1\Redist\CommonConfiguration\neutral\Callisto\Themes
 @echo * COPYING BINARIES FOR EXTENSION SDK		*
 @echo *******************************************
 copy src\Callisto\bin\Release\81-ExtSDK\Callisto.dll SDK\Callisto\1.0.1\References\CommonConfiguration\neutral
-copy src\Callisto\bin\Release\81-ExtSDK\Callisto\themes\generic.xaml SDK\Callisto\1.0.1\Redist\CommonConfiguration\neutral\Callisto\Themes
+copy src\Callisto\bin\Release\81-ExtSDK\Callisto\themes\generic.xbf SDK\Callisto\1.0.1\Redist\CommonConfiguration\neutral\Callisto\Themes
 copy src\Callisto\bin\Release\81-ExtSDK\Callisto.pri SDK\Callisto\1.0.1\Redist\CommonConfiguration\neutral\
 copy SDKManifest.xml SDK\Callisto\1.0.1\
 

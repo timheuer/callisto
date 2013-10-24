@@ -16,12 +16,23 @@
 
 using Callisto.Design.Common;
 using Microsoft.Windows.Design;
+using Microsoft.Windows.Design.Features;
 using Microsoft.Windows.Design.Metadata;
+using Microsoft.Windows.Design.Model;
 using Microsoft.Windows.Design.PropertyEditing;
 using System.ComponentModel;
 
 namespace Callisto.Design
 {
+    internal class RatingDefaults : DefaultInitializer
+    {
+        public override void InitializeDefaults(ModelItem item)
+        {
+            item.Properties["ItemCount"].SetValue(5);
+            item.Properties["Value"].SetValue(2.5);
+        }
+    }
+
 	internal class RatingMetadata : AttributeTableBuilder
 	{
 		public RatingMetadata()
@@ -30,6 +41,8 @@ namespace Callisto.Design
 			AddCallback(typeof(Callisto.Controls.Rating),
 				b =>
 				{
+                    b.AddCustomAttributes(new FeatureAttribute(typeof(RatingDefaults)));
+
 					b.AddCustomAttributes("DisplayValue",
 						new CategoryAttribute(Properties.Resources.CategoryCommon)
 					);

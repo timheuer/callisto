@@ -89,13 +89,13 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Redist\CommonConfiguration\neutral\Themes\Generic.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
+    <Content Include="Redist\CommonConfiguration\neutral\Themes\Generic.xbf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <IncludeInVSIX>true</IncludeInVSIX>
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="DesignTime\CommonConfiguration\neutral\Themes\Generic.xaml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
     </Content>
   </ItemGroup>
   <ItemGroup />
