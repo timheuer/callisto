@@ -8,6 +8,19 @@
   AppliesTo="WindowsAppContainer+Managed"
   MoreInfo="http://github.com/timheuer/Callisto">
   <File Reference="Callisto.dll">
-	<ToolboxItems VSCategory="Callisto" BlendCategory="Callisto" />
+    <ToolboxItems VSCategory="Callisto" BlendCategory="Callisto">
+      <Item Type="Callisto.Controls.CustomDialog" />
+      <Item Type="Callisto.Controls.DynamicTextBlock" />
+      <Item Type="Callisto.Controls.FlipViewIndicator" />
+      <Item Type="Callisto.Controls.LiveTile" />
+      <Item Type="Callisto.Controls.Rating" />
+      <Item Type="Callisto.Controls.Flyout" />
+      <Item Type="Callisto.Controls.Menu" />
+      <Item Type="Callisto.Controls.NumericUpDown" />
+      <Item Type="Callisto.Controls.SettingsFlyout" />
+      <Item Type="Callisto.Controls.WatermarkTextBox" />
+      <Item Type="Callisto.Controls.WrapPanel" />
+      <Item Type="Callisto.Controls.DropDownButton" />
+    </ToolboxItems>
   </File>
 </FileList>

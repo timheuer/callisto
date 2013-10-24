@@ -23,6 +23,7 @@ using Windows.UI.Xaml.Markup;
 
 namespace Callisto.Controls
 {
+    [Obsolete("Windows 8.1 now provides this functionality in the XAML framework itself as MenuFlyout.")]
     [ContentProperty(Name="Items")]
     public sealed class Menu : Control
     {

@@ -10,8 +10,13 @@
     <Grid Background="{StaticResource ApplicationPageBackgroundThemeBrush}">
         <StackPanel Margin="100,50,0,0" HorizontalAlignment="Left">
 
+            <TextBlock Text="This Control is OBSOLETE - see documentation" FontSize="24.667" Foreground="Red" />
+            
             <TextBlock FontSize="14.667" Text="Regular TextBox" Width="400" />
             <TextBox FontSize="14.667" Width="400" />
+
+            <TextBlock Margin="0,20,0,0" FontSize="14.667" Text="Regular TextBox with PlaceholderText" Width="400" />
+            <TextBox FontSize="14.667" Width="400" PlaceholderText="Enter something..." />
 
             <TextBlock Margin="0,20,0,0" FontSize="14.667" Text="WatermarkTextBox" Width="400" />
             <callisto:WatermarkTextBox FontSize="14.667" Width="400" x:Name="wmt" />

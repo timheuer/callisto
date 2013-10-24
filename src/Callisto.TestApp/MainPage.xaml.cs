@@ -65,19 +65,19 @@ namespace Callisto.TestApp
 			if (Samples == null)
 			{
 				Samples = new List<SamplePage>();
-				Samples.Add(new SamplePage() { Name = "Flyout", Page = typeof(SamplePages.FlyoutSample) });
-				Samples.Add(new SamplePage() { Name = "Settings", Page = typeof(SamplePages.SettingsSample) });
 				Samples.Add(new SamplePage() { Name = "Tilt Effect", Page = typeof(SamplePages.TiltSample) });
 				Samples.Add(new SamplePage() { Name = "LiveTile", Page = typeof(SamplePages.LiveTileSample) });
                 Samples.Add(new SamplePage() { Name = "Rating", Page = typeof(SamplePages.RatingControl) });
-                Samples.Add(new SamplePage() { Name = "DynamicTextBlock", Page = typeof(SamplePages.DynamicTextBlock) });
                 Samples.Add(new SamplePage() { Name = "WebViewExtension", Page = typeof(SamplePages.WebViewExtension) });
                 Samples.Add(new SamplePage() { Name = "FlipViewIndicator", Page = typeof(SamplePages.FlipViewIndicatorSample) });
-                Samples.Add(new SamplePage() { Name = "WatermarkTextBox", Page = typeof(SamplePages.WatermarkTextBoxSample) });
                 Samples.Add(new SamplePage() { Name = "NumericUpDown", Page = typeof(SamplePages.NumericUpDownSample) });
 			    Samples.Add(new SamplePage() { Name = "CustomDialog", Page = typeof(SamplePages.CustomDialogSample) });
                 Samples.Add(new SamplePage() { Name = "DropDownButton", Page = typeof(SamplePages.DropDownButtonSample) });
                 Samples.Add(new SamplePage() { Name = "WrapPanel", Page = typeof(SamplePages.WrapPanelSample) });
+                Samples.Add(new SamplePage() { Name = "Flyout (deprecated)", Page = typeof(SamplePages.FlyoutSample) });
+                Samples.Add(new SamplePage() { Name = "Settings (deprecated)", Page = typeof(SamplePages.SettingsSample) });
+                Samples.Add(new SamplePage() { Name = "WatermarkTextBox (deprecated)", Page = typeof(SamplePages.WatermarkTextBoxSample) });
+                Samples.Add(new SamplePage() { Name = "DynamicTextBlock (deprecated)", Page = typeof(SamplePages.DynamicTextBlock) });
 				this.DataContext = Samples;
 			}
 		}

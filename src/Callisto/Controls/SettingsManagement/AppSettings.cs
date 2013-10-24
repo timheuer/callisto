@@ -45,7 +45,7 @@ namespace Callisto.Controls.SettingsManagement
         private readonly Dictionary<object, ISettingsCommandInfo> _commands = new Dictionary<object, ISettingsCommandInfo>();
         private SolidColorBrush _headerBrush;
         private static volatile AppSettings _instance;
-        private SettingsFlyout _settingsFlyout;
+        private Windows.UI.Xaml.Controls.SettingsFlyout _settingsFlyout;
         private BitmapImage _smallLogoImageSource;
         private static readonly object SyncRoot = new object();
         private VisualElement _visualElement;     
@@ -125,6 +125,7 @@ namespace Callisto.Controls.SettingsManagement
         /// <typeparam name="T">A <see cref="UserControl"/> which represents the content for the settings flyout.</typeparam>
         /// <param name="headerText">The header to be displayed in the Settings charm.</param>
         /// <param name="width">(Optional) The width of the settings flyout. The default is <see cref="SettingsFlyout.SettingsFlyoutWidth.Narrow">SettingsFlyout.SettingsFlyoutWidth.Narrow</see></param>
+        [Obsolete("Use other overloads for Windows 8.1 that don't use FlyoutWidth")]
         public void AddCommand<T>(string headerText, SettingsFlyout.SettingsFlyoutWidth width = SettingsFlyout.SettingsFlyoutWidth.Narrow) where T : UserControl, new()
         {
             string key = headerText.Trim().Replace(" ", "");
@@ -135,10 +136,33 @@ namespace Callisto.Controls.SettingsManagement
             }
         }
 
+        public void AddCommand<T>(string headerText, double width = 500) where T : UserControl, new()
+        {
+            string key = headerText.Trim().Replace(" ", "");
+
+            if (!_commands.ContainsKey(key))
+            {
+                _commands.Add(key, new SettingsCommandInfo<T>(headerText, width));
+            }
+        }
+
+        [Obsolete("Use other overloads for Windows 8.1 that don't use FlyoutWidth")]
         public void AddCommand<T>(string headerText, SolidColorBrush headerBrush, SettingsFlyout.SettingsFlyoutWidth width = SettingsFlyout.SettingsFlyoutWidth.Narrow) where T : UserControl, new()
         {
             string key = headerText.Trim().Replace(" ", "");
             
+            _headerBrush = headerBrush;
+
+            if (!_commands.ContainsKey(key))
+            {
+                _commands.Add(key, new SettingsCommandInfo<T>(headerText, width));
+            }
+        }
+
+        public void AddCommand<T>(string headerText, SolidColorBrush headerBrush, double width = 500) where T : UserControl, new()
+        {
+            string key = headerText.Trim().Replace(" ", "");
+
             _headerBrush = headerBrush;
 
             if (!_commands.ContainsKey(key))
@@ -176,22 +200,22 @@ namespace Callisto.Controls.SettingsManagement
         {
             ISettingsCommandInfo commandInfo = _commands[command.Id];
 
-            _settingsFlyout = new SettingsFlyout();
-            _settingsFlyout.HeaderBrush = _headerBrush;
-            _settingsFlyout.SmallLogoImageSource = _smallLogoImageSource;
-            _settingsFlyout.HeaderText = command.Label;
+            _settingsFlyout = new Windows.UI.Xaml.Controls.SettingsFlyout();
+            _settingsFlyout.HeaderBackground = _headerBrush;
+            _settingsFlyout.IconSource = _smallLogoImageSource;
+            _settingsFlyout.Title = command.Label;
 #pragma warning disable 612,618
             if (ContentBackgroundBrush != null)
 #pragma warning restore 612,618
             {
 #pragma warning disable 612,618
-                _settingsFlyout.ContentBackgroundBrush = ContentBackgroundBrush;    
+                _settingsFlyout.Background = ContentBackgroundBrush;    
 #pragma warning restore 612,618
             }
 
             _settingsFlyout.Content = commandInfo.Instance;
-            _settingsFlyout.FlyoutWidth = commandInfo.Width;
-            _settingsFlyout.IsOpen = true;
+            _settingsFlyout.Width = commandInfo.LiteralWidth;
+            _settingsFlyout.Show();
         }
         #endregion
 

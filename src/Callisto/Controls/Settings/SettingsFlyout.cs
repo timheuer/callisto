@@ -28,6 +28,7 @@ using Windows.UI.Xaml.Media.Animation;
 
 namespace Callisto.Controls
 {
+    [Obsolete("Windows 8.1 now provides this functionality in the XAML framework itself as SettingsFlyout.")]
     public sealed class SettingsFlyout : ContentControl
     {
         #region Member Variables

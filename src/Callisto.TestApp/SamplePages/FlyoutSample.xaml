@@ -8,8 +8,9 @@
     mc:Ignorable="d">
 
 	<Grid  x:Name="LayoutRoot" Background="{StaticResource ApplicationPageBackgroundThemeBrush}">
-		<StackPanel Margin="100,100,0,0" Width="500" HorizontalAlignment="Left">
-			<TextBlock Text="Menu Position" />
+		<StackPanel Margin="100,100,0,0" Width="600" HorizontalAlignment="Left">
+            <TextBlock Text="This Control is OBSOLETE - see documentation" FontSize="24.667" Foreground="Red" />
+            <TextBlock Text="Menu Position" />
 			<ComboBox x:Name="positioning" 
 					  Margin="22,0,22,0"
 					  Height="55" >

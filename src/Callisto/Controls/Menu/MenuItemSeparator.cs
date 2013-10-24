@@ -14,8 +14,10 @@
 // limitations under the License.
 //
 
+using System;
 namespace Callisto.Controls
 {
+    [Obsolete("Windows 8.1 now provides this functionality in the XAML framework itself as MenuItemSeparator.")]
     public sealed class MenuItemSeparator : MenuItemBase
     {
         public MenuItemSeparator()
