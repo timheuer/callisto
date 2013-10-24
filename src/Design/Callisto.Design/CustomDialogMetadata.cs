@@ -16,12 +16,23 @@
 
 using Callisto.Design.Common;
 using Microsoft.Windows.Design;
+using Microsoft.Windows.Design.Features;
 using Microsoft.Windows.Design.Metadata;
+using Microsoft.Windows.Design.Model;
 using Microsoft.Windows.Design.PropertyEditing;
 using System.ComponentModel;
 
 namespace Callisto.Design
 {
+    internal class CustomDialogDefaults : DefaultInitializer
+    {
+        public override void InitializeDefaults(ModelItem item)
+        {
+            item.Content.SetValue("Custom Content Here");
+            item.Properties["Title"].SetValue("Dialog Title");
+        }
+    }
+
 	internal class CustomDialogMetadata : AttributeTableBuilder
 	{
 		public CustomDialogMetadata()
@@ -30,6 +41,8 @@ namespace Callisto.Design
 			AddCallback(typeof(Callisto.Controls.CustomDialog),
 				b =>
 				{
+                    b.AddCustomAttributes(new FeatureAttribute(typeof(CustomDialogDefaults)));
+
 					b.AddCustomAttributes("Title",
 						new CategoryAttribute(Properties.Resources.CategoryCommon)
 						);
@@ -37,7 +50,7 @@ namespace Callisto.Design
 						new CategoryAttribute(Properties.Resources.CategoryCommon)
 					);
 					b.AddCustomAttributes("BackButtonVisibility",
-						new CategoryAttribute(Properties.Resources.CategoryCommon)
+						new CategoryAttribute(Properties.Resources.CategoryAppearance)
 						);
 					b.AddCustomAttributes("BackButtonCommand",
 						new CategoryAttribute(Properties.Resources.CategoryCommon)

@@ -1,6 +1,6 @@
 # Changelog
 
-## 1.4.0 (23-OCT-2013)
+## 1.4.0 (25-OCT-2013)
 * BREAKING CHANGES!!!
 * Starting in 1.4.0, Callisto will only support Windows 8.1 applications
 * Deprecated: Flyout, Menu, SettingsFlyout, WatermarkTextBox
