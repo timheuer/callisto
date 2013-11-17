@@ -156,7 +156,7 @@
     <Compile Include="Controls\Maps\TileLayer.cs" />
     <Compile Include="Controls\Maps\TileLayerCollection.cs" />
     <Compile Include="Controls\Maps\TileSource.cs" />
-    <Compile Include="Controls\Common\TransformEx.WinRT.cs" />
+    <Compile Include="Controls\Common\TransformEx.cs" />
     <Compile Include="Controls\Menu\Menu.cs" />
     <Compile Include="Controls\Menu\MenuItem.cs" />
     <Compile Include="Controls\Menu\MenuItemBase.cs" />

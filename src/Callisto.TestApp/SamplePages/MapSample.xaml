@@ -1,0 +1,60 @@
+﻿<Page
+    x:Class="Callisto.TestApp.SamplePages.MapSample"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Callisto.TestApp.SamplePages"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:callisto="using:Callisto.Controls"
+    mc:Ignorable="d">
+    <Page.Resources>
+        <callisto:TileLayerCollection x:Key="TileLayers">
+            <callisto:TileLayer SourceName="OpenStreetMap" Description="© {y} OpenStreetMap Contributors, CC-BY-SA"
+                           TileSourceUriFormat="http://{c}.tile.openstreetmap.org/{z}/{x}/{y}.png"/>
+            <callisto:TileLayer SourceName="OpenCycleMap" Description="OpenCycleMap - © {y} Andy Allen &amp; OpenStreetMap Contributors, CC-BY-SA"
+                           TileSourceUriFormat="http://{c}.tile.opencyclemap.org/cycle/{z}/{x}/{y}.png"/>
+            <callisto:TileLayer SourceName="OCM Transport" Description="OpenCycleMap Transport - © {y} Andy Allen &amp; OpenStreetMap Contributors, CC-BY-SA"
+                           TileSourceUriFormat="http://{c}.tile2.opencyclemap.org/transport/{z}/{x}/{y}.png"/>
+            <callisto:TileLayer SourceName="OCM Landscape" Description="OpenCycleMap Landscape - © {y} Andy Allen &amp; OpenStreetMap Contributors, CC-BY-SA"
+                           TileSourceUriFormat="http://{c}.tile3.opencyclemap.org/landscape/{z}/{x}/{y}.png"/>
+            <callisto:TileLayer SourceName="MapQuest OSM" Description="MapQuest OSM - © {y} MapQuest &amp; OpenStreetMap Contributors"
+                           TileSourceUriFormat="http://otile{n}.mqcdn.com/tiles/1.0.0/osm/{z}/{x}/{y}.png"/>
+            <callisto:TileLayer SourceName="Seamarks" Description="© {y} OpenSeaMap Contributors, CC-BY-SA"
+                           TileSourceUriFormat="http://tiles.openseamap.org/seamark/{z}/{x}/{y}.png" MinZoomLevel="10" MaxZoomLevel="18"/>
+        </callisto:TileLayerCollection>
+    </Page.Resources>
+    <Grid Background="{StaticResource ApplicationPageBackgroundThemeBrush}">
+        <StackPanel Margin="100,50,0,0" HorizontalAlignment="Left">
+            <TextBlock FontSize="14.667" HorizontalAlignment="Left">
+                Map control provides visuals using OpenStreetMap providers
+            </TextBlock>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
+                <ComboBox x:Name="TileLayerProvider" Margin="10" Width="200" VerticalAlignment="Center" SelectionChanged="TileLayerSelectionChanged">
+                    <ComboBoxItem>OpenStreetMap</ComboBoxItem>
+                    <ComboBoxItem>OpenCycleMap</ComboBoxItem>
+                    <ComboBoxItem>OCM Transport</ComboBoxItem>
+                    <ComboBoxItem>OCM Landscape</ComboBoxItem>
+                    <ComboBoxItem>MapQuest OSM</ComboBoxItem>
+                </ComboBox>
+                <CheckBox Content="Show Seamarks" Click="ToggleButton_OnChecked"></CheckBox>
+                <CheckBox Content="Zoom Enabled" IsChecked="{Binding ElementName=map, Path=ZoomControlsEnabled, Mode=TwoWay}"/>
+                <CheckBox Content="My Location Enabled" IsChecked="{Binding ElementName=map, Path=CurrentLocationEnabled, Mode=TwoWay}"/>
+            </StackPanel>
+            <callisto:Map x:Name="map" MinZoomLevel="2" MaxZoomLevel="18" ZoomLevel="11" Width="600" Height="300">
+                <callisto:MapBase.Center>
+                    <callisto:Location Latitude="47.6739882" Longitude="-122.121512"/>
+                </callisto:MapBase.Center>
+                <callisto:NumberPushpin Content="1">
+                    <callisto:MapPanel.Location>
+                        <callisto:Location Latitude="47.638197" Longitude="-122.131378"></callisto:Location>
+                    </callisto:MapPanel.Location>
+                </callisto:NumberPushpin>
+                <callisto:Pushpin Content="Building 50">
+                    <callisto:MapPanel.Location>
+                        <callisto:Location Latitude="47.67" Longitude="-122.131378"></callisto:Location>
+                    </callisto:MapPanel.Location>
+                </callisto:Pushpin>
+            </callisto:Map>
+        </StackPanel>
+    </Grid>
+</Page>

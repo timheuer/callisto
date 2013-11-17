@@ -44,3 +44,4 @@ src/Callisto.VSIX/References/
 src/Callisto.VSIX/DesignTime/
 tools/nuget/callisto/lib
 publish.bat
+*.DotSettings
