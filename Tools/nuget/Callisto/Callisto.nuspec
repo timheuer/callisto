@@ -25,5 +25,9 @@
     <file src="lib\netcore451\Callisto\Themes\Generic.xbf" target="lib\netcore451\Callisto\Themes\Generic.xbf" />
     <file src="lib\netcore451\Callisto.pri" target="lib\netcore451\Callisto.pri" />
     <file src="lib\netcore451\Callisto.dll" target="lib\netcore451\Callisto.dll" />
+    <!-- maintaining last legacy version of Win8 release - 1.3.1 -->
+    <file src="..\..\..\Win8-Locked\Callisto\Themes\Generic.xaml" target="lib\netcore45\Callisto\Themes\Generic.xaml" />
+    <file src="..\..\..\Win8-Locked\Callisto\Callisto.pri" target="lib\netcore45\Callisto.pri" />
+    <file src="..\..\..\Win8-Locked\Callisto\Callisto.dll" target="lib\netcore45\Callisto.dll" />
   </files>
 </package>

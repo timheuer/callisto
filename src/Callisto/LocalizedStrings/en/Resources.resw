@@ -285,4 +285,16 @@
     <value>Enter some text...</value>
     <comment>Default text for a Watermark in the WatermarkTextBox control</comment>
   </data>
+  <data name="ZoomIn" xml:space="preserve">
+    <value>Zoom In</value>
+    <comment>Text for the zoom in button on Maps; used in Accessibility also</comment>
+  </data>
+  <data name="ZoomOut" xml:space="preserve">
+    <value>Zoom Out</value>
+    <comment>Text for the zoom out button on Maps; used in Accessibility also</comment>
+  </data>
+  <data name="CurrentLocation" xml:space="preserve">
+    <value>My Location</value>
+    <comment>Text for the my location button on Maps</comment>
+  </data>
 </root>

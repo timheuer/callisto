@@ -149,6 +149,9 @@
     <Compile Include="SamplePages\LiveTileSample.xaml.cs">
       <DependentUpon>LiveTileSample.xaml</DependentUpon>
     </Compile>
+    <Compile Include="SamplePages\MapSample.xaml.cs">
+      <DependentUpon>MapSample.xaml</DependentUpon>
+    </Compile>
     <Compile Include="SamplePages\NumericUpDownSample.xaml.cs">
       <DependentUpon>NumericUpDownSample.xaml</DependentUpon>
     </Compile>
@@ -176,7 +179,6 @@
     <Compile Include="StartPage.xaml.cs">
       <DependentUpon>StartPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="VisualTreeAdapter.cs" />
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">
@@ -208,6 +210,10 @@
     <Content Include="Images\grasshopper.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Page Include="SamplePages\MapSample.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="SamplePages\WrapPanelSample.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

@@ -67,6 +67,7 @@ namespace Callisto.TestApp
 				Samples = new List<SamplePage>();
 				Samples.Add(new SamplePage() { Name = "Tilt Effect", Page = typeof(SamplePages.TiltSample) });
 				Samples.Add(new SamplePage() { Name = "LiveTile", Page = typeof(SamplePages.LiveTileSample) });
+                Samples.Add(new SamplePage() { Name = "Map", Page = typeof(SamplePages.MapSample)});
                 Samples.Add(new SamplePage() { Name = "Rating", Page = typeof(SamplePages.RatingControl) });
                 Samples.Add(new SamplePage() { Name = "WebViewExtension", Page = typeof(SamplePages.WebViewExtension) });
                 Samples.Add(new SamplePage() { Name = "FlipViewIndicator", Page = typeof(SamplePages.FlipViewIndicatorSample) });

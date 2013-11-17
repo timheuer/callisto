@@ -1514,4 +1514,158 @@ limitations under the License.-->
             </Setter.Value>
         </Setter>
     </Style>
+
+    <!-- BEGIN MAP STYLES -->
+    <Style TargetType="local:MapItemsControl">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate>
+                    <ItemsPresenter/>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="ItemsPanel">
+            <Setter.Value>
+                <ItemsPanelTemplate>
+                    <local:MapPanel/>
+                </ItemsPanelTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style TargetType="local:MapItem">
+        <Setter Property="HorizontalAlignment" Value="Stretch"/>
+        <Setter Property="VerticalAlignment" Value="Stretch"/>
+        <Setter Property="HorizontalContentAlignment" Value="Left"/>
+        <Setter Property="VerticalContentAlignment" Value="Top"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="local:MapItem">
+                    <ContentPresenter Content="{TemplateBinding Content}"
+                                      ContentTemplate="{TemplateBinding ContentTemplate}"
+                                      Margin="{TemplateBinding Padding}"
+                                      HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                      VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style TargetType="local:Pushpin">
+        <Setter Property="HorizontalAlignment" Value="Left"/>
+        <Setter Property="VerticalAlignment" Value="Bottom"/>
+        <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+        <Setter Property="VerticalContentAlignment" Value="Stretch"/>
+        <Setter Property="Padding" Value="3"/>
+        <Setter Property="Background" Value="Black"/>
+        <Setter Property="Foreground" Value="White"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="local:Pushpin">
+                    <Grid>
+                        <StackPanel Orientation="Vertical">
+                            <Grid Background="{TemplateBinding Background}"
+                                            HorizontalAlignment="Left"
+                                            MinHeight="31"
+                                            MinWidth="29">
+                                <ContentPresenter HorizontalAlignment="Center"
+                                           Content="{TemplateBinding Content}"
+                                           ContentTemplate="{TemplateBinding ContentTemplate}"
+                                           Margin="4"/>
+                            </Grid>
+                            <Polygon Fill="{TemplateBinding Background}"
+                                     Points="0,0 29,0 0,29"
+                                     Width="29"
+                                     Height="29"
+                                     HorizontalAlignment="Left"/>
+                        </StackPanel>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style TargetType="local:NumberPushpin">
+        <Setter Property="HorizontalAlignment" Value="Left"/>
+        <Setter Property="VerticalAlignment" Value="Bottom"/>
+        <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+        <Setter Property="VerticalContentAlignment" Value="Stretch"/>
+        <Setter Property="Padding" Value="3"/>
+        <Setter Property="Background" Value="Black"/>
+        <Setter Property="Foreground" Value="White"/>
+        <Setter Property="FontWeight" Value="Bold"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="local:NumberPushpin">
+                    <Grid Width="30" Height="30" >
+                        <Ellipse Fill="{TemplateBinding Background}"
+                                    Margin="1"
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Center"
+                                    Width="28"
+                                    Height="28"
+                                    Stroke="{TemplateBinding Foreground}"
+                                    StrokeThickness="3"/>
+                        <ContentPresenter Margin="0,2,0,0" HorizontalAlignment="Center" VerticalAlignment="Center" 
+                                          Content="{TemplateBinding Content}" FontWeight="{TemplateBinding FontWeight}"
+                                          ContentTemplate="{TemplateBinding ContentTemplate}"/>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style TargetType="local:MapZoomControls">
+        <Setter Property="HorizontalAlignment" Value="Right"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="local:MapZoomControls">
+                    <StackPanel>
+                        <AppBarButton IsCompact="True" x:Name="ZoomInButton">
+                            <AppBarButton.Icon>
+                                <SymbolIcon Symbol="Add" Margin="0,-2,0,0"/>
+                            </AppBarButton.Icon>
+                        </AppBarButton>
+                        <AppBarButton IsCompact="True" x:Name="ZoomOutButton" Margin="0,-20,0,0">
+                            <AppBarButton.Icon>
+                                <SymbolIcon Symbol="Remove" Margin="0,-2,0,0"/>
+                            </AppBarButton.Icon>
+                        </AppBarButton>
+                    </StackPanel>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style TargetType="local:MapMyLocationControl">
+        <Setter Property="HorizontalAlignment" Value="Right"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="local:MapMyLocationControl">
+                    <AppBarButton IsCompact="True" x:Name="CurrentLocationButton" Margin="0,-20,0,0">
+                        <AppBarButton.Icon>
+                            <FontIcon FontFamily="Segoe UI Symbol" Glyph="&#xE1C4;"></FontIcon>
+                        </AppBarButton.Icon>
+                    </AppBarButton>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style TargetType="local:MapScale">
+        <Setter Property="HorizontalAlignment" Value="Left"/>
+        <Setter Property="VerticalAlignment" Value="Bottom"/>
+        <Setter Property="Height" Value="18"/>
+        <Setter Property="AutomationProperties.Name" Value="Map Scale"/>
+        <Setter Property="Opacity" Value="0.7"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="local:MapScale">
+                    <Grid x:Name="ScaleGrid" Margin="10,2,10,2" IsHitTestVisible="False">
+                        <Path Data="M335,1 L335,27 L1,27 L1,1" Stroke="Black" Opacity="{TemplateBinding Opacity}" VerticalAlignment="Center" UseLayoutRounding="False" Stretch="Fill" />
+                        <TextBlock x:Name="ScaleText" HorizontalAlignment="Center" Opacity="{TemplateBinding Opacity}" VerticalAlignment="Center" Foreground="Black" FontSize="10" />
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <!-- END MAP STYLES -->
 </ResourceDictionary>

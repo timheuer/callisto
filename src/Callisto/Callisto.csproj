@@ -117,16 +117,46 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controls\Common\AnimationEx.cs" />
     <Compile Include="Controls\Common\AppManifestHelper.cs" />
     <Compile Include="Controls\Common\InteractionHelper.cs" />
     <Compile Include="Controls\Common\ItemsControlHelper.cs" />
     <Compile Include="Controls\Common\IUpdateVisualState.cs" />
+    <Compile Include="Controls\Common\LinqToVisualTree.cs" />
     <Compile Include="Controls\Common\VisualStates.cs" />
     <Compile Include="Controls\DropDownButton\DropDownButton.cs" />
     <Compile Include="Controls\DynamicTextBlock\DynamicTextBlock.cs" />
     <Compile Include="Controls\FlipViewIndicator\FlipViewIndicator.cs" />
     <Compile Include="Controls\Flyout\Flyout.cs" />
     <Compile Include="Controls\LiveTile\LiveTile.cs" />
+    <Compile Include="Controls\Maps\ImageTileSource.cs" />
+    <Compile Include="Controls\Maps\Int32Rect.cs" />
+    <Compile Include="Controls\Maps\Location.cs" />
+    <Compile Include="Controls\Maps\LocationCollection.cs" />
+    <Compile Include="Controls\Maps\Map.cs" />
+    <Compile Include="Controls\Maps\MapBase.cs" />
+    <Compile Include="Controls\Maps\MapGraticule.cs" />
+    <Compile Include="Controls\Maps\MapImage.cs" />
+    <Compile Include="Controls\Maps\MapItem.cs" />
+    <Compile Include="Controls\Maps\MapItemsControl.cs" />
+    <Compile Include="Controls\Maps\MapMyLocationControl.cs" />
+    <Compile Include="Controls\Maps\MapPanel.cs" />
+    <Compile Include="Controls\Maps\MapPath.cs" />
+    <Compile Include="Controls\Maps\MapPolyline.cs" />
+    <Compile Include="Controls\Maps\MapRectangle.cs" />
+    <Compile Include="Controls\Maps\MapScale.cs" />
+    <Compile Include="Controls\Maps\MapTransform.cs" />
+    <Compile Include="Controls\Common\MatrixEx.cs" />
+    <Compile Include="Controls\Maps\MapZoomControls.cs" />
+    <Compile Include="Controls\Maps\MercatorTransform.cs" />
+    <Compile Include="Controls\Maps\Pushpin.cs" />
+    <Compile Include="Controls\Maps\Tile.cs" />
+    <Compile Include="Controls\Maps\TileContainer.cs" />
+    <Compile Include="Controls\Maps\TileImageLoader.cs" />
+    <Compile Include="Controls\Maps\TileLayer.cs" />
+    <Compile Include="Controls\Maps\TileLayerCollection.cs" />
+    <Compile Include="Controls\Maps\TileSource.cs" />
+    <Compile Include="Controls\Common\TransformEx.WinRT.cs" />
     <Compile Include="Controls\Menu\Menu.cs" />
     <Compile Include="Controls\Menu\MenuItem.cs" />
     <Compile Include="Controls\Menu\MenuItemBase.cs" />
@@ -244,6 +274,7 @@
       <SubType>Designer</SubType>
     </PRIResource>
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '12.0' ">
     <VisualStudioVersion>12.0</VisualStudioVersion>
   </PropertyGroup>

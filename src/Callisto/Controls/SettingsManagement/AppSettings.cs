@@ -200,10 +200,12 @@ namespace Callisto.Controls.SettingsManagement
         {
             ISettingsCommandInfo commandInfo = _commands[command.Id];
 
-            _settingsFlyout = new Windows.UI.Xaml.Controls.SettingsFlyout();
-            _settingsFlyout.HeaderBackground = _headerBrush;
-            _settingsFlyout.IconSource = _smallLogoImageSource;
-            _settingsFlyout.Title = command.Label;
+            _settingsFlyout = new Windows.UI.Xaml.Controls.SettingsFlyout
+            {
+                HeaderBackground = _headerBrush,
+                IconSource = _smallLogoImageSource,
+                Title = command.Label
+            };
 #pragma warning disable 612,618
             if (ContentBackgroundBrush != null)
 #pragma warning restore 612,618
