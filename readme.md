@@ -1,5 +1,7 @@
 # Callisto
 
+[![Build status](http://ci.appveyor.com/api/projects/status/cibx2vk3h5fr53t7)](http://ci.appveyor.com/project/TimHeuer/callisto)
+
 ## What Is It?
 
 Callisto is a library for use in Windows Store XAML applications (aka Metro style apps).  The XAML framework in Windows.UI.Xaml is great, but has some functionality that isn't provided in-the-box in a few controls and APIs.  Callisto provides added functionality on top of the XAML UI framework for Windows.
