@@ -81,7 +81,7 @@ namespace Callisto.Controls
 		
 		/// <summary>
 		/// Invoked whenever application code or internal processes (such as a rebuilding
-		/// layout pass) call <see cref="ApplyTemplate"/>. In simplest terms, this means the method
+		/// layout pass) call <see cref="OnApplyTemplate"/>. In simplest terms, this means the method
 		/// is called just before a UI element displays in an application. Override this
 		/// method to influence the default post-template logic of a class.
 		/// </summary>
