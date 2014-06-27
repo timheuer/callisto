@@ -27,7 +27,9 @@ namespace Callisto.Design
         public MenuMetadata()
 			: base()
 		{
+#pragma warning disable 0618 //Ignore obsolete warning
 			AddCallback(typeof(Callisto.Controls.Menu),
+#pragma warning restore 0618 
 				b =>
 				{   
 					b.AddCustomAttributes("Items",
@@ -36,9 +38,11 @@ namespace Callisto.Design
 						//The following is necessary because this is a collection of an abstract type, so we help
 						//the designer with populating supported types that can be added to the collection
                         new NewItemTypesAttribute(new System.Type[] {
+#pragma warning disable 0618 //Ignore obsolete warning
                             typeof(Callisto.Controls.MenuItem),
                             typeof(Callisto.Controls.MenuItemSeparator),
                             typeof(Callisto.Controls.ToggleMenuItem)
+#pragma warning restore 0618 
                         }),
 						new AlternateContentPropertyAttribute()
 					);

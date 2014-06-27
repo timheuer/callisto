@@ -27,7 +27,9 @@ namespace Callisto.Design
         public ToggleMenuItemMetadata()
 			: base()
 		{
+#pragma warning disable 0618 //Ignore obsolete warning
 			AddCallback(typeof(Callisto.Controls.ToggleMenuItem),
+#pragma warning restore 0618 
 				b =>
 				{
                     b.AddCustomAttributes("IsChecked",

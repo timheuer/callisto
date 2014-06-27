@@ -37,7 +37,9 @@ namespace Callisto.Design
 		public WatermarkTextBoxMetadata()
 			: base()
 		{
+#pragma warning disable 0618 //Ignore obsolete warning
 			AddCallback(typeof(Callisto.Controls.WatermarkTextBox),
+#pragma warning restore 0618 
 				b =>
 				{
                     b.AddCustomAttributes(new FeatureAttribute(typeof(WatermakrTextBoxDefaults)));

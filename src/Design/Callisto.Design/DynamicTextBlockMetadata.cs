@@ -27,7 +27,9 @@ namespace Callisto.Design
 		public DynamicTextBlockMetadata()
 			: base()
 		{
+#pragma warning disable 0618 //Ignore obsolete warning
 			AddCallback(typeof(Callisto.Controls.DynamicTextBlock),
+#pragma warning restore 0618 
 				b =>
 				{
 					b.AddCustomAttributes("LineHeight",
