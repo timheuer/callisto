@@ -23,11 +23,26 @@ using Windows.UI.Xaml;
 
 namespace Callisto.Controls
 {
+	/// <summary>
+	/// Event args for a value changing event
+	/// </summary>
+	/// <typeparam name="T"></typeparam>
     public class ValueChangedEventArgs<T> : EventArgs
     {
+		/// <summary>
+		/// Gets the old value.
+		/// </summary>
         public T OldValue { get; private set; }
+		/// <summary>
+		/// Gets the new value.
+		/// </summary>
         public T NewValue { get; private set; }
 
+		/// <summary>
+		/// Initializes a new instance of the <see cref="ValueChangedEventArgs{T}"/> class.
+		/// </summary>
+		/// <param name="oldValue">The old value.</param>
+		/// <param name="newValue">The new value.</param>
         public ValueChangedEventArgs(T oldValue, T newValue)
         {
             OldValue = oldValue;

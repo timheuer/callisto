@@ -24,6 +24,12 @@ using Windows.UI.Xaml.Controls.Primitives;
 
 namespace Callisto.Controls
 {
+	/// <summary>
+	/// NumericUpDown is a "spinner" control for numeric values. It is a text entry field 
+	/// that presents itself with a "+" and "-" symbol for incrementing/decrementing the value.
+	/// The developer can choose Minimum and Maximum values in addition to the incremental value and
+	/// decimal places. It is meant for numbers only and is not a general purpose spinner control.
+	/// </summary>
     public sealed class NumericUpDown : TextBox
     {
         private RepeatButton _incrementButton;
@@ -34,6 +40,12 @@ namespace Callisto.Controls
 
         private int _delay = 500;
 
+		/// <summary>
+		/// Gets or sets the delay.
+		/// </summary>
+		/// <value>
+		/// The delay.
+		/// </value>
         public int Delay
         {
             get { return _delay; }
@@ -47,6 +59,12 @@ namespace Callisto.Controls
 
         private int _interval = 100;
 
+		/// <summary>
+		/// Gets or sets the interval.
+		/// </summary>
+		/// <value>
+		/// The interval.
+		/// </value>
         public int Interval
         {
             get { return _interval; }
@@ -58,6 +76,9 @@ namespace Callisto.Controls
             }
         }
 
+		/// <summary>
+		/// Initializes a new instance of the <see cref="NumericUpDown"/> class.
+		/// </summary>
         public NumericUpDown()
         {
             this.DefaultStyleKey = typeof(NumericUpDown);
@@ -66,6 +87,10 @@ namespace Callisto.Controls
             TextChanged += OnTextChanged;
         }
 
+		/// <summary>
+		/// Called before the KeyDown event occurs.
+		/// </summary>
+		/// <param name="e">The data for the event.</param>
         protected override void OnKeyDown(Windows.UI.Xaml.Input.KeyRoutedEventArgs e)
         {
             base.OnKeyDown(e);
@@ -155,6 +180,11 @@ namespace Callisto.Controls
             }
         }
 
+		/// <summary>
+		/// Invoked whenever application code or internal processes (such as a rebuilding layout pass) call ApplyTemplate.
+		/// In simplest terms, this means the method is called just before a UI element displays in your app. Override
+		/// this method to influence the default post-template logic of a class.
+		/// </summary>
         protected override void OnApplyTemplate()
         {
             base.OnApplyTemplate();
@@ -247,13 +277,19 @@ namespace Callisto.Controls
         }
 
         #region Minimum
-        public double Minimum
+		/// <summary>
+		/// Gets or sets the minimum.
+		/// </summary>
+		public double Minimum
         {
             get { return (double)GetValue(MinimumProperty); }
             set { SetValue(MinimumProperty, value); }
         }
 
-        public static readonly DependencyProperty MinimumProperty =
+		/// <summary>
+		/// Identifies the <see cref="Minimum"/> property
+		/// </summary>
+		public static readonly DependencyProperty MinimumProperty =
             DependencyProperty.Register("Minimum", typeof(double), typeof(NumericUpDown),
                                         new PropertyMetadata(0.0, OnMinimumPropertyChanged));
 
@@ -291,13 +327,20 @@ namespace Callisto.Controls
         #endregion
 
         #region Maximum
+
+		/// <summary>
+		/// Gets or sets the maximum.
+		/// </summary>
         public double Maximum
         {
             get { return (double)GetValue(MaximumProperty); }
             set { SetValue(MaximumProperty, value); }
         }
 
-        public static readonly DependencyProperty MaximumProperty =
+		/// <summary>
+		/// Identifies the <see cref="Maximum"/> property
+		/// </summary>
+		public static readonly DependencyProperty MaximumProperty =
             DependencyProperty.Register("Maximum", typeof(double), typeof(NumericUpDown), new PropertyMetadata(100.0, OnMaximumPropertyChanged));
 
         private static void OnMaximumPropertyChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
@@ -325,13 +368,20 @@ namespace Callisto.Controls
         #endregion
 
         #region Increment
-        public double Increment
+		
+		/// <summary>
+		/// Gets or sets the increment.
+		/// </summary>
+		public double Increment
         {
             get { return (double)GetValue(IncrementProperty); }
             set { SetValue(IncrementProperty, value); }
         }
 
-        public static readonly DependencyProperty IncrementProperty =
+		/// <summary>
+		/// Identifies the <see cref="Increment"/> property
+		/// </summary>
+		public static readonly DependencyProperty IncrementProperty =
             DependencyProperty.Register("Increment", typeof(double), typeof(NumericUpDown), new PropertyMetadata(1.0, OnIncrementPropertyChanged));
 
         private static void OnIncrementPropertyChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
@@ -360,13 +410,19 @@ namespace Callisto.Controls
         #endregion
 
         #region DecimalPlaces
-        public int DecimalPlaces
+		/// <summary>
+		/// Gets or sets the decimal places.
+		/// </summary>
+		public int DecimalPlaces
         {
             get { return (int)GetValue(DecimalPlacesProperty); }
             set { SetValue(DecimalPlacesProperty, value); }
         }
 
-        public static readonly DependencyProperty DecimalPlacesProperty =
+		/// <summary>
+		/// Identifies the <see cref="DecimalPlaces"/> property
+		/// </summary>
+		public static readonly DependencyProperty DecimalPlacesProperty =
             DependencyProperty.Register("DecimalPlaces", typeof (int), typeof (NumericUpDown), new PropertyMetadata(0, OnDecimalPlacesPropertyChanged));
 
         private static void OnDecimalPlacesPropertyChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
@@ -406,13 +462,20 @@ namespace Callisto.Controls
 
 
         #region Value
-        public double Value
+		
+		/// <summary>
+		/// Gets or sets the value.
+		/// </summary>
+		public double Value
         {
             get { return (double)GetValue(ValueProperty); }
             set { SetValue(ValueProperty, value); }
         }
 
-        public static readonly DependencyProperty ValueProperty =
+		/// <summary>
+		/// Identifies the <see cref="Value"/> property
+		/// </summary>
+		public static readonly DependencyProperty ValueProperty =
             DependencyProperty.Register("Value", typeof(double), typeof(NumericUpDown), new PropertyMetadata(0.0, OnValuePropertyChanged));
 
         private static void OnValuePropertyChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)

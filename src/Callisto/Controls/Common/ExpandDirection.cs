@@ -25,11 +25,27 @@ using System;
 
 namespace Callisto.Controls
 {
+	/// <summary>
+	/// Expand Direction used by the <see cref="Primitives.LinearClipper" />
+	/// </summary>
+	/// <seealso cref="Primitives.LinearClipper.ExpandDirection"/>
     public enum ExpandDirection
     {
+		/// <summary>
+		/// Down
+		/// </summary>
         Down = 0,
+		/// <summary>
+		/// Up
+		/// </summary>
         Up = 1,
+		/// <summary>
+		/// The left
+		/// </summary>
         Left = 2,
+		/// <summary>
+		/// The right
+		/// </summary>
         Right = 3,
     }
 }

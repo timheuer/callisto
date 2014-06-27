@@ -58,7 +58,11 @@ namespace Callisto.Controls
 
         #region Public Properties
         // public accessor for the inner Popup
-        public Popup HostPopup
+		
+		/// <summary>
+		/// Gets the inner popup.
+		/// </summary>
+		public Popup HostPopup
         {
             get { return _hostPopup; }
         }
@@ -543,26 +547,45 @@ namespace Callisto.Controls
             ((Flyout)sender).IsHitTestVisible = true;
         }
 
+		/// <summary>
+		/// Occurs when the flyout was closed.
+		/// </summary>
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1009:DeclareEventHandlersCorrectly", Justification = "Runtime EventHandler")]
         public event EventHandler<object> Closed;
         #endregion Methods and Events
 
         #region Dependency Properties
-        public Thickness HostMargin
+
+		/// <summary>
+		/// Gets or sets the host margin.
+		/// </summary>
+		public Thickness HostMargin
         {
             get { return (Thickness)GetValue(HostMarginProperty); }
             set { SetValue(HostMarginProperty, value); }
         }
 
-        public static readonly DependencyProperty HostMarginProperty =
+		/// <summary>
+		/// Identifies the <see cref="HostMargin"/> dependency property
+		/// </summary>
+		public static readonly DependencyProperty HostMarginProperty =
             DependencyProperty.Register("HostMargin", typeof(Thickness), typeof(Flyout), new PropertyMetadata(0));
 
+		/// <summary>
+		/// Gets or sets a value indicating whether the flyout is open.
+		/// </summary>
+		/// <value>
+		///   <c>true</c> if this flyout is open; otherwise, <c>false</c>.
+		/// </value>
         public bool IsOpen
         {
             get { return (bool)GetValue(IsOpenProperty); }
             set { SetValue(IsOpenProperty, value); }
         }
-        public static readonly DependencyProperty IsOpenProperty =
+		/// <summary>
+		/// Identifies the <see cref="IsOpen"/> dependency property
+		/// </summary>
+		public static readonly DependencyProperty IsOpenProperty =
             DependencyProperty.Register("IsOpen", typeof(bool), typeof(Flyout), new PropertyMetadata(false, (obj, args) =>
             {
                 if (args.NewValue != args.OldValue)
@@ -572,43 +595,70 @@ namespace Callisto.Controls
                 }
             }));
 
-        public UIElement PlacementTarget
+		/// <summary>
+		/// Gets or sets the placement target.
+		/// </summary>
+		public UIElement PlacementTarget
         {
             get { return (UIElement)GetValue(PlacementTargetProperty); }
             set { SetValue(PlacementTargetProperty, value); }
         }
 
-        public static readonly DependencyProperty PlacementTargetProperty =
+		/// <summary>
+		/// Identifies the <see cref="PlacementTarget"/> dependency property
+		/// </summary>
+		public static readonly DependencyProperty PlacementTargetProperty =
             DependencyProperty.Register("PlacementTarget", typeof(UIElement), typeof(Flyout), null);
 
-        public Windows.UI.Xaml.Controls.Primitives.PlacementMode Placement
+		/// <summary>
+		/// Gets or sets the placement.
+		/// </summary>
+		public Windows.UI.Xaml.Controls.Primitives.PlacementMode Placement
         {
             get { return (Windows.UI.Xaml.Controls.Primitives.PlacementMode)GetValue(PlacementProperty); }
             set { SetValue(PlacementProperty, value); }
         }
 
-        public static readonly DependencyProperty PlacementProperty =
+		/// <summary>
+		/// Identifies the <see cref="Placement"/> dependency property
+		/// </summary>
+		public static readonly DependencyProperty PlacementProperty =
             DependencyProperty.Register("Placement", typeof(Windows.UI.Xaml.Controls.Primitives.PlacementMode), typeof(Flyout), null);
 
-        public double HorizontalOffset
+		/// <summary>
+		/// Gets or sets the horizontal offset.
+		/// </summary>
+		public double HorizontalOffset
         {
             get { return (double)GetValue(HorizontalOffsetProperty); }
             set { SetValue(HorizontalOffsetProperty, value); }
         }
 
-        public static readonly DependencyProperty HorizontalOffsetProperty =
+		/// <summary>
+		/// Identifies the <see cref="HorizontalOffset"/> dependency property
+		/// </summary>
+		public static readonly DependencyProperty HorizontalOffsetProperty =
             DependencyProperty.Register("HorizontalOffset", typeof(double), typeof(Flyout), new PropertyMetadata(0.0));
 
-        public double VerticalOffset
+		/// <summary>
+		/// Gets or sets the vertical offset.
+		/// </summary>
+		public double VerticalOffset
         {
             get { return (double)GetValue(VerticalOffsetProperty); }
             set { SetValue(VerticalOffsetProperty, value); }
         }
 
-        public static readonly DependencyProperty VerticalOffsetProperty =
+		/// <summary>
+		/// Identifies the <see cref="VerticalOffset"/> dependency property
+		/// </summary>
+		public static readonly DependencyProperty VerticalOffsetProperty =
             DependencyProperty.Register("VerticalOffset", typeof(double), typeof(Flyout), new PropertyMetadata(0.0));
         #endregion Dependency Properties
 
+		/// <summary>
+		/// Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
+		/// </summary>
         public void Dispose()
         {
             if (this._hostPopup != null)
