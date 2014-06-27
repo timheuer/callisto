@@ -29,9 +29,11 @@ namespace Callisto.Controls.SettingsManagement
         public SettingsCommandInfo(string headerText, SettingsFlyout.SettingsFlyoutWidth width)
         {
             HeaderText = headerText;
-            Width = width;
-            if (width == SettingsFlyout.SettingsFlyoutWidth.Narrow)
-            {
+#pragma warning disable 0618 //Ignore obsolete warning
+			Width = width;
+			if (width == SettingsFlyout.SettingsFlyoutWidth.Narrow)
+#pragma warning restore 0618
+			{
                 LiteralWidth = 346;
             }
             else
