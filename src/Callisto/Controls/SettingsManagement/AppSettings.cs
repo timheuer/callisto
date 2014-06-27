@@ -125,8 +125,9 @@ namespace Callisto.Controls.SettingsManagement
         /// <typeparam name="T">A <see cref="UserControl"/> which represents the content for the settings flyout.</typeparam>
         /// <param name="headerText">The header to be displayed in the Settings charm.</param>
         /// <param name="width">(Optional) The width of the settings flyout. The default is <see cref="SettingsFlyout.SettingsFlyoutWidth.Narrow">SettingsFlyout.SettingsFlyoutWidth.Narrow</see></param>
-        [Obsolete("Use other overloads for Windows 8.1 that don't use FlyoutWidth")]
-        public void AddCommand<T>(string headerText, SettingsFlyout.SettingsFlyoutWidth width = SettingsFlyout.SettingsFlyoutWidth.Narrow) where T : UserControl, new()
+        [Obsolete("Use other overloads for Windows 8.1 that don't use FlyoutWidth")]       
+#pragma warning disable 0618 //Ignore obsolete warning
+		public void AddCommand<T>(string headerText, SettingsFlyout.SettingsFlyoutWidth width = SettingsFlyout.SettingsFlyoutWidth.Narrow) where T : UserControl, new()
         {
             string key = headerText.Trim().Replace(" ", "");
 
@@ -135,6 +136,7 @@ namespace Callisto.Controls.SettingsManagement
                 _commands.Add(key, new SettingsCommandInfo<T>(headerText, width));
             }
         }
+#pragma warning restore 0618
 
         public void AddCommand<T>(string headerText, double width = 500) where T : UserControl, new()
         {
