@@ -299,23 +299,24 @@ namespace Callisto.Effects
 		}
 
 		/// <summary>
-		/// Begins the tilt effect by preparing the control and doing the 
+		/// Begins the tilt effect by preparing the control and doing the
 		/// initial animation.
 		/// </summary>
 		/// <param name="element">The element to tilt.</param>
 		/// <param name="touchPoint">The touch point, in element coordinates.</param>
 		/// <param name="centerPoint">The center point of the element in element
 		/// coordinates.</param>
-		/// <param name="centerDelta">The delta between the 
-		/// <paramref name="element"/>'s center and the container's center.</param>
-		private static void BeginTiltEffect(FrameworkElement element, Point touchPoint, Point centerPoint, Point centerDelta, Pointer p)
+		/// <param name="centerDelta">The delta between the
+		/// <param name="pointer">The pointer causing the tilt effect.</param>
+		/// <paramref name="element" />'s center and the container's center.</param>
+		private static void BeginTiltEffect(FrameworkElement element, Point touchPoint, Point centerPoint, Point centerDelta, Pointer pointer)
 		{
 			if (tiltReturnStoryboard != null)
 			{
 				StopTiltReturnStoryboardAndCleanup();
 			}
 
-			if (PrepareControlForTilt(element, centerDelta, p) == false)
+			if (PrepareControlForTilt(element, centerDelta, pointer) == false)
 			{
 				return;
 			}
@@ -334,12 +335,13 @@ namespace Callisto.Effects
 		/// <param name="element">The control that is to be tilted.</param>
 		/// <param name="centerDelta">Delta between the element's center and the
 		/// tilt container's.</param>
+		/// <param name="pointer">The pointer causing the tilt effect.</param>
 		/// <returns>true if successful; false otherwise.</returns>
 		/// <remarks>
 		/// This method is conservative; it will fail any attempt to tilt a 
 		/// control that already has a projection on it.
 		/// </remarks>
-		private static bool PrepareControlForTilt(FrameworkElement element, Point centerDelta, Pointer p)
+		private static bool PrepareControlForTilt(FrameworkElement element, Point centerDelta, Pointer pointer)
 		{
 			// Prevents interference with any existing transforms
 			if (element.Projection != null || (element.RenderTransform != null && element.RenderTransform.GetType() != typeof(MatrixTransform)))
@@ -363,7 +365,7 @@ namespace Callisto.Effects
 			element.PointerMoved += TiltEffect_PointerMoved;
 			element.PointerReleased += TiltEffect_PointerReleased;
 			element.PointerCaptureLost += TiltEffect_PointerCaptureLost;
-			element.CapturePointer(p);
+			element.CapturePointer(pointer);
 			return true;
 		}
 
