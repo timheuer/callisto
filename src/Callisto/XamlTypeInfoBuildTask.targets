@@ -1,0 +1,48 @@
+﻿<!--
+// This task disable doc warnings in the auto-generated XamlTypeInfo.g.cs file,
+// and also hides the public class from intellisense.
+-->
+
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+	
+	<UsingTask TaskName="XamlTypeInfoBuildTask" TaskFactory="CodeTaskFactory" AssemblyFile="$(MSBuildToolsPath)\Microsoft.Build.Tasks.v4.0.dll">
+        <ParameterGroup>
+            <InputFilename ParameterType="System.String" Required="true" />
+        </ParameterGroup>
+        <Task>
+            <Reference Include="System.Core" />
+            <Using Namespace="System" />
+            <Using Namespace="Microsoft.Build.Framework" />
+            <Using Namespace="Microsoft.Build.Utilities" />
+            <Code Type="Fragment" Language="cs">
+                <![CDATA[
+                try {
+                    if (!System.IO.File.Exists(InputFilename)) 
+						return false; 
+					string code = System.IO.File.ReadAllText(InputFilename);
+
+					if (code.StartsWith("#pragma warning disable 1591,0618")) //Already modified 
+						return true; 
+					int idx = code.IndexOf("[System.CodeDom.Compiler.GeneratedCodeAttribute"); 
+					if (idx < 0) 
+						return false; 
+					string insert = "[System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]\n    "; 
+					code = "#pragma warning disable 1591,0618\n" + code.Substring(0, idx) + insert + code.Substring(idx) + 
+						"#pragma warning restore 1591\n"; 
+					System.IO.File.WriteAllText(InputFilename, code); 
+					return true; 
+                }
+                catch (Exception ex) {
+                    Log.LogErrorFromException(ex);
+                    return false;
+                }
+            ]]>
+            </Code>
+        </Task>
+    </UsingTask>
+	<Target Name="XamlTypeInfoBuildTask"
+					AfterTargets="MarkupCompilePass2"
+					BeforeTargets="CoreCompile">
+		<XamlTypeInfoBuildTask InputFilename="$(IntermediateOutputPath)\XamlTypeInfo.g.cs" />
+	</Target>
+</Project>
