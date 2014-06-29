@@ -28,6 +28,21 @@ using Windows.UI.Xaml.Media.Animation;
 
 namespace Callisto.Controls
 {
+	/// <summary>
+	/// OBSOLETE. This control is a helper control to provide the Settings charm experience for custom settings within your app.
+	/// It follows the specific Windows UI guidelines for layout and entrance/exit/positioning animations. It is a
+	/// content control for your settings that are app-wide or contextual to your current view.
+	/// </summary>
+	/// <remarks>
+	/// <para>
+	/// This control is deprecated in favor of using the <see cref="Windows.UI.Xaml.Controls.SettingsFlyout"/> control in Windows 8.1.
+	/// </para>
+	/// <para>
+	/// This control is a helper control to provide the Settings charm experience for custom settings within your app. 
+	/// It follows the specific Windows UI guidelines for layout and entrance/exit/positioning animations. It is a 
+	/// content control for your settings that are app-wide or contextual to your current view.
+	/// </para>
+	/// </remarks>
     [Obsolete("Windows 8.1 now provides this functionality in the XAML framework itself as SettingsFlyout.")]
     public sealed class SettingsFlyout : ContentControl
     {
@@ -53,7 +68,13 @@ namespace Callisto.Controls
         #endregion
 
         #region Overrides
-        protected override void OnApplyTemplate()
+		/// <summary>
+		/// Invoked whenever application code or internal processes (such as a rebuilding layout pass) 
+		/// call ApplyTemplate. In simplest terms, this means the method is called just before a UI 
+		/// element displays in your app. Override this method to influence the default post-template
+		/// logic of a class.
+		/// </summary>
+		protected override void OnApplyTemplate()
         {
             base.OnApplyTemplate();
 
@@ -92,6 +113,9 @@ namespace Callisto.Controls
         #endregion Overrides
 
         #region Constructor
+		/// <summary>
+		/// Initializes a new instance of the <see cref="SettingsFlyout"/> class.
+		/// </summary>
         public SettingsFlyout()
         {
             this.DefaultStyleKey = typeof(SettingsFlyout);
@@ -176,6 +200,9 @@ namespace Callisto.Controls
             }            
         }
 
+		/// <summary>
+		/// Occurs when back button is clicked.
+		/// </summary>
         public event EventHandler<BackClickedEventArgs> BackClicked;
 
         private void InvokeOnBackClick(BackClickedEventArgs args)
@@ -233,17 +260,29 @@ namespace Callisto.Controls
             }
         }
 
+		/// <summary>
+		/// Gets a reference the to popup.
+		/// </summary>
         public Popup HostPopup { get { return _hostPopup; } }
         #endregion Constructor
 
         #region Dependency Properties
+		/// <summary>
+		/// Gets or sets a value indicating whether the flyout is open.
+		/// </summary>
+		/// <value>
+		/// <c>true</c> if this instance is open; otherwise, <c>false</c>.
+		/// </value>
         public bool IsOpen
         {
             get { return (bool)GetValue(IsOpenProperty); }
             set { SetValue(IsOpenProperty, value); }
         }
 
-        public static readonly DependencyProperty IsOpenProperty =
+		/// <summary>
+		/// Identifies the <see cref="IsOpen"/> dependency property
+		/// </summary>
+		public static readonly DependencyProperty IsOpenProperty =
             DependencyProperty.Register("IsOpen", typeof(bool), typeof(SettingsFlyout), new PropertyMetadata(false, (obj, args) =>
                 {
                     if (args.NewValue != args.OldValue)
@@ -253,13 +292,19 @@ namespace Callisto.Controls
                     }
                 }));
 
+		/// <summary>
+		/// Gets or sets the header brush.
+		/// </summary>
         public SolidColorBrush HeaderBrush
         {
             get { return (SolidColorBrush)GetValue(HeaderBrushProperty); }
             set { SetValue(HeaderBrushProperty, value); }
         }
 
-        public static readonly DependencyProperty HeaderBrushProperty =
+		/// <summary>
+		/// Identifies the <see cref="HeaderBrush"/> dependency property
+		/// </summary>
+		public static readonly DependencyProperty HeaderBrushProperty =
             DependencyProperty.Register("HeaderBrush", typeof(SolidColorBrush), typeof(SettingsFlyout), new PropertyMetadata(null, OnHeaderBrushColorChanged));
 
         private static void OnHeaderBrushColorChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
@@ -277,74 +322,122 @@ namespace Callisto.Controls
             }
         }
 
+		/// <summary>
+		/// Gets or sets the width of the flyout.
+		/// </summary>
         public SettingsFlyoutWidth FlyoutWidth
         {
             get { return (SettingsFlyoutWidth)GetValue(FlyoutWidthProperty); }
             set { SetValue(FlyoutWidthProperty, value); }
         }
 
-        public static readonly DependencyProperty FlyoutWidthProperty =
+		/// <summary>
+		/// Identifies the <see cref="FlyoutWidth"/> dependency property
+		/// </summary>
+		public static readonly DependencyProperty FlyoutWidthProperty =
             DependencyProperty.Register("FlyoutWidth", typeof(SettingsFlyoutWidth), typeof(SettingsFlyout), new PropertyMetadata(SettingsFlyoutWidth.Narrow));
 
 
+		/// <summary>
+		/// Gets or sets the header text.
+		/// </summary>
         public string HeaderText
         {
             get { return (string)GetValue(HeaderTextProperty); }
             set { SetValue(HeaderTextProperty, value); }
         }
 
-        public static readonly DependencyProperty HeaderTextProperty =
+		/// <summary>
+		/// Identifies the <see cref="HeaderText"/> dependency property
+		/// </summary>
+		public static readonly DependencyProperty HeaderTextProperty =
             DependencyProperty.Register("HeaderText", typeof(string), typeof(SettingsFlyout), new PropertyMetadata(null));
 
 
+		/// <summary>
+		/// Gets or sets the small logo image source.
+		/// </summary>
         public ImageSource SmallLogoImageSource
         {
             get { return (ImageSource)GetValue(SmallLogoImageSourceProperty); }
             set { SetValue(SmallLogoImageSourceProperty, value); }
         }
 
-        public static readonly DependencyProperty SmallLogoImageSourceProperty =
+		/// <summary>
+		/// Identifies the <see cref="SmallLogoImageSource"/> dependency property
+		/// </summary>
+		public static readonly DependencyProperty SmallLogoImageSourceProperty =
             DependencyProperty.Register("SmallLogoImageSource", typeof(ImageSource), typeof(SettingsFlyout), null);
 
         /* Issue #81 required these back in to enable overriding to ensure existing
          * apps would be able to retain their existing colors if they were expecting the old defaults
          * */
+		/// <summary>
+		/// Gets or sets the content foreground brush.
+		/// </summary>
         public SolidColorBrush ContentForegroundBrush
         {
             get { return (SolidColorBrush)GetValue(ContentForegroundBrushProperty); }
             set { SetValue(ContentForegroundBrushProperty, value); }
         }
 
-        public static readonly DependencyProperty ContentForegroundBrushProperty =
+		/// <summary>
+		/// Identifies the <see cref="ContentForegroundBrush"/> dependency property
+		/// </summary>
+		public static readonly DependencyProperty ContentForegroundBrushProperty =
             DependencyProperty.Register("ContentForegroundBrush", typeof(SolidColorBrush), typeof(SettingsFlyout), null);
 
+		/// <summary>
+		/// Gets or sets the content background brush.
+		/// </summary>
         public SolidColorBrush ContentBackgroundBrush
         {
             get { return (SolidColorBrush)GetValue(ContentBackgroundBrushProperty); }
             set { SetValue(ContentBackgroundBrushProperty, value); }
         }
 
-        public static readonly DependencyProperty ContentBackgroundBrushProperty =
+		/// <summary>
+		/// Identifies the <see cref="ContentBackgroundBrush"/> dependency property
+		/// </summary>
+		public static readonly DependencyProperty ContentBackgroundBrushProperty =
             DependencyProperty.Register("ContentBackgroundBrush", typeof(SolidColorBrush), typeof(SettingsFlyout), null);
         
         #endregion Dependency Properties
 
         #region Events
+		/// <summary>
+		/// Occurs when the flyout was closed.
+		/// </summary>
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1009:DeclareEventHandlersCorrectly", Justification="Runtime EventHandler")]
         public event EventHandler<object> Closed;
         #endregion
 
         #region Enums
+		/// <summary>
+		/// Flyout width enumeration
+		/// </summary>
         public enum SettingsFlyoutWidth
         {
+			/// <summary>
+			/// A narrow flyout at 346 pixels
+			/// </summary>
             Narrow = 346,
-            Wide = 646
+			/// <summary>
+			/// A wide flyout at 646 pixels
+			/// </summary>
+			Wide = 646
         }
         #endregion Enums
     }
 
+	/// <summary>
+	/// Event argument for the <see cref="E:SetttingsFlyout.BackClicked"/> event.
+	/// </summary>
     public class BackClickedEventArgs : EventArgs
     {
-        public bool Cancel { get; set; }
+		/// <summary>
+		/// Gets or sets a value indicating whether this <see cref="BackClickedEventArgs"/> should be cancelled.
+		/// </summary>
+		public bool Cancel { get; set; }
     }
 }

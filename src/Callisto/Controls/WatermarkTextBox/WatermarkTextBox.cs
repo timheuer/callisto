@@ -23,6 +23,23 @@ using Windows.UI.Xaml.Input;
 
 namespace Callisto.Controls
 {
+	/// <summary>
+	/// OBSOLETE. WaterMarkTextBox is a derivitave of TextBox that adds only the functionality of providing a default text
+	/// 'hint' in the text input area if no text exists. This is helpful in providing some tip to your users e.g.,
+	/// "Enter your name here..." which will automatically go away when the user starts typing. The Watermark has
+	/// no affect on the Text property or other aspects of the TextBox control.
+	/// </summary>
+	/// <remarks>
+	/// <para>
+	/// This control is deprecated in favor of using the  PlaceholderText  property on the  TextBox  controls built in to Windows 8.1
+	/// </para>
+	/// <para>
+	/// WaterMarkTextBox is a derivitave of TextBox that adds only the functionality of providing a default text 'hint' in
+	/// the text input area if no text exists. This is helpful in providing some tip to your users e.g.,
+	/// "Enter your name here..." which will automatically go away when the user starts typing. The Watermark has no affect
+	/// on the Text property or other aspects of the TextBox control.
+	/// </para>
+	/// </remarks>
     [Obsolete("Windows 8.1 now provides this functionality in the XAML framework itself as PlaceholderText on TextBox.")]
     [TemplatePart(Name = WatermarkTextBox.PART_ELEMENT_CONTENT_NAME, Type = typeof(ContentControl))]
     public sealed class WatermarkTextBox : TextBox
@@ -33,6 +50,9 @@ namespace Callisto.Controls
         internal bool HasFocusInternal;
         private ResourceLoader _resources;
 
+		/// <summary>
+		/// Initializes a new instance of the <see cref="WatermarkTextBox"/> class.
+		/// </summary>
         public WatermarkTextBox()
         {
             this.DefaultStyleKey = typeof(WatermarkTextBox);
@@ -160,6 +180,12 @@ namespace Callisto.Controls
             }
         }
 
+		/// <summary>
+		/// Invoked whenever application code or internal processes (such as a rebuilding layout pass)
+		/// call ApplyTemplate. In simplest terms, this means the method is called just before a UI
+		/// element displays in your app. Override this method to influence the default post-template 
+		/// logic of a class.
+		/// </summary>
         protected override void OnApplyTemplate()
         {
             base.OnApplyTemplate();
@@ -174,13 +200,19 @@ namespace Callisto.Controls
             ChangeVisualState(false);
         }
 
-        public object Watermark
+		/// <summary>
+		/// Gets or sets the watermark.
+		/// </summary>
+		public object Watermark
         {
             get { return (object)GetValue(WatermarkProperty); }
             set { SetValue(WatermarkProperty, value); }
         }
 
-        public static readonly DependencyProperty WatermarkProperty =
+		/// <summary>
+		/// Identifies the <see cref="Watermark"/> dependency property
+		/// </summary>
+		public static readonly DependencyProperty WatermarkProperty =
             DependencyProperty.Register("Watermark", typeof(object), typeof(WatermarkTextBox), new PropertyMetadata(null, OnWatermarkPropertyChanged));
 
         private static void OnWatermarkPropertyChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)

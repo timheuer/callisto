@@ -27,7 +27,9 @@ namespace Callisto.Design
 		public SettingsFlyoutMetadata()
 			: base()
 		{
+#pragma warning disable 0618 //Ignore obsolete warning
 			AddCallback(typeof(Callisto.Controls.SettingsFlyout),
+#pragma warning restore 0618 
 				b =>
 				{
 					b.AddCustomAttributes("HeaderText",

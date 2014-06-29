@@ -243,10 +243,13 @@ namespace Callisto.Controls
             set { SetValue(ValueProperty, value); }
         }
 
+		/// <summary>
+		/// Gets the weighted value.
+		/// </summary>
         public double WeightedValue { get; private set; }
 
         /// <summary>
-        /// Identifies the Value dependency property.
+		/// Identifies the <see cref="Value"/> dependency property.
         /// </summary>
         public static readonly DependencyProperty ValueProperty =
             DependencyProperty.Register(
@@ -315,33 +318,51 @@ namespace Callisto.Controls
         #endregion public double Value
 
         #region PointerPressedFill
-        public SolidColorBrush PointerPressedFill
+		/// <summary>
+		/// Gets or sets the PointerPressed brush color
+		/// </summary>
+		public SolidColorBrush PointerPressedFill
         {
             get { return (SolidColorBrush)GetValue(PointerPressedFillProperty); }
             set { SetValue(PointerPressedFillProperty, value); }
         }
 
-        public static readonly DependencyProperty PointerPressedFillProperty =
+		/// <summary>
+		/// Identifies the <see cref="PointerPressedFill"/> dependency property.
+		/// </summary>
+		public static readonly DependencyProperty PointerPressedFillProperty =
             DependencyProperty.Register("PointerPressedFill", typeof(SolidColorBrush), typeof(Rating), null);
         #endregion PoitnerPressedFill
 
         #region PointerOverFill
+		/// <summary>
+		/// Gets or sets the PointerOver brush color
+		/// </summary>
         public SolidColorBrush PointerOverFill
         {
             get { return (SolidColorBrush)GetValue(PointerOverFillProperty); }
             set { SetValue(PointerOverFillProperty, value); }
         }
 
-        public static readonly DependencyProperty PointerOverFillProperty =
+		/// <summary>
+		/// Identifies the <see cref="PointerOverFillProperty"/> dependency property.
+		/// </summary>
+		public static readonly DependencyProperty PointerOverFillProperty =
             DependencyProperty.Register("PointerOverFill", typeof(SolidColorBrush), typeof(Rating), null);
         #endregion PointerOverFill
 
         #region ReadonlyFill
 
-        public static readonly DependencyProperty ReadOnlyFillProperty =
+		/// <summary>
+		/// Identifies the <see cref="ReadOnlyFill"/> dependency property.
+		/// </summary>
+		public static readonly DependencyProperty ReadOnlyFillProperty =
             DependencyProperty.Register("ReadOnlyFill", typeof(SolidColorBrush), typeof(Rating), null);
 
-        public SolidColorBrush ReadOnlyFill
+		/// <summary>
+		/// Gets or sets the ReadOnly brush color
+		/// </summary>
+		public SolidColorBrush ReadOnlyFill
         {
             get { return (SolidColorBrush)GetValue(ReadOnlyFillProperty); }
             set { SetValue(ReadOnlyFillProperty, value); }

@@ -18,6 +18,9 @@ using Windows.UI.Xaml.Controls;
 
 namespace Callisto.Controls
 {
+	/// <summary>
+	/// Drop-down Button control
+	/// </summary>
     public sealed class DropDownButton : Button
     {
         private TextBlock _arrowGlyph;
@@ -29,17 +32,37 @@ namespace Callisto.Controls
         private const string ARROW_GLYPH_MEDIUM = "\uE099"; // >= 16pt; < 33pt
         private const string ARROW_GLYPH_LARGE  = "\uE228"; // > 33pt;
 
+		/// <summary>
+		/// Initializes a new instance of the <see cref="DropDownButton"/> class.
+		/// </summary>
         public DropDownButton()
         {
             DefaultStyleKey = typeof(DropDownButton);
         }
 
+		/// <summary>
+		/// Invoked whenever application code or internal processes (such as a rebuilding layout pass) call
+		/// ApplyTemplate. In simplest terms, this means the method is called just before a UI element
+		/// displays in your app. Override this method to influence the default post-template logic of a class.
+		/// </summary>
         protected override void OnApplyTemplate()
         {
             base.OnApplyTemplate();
             _arrowGlyph = GetTemplateChild(PART_ARROW_GLYPH) as TextBlock;
         }
 
+		/// <summary>
+		/// Provides the behavior for the Measure pass of the layout cycle. Classes can override this
+		/// method to define their own Measure pass behavior.
+		/// </summary>
+		/// <param name="availableSize">The available size that this object can give to child objects. 
+		/// Infinity can be specified as a value to indicate that the object will size to whatever content
+		/// is available.</param>
+		/// <returns>
+		/// The size that this object determines it needs during layout, based on its calculations of
+		/// the allocated sizes for child objects or based on other considerations such as a fixed 
+		/// container size.
+		/// </returns>
         protected override Windows.Foundation.Size MeasureOverride(Windows.Foundation.Size availableSize)
         {
             EvaluateArrowGlyph();

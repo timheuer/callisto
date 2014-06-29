@@ -61,7 +61,11 @@ namespace Callisto.Controls
             get { return (string)GetValue(TextProperty); }
             set { SetValue(TextProperty, value); }
         }
-        public static readonly DependencyProperty TextProperty =
+
+		/// <summary>
+		/// Identifies the <see cref="Text"/> dependency property
+		/// </summary>
+		public static readonly DependencyProperty TextProperty =
             DependencyProperty.Register("Text", typeof(string), typeof(DynamicTextBlock),
             new PropertyMetadata(string.Empty, new PropertyChangedCallback(OnTextChanged)));
 
@@ -70,6 +74,10 @@ namespace Callisto.Controls
             ((DynamicTextBlock)d).OnTextChanged(e);
         }
 
+		/// <summary>
+		/// Raises the <see cref="E:TextChanged" /> event.
+		/// </summary>
+		/// <param name="e">The <see cref="DependencyPropertyChangedEventArgs"/> instance containing the event data.</param>
         protected virtual void OnTextChanged(DependencyPropertyChangedEventArgs e)
         {
             this.InvalidateMeasure();
@@ -87,7 +95,10 @@ namespace Callisto.Controls
             get { return (TextWrapping)GetValue(TextWrappingProperty); }
             set { SetValue(TextWrappingProperty, value); }
         }
-        public static readonly DependencyProperty TextWrappingProperty =
+		/// <summary>
+		/// Identifies the <see cref="TextWrapping"/> dependency property
+		/// </summary>
+		public static readonly DependencyProperty TextWrappingProperty =
             DependencyProperty.Register("TextWrapping", typeof(TextWrapping), typeof(DynamicTextBlock),
             new PropertyMetadata(TextWrapping.NoWrap, new PropertyChangedCallback(OnTextWrappingChanged)));
 
@@ -96,6 +107,11 @@ namespace Callisto.Controls
             ((DynamicTextBlock)d).OnTextWrappingChanged(e);
         }
 
+		/// <summary>
+		/// Called when the <see cref="E:TextWrappingChanged" /> event occurs.
+		/// </summary>
+		/// <param name="e">The <see cref="DependencyPropertyChangedEventArgs"/> 
+		/// instance containing the event data.</param>
         protected virtual void OnTextWrappingChanged(DependencyPropertyChangedEventArgs e)
         {
             this.textBlock.TextWrapping = (TextWrapping)e.NewValue;
@@ -115,7 +131,10 @@ namespace Callisto.Controls
             set { SetValue(LineHeightProperty, value); }
         }
 
-        public static readonly DependencyProperty LineHeightProperty =
+		/// <summary>
+		/// Identifies the <see cref="LineHeight"/> dependency property
+		/// </summary>
+		public static readonly DependencyProperty LineHeightProperty =
             DependencyProperty.Register("LineHeight", typeof(double), typeof(DynamicTextBlock),
             new PropertyMetadata(0.0, new PropertyChangedCallback(OnLineHeightChanged)));
 
@@ -124,6 +143,10 @@ namespace Callisto.Controls
             ((DynamicTextBlock)d).OnLineHeightChanged(e);
         }
 
+		/// <summary>
+		/// Called when the <see cref="E:LineHeightChanged" /> event occurs.
+		/// </summary>
+		/// <param name="e">The <see cref="DependencyPropertyChangedEventArgs"/> instance containing the event data.</param>
         protected virtual void OnLineHeightChanged(DependencyPropertyChangedEventArgs e)
         {
             textBlock.LineHeight = LineHeight;
@@ -142,7 +165,11 @@ namespace Callisto.Controls
             get { return (LineStackingStrategy)GetValue(LineStackingStrategyProperty); }
             set { SetValue(LineStackingStrategyProperty, value); }
         }
-        public static readonly DependencyProperty LineStackingStrategyProperty =
+
+		/// <summary>
+		/// Identifies the <see cref="LineStackingStrategy"/> dependency property
+		/// </summary>
+		public static readonly DependencyProperty LineStackingStrategyProperty =
             DependencyProperty.Register("LineStackingStrategy", typeof(LineStackingStrategy), typeof(DynamicTextBlock),
             new PropertyMetadata(LineStackingStrategy.BlockLineHeight, new PropertyChangedCallback(OnLineStackingStrategyChanged)));
 
@@ -151,6 +178,10 @@ namespace Callisto.Controls
             ((DynamicTextBlock)d).OnLineStackingStrategyChanged(e);
         }
 
+		/// <summary>
+		/// Called when the <see cref="E:LineStackingStrategyChanged" /> event occurs.
+		/// </summary>
+		/// <param name="e">The <see cref="DependencyPropertyChangedEventArgs"/> instance containing the event data.</param>
         protected virtual void OnLineStackingStrategyChanged(DependencyPropertyChangedEventArgs e)
         {
             this.textBlock.LineStackingStrategy = (LineStackingStrategy)e.NewValue;

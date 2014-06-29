@@ -20,17 +20,32 @@ using Windows.UI.Xaml.Controls;
 
 namespace Callisto.Controls
 {
-    [Obsolete("Windows 8.1 now provides this functionality in the XAML framework itself as MenuFlyoutItem.")]
+	/// <summary>
+	/// OBSOLETE. Base class for the menu items
+	/// </summary>
+	/// <remarks>
+	/// This control is deprecated in favor of using the <see cref="Windows.UI.Xaml.Controls.MenuFlyout"/> controls in Windows 8.1.
+	/// </remarks>
+	[Obsolete("Windows 8.1 now provides this functionality in the XAML framework itself as MenuFlyoutItem.")]
     public abstract class MenuItemBase : Control
     {
+		/// <summary>
+		/// Initializes a new instance of the <see cref="MenuItemBase"/> class.
+		/// </summary>
         protected MenuItemBase() { }
 
-        public Thickness MenuTextMargin
+		/// <summary>
+		/// Gets or sets the menu text margin.
+		/// </summary>
+		public Thickness MenuTextMargin
         {
             get { return (Thickness)GetValue(MenuTextMarginProperty); }
             set { SetValue(MenuTextMarginProperty, value); }
         }
 
+		/// <summary>
+		/// Identifies the <see cref="MenuTextMargin"/> dependency property
+		/// </summary>
         public static readonly DependencyProperty MenuTextMarginProperty =
             DependencyProperty.Register("MenuTextMargin", typeof(Thickness), typeof(MenuItemBase), null);
 

@@ -23,14 +23,25 @@ using Windows.UI.Xaml.Markup;
 
 namespace Callisto.Controls
 {
-    [Obsolete("Windows 8.1 now provides this functionality in the XAML framework itself as MenuFlyout.")]
+	/// <summary>
+	/// OBSOLETE. Menu is a special type of Flyout which serves the purpose for Menu commands.
+	/// Most of the time this will be from an AppBar or a header area. The intent is text 
+	/// commands only and not meant always to be styled.
+	/// </summary>
+	/// <remarks>
+	/// This control is deprecated in favor of using the <see cref="Windows.UI.Xaml.Controls.MenuFlyout"/> controls in Windows 8.1.
+	/// </remarks>
+	[Obsolete("Windows 8.1 now provides this functionality in the XAML framework itself as MenuFlyout.")]
     [ContentProperty(Name="Items")]
     public sealed class Menu : Control
     {
         private ObservableCollection<MenuItemBase> _items;
         private ItemsControl _itemContainerList;
 
-        public ObservableCollection<MenuItemBase> Items
+		/// <summary>
+		/// Gets the menu items.
+		/// </summary>
+		public ObservableCollection<MenuItemBase> Items
         {
             get { return _items; }
         }
@@ -137,6 +148,9 @@ namespace Callisto.Controls
             return index;
         }
 
+		/// <summary>
+		/// Initializes a new instance of the <see cref="Menu"/> class.
+		/// </summary>
         public Menu()
         {
             this.DefaultStyleKey = typeof(Menu);
@@ -155,6 +169,12 @@ namespace Callisto.Controls
             ((Menu)sender).IsHitTestVisible = true;
         }
 
+		/// <summary>
+		/// Invoked whenever application code or internal processes (such as a rebuilding layout pass) 
+		/// call ApplyTemplate. In simplest terms, this means the method is called just before a UI 
+		/// element displays in your app. Override this method to influence the default post-template
+		/// logic of a class.
+		/// </summary>
         protected override void OnApplyTemplate()
         {
             base.OnApplyTemplate();

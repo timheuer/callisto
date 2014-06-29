@@ -22,6 +22,9 @@ using System.Xml.Linq;
 
 namespace Callisto.Controls.Common
 {
+	/// <summary>
+	/// A helper API that retrieves some data from your app's AppxManifest.xml file for you.
+	/// </summary>
     public class AppManifestHelper
     {
         public async static Task<VisualElement> GetManifestVisualElementsAsync()
@@ -56,11 +59,29 @@ namespace Callisto.Controls.Common
 
     public class VisualElement
     {
+		/// <summary>
+		/// Gets or sets the display name.
+		/// </summary>
         public string DisplayName { get; set; }
+		/// <summary>
+		/// Gets or sets the description.
+		/// </summary>
         public string Description { get; set; }
+		/// <summary>
+		/// Gets or sets the logo URI.
+		/// </summary>
         public Uri LogoUri { get; set; }
+		/// <summary>
+		/// Gets or sets the small logo URI.
+		/// </summary>
         public Uri SmallLogoUri { get; set; }
+		/// <summary>
+		/// Gets or sets the background color as string.
+		/// </summary>
         public string BackgroundColorAsString { get; set; }
+		/// <summary>
+		/// Gets the color of the background.
+		/// </summary>
         public Windows.UI.Color BackgroundColor
         {
             get

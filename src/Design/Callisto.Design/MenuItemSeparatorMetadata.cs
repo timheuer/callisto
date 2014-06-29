@@ -27,7 +27,9 @@ namespace Callisto.Design
         public MenuItemSeparatorMetadata()
 			: base()
 		{
+#pragma warning disable 0618 //Ignore obsolete warning
 			AddCallback(typeof(Callisto.Controls.MenuItemSeparator),
+#pragma warning restore 0618 
 				b =>
 				{   
 					b.AddCustomAttributes(new ToolboxCategoryAttribute(ToolboxCategoryPaths.Callisto, false));

@@ -17,9 +17,20 @@
 using System;
 namespace Callisto.Controls
 {
+	/// <summary>
+	/// OBSOLETE. A MenuItem separator
+	/// </summary>
+	/// <remarks>
+	/// This control is deprecated in favor of using the <see cref="Windows.UI.Xaml.Controls.MenuFlyout"/> controls in Windows 8.1.
+	/// </remarks>
+	/// <seealso cref="MenuItem"/>
+	/// <seealso cref="Menu"/>
     [Obsolete("Windows 8.1 now provides this functionality in the XAML framework itself as MenuItemSeparator.")]
     public sealed class MenuItemSeparator : MenuItemBase
     {
+		/// <summary>
+		/// Initializes a new instance of the <see cref="MenuItemSeparator"/> class.
+		/// </summary>
         public MenuItemSeparator()
         {
             DefaultStyleKey = typeof(MenuItemSeparator);

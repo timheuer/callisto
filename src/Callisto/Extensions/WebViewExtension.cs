@@ -31,7 +31,7 @@ namespace Callisto
         /// <summary>
         /// Gets the value of the StringSource attached dependency property.
         /// </summary>
-        /// <param name="browser">WebBrowser instance for which to get the value.</param>
+        /// <param name="view">WebBrowser instance for which to get the value.</param>
         /// <returns>Value of the property.</returns>
         [SuppressMessage("Microsoft.Design", "CA1011:ConsiderPassingBaseTypesAsParameters", Justification = "Method applies only to WebView instances.")]
         public static string GetHtmlSource(WebView view)
@@ -46,7 +46,7 @@ namespace Callisto
         /// <summary>
         /// Sets the value of the StringSource attached dependency property.
         /// </summary>
-        /// <param name="browser">WebBrowser instance for which to set the value.</param>
+        /// <param name="view">WebBrowser instance for which to set the value.</param>
         /// <param name="value">Value to set.</param>
         [SuppressMessage("Microsoft.Design", "CA1011:ConsiderPassingBaseTypesAsParameters", Justification = "Method applies only to WebView instances.")]
         public static void SetHtmlSource(WebView view, string value)
